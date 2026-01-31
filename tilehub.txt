@@ -1,0 +1,2151 @@
+--[=[
+ d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
+88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
+88      88    88    88            odD'      88      88    88 88ooo88 
+88  ooo 88    88    88          .88'        88      88    88 88~~~88 
+88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
+ Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
+]=]
+
+-- Instances: 173 | Scripts: 1 | Modules: 0 | Tags: 0
+local G2L = {};
+
+-- StarterGui.tilehubv3
+G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"]["Name"] = [[tilehubv3]];
+G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+
+
+-- StarterGui.tilehubv3.LocalScript
+G2L["2"] = Instance.new("LocalScript", G2L["1"]);
+
+
+
+-- StarterGui.tilehubv3.frame
+G2L["3"] = Instance.new("Frame", G2L["1"]);
+G2L["3"]["BorderSizePixel"] = 0;
+G2L["3"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+G2L["3"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["3"]["Size"] = UDim2.new(0.47368, 0, 0.55124, 0);
+G2L["3"]["Position"] = UDim2.new(0.49932, 0, 0.49886, 0);
+G2L["3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3"]["Name"] = [[frame]];
+
+
+-- StarterGui.tilehubv3.frame.UIDragDetector
+G2L["4"] = Instance.new("UIDragDetector", G2L["3"]);
+
+
+
+-- StarterGui.tilehubv3.frame.UICorner
+G2L["5"] = Instance.new("UICorner", G2L["3"]);
+
+
+
+-- StarterGui.tilehubv3.frame.UIStroke
+G2L["6"] = Instance.new("UIStroke", G2L["3"]);
+
+
+
+-- StarterGui.tilehubv3.frame.header
+G2L["7"] = Instance.new("Frame", G2L["3"]);
+G2L["7"]["BorderSizePixel"] = 0;
+G2L["7"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["7"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["7"]["Size"] = UDim2.new(0.96104, 0, 0.10757, 0);
+G2L["7"]["Position"] = UDim2.new(0.50034, 0, 0.08879, 0);
+G2L["7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["7"]["Name"] = [[header]];
+
+
+-- StarterGui.tilehubv3.frame.header.UICorner
+G2L["8"] = Instance.new("UICorner", G2L["7"]);
+
+
+
+-- StarterGui.tilehubv3.frame.header.UIStroke
+G2L["9"] = Instance.new("UIStroke", G2L["7"]);
+G2L["9"]["Color"] = Color3.fromRGB(75, 75, 75);
+
+
+-- StarterGui.tilehubv3.frame.header.TextLabel
+G2L["a"] = Instance.new("TextLabel", G2L["7"]);
+G2L["a"]["TextWrapped"] = true;
+G2L["a"]["BorderSizePixel"] = 0;
+G2L["a"]["TextSize"] = 14;
+G2L["a"]["TextScaled"] = true;
+G2L["a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a"]["BackgroundTransparency"] = 1;
+G2L["a"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["a"]["Size"] = UDim2.new(0.1464, 0, 0.97027, 0);
+G2L["a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a"]["Text"] = [[tilehub]];
+G2L["a"]["Position"] = UDim2.new(0.09508, 0, 0.48513, 0);
+
+
+-- StarterGui.tilehubv3.frame.header.closeb
+G2L["b"] = Instance.new("TextButton", G2L["7"]);
+G2L["b"]["TextWrapped"] = true;
+G2L["b"]["TextStrokeTransparency"] = 0;
+G2L["b"]["BorderSizePixel"] = 0;
+G2L["b"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["b"]["TextSize"] = 14;
+G2L["b"]["TextScaled"] = true;
+G2L["b"]["BackgroundColor3"] = Color3.fromRGB(255, 0, 0);
+G2L["b"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["b"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["b"]["Size"] = UDim2.new(0.05, 0, 1, 0);
+G2L["b"]["Name"] = [[closeb]];
+G2L["b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["b"]["Text"] = [[x]];
+G2L["b"]["Position"] = UDim2.new(0.965, 0, 0.525, 0);
+
+
+-- StarterGui.tilehubv3.frame.header.closeb.UICorner
+G2L["c"] = Instance.new("UICorner", G2L["b"]);
+
+
+
+-- StarterGui.tilehubv3.frame.header.closeb.UIAspectRatioConstraint
+G2L["d"] = Instance.new("UIAspectRatioConstraint", G2L["b"]);
+
+
+
+-- StarterGui.tilehubv3.frame.header.closeb.UIStroke
+G2L["e"] = Instance.new("UIStroke", G2L["b"]);
+G2L["e"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["e"]["Thickness"] = 0.75;
+G2L["e"]["Color"] = Color3.fromRGB(94, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.header.tabbuttons
+G2L["f"] = Instance.new("Frame", G2L["7"]);
+G2L["f"]["BorderSizePixel"] = 0;
+G2L["f"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["f"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["f"]["Size"] = UDim2.new(0.527, 0, 0.9, 0);
+G2L["f"]["Position"] = UDim2.new(0.49706, 0, 0.49376, 0);
+G2L["f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["f"]["Name"] = [[tabbuttons]];
+G2L["f"]["BackgroundTransparency"] = 1;
+
+
+-- StarterGui.tilehubv3.frame.header.tabbuttons.UIListLayout
+G2L["10"] = Instance.new("UIListLayout", G2L["f"]);
+G2L["10"]["Padding"] = UDim.new(0.025, 0);
+G2L["10"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+G2L["10"]["FillDirection"] = Enum.FillDirection.Horizontal;
+
+
+-- StarterGui.tilehubv3.frame.header.UIAspectRatioConstraint
+G2L["11"] = Instance.new("UIAspectRatioConstraint", G2L["7"]);
+G2L["11"]["AspectRatio"] = 16.44444;
+
+
+-- StarterGui.tilehubv3.frame.header.UIGradient
+G2L["12"] = Instance.new("UIGradient", G2L["7"]);
+G2L["12"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(55, 55, 55)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(28, 28, 28))};
+
+
+-- StarterGui.tilehubv3.frame.tabholder
+G2L["13"] = Instance.new("Frame", G2L["3"]);
+G2L["13"]["BorderSizePixel"] = 0;
+G2L["13"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+G2L["13"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["13"]["Size"] = UDim2.new(0.96104, 0, 0.77291, 0);
+G2L["13"]["Position"] = UDim2.new(0.49891, 0, 0.57181, 0);
+G2L["13"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["13"]["Name"] = [[tabholder]];
+
+
+-- StarterGui.tilehubv3.frame.tabholder.UIAspectRatioConstraint
+G2L["14"] = Instance.new("UIAspectRatioConstraint", G2L["13"]);
+G2L["14"]["AspectRatio"] = 2.28866;
+
+
+-- StarterGui.tilehubv3.frame.tabholder.Value
+G2L["15"] = Instance.new("StringValue", G2L["13"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates
+G2L["16"] = Instance.new("Folder", G2L["3"]);
+G2L["16"]["Name"] = [[templates]];
+
+
+-- StarterGui.tilehubv3.frame.templates.scripts
+G2L["17"] = Instance.new("Folder", G2L["16"]);
+G2L["17"]["Name"] = [[scripts]];
+
+
+-- StarterGui.tilehubv3.frame.templates.scripts.ImageButton
+G2L["18"] = Instance.new("ImageButton", G2L["17"]);
+G2L["18"]["BorderSizePixel"] = 0;
+G2L["18"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["18"]["Image"] = [[rbxasset://textures/ui/GuiImagePlaceholder.png]];
+G2L["18"]["Size"] = UDim2.new(0, 100, 0, 100);
+G2L["18"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["18"]["Visible"] = false;
+
+
+-- StarterGui.tilehubv3.frame.templates.scripts.ImageButton.UIAspectRatioConstraint
+G2L["19"] = Instance.new("UIAspectRatioConstraint", G2L["18"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.scripts.scriptstab
+G2L["1a"] = Instance.new("ScrollingFrame", G2L["17"]);
+G2L["1a"]["Visible"] = false;
+G2L["1a"]["Active"] = true;
+G2L["1a"]["BorderSizePixel"] = 0;
+G2L["1a"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+G2L["1a"]["Name"] = [[scriptstab]];
+G2L["1a"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["1a"]["ScrollBarImageColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.scripts.scriptstab.UIGridLayout
+G2L["1b"] = Instance.new("UIGridLayout", G2L["1a"]);
+G2L["1b"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+
+-- StarterGui.tilehubv3.frame.templates.scripts.scriptstab.UIAspectRatioConstraint
+G2L["1c"] = Instance.new("UIAspectRatioConstraint", G2L["1a"]);
+G2L["1c"]["AspectRatio"] = 2.28866;
+
+
+-- StarterGui.tilehubv3.frame.templates.headerbutton
+G2L["1d"] = Instance.new("Folder", G2L["16"]);
+G2L["1d"]["Name"] = [[headerbutton]];
+
+
+-- StarterGui.tilehubv3.frame.templates.headerbutton.button
+G2L["1e"] = Instance.new("ImageButton", G2L["1d"]);
+G2L["1e"]["BorderSizePixel"] = 0;
+G2L["1e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1e"]["Image"] = [[rbxassetid://10734943448]];
+G2L["1e"]["Size"] = UDim2.new(0.133, 0, 1, 0);
+G2L["1e"]["BackgroundTransparency"] = 1;
+G2L["1e"]["Name"] = [[button]];
+G2L["1e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1e"]["Visible"] = false;
+
+
+-- StarterGui.tilehubv3.frame.templates.headerbutton.button.UIAspectRatioConstraint
+G2L["1f"] = Instance.new("UIAspectRatioConstraint", G2L["1e"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.headerbutton.button.UIStroke
+G2L["20"] = Instance.new("UIStroke", G2L["1e"]);
+G2L["20"]["Color"] = Color3.fromRGB(28, 28, 28);
+
+
+-- StarterGui.tilehubv3.frame.templates.headerbutton.button.UIStroke.UIGradient
+G2L["21"] = Instance.new("UIGradient", G2L["20"]);
+G2L["21"]["Rotation"] = 45;
+G2L["21"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(55, 55, 55)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 255, 255))};
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel
+G2L["22"] = Instance.new("TextLabel", G2L["16"]);
+G2L["22"]["TextWrapped"] = true;
+G2L["22"]["TextStrokeTransparency"] = 0;
+G2L["22"]["BorderSizePixel"] = 0;
+G2L["22"]["TextSize"] = 14;
+G2L["22"]["TextScaled"] = true;
+G2L["22"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["22"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["22"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["22"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["22"]["Size"] = UDim2.new(0.74, 0, 0.08, 0);
+G2L["22"]["Visible"] = false;
+G2L["22"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["22"]["Text"] = [[Lorem ipsum dolor sit amet, consectetur adipiscing elit]];
+G2L["22"]["Name"] = [[togglebuttonlabel]];
+G2L["22"]["Position"] = UDim2.new(0, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton
+G2L["23"] = Instance.new("TextButton", G2L["22"]);
+G2L["23"]["TextStrokeTransparency"] = 0;
+G2L["23"]["BorderSizePixel"] = 0;
+G2L["23"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["23"]["TextSize"] = 14;
+G2L["23"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["23"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["23"]["Size"] = UDim2.new(0.24013, 0, 1, 0);
+G2L["23"]["Name"] = [[togglebutton]];
+G2L["23"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["23"]["Text"] = [[]];
+G2L["23"]["Position"] = UDim2.new(1.02927, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton.UICorner
+G2L["24"] = Instance.new("UICorner", G2L["23"]);
+G2L["24"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton.TextLabel
+G2L["25"] = Instance.new("TextLabel", G2L["23"]);
+G2L["25"]["TextWrapped"] = true;
+G2L["25"]["Interactable"] = false;
+G2L["25"]["TextStrokeTransparency"] = 0;
+G2L["25"]["BorderSizePixel"] = 0;
+G2L["25"]["TextSize"] = 14;
+G2L["25"]["TextScaled"] = true;
+G2L["25"]["BackgroundColor3"] = Color3.fromRGB(255, 0, 0);
+G2L["25"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["25"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["25"]["Size"] = UDim2.new(0.38118, 0, 0.76, 0);
+G2L["25"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["25"]["Text"] = [[off]];
+G2L["25"]["Position"] = UDim2.new(0.06, 0, 0.15, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton.TextLabel.UICorner
+G2L["26"] = Instance.new("UICorner", G2L["25"]);
+G2L["26"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton.TextLabel.UIStroke
+G2L["27"] = Instance.new("UIStroke", G2L["25"]);
+G2L["27"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["27"]["Color"] = Color3.fromRGB(127, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton.Value
+G2L["28"] = Instance.new("BoolValue", G2L["23"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton.UIAspectRatioConstraint
+G2L["29"] = Instance.new("UIAspectRatioConstraint", G2L["23"]);
+G2L["29"]["AspectRatio"] = 2.54175;
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton.UIStroke
+G2L["2a"] = Instance.new("UIStroke", G2L["23"]);
+G2L["2a"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["2a"]["Color"] = Color3.fromRGB(104, 103, 102);
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.UICorner
+G2L["2b"] = Instance.new("UICorner", G2L["22"]);
+G2L["2b"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.UIAspectRatioConstraint
+G2L["2c"] = Instance.new("UIAspectRatioConstraint", G2L["22"]);
+G2L["2c"]["AspectRatio"] = 10.58505;
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.UIStroke
+G2L["2d"] = Instance.new("UIStroke", G2L["22"]);
+G2L["2d"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["2d"]["Color"] = Color3.fromRGB(39, 39, 39);
+
+
+-- StarterGui.tilehubv3.frame.templates.tab
+G2L["2e"] = Instance.new("ScrollingFrame", G2L["16"]);
+G2L["2e"]["Visible"] = false;
+G2L["2e"]["Active"] = true;
+G2L["2e"]["ScrollingDirection"] = Enum.ScrollingDirection.Y;
+G2L["2e"]["BorderSizePixel"] = 0;
+G2L["2e"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+G2L["2e"]["Name"] = [[tab]];
+G2L["2e"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["2e"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["2e"]["ScrollBarImageColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2e"]["Position"] = UDim2.new(0.50112, 0, 0.49966, 0);
+G2L["2e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.tab.UIAspectRatioConstraint
+G2L["2f"] = Instance.new("UIAspectRatioConstraint", G2L["2e"]);
+G2L["2f"]["AspectRatio"] = 2.28866;
+
+
+-- StarterGui.tilehubv3.frame.templates.tab.UIListLayout
+G2L["30"] = Instance.new("UIListLayout", G2L["2e"]);
+G2L["30"]["Padding"] = UDim.new(0.03, 0);
+G2L["30"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+
+-- StarterGui.tilehubv3.frame.templates.buttonlabel
+G2L["31"] = Instance.new("TextLabel", G2L["16"]);
+G2L["31"]["TextWrapped"] = true;
+G2L["31"]["TextStrokeTransparency"] = 0;
+G2L["31"]["BorderSizePixel"] = 0;
+G2L["31"]["TextSize"] = 14;
+G2L["31"]["TextScaled"] = true;
+G2L["31"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["31"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["31"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["31"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["31"]["Size"] = UDim2.new(0.74, 0, 0.08, 0);
+G2L["31"]["Visible"] = false;
+G2L["31"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["31"]["Text"] = [[Lorem ipsum dolor sit amet, consectetur adipiscing elit]];
+G2L["31"]["Name"] = [[buttonlabel]];
+G2L["31"]["Position"] = UDim2.new(0, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.buttonlabel.TextButton
+G2L["32"] = Instance.new("TextButton", G2L["31"]);
+G2L["32"]["TextWrapped"] = true;
+G2L["32"]["TextStrokeTransparency"] = 0;
+G2L["32"]["BorderSizePixel"] = 0;
+G2L["32"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["32"]["TextSize"] = 14;
+G2L["32"]["TextScaled"] = true;
+G2L["32"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["32"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["32"]["Size"] = UDim2.new(0.24013, 0, 1, 0);
+G2L["32"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["32"]["Text"] = [[button]];
+G2L["32"]["Position"] = UDim2.new(1.02927, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.buttonlabel.TextButton.UICorner
+G2L["33"] = Instance.new("UICorner", G2L["32"]);
+G2L["33"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.buttonlabel.TextButton.UIAspectRatioConstraint
+G2L["34"] = Instance.new("UIAspectRatioConstraint", G2L["32"]);
+G2L["34"]["AspectRatio"] = 2.54175;
+
+
+-- StarterGui.tilehubv3.frame.templates.buttonlabel.TextButton.UIStroke
+G2L["35"] = Instance.new("UIStroke", G2L["32"]);
+G2L["35"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["35"]["Color"] = Color3.fromRGB(104, 103, 102);
+
+
+-- StarterGui.tilehubv3.frame.templates.buttonlabel.UICorner
+G2L["36"] = Instance.new("UICorner", G2L["31"]);
+G2L["36"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.buttonlabel.UIAspectRatioConstraint
+G2L["37"] = Instance.new("UIAspectRatioConstraint", G2L["31"]);
+G2L["37"]["AspectRatio"] = 10.58505;
+
+
+-- StarterGui.tilehubv3.frame.templates.buttonlabel.UIStroke
+G2L["38"] = Instance.new("UIStroke", G2L["31"]);
+G2L["38"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["38"]["Color"] = Color3.fromRGB(39, 39, 39);
+
+
+-- StarterGui.tilehubv3.frame.templates.fieldlabel
+G2L["39"] = Instance.new("TextLabel", G2L["16"]);
+G2L["39"]["TextWrapped"] = true;
+G2L["39"]["TextStrokeTransparency"] = 0;
+G2L["39"]["BorderSizePixel"] = 0;
+G2L["39"]["TextSize"] = 14;
+G2L["39"]["TextScaled"] = true;
+G2L["39"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["39"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["39"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["39"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["39"]["Size"] = UDim2.new(0.74, 0, 0.08, 0);
+G2L["39"]["Visible"] = false;
+G2L["39"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["39"]["Text"] = [[Lorem ipsum dolor sit amet, consectetur adipiscing elit]];
+G2L["39"]["Name"] = [[fieldlabel]];
+G2L["39"]["Position"] = UDim2.new(0, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.fieldlabel.UICorner
+G2L["3a"] = Instance.new("UICorner", G2L["39"]);
+G2L["3a"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.fieldlabel.UIAspectRatioConstraint
+G2L["3b"] = Instance.new("UIAspectRatioConstraint", G2L["39"]);
+G2L["3b"]["AspectRatio"] = 10.58505;
+
+
+-- StarterGui.tilehubv3.frame.templates.fieldlabel.UIStroke
+G2L["3c"] = Instance.new("UIStroke", G2L["39"]);
+G2L["3c"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["3c"]["Color"] = Color3.fromRGB(39, 39, 39);
+
+
+-- StarterGui.tilehubv3.frame.templates.fieldlabel.TextBox
+G2L["3d"] = Instance.new("TextBox", G2L["39"]);
+G2L["3d"]["TextStrokeTransparency"] = 0;
+G2L["3d"]["BorderSizePixel"] = 0;
+G2L["3d"]["TextWrapped"] = true;
+G2L["3d"]["TextSize"] = 14;
+G2L["3d"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3d"]["TextScaled"] = true;
+G2L["3d"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["3d"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["3d"]["Size"] = UDim2.new(0.24, 0, 1, 0);
+G2L["3d"]["Position"] = UDim2.new(1.02873, 0, 0, 0);
+G2L["3d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3d"]["Text"] = [[]];
+
+
+-- StarterGui.tilehubv3.frame.templates.fieldlabel.TextBox.UICorner
+G2L["3e"] = Instance.new("UICorner", G2L["3d"]);
+G2L["3e"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.fieldlabel.TextBox.UIStroke
+G2L["3f"] = Instance.new("UIStroke", G2L["3d"]);
+G2L["3f"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["3f"]["Color"] = Color3.fromRGB(104, 103, 102);
+
+
+-- StarterGui.tilehubv3.frame.templates.fieldlabel.TextBox.UIAspectRatioConstraint
+G2L["40"] = Instance.new("UIAspectRatioConstraint", G2L["3d"]);
+G2L["40"]["AspectRatio"] = 2.54041;
+
+
+-- StarterGui.tilehubv3.frame.templates.dropdownlabel
+G2L["41"] = Instance.new("TextLabel", G2L["16"]);
+G2L["41"]["TextWrapped"] = true;
+G2L["41"]["TextStrokeTransparency"] = 0;
+G2L["41"]["ZIndex"] = 2;
+G2L["41"]["BorderSizePixel"] = 0;
+G2L["41"]["TextSize"] = 14;
+G2L["41"]["TextScaled"] = true;
+G2L["41"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["41"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["41"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["41"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["41"]["Size"] = UDim2.new(0.74, 0, 0.08, 0);
+G2L["41"]["Visible"] = false;
+G2L["41"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["41"]["Text"] = [[Lorem ipsum dolor sit amet, consectetur adipiscing elit]];
+G2L["41"]["Name"] = [[dropdownlabel]];
+G2L["41"]["Position"] = UDim2.new(0, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.dropdownlabel.dropdown
+G2L["42"] = Instance.new("TextButton", G2L["41"]);
+G2L["42"]["TextWrapped"] = true;
+G2L["42"]["TextStrokeTransparency"] = 0;
+G2L["42"]["BorderSizePixel"] = 0;
+G2L["42"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["42"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["42"]["TextSize"] = 18;
+G2L["42"]["TextScaled"] = true;
+G2L["42"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["42"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["42"]["Size"] = UDim2.new(0.24013, 0, 1, 0);
+G2L["42"]["Name"] = [[dropdown]];
+G2L["42"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["42"]["Text"] = [[dropdown]];
+G2L["42"]["Position"] = UDim2.new(1.02927, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.dropdownlabel.dropdown.UICorner
+G2L["43"] = Instance.new("UICorner", G2L["42"]);
+G2L["43"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.dropdownlabel.dropdown.dropdownframe
+G2L["44"] = Instance.new("ScrollingFrame", G2L["42"]);
+G2L["44"]["Active"] = true;
+G2L["44"]["BorderSizePixel"] = 0;
+G2L["44"]["TopImage"] = [[]];
+G2L["44"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["44"]["Name"] = [[dropdownframe]];
+G2L["44"]["BottomImage"] = [[]];
+G2L["44"]["Size"] = UDim2.new(0.95, 0, 0, 0);
+G2L["44"]["ScrollBarImageColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["44"]["Position"] = UDim2.new(0.039, 0, 1.085, 0);
+G2L["44"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.dropdownlabel.dropdown.dropdownframe.UICorner
+G2L["45"] = Instance.new("UICorner", G2L["44"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.dropdownlabel.dropdown.dropdownframe.UIListLayout
+G2L["46"] = Instance.new("UIListLayout", G2L["44"]);
+G2L["46"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Center;
+G2L["46"]["Padding"] = UDim.new(0.05, 0);
+G2L["46"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+
+-- StarterGui.tilehubv3.frame.templates.dropdownlabel.dropdown.dropdownframe.Frame
+G2L["47"] = Instance.new("Frame", G2L["44"]);
+G2L["47"]["BorderSizePixel"] = 0;
+G2L["47"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["47"]["Size"] = UDim2.new(0, 100, 0, 0);
+G2L["47"]["Position"] = UDim2.new(-0.19444, 0, 0, 0);
+G2L["47"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["47"]["LayoutOrder"] = -1;
+G2L["47"]["BackgroundTransparency"] = 1;
+
+
+-- StarterGui.tilehubv3.frame.templates.dropdownlabel.dropdown.ImageLabel
+G2L["48"] = Instance.new("ImageLabel", G2L["42"]);
+G2L["48"]["BorderSizePixel"] = 0;
+G2L["48"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["48"]["Image"] = [[rbxassetid://4726772330]];
+G2L["48"]["Size"] = UDim2.new(0.21, 0, 0.55, 0);
+G2L["48"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["48"]["BackgroundTransparency"] = 1;
+G2L["48"]["Rotation"] = 90;
+G2L["48"]["Position"] = UDim2.new(1.07154, 0, 0.30042, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.dropdownlabel.dropdown.ImageLabel.UICorner
+G2L["49"] = Instance.new("UICorner", G2L["48"]);
+G2L["49"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.dropdownlabel.dropdown.ImageLabel.UIStroke
+G2L["4a"] = Instance.new("UIStroke", G2L["48"]);
+G2L["4a"]["Color"] = Color3.fromRGB(255, 255, 255);
+
+
+-- StarterGui.tilehubv3.frame.templates.dropdownlabel.dropdown.UIAspectRatioConstraint
+G2L["4b"] = Instance.new("UIAspectRatioConstraint", G2L["42"]);
+G2L["4b"]["AspectRatio"] = 2.54175;
+
+
+-- StarterGui.tilehubv3.frame.templates.dropdownlabel.dropdown.UIStroke
+G2L["4c"] = Instance.new("UIStroke", G2L["42"]);
+G2L["4c"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["4c"]["Color"] = Color3.fromRGB(104, 103, 102);
+
+
+-- StarterGui.tilehubv3.frame.templates.dropdownlabel.UICorner
+G2L["4d"] = Instance.new("UICorner", G2L["41"]);
+G2L["4d"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.dropdownlabel.UIAspectRatioConstraint
+G2L["4e"] = Instance.new("UIAspectRatioConstraint", G2L["41"]);
+G2L["4e"]["AspectRatio"] = 10.58505;
+
+
+-- StarterGui.tilehubv3.frame.templates.dropdownlabel.UIStroke
+G2L["4f"] = Instance.new("UIStroke", G2L["41"]);
+G2L["4f"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["4f"]["Color"] = Color3.fromRGB(39, 39, 39);
+
+
+-- StarterGui.tilehubv3.frame.templates.dropdownlabel.dropdownoptiontempl
+G2L["50"] = Instance.new("Folder", G2L["41"]);
+G2L["50"]["Name"] = [[dropdownoptiontempl]];
+
+
+-- StarterGui.tilehubv3.frame.templates.dropdownlabel.dropdownoptiontempl.dropdownoption
+G2L["51"] = Instance.new("TextButton", G2L["50"]);
+G2L["51"]["TextWrapped"] = true;
+G2L["51"]["TextStrokeTransparency"] = 0;
+G2L["51"]["BorderSizePixel"] = 0;
+G2L["51"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["51"]["TextSize"] = 14;
+G2L["51"]["TextScaled"] = true;
+G2L["51"]["BackgroundColor3"] = Color3.fromRGB(52, 52, 52);
+G2L["51"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["51"]["Size"] = UDim2.new(0.95, 0, 0.175, 0);
+G2L["51"]["BackgroundTransparency"] = 0.5;
+G2L["51"]["Name"] = [[dropdownoption]];
+G2L["51"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["51"]["Visible"] = false;
+G2L["51"]["Position"] = UDim2.new(0.07639, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.dropdownlabel.dropdownoptiontempl.dropdownoption.UICorner
+G2L["52"] = Instance.new("UICorner", G2L["51"]);
+G2L["52"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel
+G2L["53"] = Instance.new("TextLabel", G2L["16"]);
+G2L["53"]["TextWrapped"] = true;
+G2L["53"]["TextStrokeTransparency"] = 0;
+G2L["53"]["BorderSizePixel"] = 0;
+G2L["53"]["TextSize"] = 14;
+G2L["53"]["TextScaled"] = true;
+G2L["53"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["53"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["53"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["53"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["53"]["Size"] = UDim2.new(0.74, 0, 0.08, 0);
+G2L["53"]["Visible"] = false;
+G2L["53"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["53"]["Text"] = [[Lorem ipsum dolor sit amet, consectetur adipiscing elit]];
+G2L["53"]["Name"] = [[sliderlabel]];
+G2L["53"]["Position"] = UDim2.new(0, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.UICorner
+G2L["54"] = Instance.new("UICorner", G2L["53"]);
+G2L["54"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.UIAspectRatioConstraint
+G2L["55"] = Instance.new("UIAspectRatioConstraint", G2L["53"]);
+G2L["55"]["AspectRatio"] = 10.58505;
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.UIStroke
+G2L["56"] = Instance.new("UIStroke", G2L["53"]);
+G2L["56"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["56"]["Color"] = Color3.fromRGB(39, 39, 39);
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.sliderrail
+G2L["57"] = Instance.new("Frame", G2L["53"]);
+G2L["57"]["BorderSizePixel"] = 0;
+G2L["57"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["57"]["Size"] = UDim2.new(0.222, 0, 0.1, 0);
+G2L["57"]["Position"] = UDim2.new(1.04, 0, 0.421, 0);
+G2L["57"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["57"]["Name"] = [[sliderrail]];
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.sliderrail.UICorner
+G2L["58"] = Instance.new("UICorner", G2L["57"]);
+G2L["58"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.sliderrail.UIStroke
+G2L["59"] = Instance.new("UIStroke", G2L["57"]);
+G2L["59"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["59"]["Color"] = Color3.fromRGB(104, 103, 102);
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.sliderrail.TextButton
+G2L["5a"] = Instance.new("TextButton", G2L["57"]);
+G2L["5a"]["TextWrapped"] = true;
+G2L["5a"]["TextStrokeTransparency"] = 0;
+G2L["5a"]["BorderSizePixel"] = 0;
+G2L["5a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["5a"]["TextSize"] = 14;
+G2L["5a"]["TextScaled"] = true;
+G2L["5a"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["5a"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["5a"]["Size"] = UDim2.new(0.29, 0, 7, 0);
+G2L["5a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["5a"]["Text"] = [[0]];
+G2L["5a"]["Position"] = UDim2.new(-0.05518, 0, -3.24159, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.sliderrail.TextButton.UIStroke
+G2L["5b"] = Instance.new("UIStroke", G2L["5a"]);
+G2L["5b"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["5b"]["Color"] = Color3.fromRGB(104, 103, 102);
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.sliderrail.TextButton.UICorner
+G2L["5c"] = Instance.new("UICorner", G2L["5a"]);
+G2L["5c"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.sliderrail.TextButton.UIAspectRatioConstraint
+G2L["5d"] = Instance.new("UIAspectRatioConstraint", G2L["5a"]);
+G2L["5d"]["AspectRatio"] = 0.97352;
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.sliderrail.TextButton.UITextSizeConstraint
+G2L["5e"] = Instance.new("UITextSizeConstraint", G2L["5a"]);
+G2L["5e"]["MaxTextSize"] = 20;
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.drag
+G2L["5f"] = Instance.new("BoolValue", G2L["53"]);
+G2L["5f"]["Name"] = [[drag]];
+
+
+-- StarterGui.tilehubv3.frame.templates.spacerlabel
+G2L["60"] = Instance.new("TextLabel", G2L["16"]);
+G2L["60"]["TextWrapped"] = true;
+G2L["60"]["TextStrokeTransparency"] = 0;
+G2L["60"]["BorderSizePixel"] = 0;
+G2L["60"]["TextSize"] = 14;
+G2L["60"]["TextScaled"] = true;
+G2L["60"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["60"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["60"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["60"]["BackgroundTransparency"] = 1;
+G2L["60"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["60"]["Size"] = UDim2.new(0.94, 0, 0.15, 0);
+G2L["60"]["Visible"] = false;
+G2L["60"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["60"]["Text"] = [[]];
+G2L["60"]["Name"] = [[spacerlabel]];
+G2L["60"]["Position"] = UDim2.new(0, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.spacerlabel.UICorner
+G2L["61"] = Instance.new("UICorner", G2L["60"]);
+G2L["61"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.spacerlabel.label
+G2L["62"] = Instance.new("TextLabel", G2L["60"]);
+G2L["62"]["TextWrapped"] = true;
+G2L["62"]["TextStrokeTransparency"] = 0;
+G2L["62"]["BorderSizePixel"] = 0;
+G2L["62"]["TextSize"] = 14;
+G2L["62"]["TextScaled"] = true;
+G2L["62"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+G2L["62"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["62"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["62"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["62"]["Size"] = UDim2.new(0.94, 0, 0.41, 0);
+G2L["62"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["62"]["Text"] = [[chaaracter]];
+G2L["62"]["Name"] = [[label]];
+G2L["62"]["Position"] = UDim2.new(0.50869, 0, 0.65696, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.spacerlabel.label.UICorner
+G2L["63"] = Instance.new("UICorner", G2L["62"]);
+G2L["63"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.spacerlabel.label.UIStroke
+G2L["64"] = Instance.new("UIStroke", G2L["62"]);
+G2L["64"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["64"]["Thickness"] = 1.85;
+G2L["64"]["Color"] = Color3.fromRGB(39, 39, 39);
+
+
+-- StarterGui.tilehubv3.frame.templates.scriptbtn
+G2L["65"] = Instance.new("ImageButton", G2L["16"]);
+G2L["65"]["BorderSizePixel"] = 0;
+G2L["65"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["65"]["Image"] = [[rbxassetid://71186851898433]];
+G2L["65"]["Size"] = UDim2.new(0, 100, 0, 100);
+G2L["65"]["Name"] = [[scriptbtn]];
+G2L["65"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["65"]["Visible"] = false;
+
+
+-- StarterGui.tilehubv3.frame.templates.scriptbtn.UIGradient
+G2L["66"] = Instance.new("UIGradient", G2L["65"]);
+G2L["66"]["Rotation"] = -88;
+G2L["66"]["Offset"] = Vector2.new(-0.99, 0);
+G2L["66"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(45, 45, 45)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 255, 255))};
+
+
+-- StarterGui.tilehubv3.frame.templates.scriptbtn.UICorner
+G2L["67"] = Instance.new("UICorner", G2L["65"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.scriptbtn.UIStroke
+G2L["68"] = Instance.new("UIStroke", G2L["65"]);
+G2L["68"]["Color"] = Color3.fromRGB(75, 75, 75);
+
+
+-- StarterGui.tilehubv3.frame.templates.scriptbtn.TextLabel
+G2L["69"] = Instance.new("TextLabel", G2L["65"]);
+G2L["69"]["TextWrapped"] = true;
+G2L["69"]["Interactable"] = false;
+G2L["69"]["TextStrokeTransparency"] = 0;
+G2L["69"]["BorderSizePixel"] = 0;
+G2L["69"]["TextSize"] = 14;
+G2L["69"]["TextScaled"] = true;
+G2L["69"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["69"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["69"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["69"]["BackgroundTransparency"] = 1;
+G2L["69"]["Size"] = UDim2.new(0.85, 0, 0.24, 0);
+G2L["69"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["69"]["Text"] = [[rochips panel ]];
+G2L["69"]["Position"] = UDim2.new(0.082, 0, 0.75, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.scriptbtn.TextLabel.UITextSizeConstraint
+G2L["6a"] = Instance.new("UITextSizeConstraint", G2L["69"]);
+G2L["6a"]["MaxTextSize"] = 16;
+
+
+-- StarterGui.tilehubv3.frame.templates.scriptbtn.TextLabel.UIAspectRatioConstraint
+G2L["6b"] = Instance.new("UIAspectRatioConstraint", G2L["69"]);
+G2L["6b"]["AspectRatio"] = 3.62168;
+
+
+-- StarterGui.tilehubv3.frame.templates.scriptbtn.alrexec
+G2L["6c"] = Instance.new("BoolValue", G2L["65"]);
+G2L["6c"]["Name"] = [[alrexec]];
+
+
+-- StarterGui.tilehubv3.frame.templates.scriptstab
+G2L["6d"] = Instance.new("ScrollingFrame", G2L["16"]);
+G2L["6d"]["Visible"] = false;
+G2L["6d"]["Active"] = true;
+G2L["6d"]["BorderSizePixel"] = 0;
+G2L["6d"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+G2L["6d"]["Name"] = [[scriptstab]];
+G2L["6d"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["6d"]["ScrollBarImageColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["6d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.scriptstab.UIGridLayout
+G2L["6e"] = Instance.new("UIGridLayout", G2L["6d"]);
+G2L["6e"]["CellSize"] = UDim2.new(0.21, 0, 0.235, 0);
+G2L["6e"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+G2L["6e"]["CellPadding"] = UDim2.new(0, 12, 0, 12);
+
+
+-- StarterGui.tilehubv3.frame.templates.scriptstab.UIAspectRatioConstraint
+G2L["6f"] = Instance.new("UIAspectRatioConstraint", G2L["6d"]);
+G2L["6f"]["AspectRatio"] = 2.28866;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab
+G2L["70"] = Instance.new("Frame", G2L["16"]);
+G2L["70"]["Visible"] = false;
+G2L["70"]["BorderSizePixel"] = 0;
+G2L["70"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+G2L["70"]["ClipsDescendants"] = true;
+G2L["70"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["70"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["70"]["Name"] = [[serverstab]];
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.servers
+G2L["71"] = Instance.new("ScrollingFrame", G2L["70"]);
+G2L["71"]["Active"] = true;
+G2L["71"]["ScrollingDirection"] = Enum.ScrollingDirection.Y;
+G2L["71"]["BorderSizePixel"] = 0;
+G2L["71"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+G2L["71"]["Name"] = [[servers]];
+G2L["71"]["Size"] = UDim2.new(0.75433, 0, 0.98386, 0);
+G2L["71"]["ScrollBarImageColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["71"]["Position"] = UDim2.new(0, 0, 0.00515, 0);
+G2L["71"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["71"]["ScrollBarThickness"] = 5;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.servers.UIListLayout
+G2L["72"] = Instance.new("UIListLayout", G2L["71"]);
+G2L["72"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Center;
+G2L["72"]["Padding"] = UDim.new(0.025, 0);
+G2L["72"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.servers.spacer
+G2L["73"] = Instance.new("TextButton", G2L["71"]);
+G2L["73"]["BorderSizePixel"] = 0;
+G2L["73"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["73"]["TextSize"] = 14;
+G2L["73"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["73"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["73"]["BackgroundTransparency"] = 1;
+G2L["73"]["LayoutOrder"] = -1;
+G2L["73"]["Name"] = [[spacer]];
+G2L["73"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["73"]["Text"] = [[]];
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.servers.UIAspectRatioConstraint
+G2L["74"] = Instance.new("UIAspectRatioConstraint", G2L["71"]);
+G2L["74"]["AspectRatio"] = 1.75472;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder
+G2L["75"] = Instance.new("Frame", G2L["70"]);
+G2L["75"]["BorderSizePixel"] = 0;
+G2L["75"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30);
+G2L["75"]["Size"] = UDim2.new(0.20932, 0, 0.97356, 0);
+G2L["75"]["Position"] = UDim2.new(0.781, 0, 0.0103, 0);
+G2L["75"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["75"]["Name"] = [[serversbuttonholder]];
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.UIStroke
+G2L["76"] = Instance.new("UIStroke", G2L["75"]);
+G2L["76"]["Color"] = Color3.fromRGB(75, 75, 75);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.UICorner
+G2L["77"] = Instance.new("UICorner", G2L["75"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.UIListLayout
+G2L["78"] = Instance.new("UIListLayout", G2L["75"]);
+G2L["78"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Center;
+G2L["78"]["Padding"] = UDim.new(0.04, 0);
+G2L["78"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.servers
+G2L["79"] = Instance.new("TextButton", G2L["75"]);
+G2L["79"]["TextWrapped"] = true;
+G2L["79"]["TextStrokeTransparency"] = 0;
+G2L["79"]["BorderSizePixel"] = 0;
+G2L["79"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["79"]["TextSize"] = 14;
+G2L["79"]["TextScaled"] = true;
+G2L["79"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["79"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["79"]["Size"] = UDim2.new(0.9, 0, 0.15, 0);
+G2L["79"]["Name"] = [[servers]];
+G2L["79"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["79"]["Text"] = [[servers]];
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.servers.UIStroke
+G2L["7a"] = Instance.new("UIStroke", G2L["79"]);
+G2L["7a"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["7a"]["Color"] = Color3.fromRGB(104, 103, 102);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.servers.UICorner
+G2L["7b"] = Instance.new("UICorner", G2L["79"]);
+G2L["7b"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.servers.UIAspectRatioConstraint
+G2L["7c"] = Instance.new("UIAspectRatioConstraint", G2L["79"]);
+G2L["7c"]["AspectRatio"] = 2.95238;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.saved
+G2L["7d"] = Instance.new("TextButton", G2L["75"]);
+G2L["7d"]["TextWrapped"] = true;
+G2L["7d"]["TextStrokeTransparency"] = 0;
+G2L["7d"]["BorderSizePixel"] = 0;
+G2L["7d"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["7d"]["TextSize"] = 14;
+G2L["7d"]["TextScaled"] = true;
+G2L["7d"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["7d"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["7d"]["Size"] = UDim2.new(0.9, 0, 0.15, 0);
+G2L["7d"]["LayoutOrder"] = -1;
+G2L["7d"]["Name"] = [[saved]];
+G2L["7d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["7d"]["Text"] = [[saved]];
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.saved.UIStroke
+G2L["7e"] = Instance.new("UIStroke", G2L["7d"]);
+G2L["7e"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["7e"]["Color"] = Color3.fromRGB(104, 103, 102);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.saved.UICorner
+G2L["7f"] = Instance.new("UICorner", G2L["7d"]);
+G2L["7f"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.saved.UIAspectRatioConstraint
+G2L["80"] = Instance.new("UIAspectRatioConstraint", G2L["7d"]);
+G2L["80"]["AspectRatio"] = 2.95238;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.TextLabel
+G2L["81"] = Instance.new("TextLabel", G2L["75"]);
+G2L["81"]["TextWrapped"] = true;
+G2L["81"]["BorderSizePixel"] = 0;
+G2L["81"]["TextSize"] = 14;
+G2L["81"]["TextScaled"] = true;
+G2L["81"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["81"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["81"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["81"]["BackgroundTransparency"] = 1;
+G2L["81"]["Size"] = UDim2.new(0.8, 0, 0.1, 0);
+G2L["81"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["81"]["Text"] = [[sort by:]];
+G2L["81"]["LayoutOrder"] = 1;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.TextLabel.UIAspectRatioConstraint
+G2L["82"] = Instance.new("UIAspectRatioConstraint", G2L["81"]);
+G2L["82"]["AspectRatio"] = 3.93651;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.TextLabel.UITextSizeConstraint
+G2L["83"] = Instance.new("UITextSizeConstraint", G2L["81"]);
+G2L["83"]["MaxTextSize"] = 18;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.spacer
+G2L["84"] = Instance.new("TextButton", G2L["75"]);
+G2L["84"]["BorderSizePixel"] = 0;
+G2L["84"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["84"]["TextSize"] = 14;
+G2L["84"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["84"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["84"]["BackgroundTransparency"] = 1;
+G2L["84"]["LayoutOrder"] = -3;
+G2L["84"]["Name"] = [[spacer]];
+G2L["84"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["84"]["Text"] = [[]];
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.sortby
+G2L["85"] = Instance.new("TextButton", G2L["75"]);
+G2L["85"]["TextWrapped"] = true;
+G2L["85"]["TextStrokeTransparency"] = 0;
+G2L["85"]["BorderSizePixel"] = 0;
+G2L["85"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["85"]["TextSize"] = 14;
+G2L["85"]["TextScaled"] = true;
+G2L["85"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["85"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["85"]["Size"] = UDim2.new(0.9, 0, 0.15, 0);
+G2L["85"]["LayoutOrder"] = 2;
+G2L["85"]["Name"] = [[sortby]];
+G2L["85"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["85"]["Text"] = [[ping]];
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.sortby.UIStroke
+G2L["86"] = Instance.new("UIStroke", G2L["85"]);
+G2L["86"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["86"]["Color"] = Color3.fromRGB(104, 103, 102);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.sortby.UICorner
+G2L["87"] = Instance.new("UICorner", G2L["85"]);
+G2L["87"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.sortby.UIAspectRatioConstraint
+G2L["88"] = Instance.new("UIAspectRatioConstraint", G2L["85"]);
+G2L["88"]["AspectRatio"] = 2.95238;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.sortbylh
+G2L["89"] = Instance.new("TextButton", G2L["75"]);
+G2L["89"]["TextWrapped"] = true;
+G2L["89"]["TextStrokeTransparency"] = 0;
+G2L["89"]["BorderSizePixel"] = 0;
+G2L["89"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["89"]["TextSize"] = 14;
+G2L["89"]["TextScaled"] = true;
+G2L["89"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["89"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["89"]["Size"] = UDim2.new(0.9, 0, 0.15, 0);
+G2L["89"]["LayoutOrder"] = 3;
+G2L["89"]["Name"] = [[sortbylh]];
+G2L["89"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["89"]["Text"] = [[lowest to highest]];
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.sortbylh.UIStroke
+G2L["8a"] = Instance.new("UIStroke", G2L["89"]);
+G2L["8a"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["8a"]["Color"] = Color3.fromRGB(104, 103, 102);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.sortbylh.UICorner
+G2L["8b"] = Instance.new("UICorner", G2L["89"]);
+G2L["8b"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.sortbylh.UIAspectRatioConstraint
+G2L["8c"] = Instance.new("UIAspectRatioConstraint", G2L["89"]);
+G2L["8c"]["AspectRatio"] = 2.95238;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.UIAspectRatioConstraint
+G2L["8d"] = Instance.new("UIAspectRatioConstraint", G2L["75"]);
+G2L["8d"]["AspectRatio"] = 0.49206;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.saved
+G2L["8e"] = Instance.new("ScrollingFrame", G2L["70"]);
+G2L["8e"]["Visible"] = false;
+G2L["8e"]["Active"] = true;
+G2L["8e"]["ScrollingDirection"] = Enum.ScrollingDirection.Y;
+G2L["8e"]["BorderSizePixel"] = 0;
+G2L["8e"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+G2L["8e"]["Name"] = [[saved]];
+G2L["8e"]["Size"] = UDim2.new(0.75433, 0, 0.98386, 0);
+G2L["8e"]["ScrollBarImageColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["8e"]["Position"] = UDim2.new(0, 0, 0.00515, 0);
+G2L["8e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["8e"]["ScrollBarThickness"] = 5;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.saved.UIListLayout
+G2L["8f"] = Instance.new("UIListLayout", G2L["8e"]);
+G2L["8f"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Center;
+G2L["8f"]["Padding"] = UDim.new(0.025, 0);
+G2L["8f"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.saved.spacer
+G2L["90"] = Instance.new("TextButton", G2L["8e"]);
+G2L["90"]["BorderSizePixel"] = 0;
+G2L["90"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["90"]["TextSize"] = 14;
+G2L["90"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["90"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["90"]["BackgroundTransparency"] = 1;
+G2L["90"]["LayoutOrder"] = -1;
+G2L["90"]["Name"] = [[spacer]];
+G2L["90"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["90"]["Text"] = [[]];
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.UIAspectRatioConstraint
+G2L["91"] = Instance.new("UIAspectRatioConstraint", G2L["70"]);
+G2L["91"]["AspectRatio"] = 2.28866;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver
+G2L["92"] = Instance.new("Frame", G2L["70"]);
+G2L["92"]["Visible"] = false;
+G2L["92"]["BorderSizePixel"] = 0;
+G2L["92"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["92"]["ClipsDescendants"] = true;
+G2L["92"]["Size"] = UDim2.new(0.97, 0, 0, 30);
+G2L["92"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["92"]["Name"] = [[exampleserver]];
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver.UICorner
+G2L["93"] = Instance.new("UICorner", G2L["92"]);
+G2L["93"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver.UIStroke
+G2L["94"] = Instance.new("UIStroke", G2L["92"]);
+G2L["94"]["Color"] = Color3.fromRGB(75, 75, 75);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver.ping
+G2L["95"] = Instance.new("TextLabel", G2L["92"]);
+G2L["95"]["TextWrapped"] = true;
+G2L["95"]["TextStrokeTransparency"] = 0;
+G2L["95"]["BorderSizePixel"] = 0;
+G2L["95"]["TextSize"] = 14;
+G2L["95"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["95"]["TextScaled"] = true;
+G2L["95"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["95"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["95"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["95"]["BackgroundTransparency"] = 1;
+G2L["95"]["Size"] = UDim2.new(0.2, 0, 0.5, 0);
+G2L["95"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["95"]["Text"] = [[ping; 65]];
+G2L["95"]["Name"] = [[ping]];
+G2L["95"]["Position"] = UDim2.new(0.3199, 0, 0.5, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver.players
+G2L["96"] = Instance.new("TextLabel", G2L["92"]);
+G2L["96"]["TextWrapped"] = true;
+G2L["96"]["TextStrokeTransparency"] = 0;
+G2L["96"]["BorderSizePixel"] = 0;
+G2L["96"]["TextSize"] = 14;
+G2L["96"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["96"]["TextScaled"] = true;
+G2L["96"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["96"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["96"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["96"]["BackgroundTransparency"] = 1;
+G2L["96"]["Size"] = UDim2.new(0.2, 0, 0.5, 0);
+G2L["96"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["96"]["Text"] = [[players; 6]];
+G2L["96"]["Name"] = [[players]];
+G2L["96"]["Position"] = UDim2.new(0.11996, 0, 0.5, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver.jobid
+G2L["97"] = Instance.new("TextLabel", G2L["92"]);
+G2L["97"]["TextWrapped"] = true;
+G2L["97"]["TextStrokeTransparency"] = 0;
+G2L["97"]["BorderSizePixel"] = 0;
+G2L["97"]["TextSize"] = 14;
+G2L["97"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["97"]["TextScaled"] = true;
+G2L["97"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["97"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["97"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["97"]["BackgroundTransparency"] = 1;
+G2L["97"]["Size"] = UDim2.new(0.72539, 0, 0.5, 0);
+G2L["97"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["97"]["Text"] = [[53511917-d9dc-4dcb-b663-ecd62da96836]];
+G2L["97"]["Name"] = [[jobid]];
+G2L["97"]["Position"] = UDim2.new(0.11996, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver.gameid
+G2L["98"] = Instance.new("StringValue", G2L["92"]);
+G2L["98"]["Name"] = [[gameid]];
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver.play
+G2L["99"] = Instance.new("ImageButton", G2L["92"]);
+G2L["99"]["BorderSizePixel"] = 0;
+G2L["99"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["99"]["Image"] = [[rbxassetid://10734923214]];
+G2L["99"]["Size"] = UDim2.new(0.077, 0, 0.844, 0);
+G2L["99"]["BackgroundTransparency"] = 1;
+G2L["99"]["Name"] = [[play]];
+G2L["99"]["ClipsDescendants"] = true;
+G2L["99"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["99"]["Position"] = UDim2.new(0.91665, 0, 0.06667, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver.save
+G2L["9a"] = Instance.new("ImageButton", G2L["92"]);
+G2L["9a"]["BorderSizePixel"] = 0;
+G2L["9a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["9a"]["Image"] = [[rbxassetid://10734941499]];
+G2L["9a"]["Size"] = UDim2.new(0.0769, 0, 0.84378, 0);
+G2L["9a"]["BackgroundTransparency"] = 1;
+G2L["9a"]["Name"] = [[save]];
+G2L["9a"]["ClipsDescendants"] = true;
+G2L["9a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["9a"]["Position"] = UDim2.new(0.84, 0, 0.067, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver.gameicon
+G2L["9b"] = Instance.new("ImageButton", G2L["92"]);
+G2L["9b"]["BorderSizePixel"] = 0;
+G2L["9b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["9b"]["Image"] = [[rbxassetid://18843289642]];
+G2L["9b"]["Size"] = UDim2.new(0.09583, 0, 1.03822, 0);
+G2L["9b"]["Name"] = [[gameicon]];
+G2L["9b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["9b"]["Position"] = UDim2.new(-0.00047, 0, -0.03822, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver.gameicon.UICorner
+G2L["9c"] = Instance.new("UICorner", G2L["9b"]);
+G2L["9c"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver.UIAspectRatioConstraint
+G2L["9d"] = Instance.new("UIAspectRatioConstraint", G2L["92"]);
+G2L["9d"]["AspectRatio"] = 10.83657;
+
+
+-- StarterGui.tilehubv3.frame.UIAspectRatioConstraint
+G2L["9e"] = Instance.new("UIAspectRatioConstraint", G2L["3"]);
+G2L["9e"]["AspectRatio"] = 1.84064;
+
+
+-- StarterGui.tilehubv3.frame.xbeforeclosed
+G2L["9f"] = Instance.new("StringValue", G2L["3"]);
+G2L["9f"]["Name"] = [[xbeforeclosed]];
+
+
+-- StarterGui.tilehubv3.frame.ybeforeclosed
+G2L["a0"] = Instance.new("StringValue", G2L["3"]);
+G2L["a0"]["Name"] = [[ybeforeclosed]];
+
+
+-- StarterGui.tilehubv3.dialogue
+G2L["a1"] = Instance.new("Frame", G2L["1"]);
+G2L["a1"]["Visible"] = false;
+G2L["a1"]["BorderSizePixel"] = 0;
+G2L["a1"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a1"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["a1"]["Size"] = UDim2.new(1, 0, 0.15, 0);
+G2L["a1"]["Position"] = UDim2.new(0.49965, 0, 0.92294, 0);
+G2L["a1"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a1"]["Name"] = [[dialogue]];
+
+
+-- StarterGui.tilehubv3.dialogue.UIGradient
+G2L["a2"] = Instance.new("UIGradient", G2L["a1"]);
+G2L["a2"]["Rotation"] = 90;
+G2L["a2"]["Transparency"] = NumberSequence.new{NumberSequenceKeypoint.new(0.000, 0.98125),NumberSequenceKeypoint.new(0.000, 0),NumberSequenceKeypoint.new(0.000, 1),NumberSequenceKeypoint.new(1.000, 0)};
+G2L["a2"]["Offset"] = Vector2.new(9, 0);
+G2L["a2"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(82, 82, 82)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(0, 0, 0))};
+
+
+-- StarterGui.tilehubv3.dialogue.TextLabel
+G2L["a3"] = Instance.new("TextLabel", G2L["a1"]);
+G2L["a3"]["TextWrapped"] = true;
+G2L["a3"]["TextStrokeTransparency"] = 0;
+G2L["a3"]["BorderSizePixel"] = 0;
+G2L["a3"]["TextSize"] = 14;
+G2L["a3"]["TextScaled"] = true;
+G2L["a3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a3"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["a3"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a3"]["BackgroundTransparency"] = 1;
+G2L["a3"]["Size"] = UDim2.new(0.5, 0, 0.4, 0);
+G2L["a3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a3"]["Text"] = [[text text text text text text text text text text text text text text text text]];
+G2L["a3"]["Position"] = UDim2.new(0.24889, 0, 0.38897, 0);
+
+
+-- StarterGui.tilehubv3.dialogue.ImageLabel
+G2L["a4"] = Instance.new("ImageLabel", G2L["a1"]);
+G2L["a4"]["BorderSizePixel"] = 0;
+G2L["a4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a4"]["Image"] = [[rbxassetid://10747363621]];
+G2L["a4"]["Size"] = UDim2.new(0.018, 0, 0.25, 0);
+G2L["a4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a4"]["BackgroundTransparency"] = 1;
+G2L["a4"]["Rotation"] = 180;
+G2L["a4"]["Position"] = UDim2.new(0.75895, 0, 0.45957, 0);
+
+
+-- StarterGui.tilehubv3.loader
+G2L["a5"] = Instance.new("Frame", G2L["1"]);
+G2L["a5"]["Visible"] = false;
+G2L["a5"]["BorderSizePixel"] = 0;
+G2L["a5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a5"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["a5"]["Size"] = UDim2.new(0, 330, 0, 171);
+G2L["a5"]["Position"] = UDim2.new(0.49927, 0, 0.49891, 0);
+G2L["a5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a5"]["Name"] = [[loader]];
+
+
+-- StarterGui.tilehubv3.loader.UICorner
+G2L["a6"] = Instance.new("UICorner", G2L["a5"]);
+
+
+
+-- StarterGui.tilehubv3.loader.UIStroke
+G2L["a7"] = Instance.new("UIStroke", G2L["a5"]);
+
+
+
+-- StarterGui.tilehubv3.loader.load
+G2L["a8"] = Instance.new("TextButton", G2L["a5"]);
+G2L["a8"]["TextWrapped"] = true;
+G2L["a8"]["TextStrokeTransparency"] = 0;
+G2L["a8"]["BorderSizePixel"] = 0;
+G2L["a8"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a8"]["TextSize"] = 14;
+G2L["a8"]["TextScaled"] = true;
+G2L["a8"]["BackgroundColor3"] = Color3.fromRGB(0, 86, 255);
+G2L["a8"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["a8"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["a8"]["Size"] = UDim2.new(0, 173, 0, 27);
+G2L["a8"]["Name"] = [[load]];
+G2L["a8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a8"]["Text"] = [[load]];
+G2L["a8"]["Position"] = UDim2.new(0.50194, 0, 0.87864, 0);
+
+
+-- StarterGui.tilehubv3.loader.load.UICorner
+G2L["a9"] = Instance.new("UICorner", G2L["a8"]);
+
+
+
+-- StarterGui.tilehubv3.loader.load.UIStroke
+G2L["aa"] = Instance.new("UIStroke", G2L["a8"]);
+G2L["aa"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["aa"]["Thickness"] = 1.21;
+G2L["aa"]["Color"] = Color3.fromRGB(0, 71, 210);
+
+
+-- StarterGui.tilehubv3.loader.image
+G2L["ab"] = Instance.new("ImageLabel", G2L["a5"]);
+G2L["ab"]["BorderSizePixel"] = 0;
+G2L["ab"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["ab"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["ab"]["Image"] = [[rbxassetid://126475741439172]];
+G2L["ab"]["Size"] = UDim2.new(0, 111, 0, 110);
+G2L["ab"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["ab"]["BackgroundTransparency"] = 1;
+G2L["ab"]["Name"] = [[image]];
+G2L["ab"]["Position"] = UDim2.new(0.50041, 0, 0.32031, 0);
+
+
+-- StarterGui.tilehubv3.loader.UIGradient
+G2L["ac"] = Instance.new("UIGradient", G2L["a5"]);
+G2L["ac"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(55, 55, 55)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(28, 28, 28))};
+
+
+-- StarterGui.tilehubv3.loader.TextLabel
+G2L["ad"] = Instance.new("TextLabel", G2L["a5"]);
+G2L["ad"]["TextWrapped"] = true;
+G2L["ad"]["TextStrokeTransparency"] = 0;
+G2L["ad"]["BorderSizePixel"] = 0;
+G2L["ad"]["TextSize"] = 14;
+G2L["ad"]["TextScaled"] = true;
+G2L["ad"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["ad"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["ad"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["ad"]["BackgroundTransparency"] = 1;
+G2L["ad"]["Size"] = UDim2.new(0, 189, 0, 30);
+G2L["ad"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["ad"]["Text"] = "[tilehub [revamped]"
+G2L["ad"]["Position"] = UDim2.new(0.21515, 0, 0.57895, 0);
+
+
+-- StarterGui.tilehubv3.LocalScript
+local function C_2()
+local script = G2L["2"];
+	local gui = script.Parent
+	gui.ResetOnSpawn = false
+	gui.DisplayOrder = 2147483647
+	if not _G.tilehubloaded then
+		_G.tilehubloaded = false
+	end
+	if _G.tilehubloaded == true then
+		gui:Destroy()
+		return
+	end
+	_G.tilehubloaded = true
+	local player = game.Players.LocalPlayer
+	local mouse = player:GetMouse()
+	local playerGui = player:WaitForChild("PlayerGui")
+	local starterGui = game:GetService("StarterGui")
+	local loader = gui:WaitForChild("loader")
+	
+	local frame = gui:WaitForChild("frame")
+	local templates = frame:WaitForChild("templates")
+	local header = frame:WaitForChild("header")
+	local tabButtons = header:WaitForChild("tabbuttons")
+	local tabHolder = frame:WaitForChild("tabholder") -- where the frames are
+	local TweenService = game:GetService("TweenService")
+	local twi = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut, 0, false, 0)
+	if loader.Visible == false then
+		loader.Visible = true
+	end
+	if frame.Visible == true then
+		frame.Visible = false
+	end
+	loader.load.MouseButton1Click:Connect(function()
+	end)
+	
+	local function closegui()
+		frame.ybeforeclosed.Value = frame.Position.Y.Scale
+		frame.xbeforeclosed.Value = frame.Position.X.Scale
+	
+		local b = {
+			Position = UDim2.new(frame.Position.X.Scale, frame.Position.X.Offset, 1.5, frame.Position.Y.Offset)
+		}
+		local t = game:GetService("TweenService"):Create(frame, twi, b)
+		t:Play()
+	end
+	frame.header.closeb.MouseButton1Click:Connect(function()
+		closegui()
+	end)
+	
+	local function open()
+		local b = {
+			Position = UDim2.fromScale(0.499, 0.499)
+		}
+		local t = game:GetService("TweenService"):Create(frame, twi, b)
+		t:Play()
+	end
+	
+	
+	-- Make sure there is a StringValue inside tabHolder to track current frame
+	local currentframe = tabHolder:FindFirstChild("Value")
+	if not currentframe then
+		currentframe = Instance.new("StringValue")
+		currentframe.Name = "Value"
+		currentframe.Parent = tabHolder
+		currentframe.Value = "" -- default
+	end
+	
+	function load()
+		local function clonebtn(uilayoutorder, parentGui, templatebtnpath, btnname, desc , wasclicked) -- clonebtn(the gui, the btn path, the btn name to change to, desc , function)
+			if not parentGui or not templatebtnpath then
+				error("missing arguments")
+			end
+	
+			local clone = templatebtnpath:Clone()
+			clone.Parent = parentGui
+			print(clone.Name)
+	
+			if uilayoutorder then
+				clone.LayoutOrder = uilayoutorder
+			end
+			if clone.Name == "buttonlabel" then
+				if desc then
+					clone.Text = desc
+				end
+				clone.TextButton.MouseButton1Click:Connect(wasclicked)
+			elseif clone.Name == "togglebuttonlabel" then
+				if desc then
+					clone.Text = desc
+				end
+				clone.togglebutton.MouseButton1Click:Connect(function()
+					local xoffpos = 0.06
+					local xonpos = 0.56
+					local yScale = clone.togglebutton.TextLabel.Position.Y.Scale
+					local yOffset = clone.togglebutton.TextLabel.Position.Y.Offset
+					local twi = TweenInfo.new(
+						0.25, -- time
+						Enum.EasingStyle.Quad,
+						Enum.EasingDirection.Out
+					)
+					if clone.togglebutton.Value.Value ~= true then
+						clone.togglebutton.Value.Value = true
+						wasclicked(clone.togglebutton.Value.Value)
+						clone.togglebutton.TextLabel.Text = "on"
+						clone.togglebutton.TextLabel.BackgroundColor3 = Color3.new(0.254902, 0.760784, 0)
+						clone.togglebutton.TextLabel.UIStroke.Color = Color3.new(0.215686, 0.65098, 0)
+						local goal = {
+							Position = UDim2.new(xonpos, 0, yScale, yOffset)
+						}
+	
+						local tween = TweenService:Create(clone.togglebutton.TextLabel, twi, goal)
+						tween:Play()
+					else 
+						clone.togglebutton.Value.Value = false
+						wasclicked(clone.togglebutton.Value.Value)
+						clone.togglebutton.TextLabel.Text = "off"
+						clone.togglebutton.TextLabel.BackgroundColor3 = Color3.new(255, 0, 0)
+						clone.togglebutton.TextLabel.UIStroke.Color = Color3.new(126, 0, 0)
+						local goal = {
+							Position = UDim2.new(xoffpos, 0, yScale, yOffset)
+						}
+	
+						local tween = TweenService:Create(clone.togglebutton.TextLabel, twi, goal)
+						tween:Play()
+					end
+				end)
+			elseif clone.Name == "dropdownlabel" then
+				if desc then
+					clone.Text = desc
+				end
+				local dropdown = clone:FindFirstChild("dropdown")
+				local layout = dropdown.dropdownframe:WaitForChild("UIListLayout")
+	
+				local tweenInfo = TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+	
+	
+				local function onDropdownClick()
+					local xsc = dropdown.dropdownframe.Size.X.Scale
+					local targetSize, targetRotation
+	
+					if dropdown.dropdownframe.Size.Y.Scale == 0 then
+						targetSize = UDim2.fromScale(xsc, 5)
+						targetRotation = 270
+					else
+						targetSize = UDim2.fromScale(xsc, 0)
+						targetRotation = 90
+					end
+	
+					TweenService:Create(dropdown.dropdownframe, tweenInfo, { Size = targetSize }):Play()
+					TweenService:Create(dropdown.ImageLabel, tweenInfo, { Rotation = targetRotation }):Play()
+				end
+	
+				clone.dropdown.MouseButton1Click:Connect(onDropdownClick)
+	
+				-- ✅ controller object
+				local controller = {}
+	
+				function controller:AddOption(name, value)
+					local opt = clone.dropdownoptiontempl.dropdownoption:Clone()
+					opt.Name = name
+					opt.Text = value
+					opt.Parent = dropdown.dropdownframe
+					opt.Visible = true
+	
+					opt.MouseButton1Click:Connect(function()
+						clone.dropdown.Text = value
+						onDropdownClick()
+					end)
+				end
+	
+				function controller:GetSelected()
+					return clone.dropdown.Text
+				end
+	
+				controller.Instance = clone
+	
+				return controller
+			elseif clone.Name == "fieldlabel" then
+				if desc then
+					clone.Text = desc
+				end
+				-- Using GetPropertyChangedSignal (preferred for a single property)
+				clone.TextBox:GetPropertyChangedSignal("Text"):Connect(function()
+					wasclicked(clone.TextBox.Text)
+				end)
+	
+			elseif clone.Name == "sliderlabel" then
+				if desc then
+					clone.Text = desc
+				end
+	
+				local knob = clone.sliderrail.TextButton
+				local rail = clone.sliderrail
+	
+				local UIS = game:GetService("UserInputService")
+	
+				-- CONFIG
+				local MIN_VALUE = 0
+				local MAX_VALUE = 100
+	
+				local function setSliderFromX(x)
+					local railX = rail.AbsolutePosition.X
+					local railWidth = rail.AbsoluteSize.X
+					local knobWidth = knob.AbsoluteSize.X
+					local ky = knob.Position.Y
+	
+					local relativeX = math.clamp(
+						x - railX,
+						0,
+						railWidth - knobWidth
+					)
+	
+					knob.Position = UDim2.new(0, relativeX, ky.Scale, ky.Offset)
+	
+					local alpha = relativeX / (railWidth - knobWidth)
+					local value = MIN_VALUE + (MAX_VALUE - MIN_VALUE) * alpha
+					value = math.floor(value)
+	
+					-- DISPLAY VALUE
+					clone.sliderrail.TextButton.Text = tostring(value)
+					wasclicked(tostring(value))
+	
+					-- CALLBACK
+					if wasclicked then
+						wasclicked(value)
+					end
+				end
+	
+				local function startDrag(input)
+					clone.drag.Value = true
+					setSliderFromX(input.Position.X)
+				end
+	
+				local function stopDrag()
+					clone.drag.Value = false
+				end
+	
+				knob.InputBegan:Connect(function(input)
+					if input.UserInputType == Enum.UserInputType.MouseButton1
+						or input.UserInputType == Enum.UserInputType.Touch then
+						startDrag(input)
+					end
+				end)
+	
+				knob.InputEnded:Connect(function(input)
+					if input.UserInputType == Enum.UserInputType.MouseButton1
+						or input.UserInputType == Enum.UserInputType.Touch then
+						stopDrag()
+					end
+				end)
+	
+				UIS.InputChanged:Connect(function(input)
+					if clone.drag.Value == true and (
+						input.UserInputType == Enum.UserInputType.MouseMovement
+							or input.UserInputType == Enum.UserInputType.Touch
+						) then
+						setSliderFromX(input.Position.X)
+					end
+				end)
+			elseif clone.Name == "scriptbtn" then
+				if desc then
+					clone.TextLabel.Text = desc
+				end
+				if btnname then
+					clone.Image = btnname
+				end
+				clone.MouseButton1Click:Connect(function()
+					clone.alrexec.Value = true
+					wasclicked()
+				end)
+			end
+			if btnname then
+				clone.Name = btnname
+			end
+			clone.Visible = true
+	
+			return clone
+		end
+		local function createDropdown(order, parent, name, title, options)
+			local d = clonebtn(
+				order,
+				parent,
+				templates.dropdownlabel,
+				name,
+				title
+			)
+	
+			-- clonebtn returns a controller for dropdowns
+			d.Instance.Visible = true
+	
+			if options then
+				for _, opt in ipairs(options) do
+					-- opt = { internalName, displayText }
+					d:AddOption(opt[1], opt[2])
+				end
+			end
+	
+			return d
+		end
+		local dropdowns = {}
+		-- Helper to extract numbers from text like "ping: 100ms"
+		local function getNumber(str)
+			return tonumber(string.match(str, "%d+")) or 0
+		end
+	
+		local function sortServers()
+			-- Find the servers tab and the container
+			local serversTab = tabHolder:WaitForChild("serverstab")
+			if not serversTab then return end
+	
+			local container = serversTab.servers
+			local btnHolder = serversTab.serversbuttonholder
+	
+			-- Get current sorting criteria from button text
+			local criteria = btnHolder.sortby.Text -- "ping" or "player count"
+			local direction = btnHolder.sortbylh.Text -- "lowest to highest" or "highest to lowest"
+	
+			local items = {}
+	
+			-- Gather all server frames
+			for _, child in pairs(container:GetChildren()) do
+				-- Ignore the UIListLayout and the example template if it exists
+				if child:IsA("Frame") and child.Name ~= "exampleserver" and child.Visible == true then
+					local pingVal = getNumber(child.ping.Text)
+					local playerVal = getNumber(child.players.Text)
+					table.insert(items, {
+						Instance = child,
+						Ping = pingVal,
+						Players = playerVal
+					})
+				end
+			end
+	
+			-- Sort the table
+			table.sort(items, function(a, b)
+				local valA, valB
+	
+				-- Select value based on criteria
+				if criteria == "ping" then
+					valA = a.Ping
+					valB = b.Ping
+				else -- player count
+					valA = a.Players
+					valB = b.Players
+				end
+	
+				-- Return comparison based on direction
+				if direction == "lowest to highest" then
+					return valA < valB
+				else
+					return valA > valB
+				end
+			end)
+	
+			-- Apply LayoutOrder
+			for i, item in ipairs(items) do
+				item.Instance.LayoutOrder = i
+			end
+		end
+		
+		-- Function to Fetch Servers
+		local function fetchServers()
+			local placeId = game.PlaceId
+			local url = "https://games.roblox.com/v1/games/" .. placeId .. "/servers/Public?sortOrder=Desc&excludeFullGames=true&limit=100"
+	
+			local success, result
+	
+			-- Detect environment (Executor vs Studio)
+			local httpRequest = (syn and syn.request) or (http and http.request) or (http_request) or (fluxus and fluxus.request) or request
+	
+			if httpRequest then
+				-- Executor Environment
+				local response = httpRequest({
+					Url = url,
+					Method = "GET"
+				})
+				if response.StatusCode == 200 then
+					success = true
+					result = response.Body
+				end
+			else
+				local HttpService = game:GetService("HttpService")
+				success, result = pcall(function()
+					return HttpService:GetAsync(url) -- Will fail in standard game without proxy
+				end)
+			end
+	
+			if success and result then
+				local HttpService = game:GetService("HttpService")
+				local data = HttpService:JSONDecode(result)
+	
+				if data and data.data then
+					-- Clear old servers (except template/layout)
+					for _, child in pairs(serversFrame:GetChildren()) do
+						if child:IsA("Frame") and child.Name ~= "exampleserver" then
+							child:Destroy()
+						end
+					end
+	
+					-- Add new servers
+					for _, server in pairs(data.data) do
+						-- Calculate actual ping (Roblox API doesn't give real ping, usually just location, 
+						-- so we often estimate or set it to the API ping property if available, otherwise random/0)
+						local sPing = server.ping or 0
+						local sPlayers = server.playing or 0
+						local sJobId = server.id
+	
+						-- Call your existing function
+						addserverbtn(sJobId, placeId, sPing, sPlayers)
+					end
+	
+					-- Update the sort immediately after loading
+					sortServers()
+				end
+			else
+				warn("Failed to fetch servers. If in Studio, ensure HttpEnabled is on and use a proxy.")
+			end
+		end
+		-- param: guidest, templategui, guiname
+		local function cloneFrame(parentGui, templateFrame, newName)
+			if not parentGui or not templateFrame then
+				error("cloneFrame: missing arguments")
+			end
+			if not templateFrame:IsA("GuiObject") then
+				error("cloneFrame: template must be a GuiObject")
+			end
+	
+			local clone = templateFrame:Clone()
+			if clone.Name == "serverstab" then
+				clone.serversbuttonholder.sortby.MouseButton1Click:Connect(function()
+					if clone.serversbuttonholder.sortby.Text == "ping" then
+						clone.serversbuttonholder.sortby.Text = "player count"
+					else 
+						clone.serversbuttonholder.sortby.Text = "ping"
+					end
+					sortServers()
+				end)
+				clone.serversbuttonholder.sortbylh.MouseButton1Click:Connect(function()
+					if clone.serversbuttonholder.sortbylh.Text == "lowest to highest" then
+						clone.serversbuttonholder.sortbylh.Text = "highest to lowest"
+					else 
+						clone.serversbuttonholder.sortbylh.Text = "lowest to highest"
+					end
+					sortServers()
+				end)
+				-- SAVED BUTTON (Go back to saved/home)
+				clone.serversbuttonholder.saved.MouseButton1Click:Connect(function()
+					if clone.servers.Visible == true then
+						clone.servers.Visible = false
+						clone.saved.Visible = true
+						-- Reset text back to "servers" when leaving the servers tab
+						clone.serversbuttonholder.servers.Text = "servers" 
+					end
+				end)
+	
+				-- SERVERS / RELOAD BUTTON
+				clone.serversbuttonholder.servers.MouseButton1Click:Connect(function()
+					-- CASE 1: The servers list is ALREADY open
+					if clone.servers.Visible == true then
+						-- This acts as the Reload button
+						clone.serversbuttonholder.servers.Text = "reload" -- Ensure text indicates reload
+						fetchServers()
+	
+						-- CASE 2: The servers list is closed (switching from Saved to Servers)
+					else
+						clone.saved.Visible = false
+						clone.servers.Visible = true
+						-- Change the text to "reload" immediately so the NEXT click reloads
+						clone.serversbuttonholder.servers.Text = "reload" 
+	
+						-- Optional: You might want to fetch servers immediately upon opening too
+						-- fetchServers() 
+					end
+				end)
+			end
+			clone.Parent = parentGui
+			if newName then
+				clone.Name = newName
+			end
+			clone.Visible = false -- hide initially
+			return clone
+		end
+		-- Show one frame and hide the rest
+		local function showFrame(frameName)
+			for _, child in ipairs(tabHolder:GetChildren()) do
+				if child:IsA("Frame") or child:IsA("ScrollingFrame") then
+					child.Visible = (child.Name == frameName)
+				end
+			end
+		end
+		-- Update GUI when StringValue changes
+		currentframe.Changed:Connect(function()
+			local frameName = currentframe.Value
+			if tabHolder:FindFirstChild(frameName) then
+				showFrame(frameName)
+			end
+		end)
+		
+	
+		local function addHeaderButton(uilayoutorder, imageId, frameName)
+			local button = templates.headerbutton.button:Clone()
+			button.Parent = tabButtons
+			button.Visible = true
+	
+			if uilayoutorder then
+				button.LayoutOrder = uilayoutorder
+			end
+	
+			-- Set image
+			if button:IsA("ImageButton") then
+				button.Image = "rbxassetid://" .. imageId
+			else
+				local img = button:FindFirstChildWhichIsA("ImageLabel", true)
+				if img then
+					img.Image = "rbxassetid://" .. imageId
+				end
+			end
+	
+			-- UIStroke reference (must exist in the button)
+			local stroke = button:WaitForChild("UIStroke")
+	
+			-- Press highlight (PC + mobile)
+			button.InputBegan:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseButton1
+					or input.UserInputType == Enum.UserInputType.Touch then
+					stroke.Color = Color3.new(1, 1, 1) -- white
+				end
+			end)
+	
+			button.InputEnded:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseButton1
+					or input.UserInputType == Enum.UserInputType.Touch then
+					stroke.Color = Color3.new(0.129412, 0.129412, 0.129412) -- black
+				end
+			end)
+	
+			-- Click callback
+			button.MouseButton1Click:Connect(function()
+				currentframe.Value = frameName
+			end)
+	
+			return button
+		end
+		-- Example usage: clone a frame and add its button
+		cloneFrame(tabHolder, templates.tab, "sf")
+		cloneFrame(tabHolder, templates.scriptstab, "scriptstab")
+		cloneFrame(tabHolder, templates.serverstab, "serverstab")
+		clonebtn(2, tabHolder:WaitForChild("scriptstab"), templates.scriptbtn, "rbxassetid://71186851898433", "rochips panel", function(state)
+			print("scripts")
+		end)
+		clonebtn(1, tabHolder:WaitForChild("scriptstab"), templates.scriptbtn, "rbxassetid://130142990360332", "infinite yield", function(state)
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+		end)
+	
+		addHeaderButton(1, 10734943448, "scriptstab")
+		addHeaderButton(2, 10734949856, "serverstab")
+	
+		currentframe.Value = "scriptstab"
+		
+		
+		local function addserverbtn(jobid, gameid, ping, playercount)
+			local temp = tabHolder.serverstab.exampleserver:Clone()
+			-- Basic setup
+			temp.Parent = tabHolder.serverstab.servers
+			temp.Visible = true
+			temp.jobid.Text = jobid
+			temp.gameid.Value = gameid
+			temp.Name = jobid -- Crucial: This sets the frame name to the unique Job ID
+			temp.ping.Text = "ping: " .. ping .. "ms"
+			temp.players.Text = playercount .. " players"
+	
+			-- Join Button Logic
+			temp.play.MouseButton1Click:Connect(function()
+				local tpservice = game:GetService("TeleportService")
+				tpservice:TeleportToPlaceInstance(temp.gameid.Value, jobid)
+			end)
+	
+			-- Save Button Logic
+			temp.save.MouseButton1Click:Connect(function()
+				local saved = tabHolder.serverstab.saved
+	
+				-- 1. Check for duplicates
+				-- Since temp.Name is the jobid, we check if that name exists in 'saved'
+				if saved:FindFirstChild(jobid) then
+					return -- Stop the function here if it already exists
+				end
+	
+				-- 2. Clone and Parent
+				local temp2 = temp:Clone()
+				temp2.Parent = saved
+	
+				-- 3. (Optional) Modify the button on the SAVED copy to be a "Remove" button
+				-- This prevents the saved copy from having a useless "Save" button
+				if temp2:FindFirstChild("save") then
+					temp2.save.Image = "rbxassetid://10747362241"
+					temp2.save.MouseButton1Click:Connect(function()
+						temp2:Destroy()
+					end)
+				end
+				
+				if temp2:FindFirstChild("play") then
+					temp2.play.MouseButton1Click:Connect(function()
+					    local tpservice = game:GetService("TeleportService")
+					    tpservice:TeleportToPlaceInstance(temp2.gameid.Value, temp2.Name)
+					end)
+				end
+			end)
+		end
+		
+	
+		-- Ensure UIListLayout exists in the servers folder for sorting to work
+		local serversFrame = tabHolder:WaitForChild("serverstab"):WaitForChild("servers")
+		if not serversFrame:FindFirstChild("UIListLayout") then
+			local list = Instance.new("UIListLayout")
+			list.Parent = serversFrame
+			list.SortOrder = Enum.SortOrder.LayoutOrder -- Crucial for our sort function
+		end
+		fetchServers()
+	end
+	
+	loader.load.MouseButton1Click:Connect(function()
+		loader.TextLabel.Text = "loading. [0%]"
+		loader.load:Destroy()
+		loader.UIStroke:Destroy()
+		local blur = Instance.new("BlurEffect")
+		blur.Parent = game:GetService("Lighting")
+		blur.Size = 0
+		local b = {
+			BackgroundTransparency = 1
+		}
+		local t = game:GetService("TweenService"):Create(loader, twi, b)
+		t:Play()
+		
+		local b = {
+			Position = UDim2.fromScale(0.497, 0.139)
+		}
+		local t = game:GetService("TweenService"):Create(loader.image, twi, b)
+		t:Play()
+		
+		local b = {
+			Size = UDim2.fromOffset(150, 150)
+		}
+		local t = game:GetService("TweenService"):Create(loader.image, twi, b)
+		t:Play()
+	
+		
+		local b = {
+			Size = 24
+		}
+		local t = game:GetService("TweenService"):Create(blur, twi, b)
+		t:Play()
+		load()
+		loader.TextLabel.Text = "loaded successfully!"
+		wait(.5)
+		local b = {
+			Size = 0
+		}
+		local t = game:GetService("TweenService"):Create(blur, twi, b)
+		t:Play()
+		loader:Destroy()
+		frame.Visible = true
+		wait(1)
+		blur:Destroy()
+	end)
+	
+end;
+task.spawn(C_2);
+
+return G2L["1"], require;
