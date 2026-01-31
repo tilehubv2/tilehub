@@ -1549,13 +1549,6 @@ local script = G2L["2"];
 	end
 	
 	function load()
-		-- Ensure UIListLayout exists in the servers folder for sorting to work
-		local serversFrame = tabHolder:WaitForChild("serverstab"):WaitForChild("servers")
-		if not serversFrame:FindFirstChild("UIListLayout") then
-			local list = Instance.new("UIListLayout")
-			list.Parent = serversFrame
-			list.SortOrder = Enum.SortOrder.LayoutOrder -- Crucial for our sort function
-		end
 		local function clonebtn(uilayoutorder, parentGui, templatebtnpath, btnname, desc , wasclicked) -- clonebtn(the gui, the btn path, the btn name to change to, desc , function)
 			if not parentGui or not templatebtnpath then
 				error("missing arguments")
@@ -2034,6 +2027,13 @@ local script = G2L["2"];
 		cloneFrame(tabHolder, templates.tab, "sf")
 		cloneFrame(tabHolder, templates.scriptstab, "scriptstab")
 		cloneFrame(tabHolder, templates.serverstab, "serverstab")
+		-- Ensure UIListLayout exists in the servers folder for sorting to work
+		local serversFrame = tabHolder:WaitForChild("serverstab"):WaitForChild("servers")
+		if not serversFrame:FindFirstChild("UIListLayout") then
+			local list = Instance.new("UIListLayout")
+			list.Parent = serversFrame
+			list.SortOrder = Enum.SortOrder.LayoutOrder -- Crucial for our sort function
+		end
 		clonebtn(2, tabHolder:WaitForChild("scriptstab"), templates.scriptbtn, "rbxassetid://71186851898433", "rochips panel", function(state)
 			print("scripts")
 		end)
