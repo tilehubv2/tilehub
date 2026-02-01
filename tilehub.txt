@@ -2162,7 +2162,7 @@ local script = G2L["2"];
 		local function fetchServers()
 			local serversFrame = tabHolder:WaitForChild("serverstab"):WaitForChild("servers")
 			local placeId = game.PlaceId
-			local url = "https://games.roblox.com/v1/games/" .. placeId .. "/servers/Public?sortOrder=Desc&excludeFullGames=true&limit=100"
+			local url = "https://games.roblox.com/v1/games/" .. placeId .. "/servers/Public?sortOrder=Desc&excludeFullGames=true&limit=1000"
 	
 			local success, result
 	
