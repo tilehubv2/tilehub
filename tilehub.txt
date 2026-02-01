@@ -2049,6 +2049,36 @@ function load()
 
 	currentframe.Value = "scriptstab"
 	
+	-- Global cache to prevent rate limits
+	local iconCache = {}
+
+	local function setGameIcon(imageLabel, gameId)
+		if not imageLabel then return end
+
+		-- Run in background so it doesn't freeze the UI
+		task.spawn(function()
+			-- 1. Check if we already have this icon loaded
+			if iconCache[gameId] then
+				imageLabel.Image = "rbxassetid://" .. iconCache[gameId]
+				return
+			end
+
+			-- 2. If not, fetch it safely
+			local success, info = pcall(function()
+				return game:GetService("MarketplaceService"):GetProductInfo(gameId)
+			end)
+
+			-- 3. Apply and Cache
+			if success and info and info.IconImageAssetId then
+				iconCache[gameId] = info.IconImageAssetId
+				imageLabel.Image = "rbxassetid://" .. info.IconImageAssetId
+			else
+				-- Optional: Set a default "unknown" image if it fails
+				-- imageLabel.Image = "rbxassetid://0" 
+			end
+		end)
+	end
+
 	local function createSavedServerEntry(jobid, gameid, pingText, playersText)
 		local savedContainer = tabHolder.serverstab.saved
 
@@ -2064,10 +2094,7 @@ function load()
 		temp.gameid.Value = gameid
 		temp.ping.Text = pingText
 		temp.players.Text = playersText
-		local Product = game:GetService("MarketplaceService")
-		local Details = Product:GetProductInfo(gameid)
-		local IconID = Details.IconImageAssetId
-		temp.gameicon.Image = "rbxassetid://" ..IconID
+		setGameIcon(temp.gameicon, gameid)
 
 		-- Play Button
 		if temp:FindFirstChild("play") then
@@ -2086,6 +2113,7 @@ function load()
 			end)
 		end
 	end
+
 	local function addserverbtn(jobid, gameid, ping, playercount)
 		local temp = tabHolder.serverstab.exampleserver:Clone()
 		temp.Parent = tabHolder.serverstab.servers
@@ -2095,10 +2123,7 @@ function load()
 		temp.Name = jobid 
 		temp.ping.Text = "ping: " .. ping .. "ms"
 		temp.players.Text = playercount .. " players"
-		local Product = game:GetService("MarketplaceService")
-		local Details = Product:GetProductInfo(gameid)
-		local IconID = Details.IconImageAssetId
-		temp.gameicon.Image = "rbxassetid://" ..IconID
+		setGameIcon(temp.gameicon, gameid)
 
 
 		-- Join
@@ -2112,6 +2137,7 @@ function load()
 			saveServerToFile(jobid, gameid, temp.ping.Text, temp.players.Text)
 		end)
 	end
+
 	-- Function to Fetch Servers
 	local function fetchServers()
 		local serversFrame = tabHolder:WaitForChild("serverstab"):WaitForChild("servers")
