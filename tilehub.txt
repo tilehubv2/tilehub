@@ -1515,6 +1515,27 @@ if frame.Visible == true then
 end
 loader.load.MouseButton1Click:Connect(function()
 end)
+local function autoresize(scrollingFrame)
+	-- Try to find the Layout (List or Grid)
+	local layout = scrollingFrame:FindFirstChildWhichIsA("UIListLayout") or scrollingFrame:FindFirstChildWhichIsA("UIGridLayout")
+	
+	if not layout then
+		warn("no uilistlayout!")
+		return
+	end
+
+	-- Function to update the size
+	local function updateSize()
+		-- We set the Y (height) to the content size + a little padding (e.g., 10 pixels)
+		scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y + 10)
+	end
+
+	-- Connect the signal so it updates automatically when items are added/removed
+	layout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(updateSize)
+	
+	-- Run once immediately to fix current size
+	updateSize()
+end
 
 local function closegui()
 	frame.ybeforeclosed.Value = frame.Position.Y.Scale
@@ -2048,7 +2069,6 @@ function load()
 	addHeaderButton(2, 10734949856, "serverstab")
 
 	currentframe.Value = "scriptstab"
-	
 	-- Global cache to prevent rate limits
 	local iconCache = {}
 
@@ -2240,7 +2260,8 @@ function load()
 	-- Run
 	fetchServers()
 	loadAllSavedServers()
-
+	autoresize(tabHolder.serverstab.saved)
+	autoresize(tabHolder.serverstab.servers)
 end
 
 loader.load.MouseButton1Click:Connect(function()
