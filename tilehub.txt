@@ -1483,779 +1483,782 @@ G2L["ad"]["Position"] = UDim2.new(0.21515, 0, 0.57895, 0);
 -- StarterGui.tilehubv3.LocalScript
 local function C_2()
 local script = G2L["2"];
-	local gui = script.Parent
-	gui.ResetOnSpawn = false
-	gui.DisplayOrder = 2147483647
-	if not _G.tilehubloaded then
-		_G.tilehubloaded = false
-	end
-	if _G.tilehubloaded == true then
-		gui:Destroy()
-		return
-	end
-	_G.tilehubloaded = true
-	local player = game.Players.LocalPlayer
-	local mouse = player:GetMouse()
-	local playerGui = player:WaitForChild("PlayerGui")
-	local starterGui = game:GetService("StarterGui")
-	local loader = gui:WaitForChild("loader")
-	
-	local frame = gui:WaitForChild("frame")
-	local templates = frame:WaitForChild("templates")
-	local header = frame:WaitForChild("header")
-	local tabButtons = header:WaitForChild("tabbuttons")
-	local tabHolder = frame:WaitForChild("tabholder") -- where the frames are
-	local TweenService = game:GetService("TweenService")
-	local twi = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut, 0, false, 0)
-	if loader.Visible == false then
-		loader.Visible = true
-	end
-	if frame.Visible == true then
-		frame.Visible = false
-	end
-	loader.load.MouseButton1Click:Connect(function()
-	end)
-	
-	local function closegui()
-		frame.ybeforeclosed.Value = frame.Position.Y.Scale
-		frame.xbeforeclosed.Value = frame.Position.X.Scale
-	
-		local b = {
-			Position = UDim2.new(frame.Position.X.Scale, frame.Position.X.Offset, 1.5, frame.Position.Y.Offset)
-		}
-		local t = game:GetService("TweenService"):Create(frame, twi, b)
-		t:Play()
-	end
-	frame.header.closeb.MouseButton1Click:Connect(function()
-		closegui()
-	end)
-	
-	local function open()
-		local b = {
-			Position = UDim2.fromScale(0.499, 0.499)
-		}
-		local t = game:GetService("TweenService"):Create(frame, twi, b)
-		t:Play()
-	end
-	
-	
-	-- Make sure there is a StringValue inside tabHolder to track current frame
-	local currentframe = tabHolder:FindFirstChild("Value")
-	if not currentframe then
-		currentframe = Instance.new("StringValue")
-		currentframe.Name = "Value"
-		currentframe.Parent = tabHolder
-		currentframe.Value = "" -- default
-	end
-	
-	function load()
-		local HttpService = game:GetService("HttpService")
-		local TeleportService = game:GetService("TeleportService")
-	
-		-- ONE file name for everything
-		local FILE_NAME = "tilehubsaved_servers.json"
-	
-		-- Check for executor support
-		local hasFileSystem = (writefile and readfile and isfile)
-	
-		-- 1. Helper to get the WHOLE database (all games)
-		local function getDatabase()
-			if not hasFileSystem then return {} end
-	
-			if isfile(FILE_NAME) then
-				local success, result = pcall(function()
-					return HttpService:JSONDecode(readfile(FILE_NAME))
-				end)
-				if success and type(result) == "table" then
-					return result
-				end
-			end
-			return {} -- Return empty table if file doesn't exist or is corrupt
-		end
-	
-		-- 2. Helper to save the WHOLE database
-		local function saveDatabase(db)
-			if not hasFileSystem then return end
-			pcall(function()
-				writefile(FILE_NAME, HttpService:JSONEncode(db))
+local gui = script.Parent
+gui.ResetOnSpawn = false
+gui.DisplayOrder = 2147483647
+if not _G.tilehubloaded then
+	_G.tilehubloaded = false
+end
+if _G.tilehubloaded == true then
+	gui:Destroy()
+	return
+end
+_G.tilehubloaded = true
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+local playerGui = player:WaitForChild("PlayerGui")
+local starterGui = game:GetService("StarterGui")
+local loader = gui:WaitForChild("loader")
+
+local frame = gui:WaitForChild("frame")
+local templates = frame:WaitForChild("templates")
+local header = frame:WaitForChild("header")
+local tabButtons = header:WaitForChild("tabbuttons")
+local tabHolder = frame:WaitForChild("tabholder") -- where the frames are
+local TweenService = game:GetService("TweenService")
+local twi = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut, 0, false, 0)
+if loader.Visible == false then
+	loader.Visible = true
+end
+if frame.Visible == true then
+	frame.Visible = false
+end
+loader.load.MouseButton1Click:Connect(function()
+end)
+
+local function closegui()
+	frame.ybeforeclosed.Value = frame.Position.Y.Scale
+	frame.xbeforeclosed.Value = frame.Position.X.Scale
+
+	local b = {
+		Position = UDim2.new(frame.Position.X.Scale, frame.Position.X.Offset, 1.5, frame.Position.Y.Offset)
+	}
+	local t = game:GetService("TweenService"):Create(frame, twi, b)
+	t:Play()
+end
+frame.header.closeb.MouseButton1Click:Connect(function()
+	closegui()
+end)
+
+local function open()
+	local b = {
+		Position = UDim2.fromScale(0.499, 0.499)
+	}
+	local t = game:GetService("TweenService"):Create(frame, twi, b)
+	t:Play()
+end
+
+
+-- Make sure there is a StringValue inside tabHolder to track current frame
+local currentframe = tabHolder:FindFirstChild("Value")
+if not currentframe then
+	currentframe = Instance.new("StringValue")
+	currentframe.Name = "Value"
+	currentframe.Parent = tabHolder
+	currentframe.Value = "" -- default
+end
+
+function load()
+	local HttpService = game:GetService("HttpService")
+	local TeleportService = game:GetService("TeleportService")
+
+	-- ONE file name for everything
+	local FILE_NAME = "tilehubsaved_servers.json"
+
+	-- Check for executor support
+	local hasFileSystem = (writefile and readfile and isfile)
+
+	-- 1. Helper to get the WHOLE database (all games)
+	local function getDatabase()
+		if not hasFileSystem then return {} end
+
+		if isfile(FILE_NAME) then
+			local success, result = pcall(function()
+				return HttpService:JSONDecode(readfile(FILE_NAME))
 			end)
-		end
-	
-		-- 3. Function to add a server to the file
-		local function saveServerToFile(jobid, gameid, ping, players)
-			local db = getDatabase()
-			local sGameId = tostring(gameid) -- JSON keys must be strings
-	
-			-- Create table for this game if it doesn't exist
-			if not db[sGameId] then
-				db[sGameId] = {}
+			if success and type(result) == "table" then
+				return result
 			end
-	
-			-- Check for duplicates to avoid saving the same server twice
-			for _, server in pairs(db[sGameId]) do
+		end
+		return {} -- Return empty table if file doesn't exist or is corrupt
+	end
+
+	-- 2. Helper to save the WHOLE database
+	local function saveDatabase(db)
+		if not hasFileSystem then return end
+		pcall(function()
+			writefile(FILE_NAME, HttpService:JSONEncode(db))
+		end)
+	end
+
+	-- 3. Function to add a server to the file
+	local function saveServerToFile(jobid, gameid, ping, players)
+		local db = getDatabase()
+		local sGameId = tostring(gameid) -- JSON keys must be strings
+
+		-- Create table for this game if it doesn't exist
+		if not db[sGameId] then
+			db[sGameId] = {}
+		end
+
+		-- Check for duplicates to avoid saving the same server twice
+		for _, server in pairs(db[sGameId]) do
+			if server.jobid == jobid then
+				return -- Already saved
+			end
+		end
+
+		-- Add new server
+		table.insert(db[sGameId], {
+			jobid = jobid,
+			ping = ping,
+			players = players
+		})
+
+		saveDatabase(db)
+	end
+
+	-- 4. Function to remove a server from the file
+	local function removeServerFromFile(jobid, gameid)
+		local db = getDatabase()
+		local sGameId = tostring(gameid)
+
+		if db[sGameId] then
+			for i, server in ipairs(db[sGameId]) do
 				if server.jobid == jobid then
-					return -- Already saved
+					table.remove(db[sGameId], i)
+					break
 				end
 			end
-	
-			-- Add new server
-			table.insert(db[sGameId], {
-				jobid = jobid,
-				ping = ping,
-				players = players
-			})
-	
+
+			-- Optional: Remove the game key if empty to keep file clean
+			if #db[sGameId] == 0 then
+				db[sGameId] = nil 
+			end
+
 			saveDatabase(db)
 		end
-	
-		-- 4. Function to remove a server from the file
-		local function removeServerFromFile(jobid, gameid)
-			local db = getDatabase()
-			local sGameId = tostring(gameid)
-	
-			if db[sGameId] then
-				for i, server in ipairs(db[sGameId]) do
-					if server.jobid == jobid then
-						table.remove(db[sGameId], i)
-						break
-					end
-				end
-	
-				-- Optional: Remove the game key if empty to keep file clean
-				if #db[sGameId] == 0 then
-					db[sGameId] = nil 
-				end
-	
-				saveDatabase(db)
-			end
+	end
+
+	local function clonebtn(uilayoutorder, parentGui, templatebtnpath, btnname, desc , wasclicked) -- clonebtn(the gui, the btn path, the btn name to change to, desc , function)
+		if not parentGui or not templatebtnpath then
+			error("missing arguments")
 		end
-	
-		local function clonebtn(uilayoutorder, parentGui, templatebtnpath, btnname, desc , wasclicked) -- clonebtn(the gui, the btn path, the btn name to change to, desc , function)
-			if not parentGui or not templatebtnpath then
-				error("missing arguments")
+
+		local clone = templatebtnpath:Clone()
+		clone.Parent = parentGui
+		print(clone.Name)
+
+		if uilayoutorder then
+			clone.LayoutOrder = uilayoutorder
+		end
+		if clone.Name == "buttonlabel" then
+			if desc then
+				clone.Text = desc
 			end
-	
-			local clone = templatebtnpath:Clone()
-			clone.Parent = parentGui
-			print(clone.Name)
-	
-			if uilayoutorder then
-				clone.LayoutOrder = uilayoutorder
+			clone.TextButton.MouseButton1Click:Connect(wasclicked)
+		elseif clone.Name == "togglebuttonlabel" then
+			if desc then
+				clone.Text = desc
 			end
-			if clone.Name == "buttonlabel" then
-				if desc then
-					clone.Text = desc
+			clone.togglebutton.MouseButton1Click:Connect(function()
+				local xoffpos = 0.06
+				local xonpos = 0.56
+				local yScale = clone.togglebutton.TextLabel.Position.Y.Scale
+				local yOffset = clone.togglebutton.TextLabel.Position.Y.Offset
+				local twi = TweenInfo.new(
+					0.25, -- time
+					Enum.EasingStyle.Quad,
+					Enum.EasingDirection.Out
+				)
+				if clone.togglebutton.Value.Value ~= true then
+					clone.togglebutton.Value.Value = true
+					wasclicked(clone.togglebutton.Value.Value)
+					clone.togglebutton.TextLabel.Text = "on"
+					clone.togglebutton.TextLabel.BackgroundColor3 = Color3.new(0.254902, 0.760784, 0)
+					clone.togglebutton.TextLabel.UIStroke.Color = Color3.new(0.215686, 0.65098, 0)
+					local goal = {
+						Position = UDim2.new(xonpos, 0, yScale, yOffset)
+					}
+
+					local tween = TweenService:Create(clone.togglebutton.TextLabel, twi, goal)
+					tween:Play()
+				else 
+					clone.togglebutton.Value.Value = false
+					wasclicked(clone.togglebutton.Value.Value)
+					clone.togglebutton.TextLabel.Text = "off"
+					clone.togglebutton.TextLabel.BackgroundColor3 = Color3.new(255, 0, 0)
+					clone.togglebutton.TextLabel.UIStroke.Color = Color3.new(126, 0, 0)
+					local goal = {
+						Position = UDim2.new(xoffpos, 0, yScale, yOffset)
+					}
+
+					local tween = TweenService:Create(clone.togglebutton.TextLabel, twi, goal)
+					tween:Play()
 				end
-				clone.TextButton.MouseButton1Click:Connect(wasclicked)
-			elseif clone.Name == "togglebuttonlabel" then
-				if desc then
-					clone.Text = desc
+			end)
+		elseif clone.Name == "dropdownlabel" then
+			if desc then
+				clone.Text = desc
+			end
+			local dropdown = clone:FindFirstChild("dropdown")
+			local layout = dropdown.dropdownframe:WaitForChild("UIListLayout")
+
+			local tweenInfo = TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+
+
+			local function onDropdownClick()
+				local xsc = dropdown.dropdownframe.Size.X.Scale
+				local targetSize, targetRotation
+
+				if dropdown.dropdownframe.Size.Y.Scale == 0 then
+					targetSize = UDim2.fromScale(xsc, 5)
+					targetRotation = 270
+				else
+					targetSize = UDim2.fromScale(xsc, 0)
+					targetRotation = 90
 				end
-				clone.togglebutton.MouseButton1Click:Connect(function()
-					local xoffpos = 0.06
-					local xonpos = 0.56
-					local yScale = clone.togglebutton.TextLabel.Position.Y.Scale
-					local yOffset = clone.togglebutton.TextLabel.Position.Y.Offset
-					local twi = TweenInfo.new(
-						0.25, -- time
-						Enum.EasingStyle.Quad,
-						Enum.EasingDirection.Out
-					)
-					if clone.togglebutton.Value.Value ~= true then
-						clone.togglebutton.Value.Value = true
-						wasclicked(clone.togglebutton.Value.Value)
-						clone.togglebutton.TextLabel.Text = "on"
-						clone.togglebutton.TextLabel.BackgroundColor3 = Color3.new(0.254902, 0.760784, 0)
-						clone.togglebutton.TextLabel.UIStroke.Color = Color3.new(0.215686, 0.65098, 0)
-						local goal = {
-							Position = UDim2.new(xonpos, 0, yScale, yOffset)
-						}
-	
-						local tween = TweenService:Create(clone.togglebutton.TextLabel, twi, goal)
-						tween:Play()
-					else 
-						clone.togglebutton.Value.Value = false
-						wasclicked(clone.togglebutton.Value.Value)
-						clone.togglebutton.TextLabel.Text = "off"
-						clone.togglebutton.TextLabel.BackgroundColor3 = Color3.new(255, 0, 0)
-						clone.togglebutton.TextLabel.UIStroke.Color = Color3.new(126, 0, 0)
-						local goal = {
-							Position = UDim2.new(xoffpos, 0, yScale, yOffset)
-						}
-	
-						local tween = TweenService:Create(clone.togglebutton.TextLabel, twi, goal)
-						tween:Play()
-					end
+
+				TweenService:Create(dropdown.dropdownframe, tweenInfo, { Size = targetSize }):Play()
+				TweenService:Create(dropdown.ImageLabel, tweenInfo, { Rotation = targetRotation }):Play()
+			end
+
+			clone.dropdown.MouseButton1Click:Connect(onDropdownClick)
+
+			-- ✅ controller object
+			local controller = {}
+
+			function controller:AddOption(name, value)
+				local opt = clone.dropdownoptiontempl.dropdownoption:Clone()
+				opt.Name = name
+				opt.Text = value
+				opt.Parent = dropdown.dropdownframe
+				opt.Visible = true
+
+				opt.MouseButton1Click:Connect(function()
+					clone.dropdown.Text = value
+					onDropdownClick()
 				end)
-			elseif clone.Name == "dropdownlabel" then
-				if desc then
-					clone.Text = desc
+			end
+
+			function controller:GetSelected()
+				return clone.dropdown.Text
+			end
+
+			controller.Instance = clone
+
+			return controller
+		elseif clone.Name == "fieldlabel" then
+			if desc then
+				clone.Text = desc
+			end
+			-- Using GetPropertyChangedSignal (preferred for a single property)
+			clone.TextBox:GetPropertyChangedSignal("Text"):Connect(function()
+				wasclicked(clone.TextBox.Text)
+			end)
+
+		elseif clone.Name == "sliderlabel" then
+			if desc then
+				clone.Text = desc
+			end
+
+			local knob = clone.sliderrail.TextButton
+			local rail = clone.sliderrail
+
+			local UIS = game:GetService("UserInputService")
+
+			-- CONFIG
+			local MIN_VALUE = 0
+			local MAX_VALUE = 100
+
+			local function setSliderFromX(x)
+				local railX = rail.AbsolutePosition.X
+				local railWidth = rail.AbsoluteSize.X
+				local knobWidth = knob.AbsoluteSize.X
+				local ky = knob.Position.Y
+
+				local relativeX = math.clamp(
+					x - railX,
+					0,
+					railWidth - knobWidth
+				)
+
+				knob.Position = UDim2.new(0, relativeX, ky.Scale, ky.Offset)
+
+				local alpha = relativeX / (railWidth - knobWidth)
+				local value = MIN_VALUE + (MAX_VALUE - MIN_VALUE) * alpha
+				value = math.floor(value)
+
+				-- DISPLAY VALUE
+				clone.sliderrail.TextButton.Text = tostring(value)
+				wasclicked(tostring(value))
+
+				-- CALLBACK
+				if wasclicked then
+					wasclicked(value)
 				end
-				local dropdown = clone:FindFirstChild("dropdown")
-				local layout = dropdown.dropdownframe:WaitForChild("UIListLayout")
-	
-				local tweenInfo = TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-	
-	
-				local function onDropdownClick()
-					local xsc = dropdown.dropdownframe.Size.X.Scale
-					local targetSize, targetRotation
-	
-					if dropdown.dropdownframe.Size.Y.Scale == 0 then
-						targetSize = UDim2.fromScale(xsc, 5)
-						targetRotation = 270
-					else
-						targetSize = UDim2.fromScale(xsc, 0)
-						targetRotation = 90
-					end
-	
-					TweenService:Create(dropdown.dropdownframe, tweenInfo, { Size = targetSize }):Play()
-					TweenService:Create(dropdown.ImageLabel, tweenInfo, { Rotation = targetRotation }):Play()
+			end
+
+			local function startDrag(input)
+				clone.drag.Value = true
+				setSliderFromX(input.Position.X)
+			end
+
+			local function stopDrag()
+				clone.drag.Value = false
+			end
+
+			knob.InputBegan:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseButton1
+					or input.UserInputType == Enum.UserInputType.Touch then
+					startDrag(input)
 				end
-	
-				clone.dropdown.MouseButton1Click:Connect(onDropdownClick)
-	
-				-- ✅ controller object
-				local controller = {}
-	
-				function controller:AddOption(name, value)
-					local opt = clone.dropdownoptiontempl.dropdownoption:Clone()
-					opt.Name = name
-					opt.Text = value
-					opt.Parent = dropdown.dropdownframe
-					opt.Visible = true
-	
-					opt.MouseButton1Click:Connect(function()
-						clone.dropdown.Text = value
-						onDropdownClick()
-					end)
+			end)
+
+			knob.InputEnded:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseButton1
+					or input.UserInputType == Enum.UserInputType.Touch then
+					stopDrag()
 				end
-	
-				function controller:GetSelected()
-					return clone.dropdown.Text
-				end
-	
-				controller.Instance = clone
-	
-				return controller
-			elseif clone.Name == "fieldlabel" then
-				if desc then
-					clone.Text = desc
-				end
-				-- Using GetPropertyChangedSignal (preferred for a single property)
-				clone.TextBox:GetPropertyChangedSignal("Text"):Connect(function()
-					wasclicked(clone.TextBox.Text)
-				end)
-	
-			elseif clone.Name == "sliderlabel" then
-				if desc then
-					clone.Text = desc
-				end
-	
-				local knob = clone.sliderrail.TextButton
-				local rail = clone.sliderrail
-	
-				local UIS = game:GetService("UserInputService")
-	
-				-- CONFIG
-				local MIN_VALUE = 0
-				local MAX_VALUE = 100
-	
-				local function setSliderFromX(x)
-					local railX = rail.AbsolutePosition.X
-					local railWidth = rail.AbsoluteSize.X
-					local knobWidth = knob.AbsoluteSize.X
-					local ky = knob.Position.Y
-	
-					local relativeX = math.clamp(
-						x - railX,
-						0,
-						railWidth - knobWidth
-					)
-	
-					knob.Position = UDim2.new(0, relativeX, ky.Scale, ky.Offset)
-	
-					local alpha = relativeX / (railWidth - knobWidth)
-					local value = MIN_VALUE + (MAX_VALUE - MIN_VALUE) * alpha
-					value = math.floor(value)
-	
-					-- DISPLAY VALUE
-					clone.sliderrail.TextButton.Text = tostring(value)
-					wasclicked(tostring(value))
-	
-					-- CALLBACK
-					if wasclicked then
-						wasclicked(value)
-					end
-				end
-	
-				local function startDrag(input)
-					clone.drag.Value = true
+			end)
+
+			UIS.InputChanged:Connect(function(input)
+				if clone.drag.Value == true and (
+					input.UserInputType == Enum.UserInputType.MouseMovement
+						or input.UserInputType == Enum.UserInputType.Touch
+					) then
 					setSliderFromX(input.Position.X)
 				end
-	
-				local function stopDrag()
-					clone.drag.Value = false
-				end
-	
-				knob.InputBegan:Connect(function(input)
-					if input.UserInputType == Enum.UserInputType.MouseButton1
-						or input.UserInputType == Enum.UserInputType.Touch then
-						startDrag(input)
-					end
-				end)
-	
-				knob.InputEnded:Connect(function(input)
-					if input.UserInputType == Enum.UserInputType.MouseButton1
-						or input.UserInputType == Enum.UserInputType.Touch then
-						stopDrag()
-					end
-				end)
-	
-				UIS.InputChanged:Connect(function(input)
-					if clone.drag.Value == true and (
-						input.UserInputType == Enum.UserInputType.MouseMovement
-							or input.UserInputType == Enum.UserInputType.Touch
-						) then
-						setSliderFromX(input.Position.X)
-					end
-				end)
-			elseif clone.Name == "scriptbtn" then
-				if desc then
-					clone.TextLabel.Text = desc
-				end
-				if btnname then
-					clone.Image = btnname
-				end
-				clone.MouseButton1Click:Connect(function()
-					clone.alrexec.Value = true
-					wasclicked()
-				end)
+			end)
+		elseif clone.Name == "scriptbtn" then
+			if desc then
+				clone.TextLabel.Text = desc
 			end
 			if btnname then
-				clone.Name = btnname
+				clone.Image = btnname
 			end
-			clone.Visible = true
-	
-			return clone
-		end
-		local function createDropdown(order, parent, name, title, options)
-			local d = clonebtn(
-				order,
-				parent,
-				templates.dropdownlabel,
-				name,
-				title
-			)
-	
-			-- clonebtn returns a controller for dropdowns
-			d.Instance.Visible = true
-	
-			if options then
-				for _, opt in ipairs(options) do
-					-- opt = { internalName, displayText }
-					d:AddOption(opt[1], opt[2])
-				end
-			end
-	
-			return d
-		end
-		local dropdowns = {}
-		-- Helper to extract numbers from text like "ping: 100ms"
-		local function getNumber(str)
-			return tonumber(string.match(str, "%d+")) or 0
-		end
-	
-		local function sortServers()
-			-- Find the servers tab and the container
-			local serversTab = tabHolder:WaitForChild("serverstab")
-			if not serversTab then return end
-	
-			local container = serversTab.servers
-			local btnHolder = serversTab.serversbuttonholder
-	
-			-- Get current sorting criteria from button text
-			local criteria = btnHolder.sortby.Text -- "ping" or "player count"
-			local direction = btnHolder.sortbylh.Text -- "lowest to highest" or "highest to lowest"
-	
-			local items = {}
-	
-			-- Gather all server frames
-			for _, child in pairs(container:GetChildren()) do
-				-- Ignore the UIListLayout and the example template if it exists
-				if child:IsA("Frame") and child.Name ~= "exampleserver" and child.Visible == true then
-					local pingVal = getNumber(child.ping.Text)
-					local playerVal = getNumber(child.players.Text)
-					table.insert(items, {
-						Instance = child,
-						Ping = pingVal,
-						Players = playerVal
-					})
-				end
-			end
-	
-			-- Sort the table
-			table.sort(items, function(a, b)
-				local valA, valB
-	
-				-- Select value based on criteria
-				if criteria == "ping" then
-					valA = a.Ping
-					valB = b.Ping
-				else -- player count
-					valA = a.Players
-					valB = b.Players
-				end
-	
-				-- Return comparison based on direction
-				if direction == "lowest to highest" then
-					return valA < valB
-				else
-					return valA > valB
-				end
-			end)
-	
-			-- Apply LayoutOrder
-			for i, item in ipairs(items) do
-				item.Instance.LayoutOrder = i
-			end
-		end
-	
-	
-		
-		-- param: guidest, templategui, guiname
-		local function cloneFrame(parentGui, templateFrame, newName)
-			if not parentGui or not templateFrame then
-				error("cloneFrame: missing arguments")
-			end
-			if not templateFrame:IsA("GuiObject") then
-				error("cloneFrame: template must be a GuiObject")
-			end
-	
-			local clone = templateFrame:Clone()
-			if clone.Name == "serverstab" then
-				clone.serversbuttonholder.sortby.MouseButton1Click:Connect(function()
-					if clone.serversbuttonholder.sortby.Text == "ping" then
-						clone.serversbuttonholder.sortby.Text = "player count"
-					else 
-						clone.serversbuttonholder.sortby.Text = "ping"
-					end
-					sortServers()
-				end)
-				clone.serversbuttonholder.sortbylh.MouseButton1Click:Connect(function()
-					if clone.serversbuttonholder.sortbylh.Text == "lowest to highest" then
-						clone.serversbuttonholder.sortbylh.Text = "highest to lowest"
-					else 
-						clone.serversbuttonholder.sortbylh.Text = "lowest to highest"
-					end
-					sortServers()
-				end)
-				-- SAVED BUTTON (Go back to saved/home)
-				clone.serversbuttonholder.saved.MouseButton1Click:Connect(function()
-					if clone.servers.Visible == true then
-						clone.servers.Visible = false
-						clone.saved.Visible = true
-						-- Reset text back to "servers" when leaving the servers tab
-						clone.serversbuttonholder.servers.Text = "servers" 
-					end
-				end)
-	
-	
-			end
-			clone.Parent = parentGui
-			if newName then
-				clone.Name = newName
-			end
-			clone.Visible = false -- hide initially
-			return clone
-		end
-		-- Show one frame and hide the rest
-		local function showFrame(frameName)
-			for _, child in ipairs(tabHolder:GetChildren()) do
-				if child:IsA("Frame") or child:IsA("ScrollingFrame") then
-					child.Visible = (child.Name == frameName)
-				end
-			end
-		end
-		-- Update GUI when StringValue changes
-		currentframe.Changed:Connect(function()
-			local frameName = currentframe.Value
-			if tabHolder:FindFirstChild(frameName) then
-				showFrame(frameName)
-			end
-		end)
-		
-	
-		local function addHeaderButton(uilayoutorder, imageId, frameName)
-			local button = templates.headerbutton.button:Clone()
-			button.Parent = tabButtons
-			button.Visible = true
-	
-			if uilayoutorder then
-				button.LayoutOrder = uilayoutorder
-			end
-	
-			-- Set image
-			if button:IsA("ImageButton") then
-				button.Image = "rbxassetid://" .. imageId
-			else
-				local img = button:FindFirstChildWhichIsA("ImageLabel", true)
-				if img then
-					img.Image = "rbxassetid://" .. imageId
-				end
-			end
-	
-			-- UIStroke reference (must exist in the button)
-			local stroke = button:WaitForChild("UIStroke")
-	
-			-- Press highlight (PC + mobile)
-			button.InputBegan:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1
-					or input.UserInputType == Enum.UserInputType.Touch then
-					stroke.Color = Color3.new(1, 1, 1) -- white
-				end
-			end)
-	
-			button.InputEnded:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1
-					or input.UserInputType == Enum.UserInputType.Touch then
-					stroke.Color = Color3.new(0.129412, 0.129412, 0.129412) -- black
-				end
-			end)
-	
-			-- Click callback
-			button.MouseButton1Click:Connect(function()
-				currentframe.Value = frameName
-			end)
-	
-			return button
-		end
-		-- Example usage: clone a frame and add its button
-		cloneFrame(tabHolder, templates.tab, "sf")
-		cloneFrame(tabHolder, templates.scriptstab, "scriptstab")
-		cloneFrame(tabHolder, templates.serverstab, "serverstab")
-	
-	
-	
-		clonebtn(2, tabHolder:WaitForChild("scriptstab"), templates.scriptbtn, "rbxassetid://71186851898433", "rochips panel", function(state)
-			print("scripts")
-		end)
-		clonebtn(1, tabHolder:WaitForChild("scriptstab"), templates.scriptbtn, "rbxassetid://130142990360332", "infinite yield", function(state)
-			loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
-		end)
-	
-		addHeaderButton(1, 10734943448, "scriptstab")
-		addHeaderButton(2, 10734949856, "serverstab")
-	
-		currentframe.Value = "scriptstab"
-		
-		local function createSavedServerEntry(jobid, gameid, pingText, playersText)
-			local savedContainer = tabHolder.serverstab.saved
-	
-			-- Prevent visual duplicates
-			if savedContainer:FindFirstChild(jobid) then return end
-	
-			local temp = tabHolder.serverstab.exampleserver:Clone()
-			temp.Name = jobid
-			temp.Parent = savedContainer
-			temp.Visible = true
-	
-			temp.jobid.Text = jobid
-			temp.gameid.Value = gameid
-			temp.ping.Text = pingText
-			temp.players.Text = playersText
-	
-			-- Play Button
-			if temp:FindFirstChild("play") then
-				temp.play.MouseButton1Click:Connect(function()
-					TeleportService:TeleportToPlaceInstance(gameid, jobid)
-				end)
-			end
-	
-			-- Remove Button (Replaces Save Button)
-			if temp:FindFirstChild("save") then
-				temp.save.Image = "rbxassetid://10747362241" -- Trash icon
-				temp.save.MouseButton1Click:Connect(function()
-					temp:Destroy()
-					-- Remove from the single file
-					removeServerFromFile(jobid, gameid)
-				end)
-			end
-		end
-		local function addserverbtn(jobid, gameid, ping, playercount)
-			local temp = tabHolder.serverstab.exampleserver:Clone()
-			temp.Parent = tabHolder.serverstab.servers
-			temp.Visible = true
-			temp.jobid.Text = jobid
-			temp.gameid.Value = gameid
-			temp.Name = jobid 
-			temp.ping.Text = "ping: " .. ping .. "ms"
-			temp.players.Text = playercount .. " players"
-	
-			-- Join
-			temp.play.MouseButton1Click:Connect(function()
-				TeleportService:TeleportToPlaceInstance(temp.gameid.Value, jobid)
-			end)
-	
-			-- Save Button
-			temp.save.MouseButton1Click:Connect(function()
-				-- 1. Visually add to Saved Tab
-				createSavedServerEntry(jobid, gameid, temp.ping.Text, temp.players.Text)
-	
-				-- 2. Write to the single JSON file
-				saveServerToFile(jobid, gameid, temp.ping.Text, temp.players.Text)
+			clone.MouseButton1Click:Connect(function()
+				clone.alrexec.Value = true
+				wasclicked()
 			end)
 		end
-		-- Function to Fetch Servers
-		local function fetchServers()
-			local serversFrame = tabHolder:WaitForChild("serverstab"):WaitForChild("servers")
-			local placeId = game.PlaceId
-			local url = "https://games.roblox.com/v1/games/" .. placeId .. "/servers/Public?sortOrder=Desc&excludeFullGames=true&limit=100"
-	
-			local success, result
-	
-			-- Detect environment (Executor vs Studio)
-			local httpRequest = (syn and syn.request) or (http and http.request) or (http_request) or (fluxus and fluxus.request) or request
-	
-			if httpRequest then
-				-- Executor Environment
-				local response = httpRequest({
-					Url = url,
-					Method = "GET"
-				})
-				if response.StatusCode == 200 then
-					success = true
-					result = response.Body
-				end
-			else
-				local HttpService = game:GetService("HttpService")
-				success, result = pcall(function()
-					return HttpService:GetAsync(url) -- Will fail in standard game without proxy
-				end)
-			end
-	
-			if success and result then
-				local HttpService = game:GetService("HttpService")
-				local data = HttpService:JSONDecode(result)
-	
-				if data and data.data then
-					-- Clear old servers (except template/layout)
-					for _, child in pairs(serversFrame:GetChildren()) do
-						if child:IsA("Frame") and child.Name ~= "exampleserver" then
-							child:Destroy()
-						end
-					end
-	
-					-- Add new servers
-					for _, server in pairs(data.data) do
-						-- Calculate actual ping (Roblox API doesn't give real ping, usually just location, 
-						-- so we often estimate or set it to the API ping property if available, otherwise random/0)
-						local sPing = server.ping or 0
-						local sPlayers = server.playing or 0
-						local sJobId = server.id
-	
-						-- Call your existing function
-						addserverbtn(sJobId, placeId, sPing, sPlayers)
-					end
-	
-					-- Update the sort immediately after loading
-					sortServers()
-				end
-			else
-				warn("Failed to fetch servers. If in Studio, ensure HttpEnabled is on and use a proxy.")
-			end
+		if btnname then
+			clone.Name = btnname
 		end
-	
-		-- SERVERS / RELOAD BUTTON
-		tabHolder.serverstab.serversbuttonholder.servers.MouseButton1Click:Connect(function()
-			-- CASE 1: The servers list is ALREADY open
-			if tabHolder.serverstab.servers.Visible == true then
-				-- This acts as the Reload button
-				tabHolder.serverstab.serversbuttonholder.servers.Text = "reload" -- Ensure text indicates reload
-				fetchServers()
-	
-				-- CASE 2: The servers list is closed (switching from Saved to Servers)
-			else
-				tabHolder.serverstab.saved.Visible = false
-				tabHolder.serverstab.servers.Visible = true
-				-- Change the text to "reload" immediately so the NEXT click reloads
-				tabHolder.serverstab.serversbuttonholder.servers.Text = "reload" 
-	
-				-- Optional: You might want to fetch servers immediately upon opening too
-				-- fetchServers() 
-			end
-			
-		end)
-		
-		local function loadAllSavedServers()
-			local db = getDatabase()
-	
-			-- We use pairs() to iterate through every Game ID (key) in the database
-			for gameId, serverList in pairs(db) do
-				-- serverList is the array of servers for that specific gameId
-				for _, server in ipairs(serverList) do
-					-- Convert gameId back to a number if your entry function requires it
-					createSavedServerEntry(
-						server.jobid, 
-						tonumber(gameId), 
-						server.ping, 
-						server.players
-					)
-				end
-			end
-		end
-	
-		-- Run
-		fetchServers()
-		loadAllSavedServers()
-	
+		clone.Visible = true
+
+		return clone
 	end
+	local function createDropdown(order, parent, name, title, options)
+		local d = clonebtn(
+			order,
+			parent,
+			templates.dropdownlabel,
+			name,
+			title
+		)
+
+		-- clonebtn returns a controller for dropdowns
+		d.Instance.Visible = true
+
+		if options then
+			for _, opt in ipairs(options) do
+				-- opt = { internalName, displayText }
+				d:AddOption(opt[1], opt[2])
+			end
+		end
+
+		return d
+	end
+	local dropdowns = {}
+	-- Helper to extract numbers from text like "ping: 100ms"
+	local function getNumber(str)
+		return tonumber(string.match(str, "%d+")) or 0
+	end
+
+	local function sortServers()
+		-- Find the servers tab and the container
+		local serversTab = tabHolder:WaitForChild("serverstab")
+		if not serversTab then return end
+
+		local container = serversTab.servers
+		local btnHolder = serversTab.serversbuttonholder
+
+		-- Get current sorting criteria from button text
+		local criteria = btnHolder.sortby.Text -- "ping" or "player count"
+		local direction = btnHolder.sortbylh.Text -- "lowest to highest" or "highest to lowest"
+
+		local items = {}
+
+		-- Gather all server frames
+		for _, child in pairs(container:GetChildren()) do
+			-- Ignore the UIListLayout and the example template if it exists
+			if child:IsA("Frame") and child.Name ~= "exampleserver" and child.Visible == true then
+				local pingVal = getNumber(child.ping.Text)
+				local playerVal = getNumber(child.players.Text)
+				table.insert(items, {
+					Instance = child,
+					Ping = pingVal,
+					Players = playerVal
+				})
+			end
+		end
+
+		-- Sort the table
+		table.sort(items, function(a, b)
+			local valA, valB
+
+			-- Select value based on criteria
+			if criteria == "ping" then
+				valA = a.Ping
+				valB = b.Ping
+			else -- player count
+				valA = a.Players
+				valB = b.Players
+			end
+
+			-- Return comparison based on direction
+			if direction == "lowest to highest" then
+				return valA < valB
+			else
+				return valA > valB
+			end
+		end)
+
+		-- Apply LayoutOrder
+		for i, item in ipairs(items) do
+			item.Instance.LayoutOrder = i
+		end
+	end
+
+
 	
-	loader.load.MouseButton1Click:Connect(function()
-		loader.TextLabel.Text = "loading. [0%]"
-		loader.load:Destroy()
-		loader.UIStroke:Destroy()
-		local blur = Instance.new("BlurEffect")
-		blur.Parent = game:GetService("Lighting")
-		blur.Size = 0
-		local b = {
-			BackgroundTransparency = 1
-		}
-		local t = game:GetService("TweenService"):Create(loader, twi, b)
-		t:Play()
-		
-		local b = {
-			Position = UDim2.fromScale(0.497, 0.139)
-		}
-		local t = game:GetService("TweenService"):Create(loader.image, twi, b)
-		t:Play()
-		
-		local b = {
-			Size = UDim2.fromOffset(150, 150)
-		}
-		local t = game:GetService("TweenService"):Create(loader.image, twi, b)
-		t:Play()
-	
-		
-		local b = {
-			Size = 24
-		}
-		local t = game:GetService("TweenService"):Create(blur, twi, b)
-		t:Play()
-		load()
-		loader.TextLabel.Text = "loaded successfully!"
-		wait(.5)
-		local b = {
-			Size = 0
-		}
-		local t = game:GetService("TweenService"):Create(blur, twi, b)
-		t:Play()
-		loader:Destroy()
-		frame.Visible = true
-		wait(1)
-		blur:Destroy()
+	-- param: guidest, templategui, guiname
+	local function cloneFrame(parentGui, templateFrame, newName)
+		if not parentGui or not templateFrame then
+			error("cloneFrame: missing arguments")
+		end
+		if not templateFrame:IsA("GuiObject") then
+			error("cloneFrame: template must be a GuiObject")
+		end
+
+		local clone = templateFrame:Clone()
+		if clone.Name == "serverstab" then
+			clone.serversbuttonholder.sortby.MouseButton1Click:Connect(function()
+				if clone.serversbuttonholder.sortby.Text == "ping" then
+					clone.serversbuttonholder.sortby.Text = "player count"
+				else 
+					clone.serversbuttonholder.sortby.Text = "ping"
+				end
+				sortServers()
+			end)
+			clone.serversbuttonholder.sortbylh.MouseButton1Click:Connect(function()
+				if clone.serversbuttonholder.sortbylh.Text == "lowest to highest" then
+					clone.serversbuttonholder.sortbylh.Text = "highest to lowest"
+				else 
+					clone.serversbuttonholder.sortbylh.Text = "lowest to highest"
+				end
+				sortServers()
+			end)
+			-- SAVED BUTTON (Go back to saved/home)
+			clone.serversbuttonholder.saved.MouseButton1Click:Connect(function()
+				if clone.servers.Visible == true then
+					clone.servers.Visible = false
+					clone.saved.Visible = true
+					-- Reset text back to "servers" when leaving the servers tab
+					clone.serversbuttonholder.servers.Text = "servers" 
+				end
+			end)
+
+
+		end
+		clone.Parent = parentGui
+		if newName then
+			clone.Name = newName
+		end
+		clone.Visible = false -- hide initially
+		return clone
+	end
+	-- Show one frame and hide the rest
+	local function showFrame(frameName)
+		for _, child in ipairs(tabHolder:GetChildren()) do
+			if child:IsA("Frame") or child:IsA("ScrollingFrame") then
+				child.Visible = (child.Name == frameName)
+			end
+		end
+	end
+	-- Update GUI when StringValue changes
+	currentframe.Changed:Connect(function()
+		local frameName = currentframe.Value
+		if tabHolder:FindFirstChild(frameName) then
+			showFrame(frameName)
+		end
 	end)
 	
+
+	local function addHeaderButton(uilayoutorder, imageId, frameName)
+		local button = templates.headerbutton.button:Clone()
+		button.Parent = tabButtons
+		button.Visible = true
+
+		if uilayoutorder then
+			button.LayoutOrder = uilayoutorder
+		end
+
+		-- Set image
+		if button:IsA("ImageButton") then
+			button.Image = "rbxassetid://" .. imageId
+		else
+			local img = button:FindFirstChildWhichIsA("ImageLabel", true)
+			if img then
+				img.Image = "rbxassetid://" .. imageId
+			end
+		end
+
+		-- UIStroke reference (must exist in the button)
+		local stroke = button:WaitForChild("UIStroke")
+
+		-- Press highlight (PC + mobile)
+		button.InputBegan:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseButton1
+				or input.UserInputType == Enum.UserInputType.Touch then
+				stroke.Color = Color3.new(1, 1, 1) -- white
+			end
+		end)
+
+		button.InputEnded:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseButton1
+				or input.UserInputType == Enum.UserInputType.Touch then
+				stroke.Color = Color3.new(0.129412, 0.129412, 0.129412) -- black
+			end
+		end)
+
+		-- Click callback
+		button.MouseButton1Click:Connect(function()
+			currentframe.Value = frameName
+		end)
+
+		return button
+	end
+	-- Example usage: clone a frame and add its button
+	cloneFrame(tabHolder, templates.tab, "sf")
+	cloneFrame(tabHolder, templates.scriptstab, "scriptstab")
+	cloneFrame(tabHolder, templates.serverstab, "serverstab")
+
+
+
+	clonebtn(2, tabHolder:WaitForChild("scriptstab"), templates.scriptbtn, "rbxassetid://71186851898433", "rochips panel", function(state)
+		print("scripts")
+	end)
+	clonebtn(1, tabHolder:WaitForChild("scriptstab"), templates.scriptbtn, "rbxassetid://130142990360332", "infinite yield", function(state)
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+	end)
+
+	addHeaderButton(1, 10734943448, "scriptstab")
+	addHeaderButton(2, 10734949856, "serverstab")
+
+	currentframe.Value = "scriptstab"
+	
+	local function createSavedServerEntry(jobid, gameid, pingText, playersText)
+		local savedContainer = tabHolder.serverstab.saved
+
+		-- Prevent visual duplicates
+		if savedContainer:FindFirstChild(jobid) then return end
+
+		local temp = tabHolder.serverstab.exampleserver:Clone()
+		temp.Name = jobid
+		temp.Parent = savedContainer
+		temp.Visible = true
+
+		temp.jobid.Text = jobid
+		temp.gameid.Value = gameid
+		temp.ping.Text = pingText
+		temp.players.Text = playersText
+
+		-- Play Button
+		if temp:FindFirstChild("play") then
+			temp.play.MouseButton1Click:Connect(function()
+				TeleportService:TeleportToPlaceInstance(gameid, jobid)
+			end)
+		end
+
+		-- Remove Button (Replaces Save Button)
+		if temp:FindFirstChild("save") then
+			temp.save.Image = "rbxassetid://10747362241" -- Trash icon
+			temp.save.MouseButton1Click:Connect(function()
+				temp:Destroy()
+				-- Remove from the single file
+				removeServerFromFile(jobid, gameid)
+			end)
+		end
+	end
+	local function addserverbtn(jobid, gameid, ping, playercount)
+		local temp = tabHolder.serverstab.exampleserver:Clone()
+		temp.Parent = tabHolder.serverstab.servers
+		temp.Visible = true
+		temp.jobid.Text = jobid
+		temp.gameid.Value = gameid
+		temp.Name = jobid 
+		temp.ping.Text = "ping: " .. ping .. "ms"
+		temp.players.Text = playercount .. " players"
+
+		-- SET THE GAME ICON HERE
+		-- We use rbxthumb for the PlaceId to get the game's icon
+		temp.gameicon.Image = "rbxthumb://type=AutoGeneratedAsset&id=" .. gameid .. "&w=150&h=150"
+
+
+		-- Join
+		temp.play.MouseButton1Click:Connect(function()
+			TeleportService:TeleportToPlaceInstance(temp.gameid.Value, jobid, game.Players.LocalPlayer)
+		end)
+
+		-- Save Button
+		temp.save.MouseButton1Click:Connect(function()
+			createSavedServerEntry(jobid, gameid, temp.ping.Text, temp.players.Text)
+			saveServerToFile(jobid, gameid, temp.ping.Text, temp.players.Text)
+		end)
+	end
+
+	-- Function to Fetch Servers
+	local function fetchServers()
+		local serversFrame = tabHolder:WaitForChild("serverstab"):WaitForChild("servers")
+		local placeId = game.PlaceId
+		local url = "https://games.roblox.com/v1/games/" .. placeId .. "/servers/Public?sortOrder=Desc&excludeFullGames=true&limit=100"
+
+		local success, result
+
+		-- Detect environment (Executor vs Studio)
+		local httpRequest = (syn and syn.request) or (http and http.request) or (http_request) or (fluxus and fluxus.request) or request
+
+		if httpRequest then
+			-- Executor Environment
+			local response = httpRequest({
+				Url = url,
+				Method = "GET"
+			})
+			if response.StatusCode == 200 then
+				success = true
+				result = response.Body
+			end
+		else
+			local HttpService = game:GetService("HttpService")
+			success, result = pcall(function()
+				return HttpService:GetAsync(url) -- Will fail in standard game without proxy
+			end)
+		end
+
+		if success and result then
+			local HttpService = game:GetService("HttpService")
+			local data = HttpService:JSONDecode(result)
+
+			if data and data.data then
+				-- Clear old servers (except template/layout)
+				for _, child in pairs(serversFrame:GetChildren()) do
+					if child:IsA("Frame") and child.Name ~= "exampleserver" then
+						child:Destroy()
+					end
+				end
+
+				-- Add new servers
+				for _, server in pairs(data.data) do
+					-- Calculate actual ping (Roblox API doesn't give real ping, usually just location, 
+					-- so we often estimate or set it to the API ping property if available, otherwise random/0)
+					local sPing = server.ping or 0
+					local sPlayers = server.playing or 0
+					local sJobId = server.id
+
+					-- Call your existing function
+					addserverbtn(sJobId, placeId, sPing, sPlayers)
+				end
+
+				-- Update the sort immediately after loading
+				sortServers()
+			end
+		else
+			warn("Failed to fetch servers. If in Studio, ensure HttpEnabled is on and use a proxy.")
+		end
+	end
+
+	-- SERVERS / RELOAD BUTTON
+	tabHolder.serverstab.serversbuttonholder.servers.MouseButton1Click:Connect(function()
+		-- CASE 1: The servers list is ALREADY open
+		if tabHolder.serverstab.servers.Visible == true then
+			-- This acts as the Reload button
+			tabHolder.serverstab.serversbuttonholder.servers.Text = "reload" -- Ensure text indicates reload
+			fetchServers()
+
+			-- CASE 2: The servers list is closed (switching from Saved to Servers)
+		else
+			tabHolder.serverstab.saved.Visible = false
+			tabHolder.serverstab.servers.Visible = true
+			-- Change the text to "reload" immediately so the NEXT click reloads
+			tabHolder.serverstab.serversbuttonholder.servers.Text = "reload" 
+
+			-- Optional: You might want to fetch servers immediately upon opening too
+			-- fetchServers() 
+		end
+		
+	end)
+	
+	local function loadAllSavedServers()
+		local db = getDatabase()
+
+		-- We use pairs() to iterate through every Game ID (key) in the database
+		for gameId, serverList in pairs(db) do
+			-- serverList is the array of servers for that specific gameId
+			for _, server in ipairs(serverList) do
+				-- Convert gameId back to a number if your entry function requires it
+				createSavedServerEntry(
+					server.jobid, 
+					tonumber(gameId), 
+					server.ping, 
+					server.players
+				)
+			end
+		end
+	end
+
+	-- Run
+	fetchServers()
+	loadAllSavedServers()
+
+end
+
+loader.load.MouseButton1Click:Connect(function()
+	loader.TextLabel.Text = "loading. [0%]"
+	loader.load:Destroy()
+	loader.UIStroke:Destroy()
+	local blur = Instance.new("BlurEffect")
+	blur.Parent = game:GetService("Lighting")
+	blur.Size = 0
+	local b = {
+		BackgroundTransparency = 1
+	}
+	local t = game:GetService("TweenService"):Create(loader, twi, b)
+	t:Play()
+	
+	local b = {
+		Position = UDim2.fromScale(0.497, 0.139)
+	}
+	local t = game:GetService("TweenService"):Create(loader.image, twi, b)
+	t:Play()
+	
+	local b = {
+		Size = UDim2.fromOffset(150, 150)
+	}
+	local t = game:GetService("TweenService"):Create(loader.image, twi, b)
+	t:Play()
+
+	
+	local b = {
+		Size = 24
+	}
+	local t = game:GetService("TweenService"):Create(blur, twi, b)
+	t:Play()
+	load()
+	loader.TextLabel.Text = "loaded successfully!"
+	wait(.5)
+	local b = {
+		Size = 0
+	}
+	local t = game:GetService("TweenService"):Create(blur, twi, b)
+	t:Play()
+	loader:Destroy()
+	frame.Visible = true
+	wait(1)
+	blur:Destroy()
+end)
+
 end;
 task.spawn(C_2);
 
