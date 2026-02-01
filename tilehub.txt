@@ -995,7 +995,7 @@ G2L["79"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum
 G2L["79"]["Size"] = UDim2.new(0.9, 0, 0.15, 0);
 G2L["79"]["Name"] = [[servers]];
 G2L["79"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["79"]["Text"] = [[servers]];
+G2L["79"]["Text"] = [[reload]];
 
 
 -- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.servers.UIStroke
@@ -1476,7 +1476,7 @@ G2L["ad"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["ad"]["BackgroundTransparency"] = 1;
 G2L["ad"]["Size"] = UDim2.new(0, 189, 0, 30);
 G2L["ad"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["ad"]["Text"] = "[tilehub [revamped]"
+G2L["ad"]["Text"] = "tilehub [revamped]"
 G2L["ad"]["Position"] = UDim2.new(0.21515, 0, 0.57895, 0);
 
 
@@ -1549,6 +1549,87 @@ local script = G2L["2"];
 	end
 	
 	function load()
+		local HttpService = game:GetService("HttpService")
+		local TeleportService = game:GetService("TeleportService")
+	
+		-- ONE file name for everything
+		local FILE_NAME = "tilehubsaved_servers.json"
+	
+		-- Check for executor support
+		local hasFileSystem = (writefile and readfile and isfile)
+	
+		-- 1. Helper to get the WHOLE database (all games)
+		local function getDatabase()
+			if not hasFileSystem then return {} end
+	
+			if isfile(FILE_NAME) then
+				local success, result = pcall(function()
+					return HttpService:JSONDecode(readfile(FILE_NAME))
+				end)
+				if success and type(result) == "table" then
+					return result
+				end
+			end
+			return {} -- Return empty table if file doesn't exist or is corrupt
+		end
+	
+		-- 2. Helper to save the WHOLE database
+		local function saveDatabase(db)
+			if not hasFileSystem then return end
+			pcall(function()
+				writefile(FILE_NAME, HttpService:JSONEncode(db))
+			end)
+		end
+	
+		-- 3. Function to add a server to the file
+		local function saveServerToFile(jobid, gameid, ping, players)
+			local db = getDatabase()
+			local sGameId = tostring(gameid) -- JSON keys must be strings
+	
+			-- Create table for this game if it doesn't exist
+			if not db[sGameId] then
+				db[sGameId] = {}
+			end
+	
+			-- Check for duplicates to avoid saving the same server twice
+			for _, server in pairs(db[sGameId]) do
+				if server.jobid == jobid then
+					return -- Already saved
+				end
+			end
+	
+			-- Add new server
+			table.insert(db[sGameId], {
+				jobid = jobid,
+				ping = ping,
+				players = players
+			})
+	
+			saveDatabase(db)
+		end
+	
+		-- 4. Function to remove a server from the file
+		local function removeServerFromFile(jobid, gameid)
+			local db = getDatabase()
+			local sGameId = tostring(gameid)
+	
+			if db[sGameId] then
+				for i, server in ipairs(db[sGameId]) do
+					if server.jobid == jobid then
+						table.remove(db[sGameId], i)
+						break
+					end
+				end
+	
+				-- Optional: Remove the game key if empty to keep file clean
+				if #db[sGameId] == 0 then
+					db[sGameId] = nil 
+				end
+	
+				saveDatabase(db)
+			end
+		end
+	
 		local function clonebtn(uilayoutorder, parentGui, templatebtnpath, btnname, desc , wasclicked) -- clonebtn(the gui, the btn path, the btn name to change to, desc , function)
 			if not parentGui or not templatebtnpath then
 				error("missing arguments")
@@ -1839,65 +1920,9 @@ local script = G2L["2"];
 				item.Instance.LayoutOrder = i
 			end
 		end
+	
+	
 		
-		-- Function to Fetch Servers
-		local function fetchServers()
-			local placeId = game.PlaceId
-			local url = "https://games.roblox.com/v1/games/" .. placeId .. "/servers/Public?sortOrder=Desc&excludeFullGames=true&limit=100"
-	
-			local success, result
-	
-			-- Detect environment (Executor vs Studio)
-			local httpRequest = (syn and syn.request) or (http and http.request) or (http_request) or (fluxus and fluxus.request) or request
-	
-			if httpRequest then
-				-- Executor Environment
-				local response = httpRequest({
-					Url = url,
-					Method = "GET"
-				})
-				if response.StatusCode == 200 then
-					success = true
-					result = response.Body
-				end
-			else
-				local HttpService = game:GetService("HttpService")
-				success, result = pcall(function()
-					return HttpService:GetAsync(url) -- Will fail in standard game without proxy
-				end)
-			end
-	
-			if success and result then
-				local HttpService = game:GetService("HttpService")
-				local data = HttpService:JSONDecode(result)
-	
-				if data and data.data then
-					-- Clear old servers (except template/layout)
-					for _, child in pairs(serversFrame:GetChildren()) do
-						if child:IsA("Frame") and child.Name ~= "exampleserver" then
-							child:Destroy()
-						end
-					end
-	
-					-- Add new servers
-					for _, server in pairs(data.data) do
-						-- Calculate actual ping (Roblox API doesn't give real ping, usually just location, 
-						-- so we often estimate or set it to the API ping property if available, otherwise random/0)
-						local sPing = server.ping or 0
-						local sPlayers = server.playing or 0
-						local sJobId = server.id
-	
-						-- Call your existing function
-						addserverbtn(sJobId, placeId, sPing, sPlayers)
-					end
-	
-					-- Update the sort immediately after loading
-					sortServers()
-				end
-			else
-				warn("Failed to fetch servers. If in Studio, ensure HttpEnabled is on and use a proxy.")
-			end
-		end
 		-- param: guidest, templategui, guiname
 		local function cloneFrame(parentGui, templateFrame, newName)
 			if not parentGui or not templateFrame then
@@ -1935,25 +1960,7 @@ local script = G2L["2"];
 					end
 				end)
 	
-				-- SERVERS / RELOAD BUTTON
-				clone.serversbuttonholder.servers.MouseButton1Click:Connect(function()
-					-- CASE 1: The servers list is ALREADY open
-					if clone.servers.Visible == true then
-						-- This acts as the Reload button
-						clone.serversbuttonholder.servers.Text = "reload" -- Ensure text indicates reload
-						fetchServers()
 	
-						-- CASE 2: The servers list is closed (switching from Saved to Servers)
-					else
-						clone.saved.Visible = false
-						clone.servers.Visible = true
-						-- Change the text to "reload" immediately so the NEXT click reloads
-						clone.serversbuttonholder.servers.Text = "reload" 
-	
-						-- Optional: You might want to fetch servers immediately upon opening too
-						-- fetchServers() 
-					end
-				end)
 			end
 			clone.Parent = parentGui
 			if newName then
@@ -2027,13 +2034,9 @@ local script = G2L["2"];
 		cloneFrame(tabHolder, templates.tab, "sf")
 		cloneFrame(tabHolder, templates.scriptstab, "scriptstab")
 		cloneFrame(tabHolder, templates.serverstab, "serverstab")
-		-- Ensure UIListLayout exists in the servers folder for sorting to work
-		local serversFrame = tabHolder:WaitForChild("serverstab"):WaitForChild("servers")
-		if not serversFrame:FindFirstChild("UIListLayout") then
-			local list = Instance.new("UIListLayout")
-			list.Parent = serversFrame
-			list.SortOrder = Enum.SortOrder.LayoutOrder -- Crucial for our sort function
-		end
+	
+	
+	
 		clonebtn(2, tabHolder:WaitForChild("scriptstab"), templates.scriptbtn, "rbxassetid://71186851898433", "rochips panel", function(state)
 			print("scripts")
 		end)
@@ -2046,59 +2049,166 @@ local script = G2L["2"];
 	
 		currentframe.Value = "scriptstab"
 		
-		
+		local function createSavedServerEntry(jobid, gameid, pingText, playersText)
+			local savedContainer = tabHolder.serverstab.saved
+	
+			-- Prevent visual duplicates
+			if savedContainer:FindFirstChild(jobid) then return end
+	
+			local temp = tabHolder.serverstab.exampleserver:Clone()
+			temp.Name = jobid
+			temp.Parent = savedContainer
+			temp.Visible = true
+	
+			temp.jobid.Text = jobid
+			temp.gameid.Value = gameid
+			temp.ping.Text = pingText
+			temp.players.Text = playersText
+	
+			-- Play Button
+			if temp:FindFirstChild("play") then
+				temp.play.MouseButton1Click:Connect(function()
+					TeleportService:TeleportToPlaceInstance(gameid, jobid)
+				end)
+			end
+	
+			-- Remove Button (Replaces Save Button)
+			if temp:FindFirstChild("save") then
+				temp.save.Image = "rbxassetid://10747362241" -- Trash icon
+				temp.save.MouseButton1Click:Connect(function()
+					temp:Destroy()
+					-- Remove from the single file
+					removeServerFromFile(jobid, gameid)
+				end)
+			end
+		end
 		local function addserverbtn(jobid, gameid, ping, playercount)
 			local temp = tabHolder.serverstab.exampleserver:Clone()
-			-- Basic setup
 			temp.Parent = tabHolder.serverstab.servers
 			temp.Visible = true
 			temp.jobid.Text = jobid
 			temp.gameid.Value = gameid
-			temp.Name = jobid -- Crucial: This sets the frame name to the unique Job ID
+			temp.Name = jobid 
 			temp.ping.Text = "ping: " .. ping .. "ms"
 			temp.players.Text = playercount .. " players"
 	
-			-- Join Button Logic
+			-- Join
 			temp.play.MouseButton1Click:Connect(function()
-				local tpservice = game:GetService("TeleportService")
-				tpservice:TeleportToPlaceInstance(temp.gameid.Value, jobid)
+				TeleportService:TeleportToPlaceInstance(temp.gameid.Value, jobid)
 			end)
 	
-			-- Save Button Logic
+			-- Save Button
 			temp.save.MouseButton1Click:Connect(function()
-				local saved = tabHolder.serverstab.saved
+				-- 1. Visually add to Saved Tab
+				createSavedServerEntry(jobid, gameid, temp.ping.Text, temp.players.Text)
 	
-				-- 1. Check for duplicates
-				-- Since temp.Name is the jobid, we check if that name exists in 'saved'
-				if saved:FindFirstChild(jobid) then
-					return -- Stop the function here if it already exists
-				end
-	
-				-- 2. Clone and Parent
-				local temp2 = temp:Clone()
-				temp2.Parent = saved
-	
-				-- 3. (Optional) Modify the button on the SAVED copy to be a "Remove" button
-				-- This prevents the saved copy from having a useless "Save" button
-				if temp2:FindFirstChild("save") then
-					temp2.save.Image = "rbxassetid://10747362241"
-					temp2.save.MouseButton1Click:Connect(function()
-						temp2:Destroy()
-					end)
-				end
-				
-				if temp2:FindFirstChild("play") then
-					temp2.play.MouseButton1Click:Connect(function()
-					    local tpservice = game:GetService("TeleportService")
-					    tpservice:TeleportToPlaceInstance(temp2.gameid.Value, temp2.Name)
-					end)
-				end
+				-- 2. Write to the single JSON file
+				saveServerToFile(jobid, gameid, temp.ping.Text, temp.players.Text)
 			end)
 		end
-		
+		-- Function to Fetch Servers
+		local function fetchServers()
+			local serversFrame = tabHolder:WaitForChild("serverstab"):WaitForChild("servers")
+			local placeId = game.PlaceId
+			local url = "https://games.roblox.com/v1/games/" .. placeId .. "/servers/Public?sortOrder=Desc&excludeFullGames=true&limit=100"
 	
-
+			local success, result
+	
+			-- Detect environment (Executor vs Studio)
+			local httpRequest = (syn and syn.request) or (http and http.request) or (http_request) or (fluxus and fluxus.request) or request
+	
+			if httpRequest then
+				-- Executor Environment
+				local response = httpRequest({
+					Url = url,
+					Method = "GET"
+				})
+				if response.StatusCode == 200 then
+					success = true
+					result = response.Body
+				end
+			else
+				local HttpService = game:GetService("HttpService")
+				success, result = pcall(function()
+					return HttpService:GetAsync(url) -- Will fail in standard game without proxy
+				end)
+			end
+	
+			if success and result then
+				local HttpService = game:GetService("HttpService")
+				local data = HttpService:JSONDecode(result)
+	
+				if data and data.data then
+					-- Clear old servers (except template/layout)
+					for _, child in pairs(serversFrame:GetChildren()) do
+						if child:IsA("Frame") and child.Name ~= "exampleserver" then
+							child:Destroy()
+						end
+					end
+	
+					-- Add new servers
+					for _, server in pairs(data.data) do
+						-- Calculate actual ping (Roblox API doesn't give real ping, usually just location, 
+						-- so we often estimate or set it to the API ping property if available, otherwise random/0)
+						local sPing = server.ping or 0
+						local sPlayers = server.playing or 0
+						local sJobId = server.id
+	
+						-- Call your existing function
+						addserverbtn(sJobId, placeId, sPing, sPlayers)
+					end
+	
+					-- Update the sort immediately after loading
+					sortServers()
+				end
+			else
+				warn("Failed to fetch servers. If in Studio, ensure HttpEnabled is on and use a proxy.")
+			end
+		end
+	
+		-- SERVERS / RELOAD BUTTON
+		tabHolder.serverstab.serversbuttonholder.servers.MouseButton1Click:Connect(function()
+			-- CASE 1: The servers list is ALREADY open
+			if tabHolder.serverstab.servers.Visible == true then
+				-- This acts as the Reload button
+				tabHolder.serverstab.serversbuttonholder.servers.Text = "reload" -- Ensure text indicates reload
+				fetchServers()
+	
+				-- CASE 2: The servers list is closed (switching from Saved to Servers)
+			else
+				tabHolder.serverstab.saved.Visible = false
+				tabHolder.serverstab.servers.Visible = true
+				-- Change the text to "reload" immediately so the NEXT click reloads
+				tabHolder.serverstab.serversbuttonholder.servers.Text = "reload" 
+	
+				-- Optional: You might want to fetch servers immediately upon opening too
+				-- fetchServers() 
+			end
+			
+		end)
+		
+		local function loadAllSavedServers()
+			local db = getDatabase()
+	
+			-- We use pairs() to iterate through every Game ID (key) in the database
+			for gameId, serverList in pairs(db) do
+				-- serverList is the array of servers for that specific gameId
+				for _, server in ipairs(serverList) do
+					-- Convert gameId back to a number if your entry function requires it
+					createSavedServerEntry(
+						server.jobid, 
+						tonumber(gameId), 
+						server.ping, 
+						server.players
+					)
+				end
+			end
+		end
+	
+		-- Run
 		fetchServers()
+		loadAllSavedServers()
+	
 	end
 	
 	loader.load.MouseButton1Click:Connect(function()
