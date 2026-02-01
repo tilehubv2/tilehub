@@ -2159,64 +2159,69 @@ local script = G2L["2"];
 		end
 	
 		-- Function to Fetch Servers
-		local function fetchServers()
-			local serversFrame = tabHolder:WaitForChild("serverstab"):WaitForChild("servers")
-			local placeId = game.PlaceId
-			local url = "https://games.roblox.com/v1/games/" .. placeId .. "/servers/Public?sortOrder=Desc&excludeFullGames=true&limit=1000"
-	
-			local success, result
-	
-			-- Detect environment (Executor vs Studio)
-			local httpRequest = (syn and syn.request) or (http and http.request) or (http_request) or (fluxus and fluxus.request) or request
-	
-			if httpRequest then
-				-- Executor Environment
-				local response = httpRequest({
-					Url = url,
-					Method = "GET"
-				})
-				if response.StatusCode == 200 then
-					success = true
-					result = response.Body
-				end
-			else
-				local HttpService = game:GetService("HttpService")
-				success, result = pcall(function()
-					return HttpService:GetAsync(url) -- Will fail in standard game without proxy
-				end)
-			end
-	
-			if success and result then
-				local HttpService = game:GetService("HttpService")
-				local data = HttpService:JSONDecode(result)
-	
-				if data and data.data then
-					-- Clear old servers (except template/layout)
-					for _, child in pairs(serversFrame:GetChildren()) do
-						if child:IsA("Frame") and child.Name ~= "exampleserver" then
-							child:Destroy()
-						end
-					end
-	
-					-- Add new servers
-					for _, server in pairs(data.data) do
-						-- Calculate actual ping (Roblox API doesn't give real ping, usually just location, 
-						-- so we often estimate or set it to the API ping property if available, otherwise random/0)
-						local sPing = server.ping or 0
-						local sPlayers = server.playing or 0
-						local sJobId = server.id
-	
-						-- Call your existing function
-						addserverbtn(sJobId, placeId, sPing, sPlayers)
-					end
-	
-					-- Update the sort immediately after loading
-					sortServers()
-				end
-			else
-				warn("Failed to fetch servers. If in Studio, ensure HttpEnabled is on and use a proxy.")
-			end
-		end
+		-- Add a variable outside to keep track of total fetched so we don't loop forever
+local MAX_TOTAL_SERVERS = 1000 -- Set your preferred limit (e.g., 300 or 500)
+local serversFetched = 0
+
+local function fetchServers(cursor)
+    -- Reset count if we are starting from the first page (no cursor)
+    if not cursor then 
+        serversFetched = 0 
+        -- Clear old servers (except template)
+        local serversFrame = tabHolder:WaitForChild("serverstab"):WaitForChild("servers")
+        for _, child in pairs(serversFrame:GetChildren()) do
+            if child:IsA("Frame") and child.Name ~= "exampleserver" then
+                child:Destroy()
+            end
+        end
+    end
+
+    local placeId = game.PlaceId
+    -- Construct URL with cursor and correct limit of 100
+    local url = "https://games.roblox.com/v1/games/" .. placeId .. "/servers/Public?sortOrder=Desc&excludeFullGames=true&limit=100"
+    if cursor then
+        url = url .. "&cursor=" .. cursor
+    end
+
+    local success, result
+    local httpRequest = (syn and syn.request) or (http and http.request) or (http_request) or (fluxus and fluxus.request) or request
+
+    if httpRequest then
+        local response = httpRequest({ Url = url, Method = "GET" })
+        if response.StatusCode == 200 then
+            success = true
+            result = response.Body
+        end
+    else
+        success, result = pcall(function()
+            return game:GetService("HttpService"):GetAsync(url)
+        end)
+    end
+
+    if success and result then
+        local data = game:GetService("HttpService"):JSONDecode(result)
+
+        if data and data.data then
+            for _, server in pairs(data.data) do
+                addserverbtn(server.id, placeId, server.ping or 0, server.playing or 0)
+                serversFetched = serversFetched + 1
+            end
+
+            -- Check if there is another page AND we haven't hit our safety limit
+            if data.nextPageCursor and serversFetched < MAX_TOTAL_SERVERS then
+                -- Add a small delay to avoid rate limiting (429 errors)
+                task.wait(0.1) 
+                fetchServers(data.nextPageCursor)
+            else
+                -- Once all pages are done, sort them all at once
+                sortServers()
+            end
+        end
+    else
+        warn("Failed to fetch servers.")
+    end
+end
+
 	
 		-- SERVERS / RELOAD BUTTON
 		tabHolder.serverstab.serversbuttonholder.servers.MouseButton1Click:Connect(function()
