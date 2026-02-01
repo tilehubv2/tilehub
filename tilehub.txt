@@ -1527,7 +1527,7 @@ local function autoresize(scrollingFrame)
 	-- Function to update the size
 	local function updateSize()
 		-- We set the Y (height) to the content size + a little padding (e.g., 10 pixels)
-		scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y + 10)
+		scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y)
 	end
 
 	-- Connect the signal so it updates automatically when items are added/removed
