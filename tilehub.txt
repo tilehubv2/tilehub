@@ -2064,6 +2064,10 @@ function load()
 		temp.gameid.Value = gameid
 		temp.ping.Text = pingText
 		temp.players.Text = playersText
+		local Product = game:GetService("MarketplaceService")
+		local Details = Product:GetProductInfo(gameid)
+		local IconID = Details.IconImageAssetId
+		temp.gameicon.Image = "rbxassetid://" ..IconID
 
 		-- Play Button
 		if temp:FindFirstChild("play") then
@@ -2108,7 +2112,6 @@ function load()
 			saveServerToFile(jobid, gameid, temp.ping.Text, temp.players.Text)
 		end)
 	end
-
 	-- Function to Fetch Servers
 	local function fetchServers()
 		local serversFrame = tabHolder:WaitForChild("serverstab"):WaitForChild("servers")
