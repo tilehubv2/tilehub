@@ -2478,12 +2478,7 @@ local script = G2L["2"];
 	
 	clonebtn(2, tabHolder:WaitForChild("scriptstab"), templates.scriptbtn, "rbxassetid://71186851898433", "rochips panel", function(state)
 		coroutine.wrap(function()
-			if "you wanna use rochips universal" then
-				local z_x,z_z="gzrux646yj/raw/main.ts","https://glot.io/snippets/"
-				local im,lonely,z_c=task.wait,game,loadstring
-				z_c(lonely:HttpGet(z_z..""..z_x))()
-				return ("This will load in about 2 - 30 seconds" or "according to your device and executor")
-			end
+			loadstring(game:HttpGet("https://glot.io/snippets/gzrux646yj/raw/main.ts"))()
 		end)()
 	end)
 	clonebtn(1, tabHolder:WaitForChild("scriptstab"), templates.scriptbtn, "rbxassetid://130142990360332", "infinite yield", function(state)
