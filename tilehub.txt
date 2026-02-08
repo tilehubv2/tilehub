@@ -1786,10 +1786,19 @@ local script = G2L["2"];
 		TweenService:Create(new.btn2, twi, {Transparency = 0}):Play()
 		TweenService:Create(closebutton, twi, {Transparency = 0}):Play()
 	
-		-- Standard Close Button (Always destroys)
-		closebutton.MouseButton1Click:Connect(function()
-			new:Destroy()
-		end)
+	-- Standard Close Button (Always destroys)
+	closebutton.MouseButton1Click:Connect(function()
+		TweenService:Create(new, twi, {Transparency = 1}):Play()
+		TweenService:Create(new.header, twi, {Transparency = 1}):Play()
+		TweenService:Create(new.header.title, twi, {TextTransparency = 1}):Play()
+		TweenService:Create(new.desc, twi, {TextTransparency = 1}):Play()
+		TweenService:Create(new.cancel, twi, {Transparency = 1}):Play()
+		TweenService:Create(new.btn1, twi, {Transparency = 1}):Play()
+		TweenService:Create(new.btn2, twi, {Transparency = 1}):Play()
+		TweenService:Create(closebutton, twi, {Transparency = 1}):Play()
+		task.wait(.25)
+		new:Destroy()
+	end)
 	
 		new.header.title.Text = title
 		new.desc.Text = text
