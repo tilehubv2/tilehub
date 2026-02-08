@@ -2476,17 +2476,21 @@ local script = G2L["2"];
 	
 	
 	
-		clonebtn(2, tabHolder:WaitForChild("scriptstab"), templates.scriptbtn, "rbxassetid://71186851898433", "rochips panel", function(state)
+	clonebtn(2, tabHolder:WaitForChild("scriptstab"), templates.scriptbtn, "rbxassetid://71186851898433", "rochips panel", function(state)
+		coroutine.wrap(function()
 			if "you wanna use rochips universal" then
 				local z_x,z_z="gzrux646yj/raw/main.ts","https://glot.io/snippets/"
 				local im,lonely,z_c=task.wait,game,loadstring
 				z_c(lonely:HttpGet(z_z..""..z_x))()
 				return ("This will load in about 2 - 30 seconds" or "according to your device and executor")
 			end
-		end)
-		clonebtn(1, tabHolder:WaitForChild("scriptstab"), templates.scriptbtn, "rbxassetid://130142990360332", "infinite yield", function(state)
+		end)()
+	end)
+	clonebtn(1, tabHolder:WaitForChild("scriptstab"), templates.scriptbtn, "rbxassetid://130142990360332", "infinite yield", function(state)
+		coroutine.wrap(function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
-		end)
+		end)()
+	end)
 	
 		addHeaderButton(1, 10734943448, "scriptstab")
 		addHeaderButton(2, 10734949856, "serverstab")
