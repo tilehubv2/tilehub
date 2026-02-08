@@ -7,7 +7,7 @@
  Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
 ]=]
 
--- Instances: 173 | Scripts: 1 | Modules: 0 | Tags: 0
+-- Instances: 197 | Scripts: 1 | Modules: 0 | Tags: 0
 local G2L = {};
 
 -- StarterGui.tilehubv3
@@ -1329,155 +1329,399 @@ G2L["9d"] = Instance.new("UIAspectRatioConstraint", G2L["92"]);
 G2L["9d"]["AspectRatio"] = 10.83657;
 
 
--- StarterGui.tilehubv3.frame.UIAspectRatioConstraint
-G2L["9e"] = Instance.new("UIAspectRatioConstraint", G2L["3"]);
-G2L["9e"]["AspectRatio"] = 1.84064;
+-- StarterGui.tilehubv3.frame.templates.notif
+G2L["9e"] = Instance.new("Frame", G2L["16"]);
+G2L["9e"]["Visible"] = false;
+G2L["9e"]["BorderSizePixel"] = 0;
+G2L["9e"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+G2L["9e"]["Size"] = UDim2.new(0.976, 0, 0.12524, 0);
+G2L["9e"]["Position"] = UDim2.new(0.012, 0, 0.87476, 0);
+G2L["9e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["9e"]["Name"] = [[notif]];
 
 
--- StarterGui.tilehubv3.frame.xbeforeclosed
-G2L["9f"] = Instance.new("StringValue", G2L["3"]);
-G2L["9f"]["Name"] = [[xbeforeclosed]];
+-- StarterGui.tilehubv3.frame.templates.notif.UICorner
+G2L["9f"] = Instance.new("UICorner", G2L["9e"]);
 
 
--- StarterGui.tilehubv3.frame.ybeforeclosed
-G2L["a0"] = Instance.new("StringValue", G2L["3"]);
-G2L["a0"]["Name"] = [[ybeforeclosed]];
+
+-- StarterGui.tilehubv3.frame.templates.notif.cancel
+G2L["a0"] = Instance.new("TextButton", G2L["9e"]);
+G2L["a0"]["TextWrapped"] = true;
+G2L["a0"]["TextStrokeTransparency"] = 0;
+G2L["a0"]["BorderSizePixel"] = 0;
+G2L["a0"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a0"]["TextSize"] = 14;
+G2L["a0"]["TextScaled"] = true;
+G2L["a0"]["BackgroundColor3"] = Color3.fromRGB(255, 0, 0);
+G2L["a0"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["a0"]["ZIndex"] = 2;
+G2L["a0"]["Size"] = UDim2.new(0.88865, 0, 0.23682, 0);
+G2L["a0"]["Name"] = [[cancel]];
+G2L["a0"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a0"]["Text"] = [[cancel]];
+G2L["a0"]["Visible"] = false;
+G2L["a0"]["Position"] = UDim2.new(0.05555, 0, 0.62797, 0);
 
 
--- StarterGui.tilehubv3.dialogue
-G2L["a1"] = Instance.new("Frame", G2L["1"]);
-G2L["a1"]["Visible"] = false;
-G2L["a1"]["BorderSizePixel"] = 0;
-G2L["a1"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["a1"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
-G2L["a1"]["Size"] = UDim2.new(1, 0, 0.15, 0);
-G2L["a1"]["Position"] = UDim2.new(0.49965, 0, 0.92294, 0);
-G2L["a1"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["a1"]["Name"] = [[dialogue]];
+-- StarterGui.tilehubv3.frame.templates.notif.cancel.UICorner
+G2L["a1"] = Instance.new("UICorner", G2L["a0"]);
 
 
--- StarterGui.tilehubv3.dialogue.UIGradient
-G2L["a2"] = Instance.new("UIGradient", G2L["a1"]);
-G2L["a2"]["Rotation"] = 90;
-G2L["a2"]["Transparency"] = NumberSequence.new{NumberSequenceKeypoint.new(0.000, 0.98125),NumberSequenceKeypoint.new(0.000, 0),NumberSequenceKeypoint.new(0.000, 1),NumberSequenceKeypoint.new(1.000, 0)};
-G2L["a2"]["Offset"] = Vector2.new(9, 0);
-G2L["a2"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(82, 82, 82)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(0, 0, 0))};
+
+-- StarterGui.tilehubv3.frame.templates.notif.cancel.UIStroke
+G2L["a2"] = Instance.new("UIStroke", G2L["a0"]);
+G2L["a2"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["a2"]["Thickness"] = 0.75;
+G2L["a2"]["Color"] = Color3.fromRGB(94, 0, 0);
 
 
--- StarterGui.tilehubv3.dialogue.TextLabel
-G2L["a3"] = Instance.new("TextLabel", G2L["a1"]);
+-- StarterGui.tilehubv3.frame.templates.notif.desc
+G2L["a3"] = Instance.new("TextLabel", G2L["9e"]);
 G2L["a3"]["TextWrapped"] = true;
 G2L["a3"]["TextStrokeTransparency"] = 0;
+G2L["a3"]["ZIndex"] = 2;
 G2L["a3"]["BorderSizePixel"] = 0;
 G2L["a3"]["TextSize"] = 14;
+G2L["a3"]["TextYAlignment"] = Enum.TextYAlignment.Bottom;
 G2L["a3"]["TextScaled"] = true;
 G2L["a3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["a3"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 G2L["a3"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["a3"]["BackgroundTransparency"] = 1;
-G2L["a3"]["Size"] = UDim2.new(0.5, 0, 0.4, 0);
+G2L["a3"]["Size"] = UDim2.new(0.94421, 0, 0.518, 0);
 G2L["a3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["a3"]["Text"] = [[text text text text text text text text text text text text text text text text]];
-G2L["a3"]["Position"] = UDim2.new(0.24889, 0, 0.38897, 0);
+G2L["a3"]["Text"] = [[desc]];
+G2L["a3"]["LayoutOrder"] = 1;
+G2L["a3"]["Name"] = [[desc]];
+G2L["a3"]["Position"] = UDim2.new(0.025, 0, 0.05, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.header
+G2L["a4"] = Instance.new("Frame", G2L["9e"]);
+G2L["a4"]["BorderSizePixel"] = 0;
+G2L["a4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a4"]["ClipsDescendants"] = true;
+G2L["a4"]["Size"] = UDim2.new(1, 0, 0.2821, 0);
+G2L["a4"]["Position"] = UDim2.new(0, 0, -0.39224, 0);
+G2L["a4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a4"]["Name"] = [[header]];
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.header.UICorner
+G2L["a5"] = Instance.new("UICorner", G2L["a4"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.header.UIGradient
+G2L["a6"] = Instance.new("UIGradient", G2L["a4"]);
+G2L["a6"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(55, 55, 55)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(28, 28, 28))};
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.header.UIStroke
+G2L["a7"] = Instance.new("UIStroke", G2L["a4"]);
+G2L["a7"]["Color"] = Color3.fromRGB(75, 75, 75);
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.header.title
+G2L["a8"] = Instance.new("TextLabel", G2L["a4"]);
+G2L["a8"]["TextWrapped"] = true;
+G2L["a8"]["TextStrokeTransparency"] = 0;
+G2L["a8"]["BorderSizePixel"] = 0;
+G2L["a8"]["TextSize"] = 14;
+G2L["a8"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["a8"]["TextScaled"] = true;
+G2L["a8"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a8"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["a8"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a8"]["BackgroundTransparency"] = 1;
+G2L["a8"]["Size"] = UDim2.new(0.37043, 0, 0.93692, 0);
+G2L["a8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a8"]["Text"] = [[title]];
+G2L["a8"]["Name"] = [[title]];
+G2L["a8"]["Position"] = UDim2.new(0.05555, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.header.close
+G2L["a9"] = Instance.new("TextButton", G2L["a4"]);
+G2L["a9"]["TextWrapped"] = true;
+G2L["a9"]["TextStrokeTransparency"] = 0;
+G2L["a9"]["BorderSizePixel"] = 0;
+G2L["a9"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a9"]["TextSize"] = 14;
+G2L["a9"]["TextScaled"] = true;
+G2L["a9"]["BackgroundColor3"] = Color3.fromRGB(255, 0, 0);
+G2L["a9"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["a9"]["Size"] = UDim2.new(0.10503, 0, 1, 0);
+G2L["a9"]["Name"] = [[close]];
+G2L["a9"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a9"]["Text"] = [[x]];
+G2L["a9"]["Position"] = UDim2.new(0.89497, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.header.close.UICorner
+G2L["aa"] = Instance.new("UICorner", G2L["a9"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.header.countdown
+G2L["ab"] = Instance.new("TextLabel", G2L["a4"]);
+G2L["ab"]["TextWrapped"] = true;
+G2L["ab"]["TextStrokeTransparency"] = 0;
+G2L["ab"]["BorderSizePixel"] = 0;
+G2L["ab"]["TextSize"] = 14;
+G2L["ab"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["ab"]["TextScaled"] = true;
+G2L["ab"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["ab"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["ab"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["ab"]["BackgroundTransparency"] = 1;
+G2L["ab"]["Size"] = UDim2.new(0.29637, 0, 0.93692, 0);
+G2L["ab"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["ab"]["Text"] = [[56.5s]];
+G2L["ab"]["Name"] = [[countdown]];
+G2L["ab"]["Position"] = UDim2.new(0.70363, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.UIStroke
+G2L["ac"] = Instance.new("UIStroke", G2L["9e"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.btn1
+G2L["ad"] = Instance.new("TextButton", G2L["9e"]);
+G2L["ad"]["TextWrapped"] = true;
+G2L["ad"]["TextStrokeTransparency"] = 0;
+G2L["ad"]["BorderSizePixel"] = 0;
+G2L["ad"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["ad"]["TextSize"] = 14;
+G2L["ad"]["TextScaled"] = true;
+G2L["ad"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["ad"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["ad"]["ZIndex"] = 2;
+G2L["ad"]["Size"] = UDim2.new(0.40746, 0, 0.23682, 0);
+G2L["ad"]["Name"] = [[btn1]];
+G2L["ad"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["ad"]["Text"] = [[cancel]];
+G2L["ad"]["Position"] = UDim2.new(0.05555, 0, 0.62797, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.btn1.UICorner
+G2L["ae"] = Instance.new("UICorner", G2L["ad"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.btn1.UIStroke
+G2L["af"] = Instance.new("UIStroke", G2L["ad"]);
+G2L["af"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["af"]["Thickness"] = 0.75;
+G2L["af"]["Color"] = Color3.fromRGB(39, 39, 39);
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.btn2
+G2L["b0"] = Instance.new("TextButton", G2L["9e"]);
+G2L["b0"]["TextWrapped"] = true;
+G2L["b0"]["TextStrokeTransparency"] = 0;
+G2L["b0"]["BorderSizePixel"] = 0;
+G2L["b0"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["b0"]["TextSize"] = 14;
+G2L["b0"]["TextScaled"] = true;
+G2L["b0"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["b0"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["b0"]["ZIndex"] = 2;
+G2L["b0"]["Size"] = UDim2.new(0.40746, 0, 0.23682, 0);
+G2L["b0"]["Name"] = [[btn2]];
+G2L["b0"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["b0"]["Text"] = [[cancel]];
+G2L["b0"]["Position"] = UDim2.new(0.53081, 0, 0.62797, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.btn2.UICorner
+G2L["b1"] = Instance.new("UICorner", G2L["b0"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.btn2.UIStroke
+G2L["b2"] = Instance.new("UIStroke", G2L["b0"]);
+G2L["b2"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["b2"]["Thickness"] = 0.75;
+G2L["b2"]["Color"] = Color3.fromRGB(39, 39, 39);
+
+
+-- StarterGui.tilehubv3.frame.UIAspectRatioConstraint
+G2L["b3"] = Instance.new("UIAspectRatioConstraint", G2L["3"]);
+G2L["b3"]["AspectRatio"] = 1.84064;
+
+
+-- StarterGui.tilehubv3.frame.xbeforeclosed
+G2L["b4"] = Instance.new("StringValue", G2L["3"]);
+G2L["b4"]["Name"] = [[xbeforeclosed]];
+
+
+-- StarterGui.tilehubv3.frame.ybeforeclosed
+G2L["b5"] = Instance.new("StringValue", G2L["3"]);
+G2L["b5"]["Name"] = [[ybeforeclosed]];
+
+
+-- StarterGui.tilehubv3.dialogue
+G2L["b6"] = Instance.new("Frame", G2L["1"]);
+G2L["b6"]["Visible"] = false;
+G2L["b6"]["BorderSizePixel"] = 0;
+G2L["b6"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["b6"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["b6"]["Size"] = UDim2.new(1, 0, 0.15, 0);
+G2L["b6"]["Position"] = UDim2.new(0.49965, 0, 0.92294, 0);
+G2L["b6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["b6"]["Name"] = [[dialogue]];
+
+
+-- StarterGui.tilehubv3.dialogue.UIGradient
+G2L["b7"] = Instance.new("UIGradient", G2L["b6"]);
+G2L["b7"]["Rotation"] = 90;
+G2L["b7"]["Transparency"] = NumberSequence.new{NumberSequenceKeypoint.new(0.000, 0.98125),NumberSequenceKeypoint.new(0.000, 0),NumberSequenceKeypoint.new(0.000, 1),NumberSequenceKeypoint.new(1.000, 0)};
+G2L["b7"]["Offset"] = Vector2.new(9, 0);
+G2L["b7"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(82, 82, 82)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(0, 0, 0))};
+
+
+-- StarterGui.tilehubv3.dialogue.TextLabel
+G2L["b8"] = Instance.new("TextLabel", G2L["b6"]);
+G2L["b8"]["TextWrapped"] = true;
+G2L["b8"]["TextStrokeTransparency"] = 0;
+G2L["b8"]["BorderSizePixel"] = 0;
+G2L["b8"]["TextSize"] = 14;
+G2L["b8"]["TextScaled"] = true;
+G2L["b8"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["b8"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["b8"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["b8"]["BackgroundTransparency"] = 1;
+G2L["b8"]["Size"] = UDim2.new(0.5, 0, 0.4, 0);
+G2L["b8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["b8"]["Text"] = [[text text text text text text text text text text text text text text text text]];
+G2L["b8"]["Position"] = UDim2.new(0.24889, 0, 0.38897, 0);
 
 
 -- StarterGui.tilehubv3.dialogue.ImageLabel
-G2L["a4"] = Instance.new("ImageLabel", G2L["a1"]);
-G2L["a4"]["BorderSizePixel"] = 0;
-G2L["a4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["a4"]["Image"] = [[rbxassetid://10747363621]];
-G2L["a4"]["Size"] = UDim2.new(0.018, 0, 0.25, 0);
-G2L["a4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["a4"]["BackgroundTransparency"] = 1;
-G2L["a4"]["Rotation"] = 180;
-G2L["a4"]["Position"] = UDim2.new(0.75895, 0, 0.45957, 0);
+G2L["b9"] = Instance.new("ImageLabel", G2L["b6"]);
+G2L["b9"]["BorderSizePixel"] = 0;
+G2L["b9"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["b9"]["Image"] = [[rbxassetid://10747363621]];
+G2L["b9"]["Size"] = UDim2.new(0.018, 0, 0.25, 0);
+G2L["b9"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["b9"]["BackgroundTransparency"] = 1;
+G2L["b9"]["Rotation"] = 180;
+G2L["b9"]["Position"] = UDim2.new(0.75895, 0, 0.45957, 0);
 
 
 -- StarterGui.tilehubv3.loader
-G2L["a5"] = Instance.new("Frame", G2L["1"]);
-G2L["a5"]["Visible"] = false;
-G2L["a5"]["BorderSizePixel"] = 0;
-G2L["a5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["a5"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
-G2L["a5"]["Size"] = UDim2.new(0, 330, 0, 171);
-G2L["a5"]["Position"] = UDim2.new(0.49927, 0, 0.49891, 0);
-G2L["a5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["a5"]["Name"] = [[loader]];
+G2L["ba"] = Instance.new("Frame", G2L["1"]);
+G2L["ba"]["Visible"] = false;
+G2L["ba"]["BorderSizePixel"] = 0;
+G2L["ba"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["ba"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["ba"]["Size"] = UDim2.new(0, 330, 0, 171);
+G2L["ba"]["Position"] = UDim2.new(0.49927, 0, 0.49891, 0);
+G2L["ba"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["ba"]["Name"] = [[loader]];
 
 
 -- StarterGui.tilehubv3.loader.UICorner
-G2L["a6"] = Instance.new("UICorner", G2L["a5"]);
+G2L["bb"] = Instance.new("UICorner", G2L["ba"]);
 
 
 
 -- StarterGui.tilehubv3.loader.UIStroke
-G2L["a7"] = Instance.new("UIStroke", G2L["a5"]);
+G2L["bc"] = Instance.new("UIStroke", G2L["ba"]);
 
 
 
 -- StarterGui.tilehubv3.loader.load
-G2L["a8"] = Instance.new("TextButton", G2L["a5"]);
-G2L["a8"]["TextWrapped"] = true;
-G2L["a8"]["TextStrokeTransparency"] = 0;
-G2L["a8"]["BorderSizePixel"] = 0;
-G2L["a8"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["a8"]["TextSize"] = 14;
-G2L["a8"]["TextScaled"] = true;
-G2L["a8"]["BackgroundColor3"] = Color3.fromRGB(0, 86, 255);
-G2L["a8"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["a8"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
-G2L["a8"]["Size"] = UDim2.new(0, 173, 0, 27);
-G2L["a8"]["Name"] = [[load]];
-G2L["a8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["a8"]["Text"] = [[load]];
-G2L["a8"]["Position"] = UDim2.new(0.50194, 0, 0.87864, 0);
+G2L["bd"] = Instance.new("TextButton", G2L["ba"]);
+G2L["bd"]["TextWrapped"] = true;
+G2L["bd"]["TextStrokeTransparency"] = 0;
+G2L["bd"]["BorderSizePixel"] = 0;
+G2L["bd"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["bd"]["TextSize"] = 14;
+G2L["bd"]["TextScaled"] = true;
+G2L["bd"]["BackgroundColor3"] = Color3.fromRGB(0, 86, 255);
+G2L["bd"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["bd"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["bd"]["Size"] = UDim2.new(0, 173, 0, 27);
+G2L["bd"]["Name"] = [[load]];
+G2L["bd"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["bd"]["Text"] = [[load]];
+G2L["bd"]["Position"] = UDim2.new(0.50194, 0, 0.87864, 0);
 
 
 -- StarterGui.tilehubv3.loader.load.UICorner
-G2L["a9"] = Instance.new("UICorner", G2L["a8"]);
+G2L["be"] = Instance.new("UICorner", G2L["bd"]);
 
 
 
 -- StarterGui.tilehubv3.loader.load.UIStroke
-G2L["aa"] = Instance.new("UIStroke", G2L["a8"]);
-G2L["aa"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
-G2L["aa"]["Thickness"] = 1.21;
-G2L["aa"]["Color"] = Color3.fromRGB(0, 71, 210);
+G2L["bf"] = Instance.new("UIStroke", G2L["bd"]);
+G2L["bf"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["bf"]["Thickness"] = 1.21;
+G2L["bf"]["Color"] = Color3.fromRGB(0, 71, 210);
 
 
 -- StarterGui.tilehubv3.loader.image
-G2L["ab"] = Instance.new("ImageLabel", G2L["a5"]);
-G2L["ab"]["BorderSizePixel"] = 0;
-G2L["ab"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["ab"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
-G2L["ab"]["Image"] = [[rbxassetid://126475741439172]];
-G2L["ab"]["Size"] = UDim2.new(0, 111, 0, 110);
-G2L["ab"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["ab"]["BackgroundTransparency"] = 1;
-G2L["ab"]["Name"] = [[image]];
-G2L["ab"]["Position"] = UDim2.new(0.50041, 0, 0.32031, 0);
+G2L["c0"] = Instance.new("ImageLabel", G2L["ba"]);
+G2L["c0"]["BorderSizePixel"] = 0;
+G2L["c0"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["c0"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["c0"]["Image"] = [[rbxassetid://126475741439172]];
+G2L["c0"]["Size"] = UDim2.new(0, 111, 0, 110);
+G2L["c0"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["c0"]["BackgroundTransparency"] = 1;
+G2L["c0"]["Name"] = [[image]];
+G2L["c0"]["Position"] = UDim2.new(0.50041, 0, 0.32031, 0);
 
 
 -- StarterGui.tilehubv3.loader.UIGradient
-G2L["ac"] = Instance.new("UIGradient", G2L["a5"]);
-G2L["ac"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(55, 55, 55)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(28, 28, 28))};
+G2L["c1"] = Instance.new("UIGradient", G2L["ba"]);
+G2L["c1"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(55, 55, 55)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(28, 28, 28))};
 
 
 -- StarterGui.tilehubv3.loader.TextLabel
-G2L["ad"] = Instance.new("TextLabel", G2L["a5"]);
-G2L["ad"]["TextWrapped"] = true;
-G2L["ad"]["TextStrokeTransparency"] = 0;
-G2L["ad"]["BorderSizePixel"] = 0;
-G2L["ad"]["TextSize"] = 14;
-G2L["ad"]["TextScaled"] = true;
-G2L["ad"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["ad"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-G2L["ad"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["ad"]["BackgroundTransparency"] = 1;
-G2L["ad"]["Size"] = UDim2.new(0, 189, 0, 30);
-G2L["ad"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["ad"]["Text"] = "tilehub [revamped]"
-G2L["ad"]["Position"] = UDim2.new(0.21515, 0, 0.57895, 0);
+G2L["c2"] = Instance.new("TextLabel", G2L["ba"]);
+G2L["c2"]["TextWrapped"] = true;
+G2L["c2"]["TextStrokeTransparency"] = 0;
+G2L["c2"]["BorderSizePixel"] = 0;
+G2L["c2"]["TextSize"] = 14;
+G2L["c2"]["TextScaled"] = true;
+G2L["c2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["c2"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["c2"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["c2"]["BackgroundTransparency"] = 1;
+G2L["c2"]["Size"] = UDim2.new(0, 189, 0, 30);
+G2L["c2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["c2"]["Text"] = "tilehub [revamped]"
+G2L["c2"]["Position"] = UDim2.new(0.21515, 0, 0.57895, 0);
+
+
+-- StarterGui.tilehubv3.notificationsholder
+G2L["c3"] = Instance.new("Frame", G2L["1"]);
+G2L["c3"]["BorderSizePixel"] = 0;
+G2L["c3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["c3"]["AnchorPoint"] = Vector2.new(1, 1);
+G2L["c3"]["Size"] = UDim2.new(0.17008, 0, 0.92249, 0);
+G2L["c3"]["Position"] = UDim2.new(1, -15, 0.999, -15);
+G2L["c3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["c3"]["Name"] = [[notificationsholder]];
+G2L["c3"]["BackgroundTransparency"] = 1;
+
+
+-- StarterGui.tilehubv3.notificationsholder.UIAspectRatioConstraint
+G2L["c4"] = Instance.new("UIAspectRatioConstraint", G2L["c3"]);
+G2L["c4"]["AspectRatio"] = 0.37699;
+
+
+-- StarterGui.tilehubv3.notificationsholder.UIListLayout
+G2L["c5"] = Instance.new("UIListLayout", G2L["c3"]);
+G2L["c5"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Center;
+G2L["c5"]["Padding"] = UDim.new(0, 35);
+G2L["c5"]["VerticalAlignment"] = Enum.VerticalAlignment.Bottom;
+G2L["c5"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
 
 
 -- StarterGui.tilehubv3.LocalScript
@@ -1486,6 +1730,7 @@ local script = G2L["2"];
 	local gui = script.Parent
 	gui.ResetOnSpawn = false
 	gui.DisplayOrder = 2147483647
+	gui.frame.ZIndex = 2147483645
 	if not _G.tilehubloaded then
 		_G.tilehubloaded = false
 	end
@@ -1495,10 +1740,12 @@ local script = G2L["2"];
 	end
 	_G.tilehubloaded = true
 	local player = game.Players.LocalPlayer
+	local istping = false
 	local mouse = player:GetMouse()
 	local playerGui = player:WaitForChild("PlayerGui")
 	local starterGui = game:GetService("StarterGui")
 	local loader = gui:WaitForChild("loader")
+	local notificationsholder = gui:WaitForChild("notificationsholder")
 	
 	local frame = gui:WaitForChild("frame")
 	local templates = frame:WaitForChild("templates")
@@ -1515,6 +1762,150 @@ local script = G2L["2"];
 	end
 	loader.load.MouseButton1Click:Connect(function()
 	end)
+	local function createNotification(title, text, duration, onCancel, btn1Data, btn2Data)
+		local twi = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut, 0, false, 0)
+		
+		local new = templates.notif:Clone()
+		new.Transparency = 1
+		
+		local closebutton = new.header.close
+		new.header.Transparency = 1
+		new.btn1.Transparency = 1
+		new.btn2.Transparency = 1
+		new.cancel.Transparency = 1
+		new.header.title.TextTransparency = 1
+		new.desc.TextTransparency = 1
+		closebutton.Transparency = 1
+		
+		TweenService:Create(new, twi, {Transparency = 0}):Play()
+		TweenService:Create(new.header, twi, {Transparency = 0}):Play()
+		TweenService:Create(new.header.title, twi, {TextTransparency = 0}):Play()
+		TweenService:Create(new.desc, twi, {TextTransparency = 0}):Play()
+		TweenService:Create(new.cancel, twi, {Transparency = 0}):Play()
+		TweenService:Create(new.btn1, twi, {Transparency = 0}):Play()
+		TweenService:Create(new.btn2, twi, {Transparency = 0}):Play()
+		TweenService:Create(closebutton, twi, {Transparency = 0}):Play()
+	
+		-- Standard Close Button (Always destroys)
+		closebutton.MouseButton1Click:Connect(function()
+			new:Destroy()
+		end)
+	
+		new.header.title.Text = title
+		new.desc.Text = text
+		new.Visible = true
+		new.Parent = notificationsholder
+	
+		-- references
+		local cancelButton = new.cancel
+		local btnOne = new.btn1
+		local btnTwo = new.btn2
+	
+		---------------------------------------------------------
+		-- 1. SETUP CANCEL BUTTON
+		---------------------------------------------------------
+		if onCancel then
+			cancelButton.Visible = true
+			cancelButton.MouseButton1Click:Connect(function()
+				onCancel() -- Run the function passed in
+				TweenService:Create(new, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.header, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.header.title, twi, {TextTransparency = 1}):Play()
+				TweenService:Create(new.desc, twi, {TextTransparency = 1}):Play()
+				TweenService:Create(new.cancel, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.btn1, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.btn2, twi, {Transparency = 1}):Play()
+				TweenService:Create(closebutton, twi, {Transparency = 1}):Play()
+				task.wait(.25)
+				
+				
+				new:Destroy() -- Close the notification
+			end)
+		else
+			cancelButton.Visible = false -- Hide if not used
+		end
+	
+		---------------------------------------------------------
+		-- 2. SETUP BTN 1 (Expects a table: {Text = "Yes", Func = function() end})
+		---------------------------------------------------------
+		if btn1Data then
+			btnOne.Visible = true
+			-- If your button has a TextLabel inside, use btnOne.Label.Text, otherwise:
+			if btn1Data.Text then btnOne.Text = btn1Data.Text end 
+	
+			btnOne.MouseButton1Click:Connect(function()
+				if btn1Data.Func then btn1Data.Func() end
+				TweenService:Create(new, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.header, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.header.title, twi, {TextTransparency = 1}):Play()
+				TweenService:Create(new.desc, twi, {TextTransparency = 1}):Play()
+				TweenService:Create(new.cancel, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.btn1, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.btn2, twi, {Transparency = 1}):Play()
+				TweenService:Create(closebutton, twi, {Transparency = 1}):Play()
+				task.wait(.25)
+				new:Destroy()
+			end)
+		else
+			btnOne.Visible = false
+		end
+	
+		---------------------------------------------------------
+		-- 3. SETUP BTN 2
+		---------------------------------------------------------
+		if btn2Data then
+			btnTwo.Visible = true
+			if btn2Data.Text then btnTwo.Text = btn2Data.Text end
+	
+			btnTwo.MouseButton1Click:Connect(function()
+				if btn2Data.Func then btn2Data.Func() end
+				TweenService:Create(new, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.header, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.header.title, twi, {TextTransparency = 1}):Play()
+				TweenService:Create(new.desc, twi, {TextTransparency = 1}):Play()
+				TweenService:Create(new.cancel, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.btn1, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.btn2, twi, {Transparency = 1}):Play()
+				TweenService:Create(closebutton, twi, {Transparency = 1}):Play()
+				task.wait(.25)
+				new:Destroy()
+			end)
+		else
+			btnTwo.Visible = false
+		end
+	
+		---------------------------------------------------------
+		-- 4. TIMER LOGIC (Moved to task.spawn)
+		---------------------------------------------------------
+		if duration then
+			-- We wrap this in task.spawn so it doesn't freeze the script
+			task.spawn(function()
+				local timeLeft = duration
+				while new.Parent and timeLeft > 0 do
+					new.header.countdown.Text = timeLeft
+					task.wait(1)
+					timeLeft -= 1
+				end
+	
+				if new.Parent then
+					TweenService:Create(new, twi, {Transparency = 1}):Play()
+					TweenService:Create(new.header, twi, {Transparency = 1}):Play()
+					TweenService:Create(new.header.title, twi, {TextTransparency = 1}):Play()
+					TweenService:Create(new.desc, twi, {TextTransparency = 1}):Play()
+					TweenService:Create(new.cancel, twi, {Transparency = 1}):Play()
+					TweenService:Create(new.btn1, twi, {Transparency = 1}):Play()
+					TweenService:Create(new.btn2, twi, {Transparency = 1}):Play()
+					TweenService:Create(closebutton, twi, {Transparency = 1}):Play()
+					task.wait(.25)
+					new:Destroy()
+				end
+			end)
+		else
+			-- Clear countdown text if no duration
+			new.header.countdown.Text = "" 
+		end
+	end
+	
 	local function autoresize(scrollingFrame)
 		-- Try to find the Layout (List or Grid)
 		local layout = scrollingFrame:FindFirstChildWhichIsA("UIListLayout") or scrollingFrame:FindFirstChildWhichIsA("UIGridLayout")
@@ -1849,8 +2240,35 @@ local script = G2L["2"];
 					clone.Image = btnname
 				end
 				clone.MouseButton1Click:Connect(function()
-					clone.alrexec.Value = true
-					wasclicked()
+					
+					if clone.alrexec.Value == false then
+						wasclicked()
+						clone.alrexec.Value = true
+					else
+						local btn1Info = {
+							Text = "yes.",
+							Func = function()
+								wasclicked()
+							end
+						}
+	
+						local btn2Info = {
+							Text = "no.",
+							Func = function()
+								
+							end
+						}
+						
+						-- Notice we pass 'nil' for duration (infinite) and 'nil' for the Cancel button
+						createNotification(
+							"scripthub", 
+							clone.TextLabel.Text .. " was already executed, would you like to execute it again?", 
+							5, 
+							nil, 
+							btn1Info, 
+							btn2Info
+						)
+					end
 				end)
 			end
 			if btnname then
@@ -2059,7 +2477,12 @@ local script = G2L["2"];
 	
 	
 		clonebtn(2, tabHolder:WaitForChild("scriptstab"), templates.scriptbtn, "rbxassetid://71186851898433", "rochips panel", function(state)
-			print("scripts")
+			if "you wanna use rochips universal" then
+				local z_x,z_z="gzrux646yj/raw/main.ts","https://glot.io/snippets/"
+				local im,lonely,z_c=task.wait,game,loadstring
+				z_c(lonely:HttpGet(z_z..""..z_x))()
+				return ("This will load in about 2 - 30 seconds" or "according to your device and executor")
+			end
 		end)
 		clonebtn(1, tabHolder:WaitForChild("scriptstab"), templates.scriptbtn, "rbxassetid://130142990360332", "infinite yield", function(state)
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
@@ -2116,10 +2539,40 @@ local script = G2L["2"];
 			temp.players.Text = playersText
 			setGameIcon(temp.gameicon, gameid)
 	
-			-- Play Button
 			if temp:FindFirstChild("play") then
 				temp.play.MouseButton1Click:Connect(function()
-					TeleportService:TeleportToPlaceInstance(gameid, jobid)
+					-- 1. Debounce check
+					if istping == true then return end
+					istping = true
+	
+					local function cancelAction()
+						istping = false
+					end
+	
+					-- 2. Call Notification with NIL duration
+					createNotification(
+						"serverfinder", 
+						"attempting to teleport to server " .. jobid .. ".", 
+						nil, -- CHANGED: Set to nil so it doesn't close automatically
+						cancelAction 
+					)
+	
+					-- 3. Run the loop in a separate thread to ensure safety
+					task.spawn(function()
+						while istping == true do
+							-- 4. Wrap teleport in pcall so errors don't break the script
+							local success, err = pcall(function()
+								TeleportService:TeleportToPlaceInstance(gameid, jobid)
+							end)
+	
+							if not success then
+								
+							end
+	
+							-- Wait before retrying (Teleport service throttles requests anyway)
+							task.wait(2.5) 
+						end
+					end)
 				end)
 			end
 	
@@ -2147,9 +2600,43 @@ local script = G2L["2"];
 	
 	
 			-- Join
-			temp.play.MouseButton1Click:Connect(function()
-				TeleportService:TeleportToPlaceInstance(temp.gameid.Value, jobid, game.Players.LocalPlayer)
-			end)
+			
+			if temp:FindFirstChild("play") then
+				temp.play.MouseButton1Click:Connect(function()
+					-- 1. Debounce check
+					if istping == true then return end
+					istping = true
+	
+					local function cancelAction()
+						istping = false
+					end
+	
+					-- 2. Call Notification with NIL duration
+					createNotification(
+						"serverfinder", 
+						"attempting to teleport to server " .. jobid .. ".", 
+						nil, -- CHANGED: Set to nil so it doesn't close automatically
+						cancelAction 
+					)
+	
+					-- 3. Run the loop in a separate thread to ensure safety
+					task.spawn(function()
+						while istping == true do
+							-- 4. Wrap teleport in pcall so errors don't break the script
+							local success, err = pcall(function()
+								TeleportService:TeleportToPlaceInstance(temp.gameid.Value, jobid, game.Players.LocalPlayer)
+							end)
+	
+							if not success then
+							end
+	
+							-- Wait before retrying (Teleport service throttles requests anyway)
+							task.wait(2.5) 
+						end
+					end)
+				end)
+			end
+	
 	
 			-- Save Button
 			temp.save.MouseButton1Click:Connect(function()
@@ -2159,69 +2646,64 @@ local script = G2L["2"];
 		end
 	
 		-- Function to Fetch Servers
-		-- Add a variable outside to keep track of total fetched so we don't loop forever
-local MAX_TOTAL_SERVERS = 1000 -- Set your preferred limit (e.g., 300 or 500)
-local serversFetched = 0
-
-local function fetchServers(cursor)
-    -- Reset count if we are starting from the first page (no cursor)
-    if not cursor then 
-        serversFetched = 0 
-        -- Clear old servers (except template)
-        local serversFrame = tabHolder:WaitForChild("serverstab"):WaitForChild("servers")
-        for _, child in pairs(serversFrame:GetChildren()) do
-            if child:IsA("Frame") and child.Name ~= "exampleserver" then
-                child:Destroy()
-            end
-        end
-    end
-
-    local placeId = game.PlaceId
-    -- Construct URL with cursor and correct limit of 100
-    local url = "https://games.roblox.com/v1/games/" .. placeId .. "/servers/Public?sortOrder=Desc&excludeFullGames=true&limit=100"
-    if cursor then
-        url = url .. "&cursor=" .. cursor
-    end
-
-    local success, result
-    local httpRequest = (syn and syn.request) or (http and http.request) or (http_request) or (fluxus and fluxus.request) or request
-
-    if httpRequest then
-        local response = httpRequest({ Url = url, Method = "GET" })
-        if response.StatusCode == 200 then
-            success = true
-            result = response.Body
-        end
-    else
-        success, result = pcall(function()
-            return game:GetService("HttpService"):GetAsync(url)
-        end)
-    end
-
-    if success and result then
-        local data = game:GetService("HttpService"):JSONDecode(result)
-
-        if data and data.data then
-            for _, server in pairs(data.data) do
-                addserverbtn(server.id, placeId, server.ping or 0, server.playing or 0)
-                serversFetched = serversFetched + 1
-            end
-
-            -- Check if there is another page AND we haven't hit our safety limit
-            if data.nextPageCursor and serversFetched < MAX_TOTAL_SERVERS then
-                -- Add a small delay to avoid rate limiting (429 errors)
-                task.wait(0.1) 
-                fetchServers(data.nextPageCursor)
-            else
-                -- Once all pages are done, sort them all at once
-                sortServers()
-            end
-        end
-    else
-        warn("Failed to fetch servers.")
-    end
-end
-
+		local function fetchServers()
+			local serversFrame = tabHolder:WaitForChild("serverstab"):WaitForChild("servers")
+			local placeId = game.PlaceId
+			local url = "https://games.roblox.com/v1/games/" .. placeId .. "/servers/Public?sortOrder=Desc&excludeFullGames=true&limit=100"
+	
+			local success, result
+	
+			-- Detect environment (Executor vs Studio)
+			local httpRequest = (syn and syn.request) or (http and http.request) or (http_request) or (fluxus and fluxus.request) or request
+	
+			if httpRequest then
+				-- Executor Environment
+				local response = httpRequest({
+					Url = url,
+					Method = "GET"
+				})
+				if response.StatusCode == 200 then
+					success = true
+					result = response.Body
+				end
+			else
+				local HttpService = game:GetService("HttpService")
+				success, result = pcall(function()
+					return HttpService:GetAsync(url) -- Will fail in standard game without proxy
+				end)
+			end
+	
+			if success and result then
+				local HttpService = game:GetService("HttpService")
+				local data = HttpService:JSONDecode(result)
+	
+				if data and data.data then
+					-- Clear old servers (except template/layout)
+					for _, child in pairs(serversFrame:GetChildren()) do
+						if child:IsA("Frame") and child.Name ~= "exampleserver" then
+							child:Destroy()
+						end
+					end
+	
+					-- Add new servers
+					for _, server in pairs(data.data) do
+						-- Calculate actual ping (Roblox API doesn't give real ping, usually just location, 
+						-- so we often estimate or set it to the API ping property if available, otherwise random/0)
+						local sPing = server.ping or 0
+						local sPlayers = server.playing or 0
+						local sJobId = server.id
+	
+						-- Call your existing function
+						addserverbtn(sJobId, placeId, sPing, sPlayers)
+					end
+	
+					-- Update the sort immediately after loading
+					sortServers()
+				end
+			else
+				warn("Failed to fetch servers. If in Studio, ensure HttpEnabled is on and use a proxy.")
+			end
+		end
 	
 		-- SERVERS / RELOAD BUTTON
 		tabHolder.serverstab.serversbuttonholder.servers.MouseButton1Click:Connect(function()
@@ -2281,20 +2763,20 @@ end
 		}
 		local t = game:GetService("TweenService"):Create(loader, twi, b)
 		t:Play()
-		
+
 		local b = {
 			Position = UDim2.fromScale(0.497, 0.139)
 		}
 		local t = game:GetService("TweenService"):Create(loader.image, twi, b)
 		t:Play()
-		
+
 		local b = {
 			Size = UDim2.fromOffset(150, 150)
 		}
 		local t = game:GetService("TweenService"):Create(loader.image, twi, b)
 		t:Play()
-	
-		
+
+
 		local b = {
 			Size = 24
 		}
@@ -2302,6 +2784,7 @@ end
 		t:Play()
 		load()
 		loader.TextLabel.Text = "loaded successfully!"
+
 		wait(.5)
 		local b = {
 			Size = 0
@@ -2313,7 +2796,7 @@ end
 		wait(1)
 		blur:Destroy()
 	end)
-	
+
 end;
 task.spawn(C_2);
 
