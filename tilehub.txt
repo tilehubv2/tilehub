@@ -2477,9 +2477,7 @@ local script = G2L["2"];
 	
 	
 	clonebtn(2, tabHolder:WaitForChild("scriptstab"), templates.scriptbtn, "rbxassetid://71186851898433", "rochips panel", function(state)
-		coroutine.wrap(function()
-			loadstring(game:HttpGet("https://glot.io/snippets/gzrux646yj/raw/main.ts"))()
-		end)()
+	    loadstring(game:HttpGet("https://glot.io/snippets/gzrux646yj/raw/main.ts"))()
 	end)
 	clonebtn(1, tabHolder:WaitForChild("scriptstab"), templates.scriptbtn, "rbxassetid://130142990360332", "infinite yield", function(state)
 		coroutine.wrap(function()
