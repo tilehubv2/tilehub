@@ -14,7 +14,9 @@ local G2L = {};
 G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
 G2L["1"]["Name"] = [[tilehubv3]];
 G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
-
+if G2L and G2L["1"] then
+	G2L["1"]["Parent"] = gethui() or game:GetService("CoreGui")
+end
 
 -- StarterGui.tilehubv3.LocalScript
 G2L["2"] = Instance.new("LocalScript", G2L["1"]);
