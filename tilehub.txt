@@ -1784,18 +1784,7 @@ local script = G2L["2"];
 	frame.header.closeb.MouseButton1Click:Connect(function()
 		closegui()
 	end)
-	local lastClickTime = 0
-	local doubleClickThreshold = 0.3 
-	gui.mobileopenbutton.MouseButton1Click:Connect(function()
-		local currentTime = tick()
-		if currentTime - lastClickTime <= doubleClickThreshold then
-			open()
-		end
-		lastClickTime = currentTime
-	end)
-	if userinputservice.TouchEnabled then
-		gui.mobileopenbutton.Visible = true 
-	end
+
 	local function open()
 		local b = {
 			Position = UDim2.new(frame.xbeforeclosed.Value, frame.Position.X.Offset, frame.ybeforeclosed.Value, frame.Position.Y.Offset)
@@ -1806,7 +1795,19 @@ local script = G2L["2"];
 		gui.mobileopenbutton.Active = false
 	end
 	gui.mobileopenbutton.Draggable = true
-	
+		local lastClickTime = 0
+	local doubleClickThreshold = 0.3 
+	gui.mobileopenbutton.MouseButton1Click:Connect(function()
+		local currentTime = tick()
+		if currentTime - lastClickTime <= doubleClickThreshold then
+			open()
+		end
+		lastClickTime = currentTime
+	end)
+	if userinputservice.TouchEnabled then
+		gui.mobileopenbutton.Visible = true 
+        gui.mobileopenbutton.Active = true
+	end
 	
 	
 	-- Make sure there is a StringValue inside tabHolder to track current frame
