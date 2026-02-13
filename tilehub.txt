@@ -14,9 +14,7 @@ local G2L = {};
 G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
 G2L["1"]["Name"] = [[tilehubv3]];
 G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
-if G2L and G2L["1"] then
-	G2L["1"]["Parent"] = gethui() or game:GetService("CoreGui")
-end
+
 
 -- StarterGui.tilehubv3.LocalScript
 G2L["2"] = Instance.new("LocalScript", G2L["1"]);
@@ -1536,6 +1534,9 @@ G2L["af"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
 local function C_2()
 local script = G2L["2"];
 	local gui = script.Parent
+    if G2L and G2L["1"] then
+    	G2L["1"]["Parent"] = gethui() or game:GetService("CoreGui")
+    end
 	gui.ResetOnSpawn = false
 	gui.DisplayOrder = 2147483647
 	gui.frame.ZIndex = 2147483645
