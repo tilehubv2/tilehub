@@ -1564,10 +1564,11 @@ local script = G2L["2"];
 	gui.mobileopenbutton.Visible = false
 	gui.mobileopenbutton.Active = false
 	gui.mobileopenbutton.ImageTransparency = 1
-	local player = game.Players.LocalPlayer
+	local lplayer = game.Players.LocalPlayer
+	local players = game:GetService("Players")
 	local istping = false
-	local mouse = player:GetMouse()
-	local playerGui = player:WaitForChild("PlayerGui")
+	local mouse = lplayer:GetMouse()
+	local playerGui = lplayer:WaitForChild("PlayerGui")
 	local starterGui = game:GetService("StarterGui")
 	local loader = gui:WaitForChild("loader")
 	local notificationsholder = gui:WaitForChild("notificationsholder")
@@ -1781,10 +1782,7 @@ local script = G2L["2"];
 		TweenService:Create(gui.mobileopenbutton, twi, {ImageTransparency = 0}):Play()
 		gui.mobileopenbutton.Active = true
 	end
-	frame.header.closeb.MouseButton1Click:Connect(function()
-		closegui()
-	end)
-
+	
 	local function open()
 		local b = {
 			Position = UDim2.new(frame.xbeforeclosed.Value, frame.Position.X.Offset, frame.ybeforeclosed.Value, frame.Position.Y.Offset)
@@ -1795,7 +1793,10 @@ local script = G2L["2"];
 		gui.mobileopenbutton.Active = false
 	end
 	gui.mobileopenbutton.Draggable = true
-		local lastClickTime = 0
+	frame.header.closeb.MouseButton1Click:Connect(function()
+		closegui()
+	end)
+	local lastClickTime = 0
 	local doubleClickThreshold = 0.3 
 	gui.mobileopenbutton.MouseButton1Click:Connect(function()
 		local currentTime = tick()
@@ -1806,9 +1807,8 @@ local script = G2L["2"];
 	end)
 	if userinputservice.TouchEnabled then
 		gui.mobileopenbutton.Visible = true 
-        gui.mobileopenbutton.Active = true
+		gui.mobileopenbutton.Active = true
 	end
-	
 	
 	-- Make sure there is a StringValue inside tabHolder to track current frame
 	local currentframe = tabHolder:FindFirstChild("Value")
@@ -2393,17 +2393,90 @@ local script = G2L["2"];
 				networkownershiprange = tonumber(tabHolder.playertab.netwrangefield.TextBox.Text)
 			end)()
 		end)
+	
+	
+	
+		local antiflingConnections = {}
+	
+		local function setNoCollision(part)
+			if part:IsA("BasePart") then
+				part.CanCollide = false
+	
+			end
+		end
+	
+		
+		local function hookCharacter(character)
+			for _, part in ipairs(character:GetDescendants()) do
+				setNoCollision(part)
+			end
+	
+			local conn = character.DescendantAdded:Connect(setNoCollision)
+			table.insert(antiflingConnections, conn)
+		end
+	
+	
+		local function hookPlayer(player)
+			if player == lplayer then return end
+	
+			-- Hook current character if exists
+			if player.Character then
+				hookCharacter(player.Character)
+			end
+	
+			-- Listen for future respawns and track the connection
+			local conn = player.CharacterAdded:Connect(hookCharacter)
+			table.insert(antiflingConnections, conn)
+		end
+	
+		-- --- YOUR CLONEBTN CODE ---
 		clonebtn(
-			2,                      -- LayoutOrder (Sort Order)
-			tabHolder.playertab,              -- Parent GUI
-			templates.togglebuttonlabel,         -- The Template Object
-			"antifling",          -- Unique Name for this new button
-			"antifling (disables the collision of other players)",    -- Text/Description to display
-			function(state)         -- The 'wasclicked' callback function
+			2,
+			tabHolder.playertab,
+			templates.togglebuttonlabel,
+			"antifling",
+			"antifling (disables player collision)",
+			function(state)
 				if state then
-					print("Toggle is ON! Logic goes here.")
+	
+					for _, player in ipairs(players:GetPlayers()) do
+						hookPlayer(player)
+					end
+	
+					local addedConn = players.PlayerAdded:Connect(hookPlayer)
+					table.insert(antiflingConnections, addedConn)
+	
+	
+					local heartbeatConn = runservice.Stepped:Connect(function()
+						for _, player in ipairs(players:GetPlayers()) do
+							if player ~= lplayer and player.Character then
+								for _, part in ipairs(player.Character:GetDescendants()) do
+									if part:IsA("BasePart") then
+										part.CanCollide = false
+									end
+								end
+							end
+						end
+					end)
+					table.insert(antiflingConnections, heartbeatConn)
+	
 				else
-					print("Toggle is OFF! Logic goes here.")
+					-- 1. Disconnect all events (PlayerAdded, CharacterAdded, Stepped, etc.)
+					for _, conn in ipairs(antiflingConnections) do
+						conn:Disconnect()
+					end
+					table.clear(antiflingConnections)
+	
+					-- 2. Revert collision (Optional: Makes players solid again immediately)
+					for _, player in ipairs(players:GetPlayers()) do
+						if player ~= lplayer and player.Character then
+							for _, part in ipairs(player.Character:GetDescendants()) do
+								if part:IsA("BasePart") then
+									part.CanCollide = true
+								end
+							end
+						end
+					end
 				end
 			end
 		)
@@ -2679,6 +2752,14 @@ local script = G2L["2"];
 			end
 		end)()
 		updtime()
+		
+		
+	
+	
+	
+		
+	
+	
 	end
 	
 	loader.load.MouseButton1Click:Connect(function()
