@@ -7,7 +7,7 @@
  Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
 ]=]
 
--- Instances: 176 | Scripts: 1 | Modules: 0 | Tags: 0
+-- Instances: 177 | Scripts: 1 | Modules: 0 | Tags: 0
 local G2L = {};
 
 -- StarterGui.tilehubv3
@@ -1245,302 +1245,307 @@ G2L["8e"] = Instance.new("UITextSizeConstraint", G2L["8a"]);
 G2L["8e"]["MaxTextSize"] = 20;
 
 
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.sliderrail.UIAspectRatioConstraint
+G2L["8f"] = Instance.new("UIAspectRatioConstraint", G2L["87"]);
+G2L["8f"]["AspectRatio"] = 29.19607;
+
+
 -- StarterGui.tilehubv3.frame.templates.sliderlabel.drag
-G2L["8f"] = Instance.new("BoolValue", G2L["84"]);
-G2L["8f"]["Name"] = [[drag]];
+G2L["90"] = Instance.new("BoolValue", G2L["84"]);
+G2L["90"]["Name"] = [[drag]];
 
 
 -- StarterGui.tilehubv3.frame.templates.sliderlabel.UIAspectRatioConstraint
-G2L["90"] = Instance.new("UIAspectRatioConstraint", G2L["84"]);
-G2L["90"]["AspectRatio"] = 13.15138;
+G2L["91"] = Instance.new("UIAspectRatioConstraint", G2L["84"]);
+G2L["91"]["AspectRatio"] = 13.15138;
 
 
 -- StarterGui.tilehubv3.frame.templates.togglebuttonlabel
-G2L["91"] = Instance.new("TextLabel", G2L["17"]);
-G2L["91"]["TextWrapped"] = true;
-G2L["91"]["TextStrokeTransparency"] = 0;
-G2L["91"]["BorderSizePixel"] = 0;
-G2L["91"]["TextSize"] = 14;
-G2L["91"]["TextScaled"] = true;
-G2L["91"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
-G2L["91"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-G2L["91"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["91"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
-G2L["91"]["Size"] = UDim2.new(0.74, 0, 0, 25);
-G2L["91"]["Visible"] = false;
-G2L["91"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["91"]["Text"] = [[Lorem ipsum dolor sit amet, consectetur adipiscing elit]];
-G2L["91"]["Name"] = [[togglebuttonlabel]];
-G2L["91"]["Position"] = UDim2.new(0, 0, 0, 0);
+G2L["92"] = Instance.new("TextLabel", G2L["17"]);
+G2L["92"]["TextWrapped"] = true;
+G2L["92"]["TextStrokeTransparency"] = 0;
+G2L["92"]["BorderSizePixel"] = 0;
+G2L["92"]["TextSize"] = 14;
+G2L["92"]["TextScaled"] = true;
+G2L["92"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["92"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["92"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["92"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["92"]["Size"] = UDim2.new(0.74, 0, 0, 25);
+G2L["92"]["Visible"] = false;
+G2L["92"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["92"]["Text"] = [[Lorem ipsum dolor sit amet, consectetur adipiscing elit]];
+G2L["92"]["Name"] = [[togglebuttonlabel]];
+G2L["92"]["Position"] = UDim2.new(0, 0, 0, 0);
 
 
 -- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton
-G2L["92"] = Instance.new("TextButton", G2L["91"]);
-G2L["92"]["TextStrokeTransparency"] = 0;
-G2L["92"]["BorderSizePixel"] = 0;
-G2L["92"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["92"]["TextSize"] = 14;
-G2L["92"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
-G2L["92"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-G2L["92"]["Size"] = UDim2.new(0.24013, 0, 1, 0);
-G2L["92"]["Name"] = [[togglebutton]];
-G2L["92"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["92"]["Text"] = [[]];
-G2L["92"]["Position"] = UDim2.new(1.02927, 0, 0, 0);
+G2L["93"] = Instance.new("TextButton", G2L["92"]);
+G2L["93"]["TextStrokeTransparency"] = 0;
+G2L["93"]["BorderSizePixel"] = 0;
+G2L["93"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["93"]["TextSize"] = 14;
+G2L["93"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["93"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["93"]["Size"] = UDim2.new(0.24013, 0, 1, 0);
+G2L["93"]["Name"] = [[togglebutton]];
+G2L["93"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["93"]["Text"] = [[]];
+G2L["93"]["Position"] = UDim2.new(1.02927, 0, 0, 0);
 
 
 -- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton.UICorner
-G2L["93"] = Instance.new("UICorner", G2L["92"]);
-G2L["93"]["CornerRadius"] = UDim.new(0, 555);
+G2L["94"] = Instance.new("UICorner", G2L["93"]);
+G2L["94"]["CornerRadius"] = UDim.new(0, 555);
 
 
 -- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton.TextLabel
-G2L["94"] = Instance.new("TextLabel", G2L["92"]);
-G2L["94"]["TextWrapped"] = true;
-G2L["94"]["Interactable"] = false;
-G2L["94"]["TextStrokeTransparency"] = 0;
-G2L["94"]["BorderSizePixel"] = 0;
-G2L["94"]["TextSize"] = 14;
-G2L["94"]["TextScaled"] = true;
-G2L["94"]["BackgroundColor3"] = Color3.fromRGB(255, 0, 0);
-G2L["94"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-G2L["94"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["94"]["Size"] = UDim2.new(0.38118, 0, 0.76, 0);
-G2L["94"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["94"]["Text"] = [[off]];
-G2L["94"]["Position"] = UDim2.new(0.06, 0, 0.15, 0);
+G2L["95"] = Instance.new("TextLabel", G2L["93"]);
+G2L["95"]["TextWrapped"] = true;
+G2L["95"]["Interactable"] = false;
+G2L["95"]["TextStrokeTransparency"] = 0;
+G2L["95"]["BorderSizePixel"] = 0;
+G2L["95"]["TextSize"] = 14;
+G2L["95"]["TextScaled"] = true;
+G2L["95"]["BackgroundColor3"] = Color3.fromRGB(255, 0, 0);
+G2L["95"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["95"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["95"]["Size"] = UDim2.new(0.38118, 0, 0.76, 0);
+G2L["95"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["95"]["Text"] = [[off]];
+G2L["95"]["Position"] = UDim2.new(0.06, 0, 0.15, 0);
 
 
 -- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton.TextLabel.UICorner
-G2L["95"] = Instance.new("UICorner", G2L["94"]);
-G2L["95"]["CornerRadius"] = UDim.new(0, 555);
+G2L["96"] = Instance.new("UICorner", G2L["95"]);
+G2L["96"]["CornerRadius"] = UDim.new(0, 555);
 
 
 -- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton.TextLabel.UIStroke
-G2L["96"] = Instance.new("UIStroke", G2L["94"]);
-G2L["96"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
-G2L["96"]["Color"] = Color3.fromRGB(127, 0, 0);
+G2L["97"] = Instance.new("UIStroke", G2L["95"]);
+G2L["97"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["97"]["Color"] = Color3.fromRGB(127, 0, 0);
 
 
 -- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton.Value
-G2L["97"] = Instance.new("BoolValue", G2L["92"]);
+G2L["98"] = Instance.new("BoolValue", G2L["93"]);
 
 
 
 -- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton.UIStroke
-G2L["98"] = Instance.new("UIStroke", G2L["92"]);
-G2L["98"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
-G2L["98"]["Color"] = Color3.fromRGB(104, 103, 102);
+G2L["99"] = Instance.new("UIStroke", G2L["93"]);
+G2L["99"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["99"]["Color"] = Color3.fromRGB(104, 103, 102);
 
 
 -- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton.UIAspectRatioConstraint
-G2L["99"] = Instance.new("UIAspectRatioConstraint", G2L["92"]);
-G2L["99"]["AspectRatio"] = 3.15799;
+G2L["9a"] = Instance.new("UIAspectRatioConstraint", G2L["93"]);
+G2L["9a"]["AspectRatio"] = 3.15799;
 
 
 -- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.UICorner
-G2L["9a"] = Instance.new("UICorner", G2L["91"]);
-G2L["9a"]["CornerRadius"] = UDim.new(0, 555);
+G2L["9b"] = Instance.new("UICorner", G2L["92"]);
+G2L["9b"]["CornerRadius"] = UDim.new(0, 555);
 
 
 -- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.UIStroke
-G2L["9b"] = Instance.new("UIStroke", G2L["91"]);
-G2L["9b"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
-G2L["9b"]["Color"] = Color3.fromRGB(39, 39, 39);
+G2L["9c"] = Instance.new("UIStroke", G2L["92"]);
+G2L["9c"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["9c"]["Color"] = Color3.fromRGB(39, 39, 39);
 
 
 -- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.UIAspectRatioConstraint
-G2L["9c"] = Instance.new("UIAspectRatioConstraint", G2L["91"]);
-G2L["9c"]["AspectRatio"] = 13.15138;
+G2L["9d"] = Instance.new("UIAspectRatioConstraint", G2L["92"]);
+G2L["9d"]["AspectRatio"] = 13.15138;
 
 
 -- StarterGui.tilehubv3.frame.UIAspectRatioConstraint
-G2L["9d"] = Instance.new("UIAspectRatioConstraint", G2L["3"]);
-G2L["9d"]["AspectRatio"] = 1.84064;
+G2L["9e"] = Instance.new("UIAspectRatioConstraint", G2L["3"]);
+G2L["9e"]["AspectRatio"] = 1.84064;
 
 
 -- StarterGui.tilehubv3.frame.xbeforeclosed
-G2L["9e"] = Instance.new("StringValue", G2L["3"]);
-G2L["9e"]["Name"] = [[xbeforeclosed]];
+G2L["9f"] = Instance.new("StringValue", G2L["3"]);
+G2L["9f"]["Name"] = [[xbeforeclosed]];
 
 
 -- StarterGui.tilehubv3.frame.ybeforeclosed
-G2L["9f"] = Instance.new("StringValue", G2L["3"]);
-G2L["9f"]["Name"] = [[ybeforeclosed]];
+G2L["a0"] = Instance.new("StringValue", G2L["3"]);
+G2L["a0"]["Name"] = [[ybeforeclosed]];
 
 
 -- StarterGui.tilehubv3.dialogue
-G2L["a0"] = Instance.new("Frame", G2L["1"]);
-G2L["a0"]["Visible"] = false;
-G2L["a0"]["BorderSizePixel"] = 0;
-G2L["a0"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["a0"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
-G2L["a0"]["Size"] = UDim2.new(1, 0, 0.15, 0);
-G2L["a0"]["Position"] = UDim2.new(0.49965, 0, 0.92294, 0);
-G2L["a0"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["a0"]["Name"] = [[dialogue]];
+G2L["a1"] = Instance.new("Frame", G2L["1"]);
+G2L["a1"]["Visible"] = false;
+G2L["a1"]["BorderSizePixel"] = 0;
+G2L["a1"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a1"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["a1"]["Size"] = UDim2.new(1, 0, 0.15, 0);
+G2L["a1"]["Position"] = UDim2.new(0.49965, 0, 0.92294, 0);
+G2L["a1"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a1"]["Name"] = [[dialogue]];
 
 
 -- StarterGui.tilehubv3.dialogue.UIGradient
-G2L["a1"] = Instance.new("UIGradient", G2L["a0"]);
-G2L["a1"]["Rotation"] = 90;
-G2L["a1"]["Transparency"] = NumberSequence.new{NumberSequenceKeypoint.new(0.000, 0.98125),NumberSequenceKeypoint.new(0.000, 0),NumberSequenceKeypoint.new(0.000, 1),NumberSequenceKeypoint.new(1.000, 0)};
-G2L["a1"]["Offset"] = Vector2.new(9, 0);
-G2L["a1"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(82, 82, 82)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(0, 0, 0))};
+G2L["a2"] = Instance.new("UIGradient", G2L["a1"]);
+G2L["a2"]["Rotation"] = 90;
+G2L["a2"]["Transparency"] = NumberSequence.new{NumberSequenceKeypoint.new(0.000, 0.98125),NumberSequenceKeypoint.new(0.000, 0),NumberSequenceKeypoint.new(0.000, 1),NumberSequenceKeypoint.new(1.000, 0)};
+G2L["a2"]["Offset"] = Vector2.new(9, 0);
+G2L["a2"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(82, 82, 82)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(0, 0, 0))};
 
 
 -- StarterGui.tilehubv3.dialogue.TextLabel
-G2L["a2"] = Instance.new("TextLabel", G2L["a0"]);
-G2L["a2"]["TextWrapped"] = true;
-G2L["a2"]["TextStrokeTransparency"] = 0;
-G2L["a2"]["BorderSizePixel"] = 0;
-G2L["a2"]["TextSize"] = 14;
-G2L["a2"]["TextScaled"] = true;
-G2L["a2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["a2"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-G2L["a2"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["a2"]["BackgroundTransparency"] = 1;
-G2L["a2"]["Size"] = UDim2.new(0.5, 0, 0.4, 0);
-G2L["a2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["a2"]["Text"] = [[text text text text text text text text text text text text text text text text]];
-G2L["a2"]["Position"] = UDim2.new(0.24889, 0, 0.38897, 0);
+G2L["a3"] = Instance.new("TextLabel", G2L["a1"]);
+G2L["a3"]["TextWrapped"] = true;
+G2L["a3"]["TextStrokeTransparency"] = 0;
+G2L["a3"]["BorderSizePixel"] = 0;
+G2L["a3"]["TextSize"] = 14;
+G2L["a3"]["TextScaled"] = true;
+G2L["a3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a3"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["a3"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a3"]["BackgroundTransparency"] = 1;
+G2L["a3"]["Size"] = UDim2.new(0.5, 0, 0.4, 0);
+G2L["a3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a3"]["Text"] = [[text text text text text text text text text text text text text text text text]];
+G2L["a3"]["Position"] = UDim2.new(0.24889, 0, 0.38897, 0);
 
 
 -- StarterGui.tilehubv3.dialogue.ImageLabel
-G2L["a3"] = Instance.new("ImageLabel", G2L["a0"]);
-G2L["a3"]["BorderSizePixel"] = 0;
-G2L["a3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["a3"]["Image"] = [[rbxassetid://10747363621]];
-G2L["a3"]["Size"] = UDim2.new(0.018, 0, 0.25, 0);
-G2L["a3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["a3"]["BackgroundTransparency"] = 1;
-G2L["a3"]["Rotation"] = 180;
-G2L["a3"]["Position"] = UDim2.new(0.75895, 0, 0.45957, 0);
+G2L["a4"] = Instance.new("ImageLabel", G2L["a1"]);
+G2L["a4"]["BorderSizePixel"] = 0;
+G2L["a4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a4"]["Image"] = [[rbxassetid://10747363621]];
+G2L["a4"]["Size"] = UDim2.new(0.018, 0, 0.25, 0);
+G2L["a4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a4"]["BackgroundTransparency"] = 1;
+G2L["a4"]["Rotation"] = 180;
+G2L["a4"]["Position"] = UDim2.new(0.75895, 0, 0.45957, 0);
 
 
 -- StarterGui.tilehubv3.loader
-G2L["a4"] = Instance.new("Frame", G2L["1"]);
-G2L["a4"]["Visible"] = false;
-G2L["a4"]["BorderSizePixel"] = 0;
-G2L["a4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["a4"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
-G2L["a4"]["Size"] = UDim2.new(0, 330, 0, 171);
-G2L["a4"]["Position"] = UDim2.new(0.49927, 0, 0.49891, 0);
-G2L["a4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["a4"]["Name"] = [[loader]];
+G2L["a5"] = Instance.new("Frame", G2L["1"]);
+G2L["a5"]["Visible"] = false;
+G2L["a5"]["BorderSizePixel"] = 0;
+G2L["a5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a5"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["a5"]["Size"] = UDim2.new(0, 330, 0, 171);
+G2L["a5"]["Position"] = UDim2.new(0.49927, 0, 0.49891, 0);
+G2L["a5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a5"]["Name"] = [[loader]];
 
 
 -- StarterGui.tilehubv3.loader.UICorner
-G2L["a5"] = Instance.new("UICorner", G2L["a4"]);
+G2L["a6"] = Instance.new("UICorner", G2L["a5"]);
 
 
 
 -- StarterGui.tilehubv3.loader.UIStroke
-G2L["a6"] = Instance.new("UIStroke", G2L["a4"]);
+G2L["a7"] = Instance.new("UIStroke", G2L["a5"]);
 
 
 
 -- StarterGui.tilehubv3.loader.load
-G2L["a7"] = Instance.new("TextButton", G2L["a4"]);
-G2L["a7"]["TextWrapped"] = true;
-G2L["a7"]["TextStrokeTransparency"] = 0;
-G2L["a7"]["BorderSizePixel"] = 0;
-G2L["a7"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["a7"]["TextSize"] = 14;
-G2L["a7"]["TextScaled"] = true;
-G2L["a7"]["BackgroundColor3"] = Color3.fromRGB(0, 86, 255);
-G2L["a7"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["a7"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
-G2L["a7"]["Size"] = UDim2.new(0, 173, 0, 27);
-G2L["a7"]["Name"] = [[load]];
-G2L["a7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["a7"]["Text"] = [[load]];
-G2L["a7"]["Position"] = UDim2.new(0.50194, 0, 0.87864, 0);
+G2L["a8"] = Instance.new("TextButton", G2L["a5"]);
+G2L["a8"]["TextWrapped"] = true;
+G2L["a8"]["TextStrokeTransparency"] = 0;
+G2L["a8"]["BorderSizePixel"] = 0;
+G2L["a8"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a8"]["TextSize"] = 14;
+G2L["a8"]["TextScaled"] = true;
+G2L["a8"]["BackgroundColor3"] = Color3.fromRGB(0, 86, 255);
+G2L["a8"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["a8"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["a8"]["Size"] = UDim2.new(0, 173, 0, 27);
+G2L["a8"]["Name"] = [[load]];
+G2L["a8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a8"]["Text"] = [[load]];
+G2L["a8"]["Position"] = UDim2.new(0.50194, 0, 0.87864, 0);
 
 
 -- StarterGui.tilehubv3.loader.load.UICorner
-G2L["a8"] = Instance.new("UICorner", G2L["a7"]);
+G2L["a9"] = Instance.new("UICorner", G2L["a8"]);
 
 
 
 -- StarterGui.tilehubv3.loader.load.UIStroke
-G2L["a9"] = Instance.new("UIStroke", G2L["a7"]);
-G2L["a9"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
-G2L["a9"]["Thickness"] = 1.21;
-G2L["a9"]["Color"] = Color3.fromRGB(0, 71, 210);
+G2L["aa"] = Instance.new("UIStroke", G2L["a8"]);
+G2L["aa"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["aa"]["Thickness"] = 1.21;
+G2L["aa"]["Color"] = Color3.fromRGB(0, 71, 210);
 
 
 -- StarterGui.tilehubv3.loader.image
-G2L["aa"] = Instance.new("ImageLabel", G2L["a4"]);
-G2L["aa"]["BorderSizePixel"] = 0;
-G2L["aa"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["aa"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
-G2L["aa"]["Image"] = [[rbxassetid://126475741439172]];
-G2L["aa"]["Size"] = UDim2.new(0, 111, 0, 110);
-G2L["aa"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["aa"]["BackgroundTransparency"] = 1;
-G2L["aa"]["Name"] = [[image]];
-G2L["aa"]["Position"] = UDim2.new(0.50041, 0, 0.32031, 0);
+G2L["ab"] = Instance.new("ImageLabel", G2L["a5"]);
+G2L["ab"]["BorderSizePixel"] = 0;
+G2L["ab"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["ab"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["ab"]["Image"] = [[rbxassetid://126475741439172]];
+G2L["ab"]["Size"] = UDim2.new(0, 111, 0, 110);
+G2L["ab"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["ab"]["BackgroundTransparency"] = 1;
+G2L["ab"]["Name"] = [[image]];
+G2L["ab"]["Position"] = UDim2.new(0.50041, 0, 0.32031, 0);
 
 
 -- StarterGui.tilehubv3.loader.UIGradient
-G2L["ab"] = Instance.new("UIGradient", G2L["a4"]);
-G2L["ab"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(55, 55, 55)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(28, 28, 28))};
+G2L["ac"] = Instance.new("UIGradient", G2L["a5"]);
+G2L["ac"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(55, 55, 55)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(28, 28, 28))};
 
 
 -- StarterGui.tilehubv3.loader.TextLabel
-G2L["ac"] = Instance.new("TextLabel", G2L["a4"]);
-G2L["ac"]["TextWrapped"] = true;
-G2L["ac"]["TextStrokeTransparency"] = 0;
-G2L["ac"]["BorderSizePixel"] = 0;
-G2L["ac"]["TextSize"] = 14;
-G2L["ac"]["TextScaled"] = true;
-G2L["ac"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["ac"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-G2L["ac"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["ac"]["BackgroundTransparency"] = 1;
-G2L["ac"]["Size"] = UDim2.new(0, 189, 0, 30);
-G2L["ac"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["ac"]["Text"] = "tilehub [revamped]"
-G2L["ac"]["Position"] = UDim2.new(0.21515, 0, 0.57895, 0);
+G2L["ad"] = Instance.new("TextLabel", G2L["a5"]);
+G2L["ad"]["TextWrapped"] = true;
+G2L["ad"]["TextStrokeTransparency"] = 0;
+G2L["ad"]["BorderSizePixel"] = 0;
+G2L["ad"]["TextSize"] = 14;
+G2L["ad"]["TextScaled"] = true;
+G2L["ad"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["ad"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["ad"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["ad"]["BackgroundTransparency"] = 1;
+G2L["ad"]["Size"] = UDim2.new(0, 189, 0, 30);
+G2L["ad"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["ad"]["Text"] = "tilehub [revamped]"
+G2L["ad"]["Position"] = UDim2.new(0.21515, 0, 0.57895, 0);
 
 
 -- StarterGui.tilehubv3.notificationsholder
-G2L["ad"] = Instance.new("Frame", G2L["1"]);
-G2L["ad"]["BorderSizePixel"] = 0;
-G2L["ad"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["ad"]["AnchorPoint"] = Vector2.new(1, 1);
-G2L["ad"]["Size"] = UDim2.new(0.17008, 0, 0.92249, 0);
-G2L["ad"]["Position"] = UDim2.new(1, -15, 0.999, -15);
-G2L["ad"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["ad"]["Name"] = [[notificationsholder]];
-G2L["ad"]["BackgroundTransparency"] = 1;
+G2L["ae"] = Instance.new("Frame", G2L["1"]);
+G2L["ae"]["BorderSizePixel"] = 0;
+G2L["ae"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["ae"]["AnchorPoint"] = Vector2.new(1, 1);
+G2L["ae"]["Size"] = UDim2.new(0.17008, 0, 0.92249, 0);
+G2L["ae"]["Position"] = UDim2.new(1, -15, 0.999, -15);
+G2L["ae"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["ae"]["Name"] = [[notificationsholder]];
+G2L["ae"]["BackgroundTransparency"] = 1;
 
 
 -- StarterGui.tilehubv3.notificationsholder.UIAspectRatioConstraint
-G2L["ae"] = Instance.new("UIAspectRatioConstraint", G2L["ad"]);
-G2L["ae"]["AspectRatio"] = 0.37699;
+G2L["af"] = Instance.new("UIAspectRatioConstraint", G2L["ae"]);
+G2L["af"]["AspectRatio"] = 0.37699;
 
 
 -- StarterGui.tilehubv3.notificationsholder.UIListLayout
-G2L["af"] = Instance.new("UIListLayout", G2L["ad"]);
-G2L["af"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Center;
-G2L["af"]["Padding"] = UDim.new(0, 35);
-G2L["af"]["VerticalAlignment"] = Enum.VerticalAlignment.Bottom;
-G2L["af"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+G2L["b0"] = Instance.new("UIListLayout", G2L["ae"]);
+G2L["b0"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Center;
+G2L["b0"]["Padding"] = UDim.new(0, 35);
+G2L["b0"]["VerticalAlignment"] = Enum.VerticalAlignment.Bottom;
+G2L["b0"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
 
 
 -- StarterGui.tilehubv3.mobileopenbutton
-G2L["b0"] = Instance.new("ImageButton", G2L["1"]);
-G2L["b0"]["BorderSizePixel"] = 0;
-G2L["b0"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["b0"]["AnchorPoint"] = Vector2.new(0.5, 0);
-G2L["b0"]["Image"] = [[rbxassetid://91843386347726]];
-G2L["b0"]["Size"] = UDim2.new(0, 55, 0, 55);
-G2L["b0"]["BackgroundTransparency"] = 1;
-G2L["b0"]["Name"] = [[mobileopenbutton]];
-G2L["b0"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["b0"]["Position"] = UDim2.new(0.49872, 0, 0.07437, 0);
+G2L["b1"] = Instance.new("ImageButton", G2L["1"]);
+G2L["b1"]["BorderSizePixel"] = 0;
+G2L["b1"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["b1"]["AnchorPoint"] = Vector2.new(0.5, 0);
+G2L["b1"]["Image"] = [[rbxassetid://91843386347726]];
+G2L["b1"]["Size"] = UDim2.new(0, 55, 0, 55);
+G2L["b1"]["BackgroundTransparency"] = 1;
+G2L["b1"]["Name"] = [[mobileopenbutton]];
+G2L["b1"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["b1"]["Position"] = UDim2.new(0.49872, 0, 0.07437, 0);
 
 
 -- StarterGui.tilehubv3.LocalScript
@@ -1565,6 +1570,7 @@ local script = G2L["2"];
 	gui.mobileopenbutton.Active = false
 	gui.mobileopenbutton.ImageTransparency = 1
 	local lplayer = game.Players.LocalPlayer
+	local humanoid = nil
 	local players = game:GetService("Players")
 	local istping = false
 	local mouse = lplayer:GetMouse()
@@ -1584,6 +1590,26 @@ local script = G2L["2"];
 	local feenv = getfenv() or (getgenv and getgenv())
 	local sethiddenprop = feenv.sethiddenproperty
 	local setsimrad = feenv.setsimulationradius
+	
+	local function onCharacterAdded(newCharacter)
+		humanoid = newCharacter:WaitForChild("Humanoid")
+		humanoid.Died:Connect(function()
+			print("Player died")
+		end)
+	end
+	while not lplayer.Character do
+		task.wait()
+	end
+	lplayer.CharacterAdded:Connect(onCharacterAdded)
+	if lplayer.Character then
+		onCharacterAdded(lplayer.Character)
+	end
+	
+	
+	local defaultws = humanoid.WalkSpeed
+	local currentws = defaultws
+	local defaultjp = humanoid.JumpPower
+	local currentjp = defaultjp
 	
 	local twi = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut, 0, false, 0)
 	if loader.Visible == false then
@@ -2027,9 +2053,8 @@ local script = G2L["2"];
 	
 				local UIS = userinputservice
 	
-				-- CONFIG
-				local MIN_VALUE = 0
-				local MAX_VALUE = 100
+				local MIN_VALUE = clone:GetAttribute("Min") or 0
+				local MAX_VALUE = clone:GetAttribute("Max") or 100
 	
 				local function setSliderFromX(x)
 					local railX = rail.AbsolutePosition.X
@@ -2051,7 +2076,6 @@ local script = G2L["2"];
 	
 					-- DISPLAY VALUE
 					clone.sliderrail.TextButton.Text = tostring(value)
-					wasclicked(tostring(value))
 	
 					-- CALLBACK
 					if wasclicked then
@@ -2135,6 +2159,12 @@ local script = G2L["2"];
 			clone.Visible = true
 	
 			return clone
+		end
+		local function createSlider(order, parent, name, title, min, max, callback)
+			local s = clonebtn(order, parent, templates.sliderlabel, name, title, callback)
+			s:SetAttribute("Min", min)
+			s:SetAttribute("Max", max)
+			return s
 		end
 		local function createDropdown(order, parent, name, title, options)
 			local d = clonebtn(
@@ -2418,18 +2448,13 @@ local script = G2L["2"];
 	
 		local function hookPlayer(player)
 			if player == lplayer then return end
-	
-			-- Hook current character if exists
 			if player.Character then
 				hookCharacter(player.Character)
 			end
-	
-			-- Listen for future respawns and track the connection
 			local conn = player.CharacterAdded:Connect(hookCharacter)
 			table.insert(antiflingConnections, conn)
 		end
 	
-		-- --- YOUR CLONEBTN CODE ---
 		clonebtn(
 			2,
 			tabHolder.playertab,
@@ -2480,6 +2505,115 @@ local script = G2L["2"];
 				end
 			end
 		)
+		local walkSpeedConnection = nil
+		local jumpPowerConnection = nil
+	
+		clonebtn(
+			4, 
+			tabHolder.playertab, 
+			templates.togglebuttonlabel, 
+			"enablecustomws", 
+			"enable custom walkspeed", 
+			function(state)
+				if state then
+					-- ENABLED
+					tabHolder.playertab.walkspeedfield.Visible = true
+					humanoid.WalkSpeed = currentws
+	
+					-- Safety check: If a connection exists for some reason, kill it first
+					if walkSpeedConnection then walkSpeedConnection:Disconnect() end
+	
+					-- 2. Store the connection in the variable
+					walkSpeedConnection = humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+						-- We check 'state' again or rely on the disconnect logic
+						if humanoid.WalkSpeed ~= currentws then
+							humanoid.WalkSpeed = currentws
+						end
+					end)
+				else
+					-- DISABLED
+					tabHolder.playertab.walkspeedfield.Visible = false
+	
+					-- 3. Disconnect the connection so it stops listening
+					if walkSpeedConnection then
+						walkSpeedConnection:Disconnect()
+						walkSpeedConnection = nil -- Clear the variable
+					end
+	
+					humanoid.WalkSpeed = defaultws
+				end
+			end
+		)
+		clonebtn(
+			5,                  -- LayoutOrder (The order in the list)
+			tabHolder.playertab,    -- Parent (Where the field goes)
+			templates.fieldlabel,      -- Template (Must be the one named "fieldlabel")
+			"walkspeedfield",      -- Name (The internal name of the new object)
+			"set walkspeed:",      -- Description (The text shown on the label)
+			function(text)      -- The 'wasclicked' callback
+				if text == "" then
+					currentws = defaultws
+					return
+				end
+				currentws = tonumber(text)
+				humanoid.WalkSpeed = currentws
+			end
+		)
+		clonebtn(
+			6, 
+			tabHolder.playertab, 
+			templates.togglebuttonlabel, 
+			"enablecustomjp", 
+			"enable custom jumppower", 
+			function(state)
+				if state then
+					-- ENABLED
+					humanoid.UseJumpPower = true
+					tabHolder.playertab.jumppowerfield.Visible = true
+					humanoid.JumpPower = currentjp 
+	
+					-- Safety check: If a connection exists for some reason, kill it first
+					if jumpPowerConnection then jumpPowerConnection:Disconnect() end
+	
+					-- 2. Store the connection in the variable
+					jumpPowerConnection = humanoid:GetPropertyChangedSignal("JumpPower"):Connect(function()
+						-- We check 'state' again or rely on the disconnect logic
+						if humanoid.JumpPower ~= currentjp then
+							humanoid.JumpPower = currentjp
+						end
+					end)
+				else
+					humanoid.UseJumpPower = false
+					-- DISABLED
+					tabHolder.playertab.jumppowerfield.Visible = false
+	
+					-- 3. Disconnect the connection so it stops listening
+					if jumpPowerConnection then
+						jumpPowerConnection:Disconnect()
+						jumpPowerConnection = nil -- Clear the variable
+					end
+	
+					humanoid.JumpPower = defaultjp
+				end
+			end
+		)
+		clonebtn(
+			7,                  -- LayoutOrder (The order in the list)
+			tabHolder.playertab,    -- Parent (Where the field goes)
+			templates.fieldlabel,      -- Template (Must be the one named "fieldlabel")
+			"jumppowerfield",      -- Name (The internal name of the new object)
+			"set jump power:",      -- Description (The text shown on the label)
+			function(text)      -- The 'wasclicked' callback
+				if text == "" then
+					currentjp = defaultjp
+					return
+				end
+				currentjp = tonumber(text)
+				humanoid.JumpPower = currentjp
+			end
+		)
+		tabHolder.playertab.walkspeedfield.Visible = false
+		tabHolder.playertab.jumppowerfield.Visible = false
 		tabHolder.playertab.netwrangefield.Visible = false
 		tabHolder.playertab.netwrangefield.TextBox.Text = "0"
 		currentframe.Value = "scriptstab"
@@ -2667,7 +2801,7 @@ local script = G2L["2"];
 			if success and result then
 				local HttpService = game:GetService("HttpService")
 				local data = HttpService:JSONDecode(result)
-	
+
 				if data and data.data then
 					-- Clear old servers (except template/layout)
 					for _, child in pairs(serversFrame:GetChildren()) do
@@ -2675,7 +2809,7 @@ local script = G2L["2"];
 							child:Destroy()
 						end
 					end
-	
+
 					-- Add new servers
 					for _, server in pairs(data.data) do
 						-- Calculate actual ping (Roblox API doesn't give real ping, usually just location, 
@@ -2683,11 +2817,11 @@ local script = G2L["2"];
 						local sPing = server.ping or 0
 						local sPlayers = server.playing or 0
 						local sJobId = server.id
-	
+
 						-- Call your existing function
 						addserverbtn(sJobId, placeId, sPing, sPlayers)
 					end
-	
+
 					-- Update the sort immediately after loading
 					sortServers()
 				end
@@ -2695,7 +2829,7 @@ local script = G2L["2"];
 				warn("fail")
 			end
 		end
-	
+
 		-- SERVERS / RELOAD BUTTON
 		tabHolder.serverstab.serversbuttonholder.servers.MouseButton1Click:Connect(function()
 			-- CASE 1: The servers list is ALREADY open
@@ -2703,23 +2837,23 @@ local script = G2L["2"];
 				-- This acts as the Reload button
 				tabHolder.serverstab.serversbuttonholder.servers.Text = "reload" -- Ensure text indicates reload
 				fetchServers()
-	
+
 				-- CASE 2: The servers list is closed (switching from Saved to Servers)
 			else
 				tabHolder.serverstab.saved.Visible = false
 				tabHolder.serverstab.servers.Visible = true
 				-- Change the text to "reload" immediately so the NEXT click reloads
 				tabHolder.serverstab.serversbuttonholder.servers.Text = "reload" 
-	
+
 				-- Optional: You might want to fetch servers immediately upon opening too
 				-- fetchServers() 
 			end
-			
+
 		end)
-		
+
 		local function loadAllSavedServers()
 			local db = getDatabase()
-	
+
 			-- We use pairs() to iterate through every Game ID (key) in the database
 			for gameId, serverList in pairs(db) do
 				-- serverList is the array of servers for that specific gameId
@@ -2734,13 +2868,13 @@ local script = G2L["2"];
 				end
 			end
 		end
-	
+
 		-- Run
 		fetchServers()
 		loadAllSavedServers()
 		autoresize(tabHolder.serverstab.saved)
 		autoresize(tabHolder.serverstab.servers)
-		
+
 		local function updtime()
 			local tstring = os.date("%I:%M %p")
 			header.time.Text = string.lower(tstring)
@@ -2752,16 +2886,13 @@ local script = G2L["2"];
 			end
 		end)()
 		updtime()
-		
-		
-	
-	
-	
-		
-	
-	
+
+
+
+
+
 	end
-	
+
 	loader.load.MouseButton1Click:Connect(function()
 		loader.TextLabel.Text = "loading. [0%]"
 		loader.load:Destroy()
@@ -2774,20 +2905,20 @@ local script = G2L["2"];
 		}
 		local t = game:GetService("TweenService"):Create(loader, twi, b)
 		t:Play()
-		
+
 		local b = {
 			Position = UDim2.fromScale(0.497, 0.139)
 		}
 		local t = game:GetService("TweenService"):Create(loader.image, twi, b)
 		t:Play()
-		
+
 		local b = {
 			Size = UDim2.fromOffset(150, 150)
 		}
 		local t = game:GetService("TweenService"):Create(loader.image, twi, b)
 		t:Play()
-	
-		
+
+
 		local b = {
 			Size = 24
 		}
@@ -2795,7 +2926,7 @@ local script = G2L["2"];
 		t:Play()
 		load()
 		loader.TextLabel.Text = "loaded successfully!"
-	
+
 		wait(.5)
 		local b = {
 			Size = 0
@@ -2807,7 +2938,7 @@ local script = G2L["2"];
 		wait(1)
 		blur:Destroy()
 	end)
-	
+
 end;
 task.spawn(C_2);
 
