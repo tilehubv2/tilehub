@@ -14,6 +14,7 @@ local G2L = {};
 G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
 G2L["1"]["Name"] = [[tilehubv3]];
 G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+G2L["1"]["ResetOnSpawn"] = false;
 
 
 -- StarterGui.tilehubv3.LocalScript
@@ -1570,7 +1571,7 @@ local script = G2L["2"];
 	gui.mobileopenbutton.Active = false
 	gui.mobileopenbutton.ImageTransparency = 1
 	local lplayer = game.Players.LocalPlayer
-	local humanoid = nil
+	
 	local players = game:GetService("Players")
 	local istping = false
 	local mouse = lplayer:GetMouse()
@@ -1590,26 +1591,28 @@ local script = G2L["2"];
 	local feenv = getfenv() or (getgenv and getgenv())
 	local sethiddenprop = feenv.sethiddenproperty
 	local setsimrad = feenv.setsimulationradius
-	
+	local defaultws
+	local defaultjp
+	local currentjp
+	--local currentws
 	local function onCharacterAdded(newCharacter)
-		humanoid = newCharacter:WaitForChild("Humanoid")
-		humanoid.Died:Connect(function()
-			print("Player died")
-		end)
+		
 	end
-	while not lplayer.Character do
-		task.wait()
-	end
+	
 	lplayer.CharacterAdded:Connect(onCharacterAdded)
 	if lplayer.Character then
 		onCharacterAdded(lplayer.Character)
 	end
 	
 	
-	local defaultws = humanoid.WalkSpeed
-	local currentws = defaultws
-	local defaultjp = humanoid.JumpPower
-	local currentjp = defaultjp
+	coroutine.wrap(function()
+		local character = lplayer.Character or lplayer.CharacterAdded:Wait()
+		local humanoid = character:WaitForChild("Humanoid")
+		defaultws = humanoid.WalkSpeed
+		currentws = defaultws
+		defaultjp = humanoid.JumpPower
+		currentjp = defaultjp
+	end)()
 	
 	local twi = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut, 0, false, 0)
 	if loader.Visible == false then
@@ -1973,8 +1976,8 @@ local script = G2L["2"];
 						clone.togglebutton.Value.Value = false
 						wasclicked(clone.togglebutton.Value.Value)
 						clone.togglebutton.TextLabel.Text = "off"
-						clone.togglebutton.TextLabel.BackgroundColor3 = Color3.new(255, 0, 0)
-						clone.togglebutton.TextLabel.UIStroke.Color = Color3.new(126, 0, 0)
+						clone.togglebutton.TextLabel.BackgroundColor3 = Color3.new(1, 0, 0)
+						clone.togglebutton.TextLabel.UIStroke.Color = Color3.new(0.494118, 0, 0)
 						local goal = {
 							Position = UDim2.new(xoffpos, 0, yScale, yOffset)
 						}
@@ -2317,6 +2320,7 @@ local script = G2L["2"];
 			local button = templates.headerbutton.button:Clone()
 			button.Parent = tabButtons
 			button.Visible = true
+			button.Name = frameName
 	
 			if uilayoutorder then
 				button.LayoutOrder = uilayoutorder
@@ -2379,8 +2383,15 @@ local script = G2L["2"];
 		addHeaderButton(1, 10734943448, "scriptstab")
 		addHeaderButton(2, 10734949856, "serverstab")
 		addHeaderButton(3, 10747373176, "playertab")
+		if not lplayer.Character then
+			tabButtons.playertab.Visible = false
+			task.spawn(function()
+				lplayer.CharacterAdded:Wait()
+				tabButtons.playertab.Visible = true
+			end)
+		end
 		networkownershiprange = 0
-		
+	
 		clonebtn(
 			0,                      -- LayoutOrder (Sort Order)
 			tabHolder.playertab,              -- Parent GUI
@@ -2505,9 +2516,14 @@ local script = G2L["2"];
 				end
 			end
 		)
-		local walkSpeedConnection = nil
-		local jumpPowerConnection = nil
+		-- Add these variables at the top near your other connections
+		local walkSpeedConnection = nil     -- Listens to PropertyChanged (locks the speed)
+		local wsRespawnConnection = nil     -- Listens to CharacterAdded (handles death)
 	
+		local jumpPowerConnection = nil     -- Listens to PropertyChanged
+		local jpRespawnConnection = nil     -- Listens to CharacterAdded
+	
+		-- 1. WalkSpeed Button
 		clonebtn(
 			4, 
 			tabHolder.playertab, 
@@ -2518,47 +2534,89 @@ local script = G2L["2"];
 				if state then
 					-- ENABLED
 					tabHolder.playertab.walkspeedfield.Visible = true
-					humanoid.WalkSpeed = currentws
 	
-					-- Safety check: If a connection exists for some reason, kill it first
-					if walkSpeedConnection then walkSpeedConnection:Disconnect() end
+					-- Define the function that applies speed to a specific character
+					local function hookWalkSpeed(char)
+						local humanoid = char:WaitForChild("Humanoid", 5) -- Wait up to 5s for humanoid
+						if not humanoid then return end
 	
-					-- 2. Store the connection in the variable
-					walkSpeedConnection = humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
-						-- We check 'state' again or rely on the disconnect logic
-						if humanoid.WalkSpeed ~= currentws then
-							humanoid.WalkSpeed = currentws
-						end
+						-- Force speed immediately
+						humanoid.WalkSpeed = currentws
+	
+						-- Disconnect previous property listener if it exists (for safety)
+						if walkSpeedConnection then walkSpeedConnection:Disconnect() end
+	
+						-- Create new property listener to lock the speed
+						walkSpeedConnection = humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+							if humanoid.WalkSpeed ~= currentws then
+								humanoid.WalkSpeed = currentws
+							end
+						end)
+					end
+	
+					-- A. Apply to the current character right now
+					if lplayer.Character then
+						task.spawn(function() hookWalkSpeed(lplayer.Character) end)
+					end
+	
+					-- B. Create the Respawn Listener so it works after death
+					-- We disconnect any existing respawn listener first to avoid duplicates
+					if wsRespawnConnection then wsRespawnConnection:Disconnect() end
+	
+					wsRespawnConnection = lplayer.CharacterAdded:Connect(function(newChar)
+						hookWalkSpeed(newChar)
 					end)
+	
 				else
 					-- DISABLED
 					tabHolder.playertab.walkspeedfield.Visible = false
 	
-					-- 3. Disconnect the connection so it stops listening
-					if walkSpeedConnection then
-						walkSpeedConnection:Disconnect()
-						walkSpeedConnection = nil -- Clear the variable
+					-- 1. Stop listening for respawns
+					if wsRespawnConnection then 
+						wsRespawnConnection:Disconnect()
+						wsRespawnConnection = nil
 					end
 	
-					humanoid.WalkSpeed = defaultws
+					-- 2. Stop locking the speed
+					if walkSpeedConnection then
+						walkSpeedConnection:Disconnect()
+						walkSpeedConnection = nil
+					end
+	
+					-- 3. Reset the speed on the current character
+					local character = lplayer.Character
+					if character then
+						local humanoid = character:FindFirstChild("Humanoid")
+						if humanoid then
+							humanoid.WalkSpeed = defaultws
+						end
+					end
 				end
 			end
 		)
+	
+		-- Field for WalkSpeed (No changes needed here, but included for context)
 		clonebtn(
-			5,                  -- LayoutOrder (The order in the list)
-			tabHolder.playertab,    -- Parent (Where the field goes)
-			templates.fieldlabel,      -- Template (Must be the one named "fieldlabel")
-			"walkspeedfield",      -- Name (The internal name of the new object)
-			"set walkspeed:",      -- Description (The text shown on the label)
-			function(text)      -- The 'wasclicked' callback
+			5,
+			tabHolder.playertab,
+			templates.fieldlabel,
+			"walkspeedfield",
+			"set walkspeed:",
+			function(text)
 				if text == "" then
 					currentws = defaultws
 					return
 				end
 				currentws = tonumber(text)
-				humanoid.WalkSpeed = currentws
+	
+				-- Update the current character immediately if the toggle is already on
+				if lplayer.Character and lplayer.Character:FindFirstChild("Humanoid") then
+					lplayer.Character.Humanoid.WalkSpeed = currentws
+				end
 			end
 		)
+	
+		-- 2. JumpPower Button
 		clonebtn(
 			6, 
 			tabHolder.playertab, 
@@ -2568,48 +2626,78 @@ local script = G2L["2"];
 			function(state)
 				if state then
 					-- ENABLED
-					humanoid.UseJumpPower = true
 					tabHolder.playertab.jumppowerfield.Visible = true
-					humanoid.JumpPower = currentjp 
 	
-					-- Safety check: If a connection exists for some reason, kill it first
-					if jumpPowerConnection then jumpPowerConnection:Disconnect() end
+					local function hookJumpPower(char)
+						local humanoid = char:WaitForChild("Humanoid", 5)
+						if not humanoid then return end
 	
-					-- 2. Store the connection in the variable
-					jumpPowerConnection = humanoid:GetPropertyChangedSignal("JumpPower"):Connect(function()
-						-- We check 'state' again or rely on the disconnect logic
-						if humanoid.JumpPower ~= currentjp then
-							humanoid.JumpPower = currentjp
-						end
+						humanoid.UseJumpPower = true
+						humanoid.JumpPower = currentjp
+	
+						if jumpPowerConnection then jumpPowerConnection:Disconnect() end
+	
+						jumpPowerConnection = humanoid:GetPropertyChangedSignal("JumpPower"):Connect(function()
+							if humanoid.JumpPower ~= currentjp then
+								humanoid.JumpPower = currentjp
+							end
+						end)
+					end
+	
+					-- A. Apply to current
+					if lplayer.Character then
+						task.spawn(function() hookJumpPower(lplayer.Character) end)
+					end
+	
+					-- B. Listen for respawn
+					if jpRespawnConnection then jpRespawnConnection:Disconnect() end
+					jpRespawnConnection = lplayer.CharacterAdded:Connect(function(newChar)
+						hookJumpPower(newChar)
 					end)
+	
 				else
-					humanoid.UseJumpPower = false
 					-- DISABLED
 					tabHolder.playertab.jumppowerfield.Visible = false
 	
-					-- 3. Disconnect the connection so it stops listening
-					if jumpPowerConnection then
-						jumpPowerConnection:Disconnect()
-						jumpPowerConnection = nil -- Clear the variable
+					if jpRespawnConnection then 
+						jpRespawnConnection:Disconnect()
+						jpRespawnConnection = nil
 					end
 	
-					humanoid.JumpPower = defaultjp
+					if jumpPowerConnection then
+						jumpPowerConnection:Disconnect()
+						jumpPowerConnection = nil
+					end
+	
+					local character = lplayer.Character
+					if character then
+						local humanoid = character:FindFirstChild("Humanoid")
+						if humanoid then
+							humanoid.UseJumpPower = false
+							humanoid.JumpPower = defaultjp
+						end
+					end
 				end
 			end
 		)
+	
+		-- Field for JumpPower
 		clonebtn(
-			7,                  -- LayoutOrder (The order in the list)
-			tabHolder.playertab,    -- Parent (Where the field goes)
-			templates.fieldlabel,      -- Template (Must be the one named "fieldlabel")
-			"jumppowerfield",      -- Name (The internal name of the new object)
-			"set jump power:",      -- Description (The text shown on the label)
-			function(text)      -- The 'wasclicked' callback
+			7,
+			tabHolder.playertab,
+			templates.fieldlabel,
+			"jumppowerfield",
+			"set jump power:",
+			function(text)
 				if text == "" then
 					currentjp = defaultjp
 					return
 				end
 				currentjp = tonumber(text)
-				humanoid.JumpPower = currentjp
+	
+				if lplayer.Character and lplayer.Character:FindFirstChild("Humanoid") then
+					lplayer.Character.Humanoid.JumpPower = currentjp
+				end
 			end
 		)
 		tabHolder.playertab.walkspeedfield.Visible = false
@@ -2743,7 +2831,7 @@ local script = G2L["2"];
 						nil, -- CHANGED: Set to nil so it doesn't close automatically
 						cancelAction 
 					)
-	
+
 					-- 3. Run the loop in a separate thread to ensure safety
 					task.spawn(function()
 						while istping == true do
@@ -2751,36 +2839,36 @@ local script = G2L["2"];
 							local success, err = pcall(function()
 								TeleportService:TeleportToPlaceInstance(temp.gameid.Value, jobid, player)
 							end)
-	
+
 							if not success then
 							end
-	
+
 							-- Wait before retrying (Teleport service throttles requests anyway)
 							task.wait(2.5) 
 						end
 					end)
 				end)
 			end
-	
-	
+
+
 			-- Save Button
 			temp.save.MouseButton1Click:Connect(function()
 				createSavedServerEntry(jobid, gameid, temp.ping.Text, temp.players.Text)
 				saveServerToFile(jobid, gameid, temp.ping.Text, temp.players.Text)
 			end)
 		end
-	
+
 		-- Function to Fetch Servers
 		local function fetchServers()
 			local serversFrame = tabHolder:WaitForChild("serverstab"):WaitForChild("servers")
 			local placeId = game.PlaceId
 			local url = "https://games.roblox.com/v1/games/" .. placeId .. "/servers/Public?sortOrder=Desc&excludeFullGames=true&limit=100"
-	
+
 			local success, result
-	
+
 			-- Detect environment (Executor vs Studio)
 			local httpRequest = (syn and syn.request) or (http and http.request) or (http_request) or (fluxus and fluxus.request) or request
-	
+
 			if httpRequest then
 				-- Executor Environment
 				local response = httpRequest({
@@ -2797,7 +2885,7 @@ local script = G2L["2"];
 					return HttpService:GetAsync(url) -- Will fail in standard game without proxy
 				end)
 			end
-	
+
 			if success and result then
 				local HttpService = game:GetService("HttpService")
 				local data = HttpService:JSONDecode(result)
