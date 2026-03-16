@@ -2937,7 +2937,7 @@ function load()
 							stroke.Thickness = 2
 							stroke.Parent = serverFrame
 						end
-						stroke.Color = Color3.fromRGB(0, 255, 0) -- Green
+						stroke.Color = Color3.fromRGB(255, 255, 255) -- Green
 					end
 				end
 
