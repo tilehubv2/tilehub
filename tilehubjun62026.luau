@@ -1,0 +1,3437 @@
+--[=[
+ d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
+88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
+88      88    88    88            odD'      88      88    88 88ooo88 
+88  ooo 88    88    88          .88'        88      88    88 88~~~88 
+88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
+ Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
+]=]
+
+-- Instances: 177 | Scripts: 1 | Modules: 0 | Tags: 0
+local G2L = {};
+
+-- StarterGui.tilehubv3
+G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"]["Name"] = [[tilehubv3]];
+G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+G2L["1"]["ResetOnSpawn"] = false;
+
+
+-- StarterGui.tilehubv3.LocalScript
+G2L["2"] = Instance.new("LocalScript", G2L["1"]);
+
+
+
+-- StarterGui.tilehubv3.frame
+G2L["3"] = Instance.new("Frame", G2L["1"]);
+G2L["3"]["BorderSizePixel"] = 0;
+G2L["3"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+G2L["3"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["3"]["Size"] = UDim2.new(0.47368, 0, 0.55124, 0);
+G2L["3"]["Position"] = UDim2.new(0.49932, 0, 0.49886, 0);
+G2L["3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3"]["Name"] = [[frame]];
+
+
+-- StarterGui.tilehubv3.frame.UIDragDetector
+G2L["4"] = Instance.new("UIDragDetector", G2L["3"]);
+
+
+
+-- StarterGui.tilehubv3.frame.UICorner
+G2L["5"] = Instance.new("UICorner", G2L["3"]);
+
+
+
+-- StarterGui.tilehubv3.frame.UIStroke
+G2L["6"] = Instance.new("UIStroke", G2L["3"]);
+
+
+
+-- StarterGui.tilehubv3.frame.header
+G2L["7"] = Instance.new("Frame", G2L["3"]);
+G2L["7"]["BorderSizePixel"] = 0;
+G2L["7"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["7"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["7"]["Size"] = UDim2.new(0.96104, 0, 0.10757, 0);
+G2L["7"]["Position"] = UDim2.new(0.50034, 0, 0.08879, 0);
+G2L["7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["7"]["Name"] = [[header]];
+
+
+-- StarterGui.tilehubv3.frame.header.UICorner
+G2L["8"] = Instance.new("UICorner", G2L["7"]);
+
+
+
+-- StarterGui.tilehubv3.frame.header.UIStroke
+G2L["9"] = Instance.new("UIStroke", G2L["7"]);
+G2L["9"]["Color"] = Color3.fromRGB(75, 75, 75);
+
+
+-- StarterGui.tilehubv3.frame.header.closeb
+G2L["a"] = Instance.new("TextButton", G2L["7"]);
+G2L["a"]["TextWrapped"] = true;
+G2L["a"]["TextStrokeTransparency"] = 0;
+G2L["a"]["BorderSizePixel"] = 0;
+G2L["a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a"]["TextSize"] = 14;
+G2L["a"]["TextScaled"] = true;
+G2L["a"]["BackgroundColor3"] = Color3.fromRGB(255, 0, 0);
+G2L["a"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["a"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["a"]["Size"] = UDim2.new(0.05, 0, 1, 0);
+G2L["a"]["Name"] = [[closeb]];
+G2L["a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a"]["Text"] = [[x]];
+G2L["a"]["Position"] = UDim2.new(0.965, 0, 0.525, 0);
+
+
+-- StarterGui.tilehubv3.frame.header.closeb.UICorner
+G2L["b"] = Instance.new("UICorner", G2L["a"]);
+
+
+
+-- StarterGui.tilehubv3.frame.header.closeb.UIAspectRatioConstraint
+G2L["c"] = Instance.new("UIAspectRatioConstraint", G2L["a"]);
+
+
+
+-- StarterGui.tilehubv3.frame.header.closeb.UIStroke
+G2L["d"] = Instance.new("UIStroke", G2L["a"]);
+G2L["d"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["d"]["Thickness"] = 0.75;
+G2L["d"]["Color"] = Color3.fromRGB(94, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.header.tabbuttons
+G2L["e"] = Instance.new("Frame", G2L["7"]);
+G2L["e"]["BorderSizePixel"] = 0;
+G2L["e"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["e"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["e"]["Size"] = UDim2.new(0.527, 0, 0.9, 0);
+G2L["e"]["Position"] = UDim2.new(0.49706, 0, 0.49376, 0);
+G2L["e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["e"]["Name"] = [[tabbuttons]];
+G2L["e"]["BackgroundTransparency"] = 1;
+
+
+-- StarterGui.tilehubv3.frame.header.tabbuttons.UIListLayout
+G2L["f"] = Instance.new("UIListLayout", G2L["e"]);
+G2L["f"]["Padding"] = UDim.new(0.025, 0);
+G2L["f"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+G2L["f"]["FillDirection"] = Enum.FillDirection.Horizontal;
+
+
+-- StarterGui.tilehubv3.frame.header.UIAspectRatioConstraint
+G2L["10"] = Instance.new("UIAspectRatioConstraint", G2L["7"]);
+G2L["10"]["AspectRatio"] = 16.44444;
+
+
+-- StarterGui.tilehubv3.frame.header.UIGradient
+G2L["11"] = Instance.new("UIGradient", G2L["7"]);
+G2L["11"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(55, 55, 55)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(28, 28, 28))};
+
+
+-- StarterGui.tilehubv3.frame.header.TextLabel
+G2L["12"] = Instance.new("TextLabel", G2L["7"]);
+G2L["12"]["TextWrapped"] = true;
+G2L["12"]["BorderSizePixel"] = 0;
+G2L["12"]["TextSize"] = 14;
+G2L["12"]["TextScaled"] = true;
+G2L["12"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["12"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["12"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["12"]["BackgroundTransparency"] = 1;
+G2L["12"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["12"]["Size"] = UDim2.new(0.1464, 0, 0.97027, 0);
+G2L["12"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["12"]["Text"] = [[tilehub]];
+G2L["12"]["Position"] = UDim2.new(0.09508, 0, 0.48513, 0);
+
+
+-- StarterGui.tilehubv3.frame.header.time
+G2L["13"] = Instance.new("TextLabel", G2L["7"]);
+G2L["13"]["TextWrapped"] = true;
+G2L["13"]["BorderSizePixel"] = 0;
+G2L["13"]["TextSize"] = 14;
+G2L["13"]["TextScaled"] = true;
+G2L["13"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["13"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["13"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["13"]["BackgroundTransparency"] = 1;
+G2L["13"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["13"]["Size"] = UDim2.new(0.12162, 0, 0.85638, 0);
+G2L["13"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["13"]["Text"] = [[n/a pm]];
+G2L["13"]["Name"] = [[time]];
+G2L["13"]["Position"] = UDim2.new(0.86422, 0, 0.54208, 0);
+
+
+-- StarterGui.tilehubv3.frame.tabholder
+G2L["14"] = Instance.new("Frame", G2L["3"]);
+G2L["14"]["BorderSizePixel"] = 0;
+G2L["14"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+G2L["14"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["14"]["Size"] = UDim2.new(0.96104, 0, 0.77291, 0);
+G2L["14"]["Position"] = UDim2.new(0.49891, 0, 0.57181, 0);
+G2L["14"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["14"]["Name"] = [[tabholder]];
+
+
+-- StarterGui.tilehubv3.frame.tabholder.UIAspectRatioConstraint
+G2L["15"] = Instance.new("UIAspectRatioConstraint", G2L["14"]);
+G2L["15"]["AspectRatio"] = 2.28866;
+
+
+-- StarterGui.tilehubv3.frame.tabholder.Value
+G2L["16"] = Instance.new("StringValue", G2L["14"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates
+G2L["17"] = Instance.new("Folder", G2L["3"]);
+G2L["17"]["Name"] = [[templates]];
+
+
+-- StarterGui.tilehubv3.frame.templates.scripts
+G2L["18"] = Instance.new("Folder", G2L["17"]);
+G2L["18"]["Name"] = [[scripts]];
+
+
+-- StarterGui.tilehubv3.frame.templates.scripts.ImageButton
+G2L["19"] = Instance.new("ImageButton", G2L["18"]);
+G2L["19"]["BorderSizePixel"] = 0;
+G2L["19"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["19"]["Image"] = [[rbxasset://textures/ui/GuiImagePlaceholder.png]];
+G2L["19"]["Size"] = UDim2.new(0, 100, 0, 100);
+G2L["19"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["19"]["Visible"] = false;
+
+
+-- StarterGui.tilehubv3.frame.templates.scripts.ImageButton.UIAspectRatioConstraint
+G2L["1a"] = Instance.new("UIAspectRatioConstraint", G2L["19"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.scripts.scriptstab
+G2L["1b"] = Instance.new("ScrollingFrame", G2L["18"]);
+G2L["1b"]["Visible"] = false;
+G2L["1b"]["Active"] = true;
+G2L["1b"]["BorderSizePixel"] = 0;
+G2L["1b"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+G2L["1b"]["Name"] = [[scriptstab]];
+G2L["1b"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["1b"]["ScrollBarImageColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.scripts.scriptstab.UIGridLayout
+G2L["1c"] = Instance.new("UIGridLayout", G2L["1b"]);
+G2L["1c"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+
+-- StarterGui.tilehubv3.frame.templates.scripts.scriptstab.UIAspectRatioConstraint
+G2L["1d"] = Instance.new("UIAspectRatioConstraint", G2L["1b"]);
+G2L["1d"]["AspectRatio"] = 2.28866;
+
+
+-- StarterGui.tilehubv3.frame.templates.headerbutton
+G2L["1e"] = Instance.new("Folder", G2L["17"]);
+G2L["1e"]["Name"] = [[headerbutton]];
+
+
+-- StarterGui.tilehubv3.frame.templates.headerbutton.button
+G2L["1f"] = Instance.new("ImageButton", G2L["1e"]);
+G2L["1f"]["BorderSizePixel"] = 0;
+G2L["1f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1f"]["Image"] = [[rbxassetid://10734943448]];
+G2L["1f"]["Size"] = UDim2.new(0.133, 0, 1, 0);
+G2L["1f"]["BackgroundTransparency"] = 1;
+G2L["1f"]["Name"] = [[button]];
+G2L["1f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1f"]["Visible"] = false;
+
+
+-- StarterGui.tilehubv3.frame.templates.headerbutton.button.UIAspectRatioConstraint
+G2L["20"] = Instance.new("UIAspectRatioConstraint", G2L["1f"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.headerbutton.button.UIStroke
+G2L["21"] = Instance.new("UIStroke", G2L["1f"]);
+G2L["21"]["Color"] = Color3.fromRGB(28, 28, 28);
+
+
+-- StarterGui.tilehubv3.frame.templates.headerbutton.button.UIStroke.UIGradient
+G2L["22"] = Instance.new("UIGradient", G2L["21"]);
+G2L["22"]["Rotation"] = 45;
+G2L["22"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(55, 55, 55)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 255, 255))};
+
+
+-- StarterGui.tilehubv3.frame.templates.tab
+G2L["23"] = Instance.new("ScrollingFrame", G2L["17"]);
+G2L["23"]["Visible"] = false;
+G2L["23"]["Active"] = true;
+G2L["23"]["ScrollingDirection"] = Enum.ScrollingDirection.Y;
+G2L["23"]["BorderSizePixel"] = 0;
+G2L["23"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+G2L["23"]["Name"] = [[tab]];
+G2L["23"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["23"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["23"]["ScrollBarImageColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["23"]["Position"] = UDim2.new(0.50112, 0, 0.49966, 0);
+G2L["23"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.tab.UIAspectRatioConstraint
+G2L["24"] = Instance.new("UIAspectRatioConstraint", G2L["23"]);
+G2L["24"]["AspectRatio"] = 2.28866;
+
+
+-- StarterGui.tilehubv3.frame.templates.tab.UIListLayout
+G2L["25"] = Instance.new("UIListLayout", G2L["23"]);
+G2L["25"]["Padding"] = UDim.new(0, 7);
+G2L["25"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+
+-- StarterGui.tilehubv3.frame.templates.scriptbtn
+G2L["26"] = Instance.new("ImageButton", G2L["17"]);
+G2L["26"]["BorderSizePixel"] = 0;
+G2L["26"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["26"]["Image"] = [[rbxassetid://71186851898433]];
+G2L["26"]["Size"] = UDim2.new(0, 100, 0, 100);
+G2L["26"]["Name"] = [[scriptbtn]];
+G2L["26"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["26"]["Visible"] = false;
+
+
+-- StarterGui.tilehubv3.frame.templates.scriptbtn.UIGradient
+G2L["27"] = Instance.new("UIGradient", G2L["26"]);
+G2L["27"]["Rotation"] = -88;
+G2L["27"]["Offset"] = Vector2.new(-0.99, 0);
+G2L["27"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(45, 45, 45)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 255, 255))};
+
+
+-- StarterGui.tilehubv3.frame.templates.scriptbtn.UICorner
+G2L["28"] = Instance.new("UICorner", G2L["26"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.scriptbtn.UIStroke
+G2L["29"] = Instance.new("UIStroke", G2L["26"]);
+G2L["29"]["Color"] = Color3.fromRGB(75, 75, 75);
+
+
+-- StarterGui.tilehubv3.frame.templates.scriptbtn.TextLabel
+G2L["2a"] = Instance.new("TextLabel", G2L["26"]);
+G2L["2a"]["TextWrapped"] = true;
+G2L["2a"]["Interactable"] = false;
+G2L["2a"]["TextStrokeTransparency"] = 0;
+G2L["2a"]["BorderSizePixel"] = 0;
+G2L["2a"]["TextSize"] = 14;
+G2L["2a"]["TextScaled"] = true;
+G2L["2a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["2a"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["2a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["2a"]["BackgroundTransparency"] = 1;
+G2L["2a"]["Size"] = UDim2.new(0.85, 0, 0.24, 0);
+G2L["2a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2a"]["Text"] = [[rochips panel ]];
+G2L["2a"]["Position"] = UDim2.new(0.082, 0, 0.75, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.scriptbtn.TextLabel.UITextSizeConstraint
+G2L["2b"] = Instance.new("UITextSizeConstraint", G2L["2a"]);
+G2L["2b"]["MaxTextSize"] = 16;
+
+
+-- StarterGui.tilehubv3.frame.templates.scriptbtn.TextLabel.UIAspectRatioConstraint
+G2L["2c"] = Instance.new("UIAspectRatioConstraint", G2L["2a"]);
+G2L["2c"]["AspectRatio"] = 3.62168;
+
+
+-- StarterGui.tilehubv3.frame.templates.scriptbtn.alrexec
+G2L["2d"] = Instance.new("BoolValue", G2L["26"]);
+G2L["2d"]["Name"] = [[alrexec]];
+
+
+-- StarterGui.tilehubv3.frame.templates.scriptstab
+G2L["2e"] = Instance.new("ScrollingFrame", G2L["17"]);
+G2L["2e"]["Visible"] = false;
+G2L["2e"]["Active"] = true;
+G2L["2e"]["BorderSizePixel"] = 0;
+G2L["2e"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+G2L["2e"]["Name"] = [[scriptstab]];
+G2L["2e"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["2e"]["ScrollBarImageColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.scriptstab.UIGridLayout
+G2L["2f"] = Instance.new("UIGridLayout", G2L["2e"]);
+G2L["2f"]["CellSize"] = UDim2.new(0.21, 0, 0.235, 0);
+G2L["2f"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+G2L["2f"]["CellPadding"] = UDim2.new(0, 12, 0, 12);
+
+
+-- StarterGui.tilehubv3.frame.templates.scriptstab.UIAspectRatioConstraint
+G2L["30"] = Instance.new("UIAspectRatioConstraint", G2L["2e"]);
+G2L["30"]["AspectRatio"] = 2.28866;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab
+G2L["31"] = Instance.new("Frame", G2L["17"]);
+G2L["31"]["Visible"] = false;
+G2L["31"]["BorderSizePixel"] = 0;
+G2L["31"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+G2L["31"]["ClipsDescendants"] = true;
+G2L["31"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["31"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["31"]["Name"] = [[serverstab]];
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.servers
+G2L["32"] = Instance.new("ScrollingFrame", G2L["31"]);
+G2L["32"]["Active"] = true;
+G2L["32"]["ScrollingDirection"] = Enum.ScrollingDirection.Y;
+G2L["32"]["BorderSizePixel"] = 0;
+G2L["32"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+G2L["32"]["Name"] = [[servers]];
+G2L["32"]["Size"] = UDim2.new(0.75433, 0, 0.98386, 0);
+G2L["32"]["ScrollBarImageColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["32"]["Position"] = UDim2.new(0, 0, 0.00515, 0);
+G2L["32"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["32"]["ScrollBarThickness"] = 5;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.servers.UIListLayout
+G2L["33"] = Instance.new("UIListLayout", G2L["32"]);
+G2L["33"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Center;
+G2L["33"]["Padding"] = UDim.new(0, 7);
+G2L["33"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.servers.spacer
+G2L["34"] = Instance.new("TextButton", G2L["32"]);
+G2L["34"]["BorderSizePixel"] = 0;
+G2L["34"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["34"]["TextSize"] = 14;
+G2L["34"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["34"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["34"]["BackgroundTransparency"] = 1;
+G2L["34"]["LayoutOrder"] = -1;
+G2L["34"]["Name"] = [[spacer]];
+G2L["34"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["34"]["Text"] = [[]];
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.servers.UIAspectRatioConstraint
+G2L["35"] = Instance.new("UIAspectRatioConstraint", G2L["32"]);
+G2L["35"]["AspectRatio"] = 1.75472;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder
+G2L["36"] = Instance.new("Frame", G2L["31"]);
+G2L["36"]["BorderSizePixel"] = 0;
+G2L["36"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30);
+G2L["36"]["Size"] = UDim2.new(0.20932, 0, 0.97356, 0);
+G2L["36"]["Position"] = UDim2.new(0.781, 0, 0.0103, 0);
+G2L["36"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["36"]["Name"] = [[serversbuttonholder]];
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.UIStroke
+G2L["37"] = Instance.new("UIStroke", G2L["36"]);
+G2L["37"]["Color"] = Color3.fromRGB(75, 75, 75);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.UICorner
+G2L["38"] = Instance.new("UICorner", G2L["36"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.UIListLayout
+G2L["39"] = Instance.new("UIListLayout", G2L["36"]);
+G2L["39"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Center;
+G2L["39"]["Padding"] = UDim.new(0.04, 0);
+G2L["39"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.servers
+G2L["3a"] = Instance.new("TextButton", G2L["36"]);
+G2L["3a"]["TextWrapped"] = true;
+G2L["3a"]["TextStrokeTransparency"] = 0;
+G2L["3a"]["BorderSizePixel"] = 0;
+G2L["3a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3a"]["TextSize"] = 14;
+G2L["3a"]["TextScaled"] = true;
+G2L["3a"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["3a"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["3a"]["Size"] = UDim2.new(0.9, 0, 0.15, 0);
+G2L["3a"]["Name"] = [[servers]];
+G2L["3a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3a"]["Text"] = [[reload]];
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.servers.UIStroke
+G2L["3b"] = Instance.new("UIStroke", G2L["3a"]);
+G2L["3b"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["3b"]["Color"] = Color3.fromRGB(104, 103, 102);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.servers.UICorner
+G2L["3c"] = Instance.new("UICorner", G2L["3a"]);
+G2L["3c"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.servers.UIAspectRatioConstraint
+G2L["3d"] = Instance.new("UIAspectRatioConstraint", G2L["3a"]);
+G2L["3d"]["AspectRatio"] = 2.95238;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.saved
+G2L["3e"] = Instance.new("TextButton", G2L["36"]);
+G2L["3e"]["TextWrapped"] = true;
+G2L["3e"]["TextStrokeTransparency"] = 0;
+G2L["3e"]["BorderSizePixel"] = 0;
+G2L["3e"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3e"]["TextSize"] = 14;
+G2L["3e"]["TextScaled"] = true;
+G2L["3e"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["3e"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["3e"]["Size"] = UDim2.new(0.9, 0, 0.15, 0);
+G2L["3e"]["LayoutOrder"] = -1;
+G2L["3e"]["Name"] = [[saved]];
+G2L["3e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3e"]["Text"] = [[saved]];
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.saved.UIStroke
+G2L["3f"] = Instance.new("UIStroke", G2L["3e"]);
+G2L["3f"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["3f"]["Color"] = Color3.fromRGB(104, 103, 102);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.saved.UICorner
+G2L["40"] = Instance.new("UICorner", G2L["3e"]);
+G2L["40"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.saved.UIAspectRatioConstraint
+G2L["41"] = Instance.new("UIAspectRatioConstraint", G2L["3e"]);
+G2L["41"]["AspectRatio"] = 2.95238;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.TextLabel
+G2L["42"] = Instance.new("TextLabel", G2L["36"]);
+G2L["42"]["TextWrapped"] = true;
+G2L["42"]["BorderSizePixel"] = 0;
+G2L["42"]["TextSize"] = 14;
+G2L["42"]["TextScaled"] = true;
+G2L["42"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["42"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["42"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["42"]["BackgroundTransparency"] = 1;
+G2L["42"]["Size"] = UDim2.new(0.8, 0, 0.1, 0);
+G2L["42"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["42"]["Text"] = [[sort by:]];
+G2L["42"]["LayoutOrder"] = 1;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.TextLabel.UIAspectRatioConstraint
+G2L["43"] = Instance.new("UIAspectRatioConstraint", G2L["42"]);
+G2L["43"]["AspectRatio"] = 3.93651;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.TextLabel.UITextSizeConstraint
+G2L["44"] = Instance.new("UITextSizeConstraint", G2L["42"]);
+G2L["44"]["MaxTextSize"] = 18;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.spacer
+G2L["45"] = Instance.new("TextButton", G2L["36"]);
+G2L["45"]["BorderSizePixel"] = 0;
+G2L["45"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["45"]["TextSize"] = 14;
+G2L["45"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["45"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["45"]["BackgroundTransparency"] = 1;
+G2L["45"]["LayoutOrder"] = -3;
+G2L["45"]["Name"] = [[spacer]];
+G2L["45"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["45"]["Text"] = [[]];
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.sortby
+G2L["46"] = Instance.new("TextButton", G2L["36"]);
+G2L["46"]["TextWrapped"] = true;
+G2L["46"]["TextStrokeTransparency"] = 0;
+G2L["46"]["BorderSizePixel"] = 0;
+G2L["46"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["46"]["TextSize"] = 14;
+G2L["46"]["TextScaled"] = true;
+G2L["46"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["46"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["46"]["Size"] = UDim2.new(0.9, 0, 0.15, 0);
+G2L["46"]["LayoutOrder"] = 2;
+G2L["46"]["Name"] = [[sortby]];
+G2L["46"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["46"]["Text"] = [[ping]];
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.sortby.UIStroke
+G2L["47"] = Instance.new("UIStroke", G2L["46"]);
+G2L["47"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["47"]["Color"] = Color3.fromRGB(104, 103, 102);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.sortby.UICorner
+G2L["48"] = Instance.new("UICorner", G2L["46"]);
+G2L["48"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.sortby.UIAspectRatioConstraint
+G2L["49"] = Instance.new("UIAspectRatioConstraint", G2L["46"]);
+G2L["49"]["AspectRatio"] = 2.95238;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.sortbylh
+G2L["4a"] = Instance.new("TextButton", G2L["36"]);
+G2L["4a"]["TextWrapped"] = true;
+G2L["4a"]["TextStrokeTransparency"] = 0;
+G2L["4a"]["BorderSizePixel"] = 0;
+G2L["4a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4a"]["TextSize"] = 14;
+G2L["4a"]["TextScaled"] = true;
+G2L["4a"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["4a"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["4a"]["Size"] = UDim2.new(0.9, 0, 0.15, 0);
+G2L["4a"]["LayoutOrder"] = 3;
+G2L["4a"]["Name"] = [[sortbylh]];
+G2L["4a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["4a"]["Text"] = [[lowest to highest]];
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.sortbylh.UIStroke
+G2L["4b"] = Instance.new("UIStroke", G2L["4a"]);
+G2L["4b"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["4b"]["Color"] = Color3.fromRGB(104, 103, 102);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.sortbylh.UICorner
+G2L["4c"] = Instance.new("UICorner", G2L["4a"]);
+G2L["4c"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.sortbylh.UIAspectRatioConstraint
+G2L["4d"] = Instance.new("UIAspectRatioConstraint", G2L["4a"]);
+G2L["4d"]["AspectRatio"] = 2.95238;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.serversbuttonholder.UIAspectRatioConstraint
+G2L["4e"] = Instance.new("UIAspectRatioConstraint", G2L["36"]);
+G2L["4e"]["AspectRatio"] = 0.49206;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.saved
+G2L["4f"] = Instance.new("ScrollingFrame", G2L["31"]);
+G2L["4f"]["Visible"] = false;
+G2L["4f"]["Active"] = true;
+G2L["4f"]["ScrollingDirection"] = Enum.ScrollingDirection.Y;
+G2L["4f"]["BorderSizePixel"] = 0;
+G2L["4f"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+G2L["4f"]["Name"] = [[saved]];
+G2L["4f"]["Size"] = UDim2.new(0.75433, 0, 0.98386, 0);
+G2L["4f"]["ScrollBarImageColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["4f"]["Position"] = UDim2.new(0, 0, 0.00515, 0);
+G2L["4f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["4f"]["ScrollBarThickness"] = 5;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.saved.UIListLayout
+G2L["50"] = Instance.new("UIListLayout", G2L["4f"]);
+G2L["50"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Center;
+G2L["50"]["Padding"] = UDim.new(0, 7);
+G2L["50"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.saved.spacer
+G2L["51"] = Instance.new("TextButton", G2L["4f"]);
+G2L["51"]["BorderSizePixel"] = 0;
+G2L["51"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["51"]["TextSize"] = 14;
+G2L["51"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["51"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["51"]["BackgroundTransparency"] = 1;
+G2L["51"]["LayoutOrder"] = -1;
+G2L["51"]["Name"] = [[spacer]];
+G2L["51"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["51"]["Text"] = [[]];
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.UIAspectRatioConstraint
+G2L["52"] = Instance.new("UIAspectRatioConstraint", G2L["31"]);
+G2L["52"]["AspectRatio"] = 2.28866;
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver
+G2L["53"] = Instance.new("Frame", G2L["31"]);
+G2L["53"]["Visible"] = false;
+G2L["53"]["BorderSizePixel"] = 0;
+G2L["53"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["53"]["ClipsDescendants"] = true;
+G2L["53"]["Size"] = UDim2.new(0.97, 0, 0, 30);
+G2L["53"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["53"]["Name"] = [[exampleserver]];
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver.UICorner
+G2L["54"] = Instance.new("UICorner", G2L["53"]);
+G2L["54"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver.UIStroke
+G2L["55"] = Instance.new("UIStroke", G2L["53"]);
+G2L["55"]["Color"] = Color3.fromRGB(75, 75, 75);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver.ping
+G2L["56"] = Instance.new("TextLabel", G2L["53"]);
+G2L["56"]["TextWrapped"] = true;
+G2L["56"]["TextStrokeTransparency"] = 0;
+G2L["56"]["BorderSizePixel"] = 0;
+G2L["56"]["TextSize"] = 14;
+G2L["56"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["56"]["TextScaled"] = true;
+G2L["56"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["56"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["56"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["56"]["BackgroundTransparency"] = 1;
+G2L["56"]["Size"] = UDim2.new(0.2, 0, 0.5, 0);
+G2L["56"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["56"]["Text"] = [[ping; 65]];
+G2L["56"]["Name"] = [[ping]];
+G2L["56"]["Position"] = UDim2.new(0.3199, 0, 0.5, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver.players
+G2L["57"] = Instance.new("TextLabel", G2L["53"]);
+G2L["57"]["TextWrapped"] = true;
+G2L["57"]["TextStrokeTransparency"] = 0;
+G2L["57"]["BorderSizePixel"] = 0;
+G2L["57"]["TextSize"] = 14;
+G2L["57"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["57"]["TextScaled"] = true;
+G2L["57"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["57"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["57"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["57"]["BackgroundTransparency"] = 1;
+G2L["57"]["Size"] = UDim2.new(0.2, 0, 0.5, 0);
+G2L["57"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["57"]["Text"] = [[players; 6]];
+G2L["57"]["Name"] = [[players]];
+G2L["57"]["Position"] = UDim2.new(0.11996, 0, 0.5, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver.jobid
+G2L["58"] = Instance.new("TextLabel", G2L["53"]);
+G2L["58"]["TextWrapped"] = true;
+G2L["58"]["TextStrokeTransparency"] = 0;
+G2L["58"]["BorderSizePixel"] = 0;
+G2L["58"]["TextSize"] = 14;
+G2L["58"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["58"]["TextScaled"] = true;
+G2L["58"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["58"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["58"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["58"]["BackgroundTransparency"] = 1;
+G2L["58"]["Size"] = UDim2.new(0.72539, 0, 0.5, 0);
+G2L["58"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["58"]["Text"] = [[53511917-d9dc-4dcb-b663-ecd62da96836]];
+G2L["58"]["Name"] = [[jobid]];
+G2L["58"]["Position"] = UDim2.new(0.11996, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver.gameid
+G2L["59"] = Instance.new("StringValue", G2L["53"]);
+G2L["59"]["Name"] = [[gameid]];
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver.play
+G2L["5a"] = Instance.new("ImageButton", G2L["53"]);
+G2L["5a"]["BorderSizePixel"] = 0;
+G2L["5a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["5a"]["Image"] = [[rbxassetid://10734923214]];
+G2L["5a"]["Size"] = UDim2.new(0.077, 0, 0.844, 0);
+G2L["5a"]["BackgroundTransparency"] = 1;
+G2L["5a"]["Name"] = [[play]];
+G2L["5a"]["ClipsDescendants"] = true;
+G2L["5a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["5a"]["Position"] = UDim2.new(0.91665, 0, 0.06667, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver.save
+G2L["5b"] = Instance.new("ImageButton", G2L["53"]);
+G2L["5b"]["BorderSizePixel"] = 0;
+G2L["5b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["5b"]["Image"] = [[rbxassetid://10734941499]];
+G2L["5b"]["Size"] = UDim2.new(0.0769, 0, 0.84378, 0);
+G2L["5b"]["BackgroundTransparency"] = 1;
+G2L["5b"]["Name"] = [[save]];
+G2L["5b"]["ClipsDescendants"] = true;
+G2L["5b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["5b"]["Position"] = UDim2.new(0.84, 0, 0.067, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver.gameicon
+G2L["5c"] = Instance.new("ImageButton", G2L["53"]);
+G2L["5c"]["BorderSizePixel"] = 0;
+G2L["5c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["5c"]["Image"] = [[rbxassetid://18843289642]];
+G2L["5c"]["Size"] = UDim2.new(0.09583, 0, 1.03822, 0);
+G2L["5c"]["Name"] = [[gameicon]];
+G2L["5c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["5c"]["Position"] = UDim2.new(-0.00047, 0, -0.03822, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver.gameicon.UICorner
+G2L["5d"] = Instance.new("UICorner", G2L["5c"]);
+G2L["5d"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.serverstab.exampleserver.UIAspectRatioConstraint
+G2L["5e"] = Instance.new("UIAspectRatioConstraint", G2L["53"]);
+G2L["5e"]["AspectRatio"] = 10.83657;
+
+
+-- StarterGui.tilehubv3.frame.templates.notif
+G2L["5f"] = Instance.new("Frame", G2L["17"]);
+G2L["5f"]["Visible"] = false;
+G2L["5f"]["BorderSizePixel"] = 0;
+G2L["5f"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+G2L["5f"]["Size"] = UDim2.new(0.976, 0, 0.12524, 0);
+G2L["5f"]["Position"] = UDim2.new(0.012, 0, 0.87476, 0);
+G2L["5f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["5f"]["Name"] = [[notif]];
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.UICorner
+G2L["60"] = Instance.new("UICorner", G2L["5f"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.cancel
+G2L["61"] = Instance.new("TextButton", G2L["5f"]);
+G2L["61"]["TextWrapped"] = true;
+G2L["61"]["TextStrokeTransparency"] = 0;
+G2L["61"]["BorderSizePixel"] = 0;
+G2L["61"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["61"]["TextSize"] = 14;
+G2L["61"]["TextScaled"] = true;
+G2L["61"]["BackgroundColor3"] = Color3.fromRGB(255, 0, 0);
+G2L["61"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["61"]["ZIndex"] = 2;
+G2L["61"]["Size"] = UDim2.new(0.88865, 0, 0.23682, 0);
+G2L["61"]["Name"] = [[cancel]];
+G2L["61"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["61"]["Text"] = [[cancel]];
+G2L["61"]["Visible"] = false;
+G2L["61"]["Position"] = UDim2.new(0.05555, 0, 0.62797, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.cancel.UICorner
+G2L["62"] = Instance.new("UICorner", G2L["61"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.cancel.UIStroke
+G2L["63"] = Instance.new("UIStroke", G2L["61"]);
+G2L["63"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["63"]["Thickness"] = 0.75;
+G2L["63"]["Color"] = Color3.fromRGB(94, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.desc
+G2L["64"] = Instance.new("TextLabel", G2L["5f"]);
+G2L["64"]["TextWrapped"] = true;
+G2L["64"]["TextStrokeTransparency"] = 0;
+G2L["64"]["ZIndex"] = 2;
+G2L["64"]["BorderSizePixel"] = 0;
+G2L["64"]["TextSize"] = 14;
+G2L["64"]["TextYAlignment"] = Enum.TextYAlignment.Bottom;
+G2L["64"]["TextScaled"] = true;
+G2L["64"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["64"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["64"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["64"]["BackgroundTransparency"] = 1;
+G2L["64"]["Size"] = UDim2.new(0.94421, 0, 0.518, 0);
+G2L["64"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["64"]["Text"] = [[desc]];
+G2L["64"]["LayoutOrder"] = 1;
+G2L["64"]["Name"] = [[desc]];
+G2L["64"]["Position"] = UDim2.new(0.025, 0, 0.05, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.header
+G2L["65"] = Instance.new("Frame", G2L["5f"]);
+G2L["65"]["BorderSizePixel"] = 0;
+G2L["65"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["65"]["ClipsDescendants"] = true;
+G2L["65"]["Size"] = UDim2.new(1, 0, 0.2821, 0);
+G2L["65"]["Position"] = UDim2.new(0, 0, -0.39224, 0);
+G2L["65"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["65"]["Name"] = [[header]];
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.header.UICorner
+G2L["66"] = Instance.new("UICorner", G2L["65"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.header.UIGradient
+G2L["67"] = Instance.new("UIGradient", G2L["65"]);
+G2L["67"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(55, 55, 55)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(28, 28, 28))};
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.header.UIStroke
+G2L["68"] = Instance.new("UIStroke", G2L["65"]);
+G2L["68"]["Color"] = Color3.fromRGB(75, 75, 75);
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.header.title
+G2L["69"] = Instance.new("TextLabel", G2L["65"]);
+G2L["69"]["TextWrapped"] = true;
+G2L["69"]["TextStrokeTransparency"] = 0;
+G2L["69"]["BorderSizePixel"] = 0;
+G2L["69"]["TextSize"] = 14;
+G2L["69"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["69"]["TextScaled"] = true;
+G2L["69"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["69"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["69"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["69"]["BackgroundTransparency"] = 1;
+G2L["69"]["Size"] = UDim2.new(0.37043, 0, 0.93692, 0);
+G2L["69"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["69"]["Text"] = [[title]];
+G2L["69"]["Name"] = [[title]];
+G2L["69"]["Position"] = UDim2.new(0.05555, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.header.close
+G2L["6a"] = Instance.new("TextButton", G2L["65"]);
+G2L["6a"]["TextWrapped"] = true;
+G2L["6a"]["TextStrokeTransparency"] = 0;
+G2L["6a"]["BorderSizePixel"] = 0;
+G2L["6a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["6a"]["TextSize"] = 14;
+G2L["6a"]["TextScaled"] = true;
+G2L["6a"]["BackgroundColor3"] = Color3.fromRGB(255, 0, 0);
+G2L["6a"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["6a"]["Size"] = UDim2.new(0.10503, 0, 1, 0);
+G2L["6a"]["Name"] = [[close]];
+G2L["6a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["6a"]["Text"] = [[x]];
+G2L["6a"]["Position"] = UDim2.new(0.89497, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.header.close.UICorner
+G2L["6b"] = Instance.new("UICorner", G2L["6a"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.header.countdown
+G2L["6c"] = Instance.new("TextLabel", G2L["65"]);
+G2L["6c"]["TextWrapped"] = true;
+G2L["6c"]["TextStrokeTransparency"] = 0;
+G2L["6c"]["BorderSizePixel"] = 0;
+G2L["6c"]["TextSize"] = 14;
+G2L["6c"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["6c"]["TextScaled"] = true;
+G2L["6c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["6c"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["6c"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["6c"]["BackgroundTransparency"] = 1;
+G2L["6c"]["Size"] = UDim2.new(0.29637, 0, 0.93692, 0);
+G2L["6c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["6c"]["Text"] = [[56.5s]];
+G2L["6c"]["Name"] = [[countdown]];
+G2L["6c"]["Position"] = UDim2.new(0.70363, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.UIStroke
+G2L["6d"] = Instance.new("UIStroke", G2L["5f"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.btn1
+G2L["6e"] = Instance.new("TextButton", G2L["5f"]);
+G2L["6e"]["TextWrapped"] = true;
+G2L["6e"]["TextStrokeTransparency"] = 0;
+G2L["6e"]["BorderSizePixel"] = 0;
+G2L["6e"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["6e"]["TextSize"] = 14;
+G2L["6e"]["TextScaled"] = true;
+G2L["6e"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["6e"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["6e"]["ZIndex"] = 2;
+G2L["6e"]["Size"] = UDim2.new(0.40746, 0, 0.23682, 0);
+G2L["6e"]["Name"] = [[btn1]];
+G2L["6e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["6e"]["Text"] = [[cancel]];
+G2L["6e"]["Position"] = UDim2.new(0.05555, 0, 0.62797, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.btn1.UICorner
+G2L["6f"] = Instance.new("UICorner", G2L["6e"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.btn1.UIStroke
+G2L["70"] = Instance.new("UIStroke", G2L["6e"]);
+G2L["70"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["70"]["Thickness"] = 0.75;
+G2L["70"]["Color"] = Color3.fromRGB(39, 39, 39);
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.btn2
+G2L["71"] = Instance.new("TextButton", G2L["5f"]);
+G2L["71"]["TextWrapped"] = true;
+G2L["71"]["TextStrokeTransparency"] = 0;
+G2L["71"]["BorderSizePixel"] = 0;
+G2L["71"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["71"]["TextSize"] = 14;
+G2L["71"]["TextScaled"] = true;
+G2L["71"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["71"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["71"]["ZIndex"] = 2;
+G2L["71"]["Size"] = UDim2.new(0.40746, 0, 0.23682, 0);
+G2L["71"]["Name"] = [[btn2]];
+G2L["71"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["71"]["Text"] = [[cancel]];
+G2L["71"]["Position"] = UDim2.new(0.53081, 0, 0.62797, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.btn2.UICorner
+G2L["72"] = Instance.new("UICorner", G2L["71"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.notif.btn2.UIStroke
+G2L["73"] = Instance.new("UIStroke", G2L["71"]);
+G2L["73"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["73"]["Thickness"] = 0.75;
+G2L["73"]["Color"] = Color3.fromRGB(39, 39, 39);
+
+
+-- StarterGui.tilehubv3.frame.templates.buttonlabel
+G2L["74"] = Instance.new("TextLabel", G2L["17"]);
+G2L["74"]["TextWrapped"] = true;
+G2L["74"]["TextStrokeTransparency"] = 0;
+G2L["74"]["BorderSizePixel"] = 0;
+G2L["74"]["TextSize"] = 14;
+G2L["74"]["TextScaled"] = true;
+G2L["74"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["74"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["74"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["74"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["74"]["Size"] = UDim2.new(0.74, 0, 0, 25);
+G2L["74"]["Visible"] = false;
+G2L["74"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["74"]["Text"] = [[Lorem ipsum dolor sit amet, consectetur adipiscing elit]];
+G2L["74"]["Name"] = [[buttonlabel]];
+G2L["74"]["Position"] = UDim2.new(0, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.buttonlabel.TextButton
+G2L["75"] = Instance.new("TextButton", G2L["74"]);
+G2L["75"]["TextWrapped"] = true;
+G2L["75"]["TextStrokeTransparency"] = 0;
+G2L["75"]["BorderSizePixel"] = 0;
+G2L["75"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["75"]["TextSize"] = 14;
+G2L["75"]["TextScaled"] = true;
+G2L["75"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["75"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["75"]["Size"] = UDim2.new(0.24013, 0, 1, 0);
+G2L["75"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["75"]["Text"] = [[button]];
+G2L["75"]["Position"] = UDim2.new(1.02927, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.buttonlabel.TextButton.UICorner
+G2L["76"] = Instance.new("UICorner", G2L["75"]);
+G2L["76"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.buttonlabel.TextButton.UIStroke
+G2L["77"] = Instance.new("UIStroke", G2L["75"]);
+G2L["77"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["77"]["Color"] = Color3.fromRGB(104, 103, 102);
+
+
+-- StarterGui.tilehubv3.frame.templates.buttonlabel.TextButton.UIAspectRatioConstraint
+G2L["78"] = Instance.new("UIAspectRatioConstraint", G2L["75"]);
+G2L["78"]["AspectRatio"] = 3.15799;
+
+
+-- StarterGui.tilehubv3.frame.templates.buttonlabel.UICorner
+G2L["79"] = Instance.new("UICorner", G2L["74"]);
+G2L["79"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.buttonlabel.UIStroke
+G2L["7a"] = Instance.new("UIStroke", G2L["74"]);
+G2L["7a"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["7a"]["Color"] = Color3.fromRGB(39, 39, 39);
+
+
+-- StarterGui.tilehubv3.frame.templates.buttonlabel.UIAspectRatioConstraint
+G2L["7b"] = Instance.new("UIAspectRatioConstraint", G2L["74"]);
+G2L["7b"]["AspectRatio"] = 13.15138;
+
+
+-- StarterGui.tilehubv3.frame.templates.fieldlabel
+G2L["7c"] = Instance.new("TextLabel", G2L["17"]);
+G2L["7c"]["TextWrapped"] = true;
+G2L["7c"]["TextStrokeTransparency"] = 0;
+G2L["7c"]["BorderSizePixel"] = 0;
+G2L["7c"]["TextSize"] = 14;
+G2L["7c"]["TextScaled"] = true;
+G2L["7c"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["7c"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["7c"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["7c"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["7c"]["Size"] = UDim2.new(0.74, 0, 0, 25);
+G2L["7c"]["Visible"] = false;
+G2L["7c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["7c"]["Text"] = [[Lorem ipsum dolor sit amet, consectetur adipiscing elit]];
+G2L["7c"]["Name"] = [[fieldlabel]];
+G2L["7c"]["Position"] = UDim2.new(0, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.fieldlabel.UICorner
+G2L["7d"] = Instance.new("UICorner", G2L["7c"]);
+G2L["7d"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.fieldlabel.UIStroke
+G2L["7e"] = Instance.new("UIStroke", G2L["7c"]);
+G2L["7e"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["7e"]["Color"] = Color3.fromRGB(39, 39, 39);
+
+
+-- StarterGui.tilehubv3.frame.templates.fieldlabel.TextBox
+G2L["7f"] = Instance.new("TextBox", G2L["7c"]);
+G2L["7f"]["TextStrokeTransparency"] = 0;
+G2L["7f"]["PlaceholderColor3"] = Color3.fromRGB(179, 179, 179);
+G2L["7f"]["BorderSizePixel"] = 0;
+G2L["7f"]["TextWrapped"] = true;
+G2L["7f"]["TextSize"] = 14;
+G2L["7f"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["7f"]["TextScaled"] = true;
+G2L["7f"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["7f"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["7f"]["Size"] = UDim2.new(0.24, 0, 1, 0);
+G2L["7f"]["Position"] = UDim2.new(1.02873, 0, 0, 0);
+G2L["7f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["7f"]["Text"] = [[]];
+
+
+-- StarterGui.tilehubv3.frame.templates.fieldlabel.TextBox.UICorner
+G2L["80"] = Instance.new("UICorner", G2L["7f"]);
+G2L["80"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.fieldlabel.TextBox.UIStroke
+G2L["81"] = Instance.new("UIStroke", G2L["7f"]);
+G2L["81"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["81"]["Color"] = Color3.fromRGB(104, 103, 102);
+
+
+-- StarterGui.tilehubv3.frame.templates.fieldlabel.TextBox.UIAspectRatioConstraint
+G2L["82"] = Instance.new("UIAspectRatioConstraint", G2L["7f"]);
+G2L["82"]["AspectRatio"] = 3.15633;
+
+
+-- StarterGui.tilehubv3.frame.templates.fieldlabel.UIAspectRatioConstraint
+G2L["83"] = Instance.new("UIAspectRatioConstraint", G2L["7c"]);
+G2L["83"]["AspectRatio"] = 13.15138;
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel
+G2L["84"] = Instance.new("TextLabel", G2L["17"]);
+G2L["84"]["TextWrapped"] = true;
+G2L["84"]["TextStrokeTransparency"] = 0;
+G2L["84"]["BorderSizePixel"] = 0;
+G2L["84"]["TextSize"] = 14;
+G2L["84"]["TextScaled"] = true;
+G2L["84"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["84"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["84"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["84"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["84"]["Size"] = UDim2.new(0.74, 0, 0, 25);
+G2L["84"]["Visible"] = false;
+G2L["84"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["84"]["Text"] = [[Lorem ipsum dolor sit amet, consectetur adipiscing elit]];
+G2L["84"]["Name"] = [[sliderlabel]];
+G2L["84"]["Position"] = UDim2.new(0, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.UICorner
+G2L["85"] = Instance.new("UICorner", G2L["84"]);
+G2L["85"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.UIStroke
+G2L["86"] = Instance.new("UIStroke", G2L["84"]);
+G2L["86"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["86"]["Color"] = Color3.fromRGB(39, 39, 39);
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.sliderrail
+G2L["87"] = Instance.new("Frame", G2L["84"]);
+G2L["87"]["BorderSizePixel"] = 0;
+G2L["87"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["87"]["Size"] = UDim2.new(0.222, 0, 0.1, 0);
+G2L["87"]["Position"] = UDim2.new(1.04, 0, 0.421, 0);
+G2L["87"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["87"]["Name"] = [[sliderrail]];
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.sliderrail.UICorner
+G2L["88"] = Instance.new("UICorner", G2L["87"]);
+G2L["88"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.sliderrail.UIStroke
+G2L["89"] = Instance.new("UIStroke", G2L["87"]);
+G2L["89"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["89"]["Color"] = Color3.fromRGB(104, 103, 102);
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.sliderrail.TextButton
+G2L["8a"] = Instance.new("TextButton", G2L["87"]);
+G2L["8a"]["TextWrapped"] = true;
+G2L["8a"]["TextStrokeTransparency"] = 0;
+G2L["8a"]["BorderSizePixel"] = 0;
+G2L["8a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["8a"]["TextSize"] = 14;
+G2L["8a"]["TextScaled"] = true;
+G2L["8a"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["8a"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["8a"]["Size"] = UDim2.new(0.29, 0, 7, 0);
+G2L["8a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["8a"]["Text"] = [[0]];
+G2L["8a"]["Position"] = UDim2.new(-0.05518, 0, -3.24159, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.sliderrail.TextButton.UIStroke
+G2L["8b"] = Instance.new("UIStroke", G2L["8a"]);
+G2L["8b"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["8b"]["Color"] = Color3.fromRGB(104, 103, 102);
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.sliderrail.TextButton.UICorner
+G2L["8c"] = Instance.new("UICorner", G2L["8a"]);
+G2L["8c"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.sliderrail.TextButton.UIAspectRatioConstraint
+G2L["8d"] = Instance.new("UIAspectRatioConstraint", G2L["8a"]);
+G2L["8d"]["AspectRatio"] = 0.97352;
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.sliderrail.TextButton.UITextSizeConstraint
+G2L["8e"] = Instance.new("UITextSizeConstraint", G2L["8a"]);
+G2L["8e"]["MaxTextSize"] = 20;
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.sliderrail.UIAspectRatioConstraint
+G2L["8f"] = Instance.new("UIAspectRatioConstraint", G2L["87"]);
+G2L["8f"]["AspectRatio"] = 29.19607;
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.drag
+G2L["90"] = Instance.new("BoolValue", G2L["84"]);
+G2L["90"]["Name"] = [[drag]];
+
+
+-- StarterGui.tilehubv3.frame.templates.sliderlabel.UIAspectRatioConstraint
+G2L["91"] = Instance.new("UIAspectRatioConstraint", G2L["84"]);
+G2L["91"]["AspectRatio"] = 13.15138;
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel
+G2L["92"] = Instance.new("TextLabel", G2L["17"]);
+G2L["92"]["TextWrapped"] = true;
+G2L["92"]["TextStrokeTransparency"] = 0;
+G2L["92"]["BorderSizePixel"] = 0;
+G2L["92"]["TextSize"] = 14;
+G2L["92"]["TextScaled"] = true;
+G2L["92"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["92"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["92"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["92"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["92"]["Size"] = UDim2.new(0.74, 0, 0, 25);
+G2L["92"]["Visible"] = false;
+G2L["92"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["92"]["Text"] = [[Lorem ipsum dolor sit amet, consectetur adipiscing elit]];
+G2L["92"]["Name"] = [[togglebuttonlabel]];
+G2L["92"]["Position"] = UDim2.new(0, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton
+G2L["93"] = Instance.new("TextButton", G2L["92"]);
+G2L["93"]["TextStrokeTransparency"] = 0;
+G2L["93"]["BorderSizePixel"] = 0;
+G2L["93"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["93"]["TextSize"] = 14;
+G2L["93"]["BackgroundColor3"] = Color3.fromRGB(55, 55, 55);
+G2L["93"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["93"]["Size"] = UDim2.new(0.24013, 0, 1, 0);
+G2L["93"]["Name"] = [[togglebutton]];
+G2L["93"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["93"]["Text"] = [[]];
+G2L["93"]["Position"] = UDim2.new(1.02927, 0, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton.UICorner
+G2L["94"] = Instance.new("UICorner", G2L["93"]);
+G2L["94"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton.TextLabel
+G2L["95"] = Instance.new("TextLabel", G2L["93"]);
+G2L["95"]["TextWrapped"] = true;
+G2L["95"]["Interactable"] = false;
+G2L["95"]["TextStrokeTransparency"] = 0;
+G2L["95"]["BorderSizePixel"] = 0;
+G2L["95"]["TextSize"] = 14;
+G2L["95"]["TextScaled"] = true;
+G2L["95"]["BackgroundColor3"] = Color3.fromRGB(255, 0, 0);
+G2L["95"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["95"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["95"]["Size"] = UDim2.new(0.38118, 0, 0.76, 0);
+G2L["95"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["95"]["Text"] = [[off]];
+G2L["95"]["Position"] = UDim2.new(0.06, 0, 0.15, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton.TextLabel.UICorner
+G2L["96"] = Instance.new("UICorner", G2L["95"]);
+G2L["96"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton.TextLabel.UIStroke
+G2L["97"] = Instance.new("UIStroke", G2L["95"]);
+G2L["97"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["97"]["Color"] = Color3.fromRGB(127, 0, 0);
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton.Value
+G2L["98"] = Instance.new("BoolValue", G2L["93"]);
+
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton.UIStroke
+G2L["99"] = Instance.new("UIStroke", G2L["93"]);
+G2L["99"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["99"]["Color"] = Color3.fromRGB(104, 103, 102);
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.togglebutton.UIAspectRatioConstraint
+G2L["9a"] = Instance.new("UIAspectRatioConstraint", G2L["93"]);
+G2L["9a"]["AspectRatio"] = 3.15799;
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.UICorner
+G2L["9b"] = Instance.new("UICorner", G2L["92"]);
+G2L["9b"]["CornerRadius"] = UDim.new(0, 555);
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.UIStroke
+G2L["9c"] = Instance.new("UIStroke", G2L["92"]);
+G2L["9c"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["9c"]["Color"] = Color3.fromRGB(39, 39, 39);
+
+
+-- StarterGui.tilehubv3.frame.templates.togglebuttonlabel.UIAspectRatioConstraint
+G2L["9d"] = Instance.new("UIAspectRatioConstraint", G2L["92"]);
+G2L["9d"]["AspectRatio"] = 13.15138;
+
+
+-- StarterGui.tilehubv3.frame.UIAspectRatioConstraint
+G2L["9e"] = Instance.new("UIAspectRatioConstraint", G2L["3"]);
+G2L["9e"]["AspectRatio"] = 1.84064;
+
+
+-- StarterGui.tilehubv3.frame.xbeforeclosed
+G2L["9f"] = Instance.new("StringValue", G2L["3"]);
+G2L["9f"]["Name"] = [[xbeforeclosed]];
+
+
+-- StarterGui.tilehubv3.frame.ybeforeclosed
+G2L["a0"] = Instance.new("StringValue", G2L["3"]);
+G2L["a0"]["Name"] = [[ybeforeclosed]];
+
+
+-- StarterGui.tilehubv3.dialogue
+G2L["a1"] = Instance.new("Frame", G2L["1"]);
+G2L["a1"]["Visible"] = false;
+G2L["a1"]["BorderSizePixel"] = 0;
+G2L["a1"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a1"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["a1"]["Size"] = UDim2.new(1, 0, 0.15, 0);
+G2L["a1"]["Position"] = UDim2.new(0.49965, 0, 0.92294, 0);
+G2L["a1"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a1"]["Name"] = [[dialogue]];
+
+
+-- StarterGui.tilehubv3.dialogue.UIGradient
+G2L["a2"] = Instance.new("UIGradient", G2L["a1"]);
+G2L["a2"]["Rotation"] = 90;
+G2L["a2"]["Transparency"] = NumberSequence.new{NumberSequenceKeypoint.new(0.000, 0.98125),NumberSequenceKeypoint.new(0.000, 0),NumberSequenceKeypoint.new(0.000, 1),NumberSequenceKeypoint.new(1.000, 0)};
+G2L["a2"]["Offset"] = Vector2.new(9, 0);
+G2L["a2"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(82, 82, 82)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(0, 0, 0))};
+
+
+-- StarterGui.tilehubv3.dialogue.TextLabel
+G2L["a3"] = Instance.new("TextLabel", G2L["a1"]);
+G2L["a3"]["TextWrapped"] = true;
+G2L["a3"]["TextStrokeTransparency"] = 0;
+G2L["a3"]["BorderSizePixel"] = 0;
+G2L["a3"]["TextSize"] = 14;
+G2L["a3"]["TextScaled"] = true;
+G2L["a3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a3"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["a3"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a3"]["BackgroundTransparency"] = 1;
+G2L["a3"]["Size"] = UDim2.new(0.5, 0, 0.4, 0);
+G2L["a3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a3"]["Text"] = [[text text text text text text text text text text text text text text text text]];
+G2L["a3"]["Position"] = UDim2.new(0.24889, 0, 0.38897, 0);
+
+
+-- StarterGui.tilehubv3.dialogue.ImageLabel
+G2L["a4"] = Instance.new("ImageLabel", G2L["a1"]);
+G2L["a4"]["BorderSizePixel"] = 0;
+G2L["a4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a4"]["Image"] = [[rbxassetid://10747363621]];
+G2L["a4"]["Size"] = UDim2.new(0.018, 0, 0.25, 0);
+G2L["a4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a4"]["BackgroundTransparency"] = 1;
+G2L["a4"]["Rotation"] = 180;
+G2L["a4"]["Position"] = UDim2.new(0.75895, 0, 0.45957, 0);
+
+
+-- StarterGui.tilehubv3.loader
+G2L["a5"] = Instance.new("Frame", G2L["1"]);
+G2L["a5"]["Visible"] = false;
+G2L["a5"]["BorderSizePixel"] = 0;
+G2L["a5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a5"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["a5"]["Size"] = UDim2.new(0, 330, 0, 171);
+G2L["a5"]["Position"] = UDim2.new(0.49927, 0, 0.49891, 0);
+G2L["a5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a5"]["Name"] = [[loader]];
+
+
+-- StarterGui.tilehubv3.loader.UICorner
+G2L["a6"] = Instance.new("UICorner", G2L["a5"]);
+
+
+
+-- StarterGui.tilehubv3.loader.UIStroke
+G2L["a7"] = Instance.new("UIStroke", G2L["a5"]);
+
+
+
+-- StarterGui.tilehubv3.loader.load
+G2L["a8"] = Instance.new("TextButton", G2L["a5"]);
+G2L["a8"]["TextWrapped"] = true;
+G2L["a8"]["TextStrokeTransparency"] = 0;
+G2L["a8"]["BorderSizePixel"] = 0;
+G2L["a8"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a8"]["TextSize"] = 14;
+G2L["a8"]["TextScaled"] = true;
+G2L["a8"]["BackgroundColor3"] = Color3.fromRGB(0, 86, 255);
+G2L["a8"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["a8"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["a8"]["Size"] = UDim2.new(0, 173, 0, 27);
+G2L["a8"]["Name"] = [[load]];
+G2L["a8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a8"]["Text"] = [[load]];
+G2L["a8"]["Position"] = UDim2.new(0.50194, 0, 0.87864, 0);
+
+
+-- StarterGui.tilehubv3.loader.load.UICorner
+G2L["a9"] = Instance.new("UICorner", G2L["a8"]);
+
+
+
+-- StarterGui.tilehubv3.loader.load.UIStroke
+G2L["aa"] = Instance.new("UIStroke", G2L["a8"]);
+G2L["aa"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["aa"]["Thickness"] = 1.21;
+G2L["aa"]["Color"] = Color3.fromRGB(0, 71, 210);
+
+
+-- StarterGui.tilehubv3.loader.image
+G2L["ab"] = Instance.new("ImageLabel", G2L["a5"]);
+G2L["ab"]["BorderSizePixel"] = 0;
+G2L["ab"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["ab"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["ab"]["Image"] = [[rbxassetid://126475741439172]];
+G2L["ab"]["Size"] = UDim2.new(0, 111, 0, 110);
+G2L["ab"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["ab"]["BackgroundTransparency"] = 1;
+G2L["ab"]["Name"] = [[image]];
+G2L["ab"]["Position"] = UDim2.new(0.50041, 0, 0.32031, 0);
+
+
+-- StarterGui.tilehubv3.loader.UIGradient
+G2L["ac"] = Instance.new("UIGradient", G2L["a5"]);
+G2L["ac"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(55, 55, 55)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(28, 28, 28))};
+
+
+-- StarterGui.tilehubv3.loader.TextLabel
+G2L["ad"] = Instance.new("TextLabel", G2L["a5"]);
+G2L["ad"]["TextWrapped"] = true;
+G2L["ad"]["TextStrokeTransparency"] = 0;
+G2L["ad"]["BorderSizePixel"] = 0;
+G2L["ad"]["TextSize"] = 14;
+G2L["ad"]["TextScaled"] = true;
+G2L["ad"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["ad"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["ad"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["ad"]["BackgroundTransparency"] = 1;
+G2L["ad"]["Size"] = UDim2.new(0, 189, 0, 30);
+G2L["ad"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["ad"]["Text"] = "[tilehub [revamped]";
+G2L["ad"]["Position"] = UDim2.new(0.21515, 0, 0.57895, 0);
+
+
+-- StarterGui.tilehubv3.notificationsholder
+G2L["ae"] = Instance.new("Frame", G2L["1"]);
+G2L["ae"]["BorderSizePixel"] = 0;
+G2L["ae"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["ae"]["AnchorPoint"] = Vector2.new(1, 1);
+G2L["ae"]["Size"] = UDim2.new(0.17008, 0, 0.92249, 0);
+G2L["ae"]["Position"] = UDim2.new(1, -15, 0.999, -15);
+G2L["ae"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["ae"]["Name"] = [[notificationsholder]];
+G2L["ae"]["BackgroundTransparency"] = 1;
+
+
+-- StarterGui.tilehubv3.notificationsholder.UIAspectRatioConstraint
+G2L["af"] = Instance.new("UIAspectRatioConstraint", G2L["ae"]);
+G2L["af"]["AspectRatio"] = 0.37699;
+
+
+-- StarterGui.tilehubv3.notificationsholder.UIListLayout
+G2L["b0"] = Instance.new("UIListLayout", G2L["ae"]);
+G2L["b0"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Center;
+G2L["b0"]["Padding"] = UDim.new(0, 35);
+G2L["b0"]["VerticalAlignment"] = Enum.VerticalAlignment.Bottom;
+G2L["b0"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+
+-- StarterGui.tilehubv3.mobileopenbutton
+G2L["b1"] = Instance.new("ImageButton", G2L["1"]);
+G2L["b1"]["BorderSizePixel"] = 0;
+G2L["b1"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["b1"]["AnchorPoint"] = Vector2.new(0.5, 0);
+G2L["b1"]["Image"] = [[rbxassetid://91843386347726]];
+G2L["b1"]["Size"] = UDim2.new(0, 55, 0, 55);
+G2L["b1"]["BackgroundTransparency"] = 1;
+G2L["b1"]["Name"] = [[mobileopenbutton]];
+G2L["b1"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["b1"]["Position"] = UDim2.new(0.49872, 0, 0.07437, 0);
+
+
+-- StarterGui.tilehubv3.LocalScript
+local function C_2()
+local script = G2L["2"];
+	local gui = script.Parent
+	if G2L and G2L["1"] then
+		G2L["1"]["Parent"] = gethui() or game:GetService("CoreGui")
+	end
+	gui.ResetOnSpawn = false
+	gui.DisplayOrder = 2147483647
+	gui.frame.ZIndex = 2147483645
+	if not _G.tilehubloaded then
+		_G.tilehubloaded = false
+	end
+	if _G.tilehubloaded == true then
+		gui:Destroy()
+		return
+	end
+	_G.tilehubloaded = true
+	gui.mobileopenbutton.Visible = false
+	gui.mobileopenbutton.Active = false
+	gui.mobileopenbutton.ImageTransparency = 1
+	local lplayer = game.Players.LocalPlayer
+	
+	local players = game:GetService("Players")
+	local istping = false
+	local mouse = lplayer:GetMouse()
+	local playerGui = lplayer:WaitForChild("PlayerGui")
+	local starterGui = game:GetService("StarterGui")
+	local loader = gui:WaitForChild("loader")
+	local notificationsholder = gui:WaitForChild("notificationsholder")
+	
+	local frame = gui:WaitForChild("frame")
+	local templates = frame:WaitForChild("templates")
+	local header = frame:WaitForChild("header")
+	local tabButtons = header:WaitForChild("tabbuttons")
+	local tabHolder = frame:WaitForChild("tabholder") -- where the frames are
+	local runservice = game:GetService("RunService")
+	local TweenService = game:GetService("TweenService")
+	local userinputservice = game:GetService("UserInputService")
+	local feenv = getfenv() or (getgenv and getgenv())
+	local sethiddenprop = feenv.sethiddenproperty
+	local setsimrad = feenv.setsimulationradius
+	local defaultws
+	local defaultjp
+	local currentjp
+	--local currentws
+	local function onCharacterAdded(newCharacter)
+		
+	end
+	
+	lplayer.CharacterAdded:Connect(onCharacterAdded)
+	if lplayer.Character then
+		onCharacterAdded(lplayer.Character)
+	end
+	
+	
+	coroutine.wrap(function()
+		local character = lplayer.Character or lplayer.CharacterAdded:Wait()
+		local humanoid = character:WaitForChild("Humanoid")
+		defaultws = humanoid.WalkSpeed
+		currentws = defaultws
+		defaultjp = humanoid.JumpPower
+		currentjp = defaultjp
+	end)()
+	
+	local twi = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut, 0, false, 0)
+	if loader.Visible == false then
+		loader.Visible = true
+	end
+	if frame.Visible == true then
+		frame.Visible = false
+	end
+	loader.load.MouseButton1Click:Connect(function()
+	end)
+	local function createNotification(title, text, duration, onCancel, btn1Data, btn2Data)
+		local twi = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut, 0, false, 0)
+		
+		local new = templates.notif:Clone()
+		new.Transparency = 1
+		
+		local closebutton = new.header.close
+		new.header.Transparency = 1
+		new.btn1.Transparency = 1
+		new.btn2.Transparency = 1
+		new.cancel.Transparency = 1
+		new.header.title.TextTransparency = 1
+		new.desc.TextTransparency = 1
+		closebutton.Transparency = 1
+		
+		TweenService:Create(new, twi, {Transparency = 0}):Play()
+		TweenService:Create(new.header, twi, {Transparency = 0}):Play()
+		TweenService:Create(new.header.title, twi, {TextTransparency = 0}):Play()
+		TweenService:Create(new.desc, twi, {TextTransparency = 0}):Play()
+		TweenService:Create(new.cancel, twi, {Transparency = 0}):Play()
+		TweenService:Create(new.btn1, twi, {Transparency = 0}):Play()
+		TweenService:Create(new.btn2, twi, {Transparency = 0}):Play()
+		TweenService:Create(closebutton, twi, {Transparency = 0}):Play()
+	
+		-- Standard Close Button (Always destroys)
+		closebutton.MouseButton1Click:Connect(function()
+			TweenService:Create(new, twi, {Transparency = 1}):Play()
+			TweenService:Create(new.header, twi, {Transparency = 1}):Play()
+			TweenService:Create(new.header.title, twi, {TextTransparency = 1}):Play()
+			TweenService:Create(new.desc, twi, {TextTransparency = 1}):Play()
+			TweenService:Create(new.cancel, twi, {Transparency = 1}):Play()
+			TweenService:Create(new.btn1, twi, {Transparency = 1}):Play()
+			TweenService:Create(new.btn2, twi, {Transparency = 1}):Play()
+			TweenService:Create(closebutton, twi, {Transparency = 1}):Play()
+			task.wait(.25)
+			new:Destroy()
+		end)
+	
+		new.header.title.Text = title
+		new.desc.Text = text
+		new.Visible = true
+		new.Parent = notificationsholder
+	
+		-- references
+		local cancelButton = new.cancel
+		local btnOne = new.btn1
+		local btnTwo = new.btn2
+	
+		---------------------------------------------------------
+		-- 1. SETUP CANCEL BUTTON
+		---------------------------------------------------------
+		if onCancel then
+			cancelButton.Visible = true
+			cancelButton.MouseButton1Click:Connect(function()
+				onCancel() -- Run the function passed in
+				TweenService:Create(new, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.header, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.header.title, twi, {TextTransparency = 1}):Play()
+				TweenService:Create(new.desc, twi, {TextTransparency = 1}):Play()
+				TweenService:Create(new.cancel, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.btn1, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.btn2, twi, {Transparency = 1}):Play()
+				TweenService:Create(closebutton, twi, {Transparency = 1}):Play()
+				task.wait(.25)
+				
+				
+				new:Destroy() -- Close the notification
+			end)
+		else
+			cancelButton.Visible = false -- Hide if not used
+		end
+	
+		---------------------------------------------------------
+		-- 2. SETUP BTN 1 (Expects a table: {Text = "Yes", Func = function() end})
+		---------------------------------------------------------
+		if btn1Data then
+			btnOne.Visible = true
+			-- If your button has a TextLabel inside, use btnOne.Label.Text, otherwise:
+			if btn1Data.Text then btnOne.Text = btn1Data.Text end 
+	
+			btnOne.MouseButton1Click:Connect(function()
+				if btn1Data.Func then btn1Data.Func() end
+				
+				TweenService:Create(new, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.header, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.header.title, twi, {TextTransparency = 1}):Play()
+				TweenService:Create(new.desc, twi, {TextTransparency = 1}):Play()
+				TweenService:Create(new.cancel, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.btn1, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.btn2, twi, {Transparency = 1}):Play()
+				TweenService:Create(closebutton, twi, {Transparency = 1}):Play()
+				task.wait(.25)
+				new:Destroy()
+			end)
+		else
+			btnOne.Visible = false
+		end
+	
+		---------------------------------------------------------
+		-- 3. SETUP BTN 2
+		---------------------------------------------------------
+		if btn2Data then
+			btnTwo.Visible = true
+			if btn2Data.Text then btnTwo.Text = btn2Data.Text end
+	
+			btnTwo.MouseButton1Click:Connect(function()
+				if btn2Data.Func then btn2Data.Func() end
+				TweenService:Create(new, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.header, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.header.title, twi, {TextTransparency = 1}):Play()
+				TweenService:Create(new.desc, twi, {TextTransparency = 1}):Play()
+				TweenService:Create(new.cancel, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.btn1, twi, {Transparency = 1}):Play()
+				TweenService:Create(new.btn2, twi, {Transparency = 1}):Play()
+				TweenService:Create(closebutton, twi, {Transparency = 1}):Play()
+				task.wait(.25)
+				new:Destroy()
+			end)
+		else
+			btnTwo.Visible = false
+		end
+	
+		---------------------------------------------------------
+		-- 4. TIMER LOGIC (Moved to task.spawn)
+		---------------------------------------------------------
+		if duration then
+			-- We wrap this in task.spawn so it doesn't freeze the script
+			task.spawn(function()
+				local timeLeft = duration
+				while new.Parent and timeLeft > 0 do
+					new.header.countdown.Text = timeLeft
+					task.wait(1)
+					timeLeft -= 1
+				end
+	
+				if new.Parent then
+					TweenService:Create(new, twi, {Transparency = 1}):Play()
+					TweenService:Create(new.header, twi, {Transparency = 1}):Play()
+					TweenService:Create(new.header.title, twi, {TextTransparency = 1}):Play()
+					TweenService:Create(new.desc, twi, {TextTransparency = 1}):Play()
+					TweenService:Create(new.cancel, twi, {Transparency = 1}):Play()
+					TweenService:Create(new.btn1, twi, {Transparency = 1}):Play()
+					TweenService:Create(new.btn2, twi, {Transparency = 1}):Play()
+					TweenService:Create(closebutton, twi, {Transparency = 1}):Play()
+					task.wait(.25)
+					new:Destroy()
+				end
+			end)
+		else
+			-- Clear countdown text if no duration
+			new.header.countdown.Text = "" 
+		end
+	end
+	
+	local function autoresize(scrollingFrame)
+		-- Try to find the Layout (List or Grid)
+		local layout = scrollingFrame:FindFirstChildWhichIsA("UIListLayout") or scrollingFrame:FindFirstChildWhichIsA("UIGridLayout")
+		
+		if not layout then
+			warn("no uilistlayout!")
+			return
+		end
+	
+		-- Function to update the size
+		local function updateSize()
+			-- We set the Y (height) to the content size + a little padding (e.g., 10 pixels)
+			scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y)
+		end
+	
+		-- Connect the signal so it updates automatically when items are added/removed
+		layout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(updateSize)
+		
+		-- Run once immediately to fix current size
+		updateSize()
+	end
+	
+	local function closegui()
+		frame.ybeforeclosed.Value = frame.Position.Y.Scale
+		frame.xbeforeclosed.Value = frame.Position.X.Scale
+	
+		local b = {
+			Position = UDim2.new(frame.Position.X.Scale, frame.Position.X.Offset, 2.5, frame.Position.Y.Offset)
+		}
+		local t = game:GetService("TweenService"):Create(frame, twi, b)
+		t:Play()
+		TweenService:Create(gui.mobileopenbutton, twi, {ImageTransparency = 0}):Play()
+		gui.mobileopenbutton.Active = true
+	end
+	
+	local function open()
+		local b = {
+			Position = UDim2.new(frame.xbeforeclosed.Value, frame.Position.X.Offset, frame.ybeforeclosed.Value, frame.Position.Y.Offset)
+		}
+		local t = game:GetService("TweenService"):Create(frame, twi, b)
+		t:Play()
+		TweenService:Create(gui.mobileopenbutton, twi, {ImageTransparency = 1}):Play()
+		gui.mobileopenbutton.Active = false
+	end
+	gui.mobileopenbutton.Draggable = true
+	frame.header.closeb.MouseButton1Click:Connect(function()
+		closegui()
+	end)
+	local lastClickTime = 0
+	local doubleClickThreshold = 0.3 
+	gui.mobileopenbutton.MouseButton1Click:Connect(function()
+		local currentTime = tick()
+		if currentTime - lastClickTime <= doubleClickThreshold then
+			open()
+		end
+		lastClickTime = currentTime
+	end)
+	if userinputservice.TouchEnabled then
+		gui.mobileopenbutton.Visible = true 
+		gui.mobileopenbutton.Active = true
+	end
+	
+	-- Make sure there is a StringValue inside tabHolder to track current frame
+	local currentframe = tabHolder:FindFirstChild("Value")
+	if not currentframe then
+		currentframe = Instance.new("StringValue")
+		currentframe.Name = "Value"
+		currentframe.Parent = tabHolder
+		currentframe.Value = "" -- default
+	end
+	
+	function load()
+		local HttpService = game:GetService("HttpService")
+		local TeleportService = game:GetService("TeleportService")
+	
+		-- ONE file name for everything
+		local FILE_NAME = "tilehubsaved_servers.json"
+	
+		-- Check for executor support
+		local hasFileSystem = (writefile and readfile and isfile)
+	
+		-- 1. Helper to get the WHOLE database (all games)
+		local function getDatabase()
+			if not hasFileSystem then return {} end
+	
+			if isfile(FILE_NAME) then
+				local success, result = pcall(function()
+					return HttpService:JSONDecode(readfile(FILE_NAME))
+				end)
+				if success and type(result) == "table" then
+					return result
+				end
+			end
+			return {} -- Return empty table if file doesn't exist or is corrupt
+		end
+	
+		-- 2. Helper to save the WHOLE database
+		local function saveDatabase(db)
+			if not hasFileSystem then return end
+			pcall(function()
+				writefile(FILE_NAME, HttpService:JSONEncode(db))
+			end)
+		end
+	
+		-- 3. Function to add a server to the file
+		local function saveServerToFile(jobid, gameid, ping, players)
+			local db = getDatabase()
+			local sGameId = tostring(gameid) -- JSON keys must be strings
+	
+			-- Create table for this game if it doesn't exist
+			if not db[sGameId] then
+				db[sGameId] = {}
+			end
+	
+			-- Check for duplicates to avoid saving the same server twice
+			for _, server in pairs(db[sGameId]) do
+				if server.jobid == jobid then
+					return -- Already saved
+				end
+			end
+	
+			-- Add new server
+			table.insert(db[sGameId], {
+				jobid = jobid,
+				ping = ping,
+				players = players
+			})
+	
+			saveDatabase(db)
+		end
+	
+		-- 4. Function to remove a server from the file
+		local function removeServerFromFile(jobid, gameid)
+			local db = getDatabase()
+			local sGameId = tostring(gameid)
+	
+			if db[sGameId] then
+				for i, server in ipairs(db[sGameId]) do
+					if server.jobid == jobid then
+						table.remove(db[sGameId], i)
+						break
+					end
+				end
+	
+				-- Optional: Remove the game key if empty to keep file clean
+				if #db[sGameId] == 0 then
+					db[sGameId] = nil 
+				end
+	
+				saveDatabase(db)
+			end
+		end
+	
+		local function clonebtn(uilayoutorder, parentGui, templatebtnpath, btnname, desc , wasclicked) -- clonebtn(the gui, the btn path, the btn name to change to, desc , function)
+			if not parentGui or not templatebtnpath then
+				error("missing arguments")
+			end
+	
+			local clone = templatebtnpath:Clone()
+			clone.Parent = parentGui
+	
+			if uilayoutorder then
+				clone.LayoutOrder = uilayoutorder
+			end
+			if clone.Name == "buttonlabel" then
+				if desc then
+					clone.Text = desc
+				end
+				clone.TextButton.MouseButton1Click:Connect(wasclicked)
+			elseif clone.Name == "togglebuttonlabel" then
+				if desc then
+					clone.Text = desc
+				end
+				clone.togglebutton.MouseButton1Click:Connect(function()
+					local xoffpos = 0.06
+					local xonpos = 0.56
+					local yScale = clone.togglebutton.TextLabel.Position.Y.Scale
+					local yOffset = clone.togglebutton.TextLabel.Position.Y.Offset
+					local twi = TweenInfo.new(
+						0.25, -- time
+						Enum.EasingStyle.Quad,
+						Enum.EasingDirection.Out
+					)
+					if clone.togglebutton.Value.Value ~= true then
+						clone.togglebutton.Value.Value = true
+						wasclicked(clone.togglebutton.Value.Value)
+						clone.togglebutton.TextLabel.Text = "on"
+						clone.togglebutton.TextLabel.BackgroundColor3 = Color3.new(0.254902, 0.760784, 0)
+						clone.togglebutton.TextLabel.UIStroke.Color = Color3.new(0.215686, 0.65098, 0)
+						local goal = {
+							Position = UDim2.new(xonpos, 0, yScale, yOffset)
+						}
+	
+						local tween = TweenService:Create(clone.togglebutton.TextLabel, twi, goal)
+						tween:Play()
+					else 
+						clone.togglebutton.Value.Value = false
+						wasclicked(clone.togglebutton.Value.Value)
+						clone.togglebutton.TextLabel.Text = "off"
+						clone.togglebutton.TextLabel.BackgroundColor3 = Color3.new(1, 0, 0)
+						clone.togglebutton.TextLabel.UIStroke.Color = Color3.new(0.494118, 0, 0)
+						local goal = {
+							Position = UDim2.new(xoffpos, 0, yScale, yOffset)
+						}
+	
+						local tween = TweenService:Create(clone.togglebutton.TextLabel, twi, goal)
+						tween:Play()
+					end
+				end)
+			elseif clone.Name == "dropdownlabel" then
+				if desc then
+					clone.Text = desc
+				end
+				local dropdown = clone:FindFirstChild("dropdown")
+				local layout = dropdown.dropdownframe:WaitForChild("UIListLayout")
+	
+				local tweenInfo = TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+	
+	
+				local function onDropdownClick()
+					local xsc = dropdown.dropdownframe.Size.X.Scale
+					local targetSize, targetRotation
+	
+					if dropdown.dropdownframe.Size.Y.Scale == 0 then
+						targetSize = UDim2.fromScale(xsc, 5)
+						targetRotation = 270
+					else
+						targetSize = UDim2.fromScale(xsc, 0)
+						targetRotation = 90
+					end
+	
+					TweenService:Create(dropdown.dropdownframe, tweenInfo, { Size = targetSize }):Play()
+					TweenService:Create(dropdown.ImageLabel, tweenInfo, { Rotation = targetRotation }):Play()
+				end
+	
+				clone.dropdown.MouseButton1Click:Connect(onDropdownClick)
+	
+				-- ? controller object
+				local controller = {}
+	
+				function controller:AddOption(name, value)
+					local opt = clone.dropdownoptiontempl.dropdownoption:Clone()
+					opt.Name = name
+					opt.Text = value
+					opt.Parent = dropdown.dropdownframe
+					opt.Visible = true
+	
+					opt.MouseButton1Click:Connect(function()
+						clone.dropdown.Text = value
+						onDropdownClick()
+					end)
+				end
+	
+				function controller:GetSelected()
+					return clone.dropdown.Text
+				end
+	
+				controller.Instance = clone
+	
+				return controller
+			elseif clone.Name == "fieldlabel" then
+				if desc then
+					clone.Text = desc
+				end
+				-- Using GetPropertyChangedSignal (preferred for a single property)
+				clone.TextBox:GetPropertyChangedSignal("Text"):Connect(function()
+					wasclicked(clone.TextBox.Text)
+				end)
+	
+			elseif clone.Name == "sliderlabel" then
+				if desc then
+					clone.Text = desc
+				end
+	
+				local knob = clone.sliderrail.TextButton
+				local rail = clone.sliderrail
+	
+				local UIS = userinputservice
+	
+				local MIN_VALUE = clone:GetAttribute("Min") or 0
+				local MAX_VALUE = clone:GetAttribute("Max") or 100
+	
+				local function setSliderFromX(x)
+					local railX = rail.AbsolutePosition.X
+					local railWidth = rail.AbsoluteSize.X
+					local knobWidth = knob.AbsoluteSize.X
+					local ky = knob.Position.Y
+	
+					local relativeX = math.clamp(
+						x - railX,
+						0,
+						railWidth - knobWidth
+					)
+	
+					knob.Position = UDim2.new(0, relativeX, ky.Scale, ky.Offset)
+	
+					local alpha = relativeX / (railWidth - knobWidth)
+					local value = MIN_VALUE + (MAX_VALUE - MIN_VALUE) * alpha
+					value = math.floor(value)
+	
+					-- DISPLAY VALUE
+					clone.sliderrail.TextButton.Text = tostring(value)
+	
+					-- CALLBACK
+					if wasclicked then
+						wasclicked(value)
+					end
+				end
+	
+				local function startDrag(input)
+					clone.drag.Value = true
+					setSliderFromX(input.Position.X)
+				end
+	
+				local function stopDrag()
+					clone.drag.Value = false
+				end
+	
+				knob.InputBegan:Connect(function(input)
+					if input.UserInputType == Enum.UserInputType.MouseButton1
+						or input.UserInputType == Enum.UserInputType.Touch then
+						startDrag(input)
+					end
+				end)
+	
+				knob.InputEnded:Connect(function(input)
+					if input.UserInputType == Enum.UserInputType.MouseButton1
+						or input.UserInputType == Enum.UserInputType.Touch then
+						stopDrag()
+					end
+				end)
+	
+				UIS.InputChanged:Connect(function(input)
+					if clone.drag.Value == true and (
+						input.UserInputType == Enum.UserInputType.MouseMovement
+							or input.UserInputType == Enum.UserInputType.Touch
+						) then
+						setSliderFromX(input.Position.X)
+					end
+				end)
+			elseif clone.Name == "scriptbtn" then
+				if desc then
+					clone.TextLabel.Text = desc
+				end
+				if btnname then
+					clone.Image = btnname
+				end
+				clone.MouseButton1Click:Connect(function()
+					
+					if clone.alrexec.Value == false then
+						wasclicked()
+						clone.alrexec.Value = true
+					else
+						local btn1Info = {
+							Text = "yes.",
+							Func = function()
+								wasclicked()
+							end
+						}
+	
+						local btn2Info = {
+							Text = "no.",
+							Func = function()
+								
+							end
+						}
+						
+						-- Notice we pass 'nil' for duration (infinite) and 'nil' for the Cancel button
+						createNotification(
+							"scripthub", 
+							clone.TextLabel.Text .. " was already executed, would you like to execute it again?", 
+							5, 
+							nil, 
+							btn1Info, 
+							btn2Info
+						)
+					end
+				end)
+			end
+			if btnname then
+				clone.Name = btnname
+			end
+			clone.Visible = true
+	
+			return clone
+		end
+		local function createSlider(order, parent, name, title, min, max, callback)
+			local s = clonebtn(order, parent, templates.sliderlabel, name, title, callback)
+			s:SetAttribute("Min", min)
+			s:SetAttribute("Max", max)
+			return s
+		end
+		local function createDropdown(order, parent, name, title, options)
+			local d = clonebtn(
+				order,
+				parent,
+				templates.dropdownlabel,
+				name,
+				title
+			)
+	
+			-- clonebtn returns a controller for dropdowns
+			d.Instance.Visible = true
+	
+			if options then
+				for _, opt in ipairs(options) do
+					-- opt = { internalName, displayText }
+					d:AddOption(opt[1], opt[2])
+				end
+			end
+	
+			return d
+		end
+		local dropdowns = {}
+		-- Helper to extract numbers from text like "ping: 100ms"
+		local function getNumber(str)
+			return tonumber(string.match(str, "%d+")) or 0
+		end
+	
+		local function sortServers()
+			-- Find the servers tab and the container
+			local serversTab = tabHolder:WaitForChild("serverstab")
+			if not serversTab then return end
+	
+			local container = serversTab.servers
+			local btnHolder = serversTab.serversbuttonholder
+	
+			-- Get current sorting criteria from button text
+			local criteria = btnHolder.sortby.Text -- "ping" or "player count"
+			local direction = btnHolder.sortbylh.Text -- "lowest to highest" or "highest to lowest"
+	
+			local items = {}
+	
+			-- Gather all server frames
+			for _, child in pairs(container:GetChildren()) do
+				-- Ignore the UIListLayout and the example template if it exists
+				if child:IsA("Frame") and child.Name ~= "exampleserver" and child.Visible == true then
+					local pingVal = getNumber(child.ping.Text)
+					local playerVal = getNumber(child.players.Text)
+	
+					table.insert(items, {
+						Instance = child,
+						Ping = pingVal,
+						Players = playerVal,
+						-- Fetch our custom attribute to identify the current server
+						IsCurrent = child:GetAttribute("IsCurrentServer") or false
+					})
+				end
+			end
+	
+			-- Sort the table
+			table.sort(items, function(a, b)
+				-- 1. Always force the current server to be at the top, regardless of sorting criteria
+				if a.IsCurrent and not b.IsCurrent then
+					return true
+				elseif not a.IsCurrent and b.IsCurrent then
+					return false
+				end
+	
+				local valA, valB
+	
+				-- 2. Select value based on criteria
+				if criteria == "ping" then
+					valA = a.Ping
+					valB = b.Ping
+				else -- player count
+					valA = a.Players
+					valB = b.Players
+				end
+	
+				-- 3. Return comparison based on direction
+				if direction == "lowest to highest" then
+					return valA < valB
+				else
+					return valA > valB
+				end
+			end)
+	
+			-- Apply LayoutOrder
+			for i, item in ipairs(items) do
+				item.Instance.LayoutOrder = i
+			end
+		end
+	
+	
+	
+		
+		-- param: guidest, templategui, guiname
+		local function cloneFrame(parentGui, templateFrame, newName)
+			if not parentGui or not templateFrame then
+				error("cloneFrame: missing arguments")
+			end
+			if not templateFrame:IsA("GuiObject") then
+				error("cloneFrame: template must be a GuiObject")
+			end
+	
+			local clone = templateFrame:Clone()
+			if clone.Name == "serverstab" then
+				clone.serversbuttonholder.sortby.MouseButton1Click:Connect(function()
+					if clone.serversbuttonholder.sortby.Text == "ping" then
+						clone.serversbuttonholder.sortby.Text = "player count"
+					else 
+						clone.serversbuttonholder.sortby.Text = "ping"
+					end
+					sortServers()
+				end)
+				clone.serversbuttonholder.sortbylh.MouseButton1Click:Connect(function()
+					if clone.serversbuttonholder.sortbylh.Text == "lowest to highest" then
+						clone.serversbuttonholder.sortbylh.Text = "highest to lowest"
+					else 
+						clone.serversbuttonholder.sortbylh.Text = "lowest to highest"
+					end
+					sortServers()
+				end)
+				-- SAVED BUTTON (Go back to saved/home)
+				clone.serversbuttonholder.saved.MouseButton1Click:Connect(function()
+					if clone.servers.Visible == true then
+						clone.servers.Visible = false
+						clone.saved.Visible = true
+						-- Reset text back to "servers" when leaving the servers tab
+						clone.serversbuttonholder.servers.Text = "servers" 
+					end
+				end)
+	
+	
+			end
+			clone.Parent = parentGui
+			if newName then
+				clone.Name = newName
+			end
+			clone.Visible = false -- hide initially
+			return clone
+		end
+		-- Show one frame and hide the rest
+		local function showFrame(frameName)
+			for _, child in ipairs(tabHolder:GetChildren()) do
+				if child:IsA("Frame") or child:IsA("ScrollingFrame") then
+					child.Visible = (child.Name == frameName)
+				end
+			end
+		end
+		-- Update GUI when StringValue changes
+		currentframe.Changed:Connect(function()
+			local frameName = currentframe.Value
+			if tabHolder:FindFirstChild(frameName) then
+				showFrame(frameName)
+			end
+		end)
+		
+	
+		local function addHeaderButton(uilayoutorder, imageId, frameName)
+			local button = templates.headerbutton.button:Clone()
+			button.Parent = tabButtons
+			button.Visible = true
+			button.Name = frameName
+	
+			if uilayoutorder then
+				button.LayoutOrder = uilayoutorder
+			end
+	
+			-- Set image
+			if button:IsA("ImageButton") then
+				button.Image = "rbxassetid://" .. imageId
+			else
+				local img = button:FindFirstChildWhichIsA("ImageLabel", true)
+				if img then
+					img.Image = "rbxassetid://" .. imageId
+				end
+			end
+	
+			-- UIStroke reference (must exist in the button)
+			local stroke = button:WaitForChild("UIStroke")
+	
+			-- Press highlight (PC + mobile)
+			button.InputBegan:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseButton1
+					or input.UserInputType == Enum.UserInputType.Touch then
+					stroke.Color = Color3.new(1, 1, 1) -- white
+				end
+			end)
+	
+			button.InputEnded:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseButton1
+					or input.UserInputType == Enum.UserInputType.Touch then
+					stroke.Color = Color3.new(0.129412, 0.129412, 0.129412) -- black
+				end
+			end)
+	
+			-- Click callback
+			button.MouseButton1Click:Connect(function()
+				currentframe.Value = frameName
+			end)
+	
+			return button
+		end
+		-- Example usage: clone a frame and add its button
+		cloneFrame(tabHolder, templates.tab, "sf")
+		cloneFrame(tabHolder, templates.scriptstab, "scriptstab")
+		cloneFrame(tabHolder, templates.tab, "playertab")
+		cloneFrame(tabHolder, templates.serverstab, "serverstab")
+		cloneFrame(tabHolder, templates.tab, "unanchoredtab")
+		cloneFrame(tabHolder, templates.tab, "abouttab")
+	
+	
+	
+	
+		clonebtn(1, tabHolder:WaitForChild("scriptstab"), templates.scriptbtn, "rbxassetid://130142990360332", "infinite yield", function(state)
+			coroutine.wrap(function()
+				loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+			end)()
+		end)
+	
+		addHeaderButton(1, 10734943448, "scriptstab")
+		addHeaderButton(2, 10734949856, "serverstab")
+		addHeaderButton(3, 10747373176, "playertab")
+		addHeaderButton(4, 10709798100, "unanchoredtab")
+		addHeaderButton(4, 10723415903, "abouttab")
+		if not lplayer.Character then
+			tabButtons.playertab.Visible = false
+			task.spawn(function()
+				lplayer.CharacterAdded:Wait()
+				tabButtons.playertab.Visible = true
+			end)
+		end
+		networkownershiprange = 0
+	
+		clonebtn(
+			0,                      -- LayoutOrder (Sort Order)
+			tabHolder.playertab,              -- Parent GUI
+			templates.togglebuttonlabel,         -- The Template Object
+			"netwoverride",          -- Unique Name for this new button
+			"network ownership override",    -- Text/Description to display
+			function(state)         -- The 'wasclicked' callback function
+				currentstate = state
+				if state then
+					tabHolder.playertab.netwrangefield.Visible = true
+					coroutine.wrap(function()
+						while currentstate do
+							runservice.Heartbeat:Wait()
+							if not sethiddenprop then return end
+							sethiddenprop(lplayer, "SimulationRadius", networkownershiprange)
+						end
+					end)()
+					coroutine.wrap(function()
+						while currentstate do
+							task.wait()
+							if not setsimrad then return end
+							setsimrad(networkownershiprange)
+						end
+					end)()
+				else
+					tabHolder.playertab.netwrangefield.Visible = false
+				end
+			end
+		)
+		if not sethiddenprop or not setsimrad then 
+			tabHolder.playertab.netwoverride.Visible = false
+		end
+		clonebtn(1, tabHolder.playertab, templates.fieldlabel, "netwrangefield", "network ownership range (in studs)", function(state)
+			coroutine.wrap(function()
+				if not tonumber(tabHolder.playertab.netwrangefield.TextBox.Text) then
+					tabHolder.playertab.netwrangefield.TextBox.Text = "0"
+					networkownershiprange = 0
+					return
+				end
+				networkownershiprange = tonumber(tabHolder.playertab.netwrangefield.TextBox.Text)
+			end)()
+		end)
+	
+	
+	
+		local antiflingConnections = {}
+	
+		local function setNoCollision(part)
+			if part:IsA("BasePart") then
+				part.CanCollide = false
+	
+			end
+		end
+	
+		
+		local function hookCharacter(character)
+			for _, part in ipairs(character:GetDescendants()) do
+				setNoCollision(part)
+			end
+	
+			local conn = character.DescendantAdded:Connect(setNoCollision)
+			table.insert(antiflingConnections, conn)
+		end
+	
+	
+		local function hookPlayer(player)
+			if player == lplayer then return end
+			if player.Character then
+				hookCharacter(player.Character)
+			end
+			local conn = player.CharacterAdded:Connect(hookCharacter)
+			table.insert(antiflingConnections, conn)
+		end
+	
+		clonebtn(
+			2,
+			tabHolder.playertab,
+			templates.togglebuttonlabel,
+			"antifling",
+			"antifling (disables player collision)",
+			function(state)
+				if state then
+	
+					for _, player in ipairs(players:GetPlayers()) do
+						hookPlayer(player)
+					end
+	
+					local addedConn = players.PlayerAdded:Connect(hookPlayer)
+					table.insert(antiflingConnections, addedConn)
+	
+	
+					local heartbeatConn = runservice.Stepped:Connect(function()
+						for _, player in ipairs(players:GetPlayers()) do
+							if player ~= lplayer and player.Character then
+								for _, part in ipairs(player.Character:GetDescendants()) do
+									if part:IsA("BasePart") then
+										part.CanCollide = false
+									end
+								end
+							end
+						end
+					end)
+					table.insert(antiflingConnections, heartbeatConn)
+	
+				else
+					-- 1. Disconnect all events (PlayerAdded, CharacterAdded, Stepped, etc.)
+					for _, conn in ipairs(antiflingConnections) do
+						conn:Disconnect()
+					end
+					table.clear(antiflingConnections)
+	
+					-- 2. Revert collision (Optional: Makes players solid again immediately)
+					for _, player in ipairs(players:GetPlayers()) do
+						if player ~= lplayer and player.Character then
+							for _, part in ipairs(player.Character:GetDescendants()) do
+								if part:IsA("BasePart") then
+									part.CanCollide = true
+								end
+							end
+						end
+					end
+				end
+			end
+		)
+		-- Add these variables at the top near your other connections
+		local walkSpeedConnection = nil     -- Listens to PropertyChanged (locks the speed)
+		local wsRespawnConnection = nil     -- Listens to CharacterAdded (handles death)
+	
+		local jumpPowerConnection = nil     -- Listens to PropertyChanged
+		local jpRespawnConnection = nil     -- Listens to CharacterAdded
+	
+		-- 1. WalkSpeed Button
+		clonebtn(
+			4, 
+			tabHolder.playertab, 
+			templates.togglebuttonlabel, 
+			"enablecustomws", 
+			"enable custom walkspeed", 
+			function(state)
+				if state then
+					-- ENABLED
+					tabHolder.playertab.walkspeedfield.Visible = true
+	
+					-- Define the function that applies speed to a specific character
+					local function hookWalkSpeed(char)
+						local humanoid = char:WaitForChild("Humanoid", 5) -- Wait up to 5s for humanoid
+						if not humanoid then return end
+	
+						-- Force speed immediately
+						humanoid.WalkSpeed = currentws
+	
+						-- Disconnect previous property listener if it exists (for safety)
+						if walkSpeedConnection then walkSpeedConnection:Disconnect() end
+	
+						-- Create new property listener to lock the speed
+						walkSpeedConnection = humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+							if humanoid.WalkSpeed ~= currentws then
+								humanoid.WalkSpeed = currentws
+							end
+						end)
+					end
+	
+					-- A. Apply to the current character right now
+					if lplayer.Character then
+						task.spawn(function() hookWalkSpeed(lplayer.Character) end)
+					end
+	
+					-- B. Create the Respawn Listener so it works after death
+					-- We disconnect any existing respawn listener first to avoid duplicates
+					if wsRespawnConnection then wsRespawnConnection:Disconnect() end
+	
+					wsRespawnConnection = lplayer.CharacterAdded:Connect(function(newChar)
+						hookWalkSpeed(newChar)
+					end)
+	
+				else
+					-- DISABLED
+					tabHolder.playertab.walkspeedfield.Visible = false
+	
+					-- 1. Stop listening for respawns
+					if wsRespawnConnection then 
+						wsRespawnConnection:Disconnect()
+						wsRespawnConnection = nil
+					end
+	
+					-- 2. Stop locking the speed
+					if walkSpeedConnection then
+						walkSpeedConnection:Disconnect()
+						walkSpeedConnection = nil
+					end
+	
+					-- 3. Reset the speed on the current character
+					local character = lplayer.Character
+					if character then
+						local humanoid = character:FindFirstChild("Humanoid")
+						if humanoid then
+							humanoid.WalkSpeed = defaultws
+						end
+					end
+				end
+			end
+		)
+	
+		-- Field for WalkSpeed (No changes needed here, but included for context)
+		clonebtn(
+			5,
+			tabHolder.playertab,
+			templates.fieldlabel,
+			"walkspeedfield",
+			"set walkspeed:",
+			function(text)
+				if text == "" then
+					currentws = defaultws
+					return
+				end
+				currentws = tonumber(text)
+	
+				-- Update the current character immediately if the toggle is already on
+				if lplayer.Character and lplayer.Character:FindFirstChild("Humanoid") then
+					lplayer.Character.Humanoid.WalkSpeed = currentws
+				end
+			end
+		)
+	
+		-- 2. JumpPower Button
+		clonebtn(
+			6, 
+			tabHolder.playertab, 
+			templates.togglebuttonlabel, 
+			"enablecustomjp", 
+			"enable custom jumppower", 
+			function(state)
+				if state then
+					-- ENABLED
+					tabHolder.playertab.jumppowerfield.Visible = true
+	
+					local function hookJumpPower(char)
+						local humanoid = char:WaitForChild("Humanoid", 5)
+						if not humanoid then return end
+	
+						humanoid.UseJumpPower = true
+						humanoid.JumpPower = currentjp
+	
+						if jumpPowerConnection then jumpPowerConnection:Disconnect() end
+	
+						jumpPowerConnection = humanoid:GetPropertyChangedSignal("JumpPower"):Connect(function()
+							if humanoid.JumpPower ~= currentjp then
+								humanoid.JumpPower = currentjp
+							end
+						end)
+					end
+	
+					-- A. Apply to current
+					if lplayer.Character then
+						task.spawn(function() hookJumpPower(lplayer.Character) end)
+					end
+	
+					-- B. Listen for respawn
+					if jpRespawnConnection then jpRespawnConnection:Disconnect() end
+					jpRespawnConnection = lplayer.CharacterAdded:Connect(function(newChar)
+						hookJumpPower(newChar)
+					end)
+	
+				else
+					-- DISABLED
+					tabHolder.playertab.jumppowerfield.Visible = false
+	
+					if jpRespawnConnection then 
+						jpRespawnConnection:Disconnect()
+						jpRespawnConnection = nil
+					end
+	
+					if jumpPowerConnection then
+						jumpPowerConnection:Disconnect()
+						jumpPowerConnection = nil
+					end
+	
+					local character = lplayer.Character
+					if character then
+						local humanoid = character:FindFirstChild("Humanoid")
+						if humanoid then
+							humanoid.UseJumpPower = false
+							humanoid.JumpPower = defaultjp
+						end
+					end
+				end
+			end
+		)
+	
+		-- Field for JumpPower
+		clonebtn(
+			7,
+			tabHolder.playertab,
+			templates.fieldlabel,
+			"jumppowerfield",
+			"set jump power:",
+			function(text)
+				if text == "" then
+					currentjp = defaultjp
+					return
+				end
+				currentjp = tonumber(text)
+	
+				if lplayer.Character and lplayer.Character:FindFirstChild("Humanoid") then
+					lplayer.Character.Humanoid.JumpPower = currentjp
+				end
+			end
+		)
+		-- unanchored
+		-- Black Hole Variables & Overclocked Tuning
+		local blackHoleActive = false
+		local blackHolePart = nil
+		local bhPhysicsConnection = nil
+	
+		local bhPullForce = 350      -- Inward suction (Controlled by your text field)
+		local ORBIT_SPEED = 250      -- Insane orbital velocity
+		local CHAOS_FACTOR = 80      -- Violent turbulence
+	
+		-- NEW: Angle & Orbit State Variables
+		local angleUnlocked = false
+		local lockedAxis = Vector3.new(0.2, 1, 0.2)
+		local disableCollision = false
+		local eventHorizonRadius = 8  -- The distance threshold (Default: 8 studs)
+	
+		-- NEW: Move Tool Reference and Connections
+		local moveTool = nil
+		local toolActivatedConnection = nil
+	
+		-- Clean up anti-gravity body forces
+		local function restoreGravity()
+			for _, object in ipairs(workspace:GetDescendants()) do
+				local zeroG = object:FindFirstChild("ZeroGravityForce")
+				if zeroG then
+					zeroG.Name = "blackholegravity"
+					zeroG:Destroy()
+				end
+			end
+		end
+	
+		-- Overclocked Physics Loop
+		local function pullUnanchoredObjects()
+			for _, object in ipairs(workspace:GetDescendants()) do
+				if object:IsA("BasePart") and not object.Anchored and object ~= blackHolePart then
+					-- Prevent pulling the player's own character
+					if not object:IsDescendantOf(lplayer.Character) then
+	
+						-- DYNAMIC VOID PROTECTION: Catches parts 30 studs before they hit the destroy height
+						local voidThreshold = workspace.FallenPartsDestroyHeight + 30
+						if object.Position.Y < voidThreshold then 
+							-- Teleport it safely back up to the height of the black hole center
+							local targetHeight = blackHolePart and blackHolePart.Position.Y or 50
+							object.CFrame = CFrame.new(object.Position.X, targetHeight, object.Position.Z)
+	
+							-- Slingshot it upward and inward toward the center to get it back into orbit
+							local pushInward = blackHolePart and (blackHolePart.Position - object.Position).Unit or Vector3.new(0,0,0)
+							object.AssemblyLinearVelocity = Vector3.new(0, 5120, 0) + (pushInward * 50)
+						end
+	
+						-- DISABLE GRAVITY
+						if not object:FindFirstChild("ZeroGravityForce") then
+	
+							local antiGravity = Instance.new("BodyForce")
+							antiGravity.Name = "ZeroGravityForce"
+							antiGravity.Force = Vector3.new(0, object:GetMass() * workspace.Gravity, 0)
+							antiGravity.Parent = object
+						end
+	
+						-- Safety check in case blackHolePart gets destroyed mid-loop
+						if not blackHolePart or not blackHolePart.Parent then return end
+	
+						local direction = (blackHolePart.Position - object.Position)
+						local distance = direction.Magnitude
+	
+						if distance > eventHorizonRadius then
+							-- 1. Extreme Inward Pull
+							local pullVector = direction.Unit * bhPullForce
+	
+							-- 2. Determine Orbit Axis based on the Toggle
+							local orbitAxis
+							if angleUnlocked then
+								orbitAxis = object:GetAttribute("OrbitAxis")
+								if not orbitAxis then
+									orbitAxis = Vector3.new(math.random(-100, 100), math.random(-100, 100), math.random(-100, 100)).Unit
+									if orbitAxis.Magnitude == 0 then orbitAxis = Vector3.new(0, 1, 0) end
+									object:SetAttribute("OrbitAxis", orbitAxis)
+								end
+							else
+								orbitAxis = lockedAxis.Unit
+								if orbitAxis.Magnitude == 0 then orbitAxis = Vector3.new(0, 1, 0) end
+							end
+
+							-- 3. Orbital Slingshot
+							local tangentVector = direction:Cross(orbitAxis).Unit
+
+							-- 4. Chaos Jitter
+							local chaosVector = Vector3.new(
+								math.random(-CHAOS_FACTOR, CHAOS_FACTOR),
+								math.random(-CHAOS_FACTOR, CHAOS_FACTOR),
+								math.random(-CHAOS_FACTOR, CHAOS_FACTOR)
+							)
+
+							-- FIX: Explicitly toggle collision state either way
+							if disableCollision then
+								object.CanCollide = false
+							else
+								object.CanCollide = true
+							end
+
+							object.AssemblyLinearVelocity = pullVector + (tangentVector * ORBIT_SPEED) + chaosVector
+						else
+							-- Dynamic Event Horizon Detonation
+							-- FIX: Explicitly toggle collision state here too
+							if disableCollision then
+								object.CanCollide = false
+							else
+								object.CanCollide = true
+							end
+
+							object.AssemblyLinearVelocity = Vector3.new(
+								math.random(-2500, 2500), 
+								math.random(-2500, 2500), 
+								math.random(-2500, 2500)
+							)
+						end
+
+					end
+				end
+			end
+		end
+
+
+		clonebtn(
+			0,                      -- LayoutOrder
+			tabHolder.unanchoredtab,  -- Parent GUI
+			templates.togglebuttonlabel, 
+			"togglebh",          
+			"enable black hole",    
+			function(state)         
+				blackHoleActive = state
+
+				if blackHoleActive then
+					local character = lplayer.Character
+					if character and character:FindFirstChild("HumanoidRootPart") then
+
+						-- Create the physics singularity
+						blackHolePart = Instance.new("Part")
+						blackHolePart.Size = Vector3.new(eventHorizonRadius, eventHorizonRadius, eventHorizonRadius)
+						blackHolePart.Shape = Enum.PartType.Ball
+						blackHolePart.Color = Color3.fromRGB(0, 0, 0)
+						blackHolePart.Material = Enum.Material.Neon
+						blackHolePart.Anchored = true
+						blackHolePart.CanCollide = false
+
+						blackHolePart.CFrame = character.HumanoidRootPart.CFrame * CFrame.new(0, 10, -25)
+						blackHolePart.Parent = workspace
+
+						-- NEW: Mobile & PC Cross-Platform Move Tool Creation
+						moveTool = Instance.new("Tool")
+						moveTool.Name = "move black hole"
+						moveTool.RequiresHandle = false
+
+						-- Track where user clicks/taps via the tool activation event
+						toolActivatedConnection = moveTool.Activated:Connect(function()
+							local mouse = lplayer:GetMouse()
+							if mouse and blackHolePart and blackHolePart.Parent then
+								-- Grabs the 3D position where your cursor/finger touched
+								local targetPos = mouse.Hit.Position
+								-- Offsets the singularity slightly vertically so it doesn't get stuck underground
+								blackHolePart.Position = targetPos + Vector3.new(0, (eventHorizonRadius / 2) + 2, 0)
+							end
+						end)
+
+						-- Give tool to player's backpack
+						moveTool.Parent = lplayer:WaitForChild("Backpack")
+
+						bhPhysicsConnection = runservice.Heartbeat:Connect(pullUnanchoredObjects)
+					else
+						blackHoleActive = false
+					end
+				else
+					-- Clean up everything
+					if bhPhysicsConnection then
+						bhPhysicsConnection:Disconnect()
+						bhPhysicsConnection = nil
+					end
+					if toolActivatedConnection then
+						toolActivatedConnection:Disconnect()
+						toolActivatedConnection = nil
+					end
+					if moveTool then
+						moveTool:Destroy()
+						moveTool = nil
+					end
+					if blackHolePart then
+						blackHolePart:Destroy()
+						blackHolePart = nil
+					end
+					restoreGravity()
+				end
+			end
+		)
+
+		clonebtn(
+			1,                      
+			tabHolder.unanchoredtab,
+			templates.fieldlabel,
+			"bhforce",
+			"pull force:",
+			function(text)
+				local newForce = tonumber(text)
+				if newForce then
+					bhPullForce = newForce
+				end
+			end
+		)
+		clonebtn(
+			2,                      
+			tabHolder.unanchoredtab,
+			templates.fieldlabel,
+			"orbitspeed",
+			"orbit speed:",
+			function(text)
+				local newForce = tonumber(text)
+				if newForce then
+					ORBIT_SPEED = newForce
+				end
+			end
+		)
+		clonebtn(
+			3,                      
+			tabHolder.unanchoredtab,
+			templates.fieldlabel,
+			"chaos",
+			"turbulence:",
+			function(text)
+				local newForce = tonumber(text)
+				if newForce then
+					CHAOS_FACTOR = newForce
+				end
+			end
+		)
+		clonebtn(
+			4,                      
+			tabHolder.unanchoredtab,
+			templates.fieldlabel,
+			"eventhorizon",
+			"event horizon radius:",
+			function(text)
+				local newRadius = tonumber(text)
+				if newRadius then
+					eventHorizonRadius = newRadius
+
+					-- DYNAMIC SCALING: Resizes the black hole sphere if it exists
+					if blackHolePart and blackHolePart.Parent then
+						-- Scaling the sphere's diameter to match the horizon radius
+						blackHolePart.Size = Vector3.new(newRadius, newRadius, newRadius)
+					end
+				end
+			end
+		)
+		-- NEW GUI INPUTS START HERE
+		clonebtn(
+			5, 
+			tabHolder.unanchoredtab, 
+			templates.fieldlabel, 
+			"AxisXInput", 
+			"Locked Axis X:", 
+			function(text)
+				local val = tonumber(text)
+				if val then lockedAxis = Vector3.new(val, lockedAxis.Y, lockedAxis.Z) 
+				else
+					tabHolder.unanchoredtab:WaitForChild("AxisXInput").TextBox.Text = tostring(math.round(lockedAxis.X * 100) / 100)
+				end
+			end
+		)
+
+		clonebtn(
+			6, 
+			tabHolder.unanchoredtab, 
+			templates.fieldlabel, 
+			"AxisYInput", 
+			"Locked Axis Y:", 
+			function(text)
+				local val = tonumber(text)
+				if val then lockedAxis = Vector3.new(lockedAxis.X, val, lockedAxis.Z) 
+				else	
+					tabHolder.unanchoredtab:WaitForChild("AxisYInput").TextBox.Text = tostring(math.round(lockedAxis.Y * 100) / 100)
+				end
+			end
+		)
+
+		clonebtn(
+			7, 
+			tabHolder.unanchoredtab, 
+			templates.fieldlabel, 
+			"AxisZInput", 
+			"Locked Axis Z:", 
+			function(text)
+				local val = tonumber(text)
+				if val then lockedAxis = Vector3.new(lockedAxis.X, lockedAxis.Y, val) 
+				else	
+					tabHolder.unanchoredtab:WaitForChild("AxisZInput").TextBox.Text = tostring(math.round(lockedAxis.Z * 100) / 100)
+				end
+			end
+		)
+
+		clonebtn(
+			8, 
+			tabHolder.unanchoredtab, 
+			templates.togglebuttonlabel, 
+			"UnlockAngleToggle", 
+			"Unlock Random Angles", 
+			function(state)
+				angleUnlocked = state
+
+				-- If unlocked (true), hide the inputs. If locked (false), show them.
+				local showInputs = not state 
+
+				-- Find the inputs in the UI hierarchy and toggle their visibility
+				local tab = tabHolder.unanchoredtab
+				if tab:FindFirstChild("AxisXInput") then
+					tab.AxisXInput.Visible = showInputs
+					tab.AxisYInput.Visible = showInputs
+					tab.AxisZInput.Visible = showInputs
+				end
+			end
+		)
+
+		clonebtn(
+			9, 
+			tabHolder.unanchoredtab, 
+			templates.togglebuttonlabel, 
+			"DisableCollisionToggle", 
+			"Disable Part Collision", 
+			function(state)
+				disableCollision = state
+
+				-- FIX: Instant update loop when turning collision back ON
+				if not disableCollision then
+					for _, object in ipairs(workspace:GetDescendants()) do
+						if object:IsA("BasePart") and not object.Anchored and object ~= blackHolePart then
+							if not object:IsDescendantOf(lplayer.Character) then
+								object.CanCollide = true
+							end
+						end
+					end
+				end
+			end
+		)
+
+
+		-- Populate Default Text Fields
+		tabHolder.unanchoredtab:WaitForChild("orbitspeed").TextBox.Text = tonumber(ORBIT_SPEED)
+		tabHolder.unanchoredtab:WaitForChild("bhforce").TextBox.Text = tonumber(bhPullForce)
+		tabHolder.unanchoredtab:WaitForChild("chaos").TextBox.Text = tonumber(CHAOS_FACTOR)
+
+		tabHolder.unanchoredtab:WaitForChild("eventhorizon").TextBox.Text = tonumber(eventHorizonRadius)
+
+		-- Round to 2 decimal places to hide the floating-point garbage
+		tabHolder.unanchoredtab:WaitForChild("AxisXInput").TextBox.Text = tostring(math.round(lockedAxis.X * 100) / 100)
+		tabHolder.unanchoredtab:WaitForChild("AxisYInput").TextBox.Text = tostring(math.round(lockedAxis.Y * 100) / 100)
+		tabHolder.unanchoredtab:WaitForChild("AxisZInput").TextBox.Text = tostring(math.round(lockedAxis.Z * 100) / 100)
+
+		tabHolder.playertab.walkspeedfield.Visible = false
+		tabHolder.playertab.jumppowerfield.Visible = false
+		tabHolder.playertab.netwrangefield.Visible = false
+		tabHolder.playertab.netwrangefield.TextBox.Text = "0"
+		currentframe.Value = "scriptstab"
+		-- Global cache to prevent rate limits
+		local iconCache = {}
+
+		local function setGameIcon(imageLabel, gameId)
+			if not imageLabel then return end
+
+			-- Run in background so it doesn't freeze the UI
+			task.spawn(function()
+				-- 1. Check if we already have this icon loaded
+				if iconCache[gameId] then
+					imageLabel.Image = "rbxassetid://" .. iconCache[gameId]
+					return
+				end
+
+				-- 2. If not, fetch it safely
+				local success, info = pcall(function()
+					return game:GetService("MarketplaceService"):GetProductInfo(gameId)
+				end)
+
+				-- 3. Apply and Cache
+				if success and info and info.IconImageAssetId then
+					iconCache[gameId] = info.IconImageAssetId
+					imageLabel.Image = "rbxassetid://" .. info.IconImageAssetId
+				else
+					-- Optional: Set a default "unknown" image if it fails
+					-- imageLabel.Image = "rbxassetid://0" 
+				end
+			end)
+		end
+
+		local function createSavedServerEntry(jobid, gameid, pingText, playersText)
+			local savedContainer = tabHolder.serverstab.saved
+
+			-- Prevent visual duplicates
+			if savedContainer:FindFirstChild(jobid) then return end
+
+			local temp = tabHolder.serverstab.exampleserver:Clone()
+			temp.Name = jobid
+			temp.Parent = savedContainer
+			temp.Visible = true
+
+			temp.jobid.Text = jobid
+			temp.gameid.Value = gameid
+			temp.ping.Text = pingText
+			temp.players.Text = playersText
+			setGameIcon(temp.gameicon, gameid)
+
+			if temp:FindFirstChild("play") then
+				temp.play.MouseButton1Click:Connect(function()
+					-- 1. Debounce check
+					if istping == true then return end
+					istping = true
+
+					local function cancelAction()
+						istping = false
+					end
+
+					-- 2. Call Notification with NIL duration
+					createNotification(
+						"serverfinder", 
+						"attempting to teleport to server " .. jobid .. ".", 
+						nil, -- CHANGED: Set to nil so it doesn't close automatically
+						cancelAction 
+					)
+
+					-- 3. Run the loop in a separate thread to ensure safety
+					task.spawn(function()
+						while istping == true do
+							-- 4. Wrap teleport in pcall so errors don't break the script
+							local success, err = pcall(function()
+								TeleportService:TeleportToPlaceInstance(gameid, jobid)
+							end)
+
+							if not success then
+
+							end
+
+							-- Wait before retrying (Teleport service throttles requests anyway)
+							task.wait(2.5) 
+						end
+					end)
+				end)
+			end
+
+			-- Remove Button (Replaces Save Button)
+			if temp:FindFirstChild("save") then
+				temp.save.Image = "rbxassetid://10747362241" -- Trash icon
+				temp.save.MouseButton1Click:Connect(function()
+					temp:Destroy()
+					-- Remove from the single file
+					removeServerFromFile(jobid, gameid)
+				end)
+			end
+		end
+
+		local function addserverbtn(jobid, gameid, ping, playercount)
+			local temp = tabHolder.serverstab.exampleserver:Clone()
+			temp.Parent = tabHolder.serverstab.servers
+			temp.Visible = true
+			temp.jobid.Text = jobid
+			temp.gameid.Value = gameid
+			temp.Name = jobid 
+			temp.ping.Text = "ping: " .. ping .. "ms"
+			temp.players.Text = playercount .. " players"
+			setGameIcon(temp.gameicon, gameid)
+
+
+			-- Join
+
+			if temp:FindFirstChild("play") then
+				temp.play.MouseButton1Click:Connect(function()
+					-- 1. Debounce check
+					if istping == true then return end
+					istping = true
+
+					local function cancelAction()
+						istping = false
+					end
+
+					-- 2. Call Notification with NIL duration
+					createNotification(
+						"serverfinder", 
+						"attempting to teleport to server " .. jobid .. ".", 
+						nil, -- CHANGED: Set to nil so it doesn't close automatically
+						cancelAction 
+					)
+
+					-- 3. Run the loop in a separate thread to ensure safety
+					task.spawn(function()
+						while istping == true do
+							-- 4. Wrap teleport in pcall so errors don't break the script
+							local success, err = pcall(function()
+								TeleportService:TeleportToPlaceInstance(temp.gameid.Value, jobid, player)
+							end)
+
+							if not success then
+							end
+
+							-- Wait before retrying (Teleport service throttles requests anyway)
+							task.wait(2.5) 
+						end
+					end)
+				end)
+			end
+
+
+			-- Save Button
+			temp.save.MouseButton1Click:Connect(function()
+				createSavedServerEntry(jobid, gameid, temp.ping.Text, temp.players.Text)
+				saveServerToFile(jobid, gameid, temp.ping.Text, temp.players.Text)
+			end)
+			return temp
+		end
+
+		-- Function to Fetch Servers
+		local function fetchServers()
+			local serversFrame = tabHolder:WaitForChild("serverstab"):WaitForChild("servers")
+			local placeId = game.PlaceId
+			local url = "https://games.roblox.com/v1/games/" .. placeId .. "/servers/Public?sortOrder=Desc&excludeFullGames=true&limit=100"
+
+			local success, result
+
+			-- Detect environment (Executor vs Studio)
+			local httpRequest = (syn and syn.request) or (http and http.request) or (http_request) or (fluxus and fluxus.request) or request
+
+			if httpRequest then
+				-- Executor Environment
+				local response = httpRequest({
+					Url = url,
+					Method = "GET"
+				})
+				if response.StatusCode == 200 then
+					success = true
+					result = response.Body
+				end
+			else
+				local HttpService = game:GetService("HttpService")
+				success, result = pcall(function()
+					return HttpService:GetAsync(url) -- Will fail in standard game without proxy
+				end)
+			end
+
+			if success and result then
+				local HttpService = game:GetService("HttpService")
+				local data = HttpService:JSONDecode(result)
+
+				if data and data.data then
+					-- Clear old servers (except template/layout)
+					for _, child in pairs(serversFrame:GetChildren()) do
+						if child:IsA("Frame") and child.Name ~= "exampleserver" then
+							child:Destroy()
+						end
+					end
+
+					local foundCurrentServer = false
+
+					-- Add new servers
+					for _, server in pairs(data.data) do
+						local sPing = server.ping or 0
+						local sPlayers = server.playing or 0
+						local sJobId = server.id
+
+						-- Check if this server is the one the player is currently in
+						local isCurrent = (sJobId == game.JobId and game.JobId ~= "")
+						if isCurrent then
+							foundCurrentServer = true
+						end
+
+						-- Capture the frame returned by your function
+						local serverFrame = addserverbtn(sJobId, placeId, sPing, sPlayers)
+
+						if isCurrent and serverFrame then
+							serverFrame:SetAttribute("IsCurrentServer", true)
+
+							local stroke = serverFrame:FindFirstChildWhichIsA("UIStroke")
+							if not stroke then
+								stroke = Instance.new("UIStroke")
+								stroke.Thickness = 2
+								stroke.Parent = serverFrame
+							end
+							stroke.Color = Color3.fromRGB(255, 255, 255)
+						end
+					end
+
+					-- Edge Case: The API has a limit of 100 servers. If the current server 
+					-- wasn't in the top 100 list, we manually append it here to guarantee it shows up.
+					if not foundCurrentServer and game.JobId ~= "" then
+						local currentPlayers = #game.Players:GetPlayers()
+						local serverFrame = addserverbtn(game.JobId, placeId, 0, currentPlayers)
+
+						if serverFrame then
+							serverFrame:SetAttribute("IsCurrentServer", true)
+
+							local stroke = serverFrame:FindFirstChildWhichIsA("UIStroke")
+							if not stroke then
+								stroke = Instance.new("UIStroke")
+								stroke.Thickness = 2
+								stroke.Parent = serverFrame
+							end
+							stroke.Color = Color3.fromRGB(0, 255, 0) -- Green
+						end
+					end
+
+					-- Update the sort immediately after loading
+					sortServers()
+				end
+			else
+				warn("fail")
+			end
+		end
+		-- SERVERS / RELOAD BUTTON
+		tabHolder.serverstab.serversbuttonholder.servers.MouseButton1Click:Connect(function()
+			-- CASE 1: The servers list is ALREADY open
+			if tabHolder.serverstab.servers.Visible == true then
+				-- This acts as the Reload button
+				tabHolder.serverstab.serversbuttonholder.servers.Text = "reload" -- Ensure text indicates reload
+				fetchServers()
+
+				-- CASE 2: The servers list is closed (switching from Saved to Servers)
+			else
+				tabHolder.serverstab.saved.Visible = false
+				tabHolder.serverstab.servers.Visible = true
+				-- Change the text to "reload" immediately so the NEXT click reloads
+				tabHolder.serverstab.serversbuttonholder.servers.Text = "reload" 
+
+				-- Optional: You might want to fetch servers immediately upon opening too
+				-- fetchServers() 
+			end
+
+		end)
+
+		local function loadAllSavedServers()
+			local db = getDatabase()
+
+			-- We use pairs() to iterate through every Game ID (key) in the database
+			for gameId, serverList in pairs(db) do
+				-- serverList is the array of servers for that specific gameId
+				for _, server in ipairs(serverList) do
+					-- Convert gameId back to a number if your entry function requires it
+					createSavedServerEntry(
+						server.jobid, 
+						tonumber(gameId), 
+						server.ping, 
+						server.players
+					)
+				end
+			end
+		end
+
+		-- Run
+		fetchServers()
+		loadAllSavedServers()
+		autoresize(tabHolder.serverstab.saved)
+		autoresize(tabHolder.serverstab.servers)
+
+		local function updtime()
+			local tstring = os.date("%I:%M %p")
+			header.time.Text = string.lower(tstring)
+		end
+		coroutine.wrap(function()
+			while true do
+				updtime()
+				wait(10)
+			end
+		end)()
+		updtime()
+
+
+
+
+
+	end
+
+	loader.load.MouseButton1Click:Connect(function()
+		loader.TextLabel.Text = "loading. [0%]"
+		loader.load:Destroy()
+		loader.UIStroke:Destroy()
+		local blur = Instance.new("BlurEffect")
+		blur.Parent = game:GetService("Lighting")
+		blur.Size = 0
+		local b = {
+			BackgroundTransparency = 1
+		}
+		local t = game:GetService("TweenService"):Create(loader, twi, b)
+		t:Play()
+
+		local b = {
+			Position = UDim2.fromScale(0.497, 0.139)
+		}
+		local t = game:GetService("TweenService"):Create(loader.image, twi, b)
+		t:Play()
+
+		local b = {
+			Size = UDim2.fromOffset(150, 150)
+		}
+		local t = game:GetService("TweenService"):Create(loader.image, twi, b)
+		t:Play()
+
+
+		local b = {
+			Size = 24
+		}
+		local t = game:GetService("TweenService"):Create(blur, twi, b)
+		t:Play()
+		load()
+		loader.TextLabel.Text = "loaded successfully!"
+
+		wait(.5)
+		local b = {
+			Size = 0
+		}
+		local t = game:GetService("TweenService"):Create(blur, twi, b)
+		t:Play()
+		loader:Destroy()
+		frame.Visible = true
+		wait(1)
+		blur:Destroy()
+	end)
+
+end;
+task.spawn(C_2);
+
+return G2L["1"], require;
