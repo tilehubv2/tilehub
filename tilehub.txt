@@ -2712,360 +2712,388 @@ local script = G2L["2"];
 				end
 			end
 		)
-		-- unanchored
-		-- Black Hole Variables & Overclocked Tuning
-		local blackHoleActive = false
-		local blackHolePart = nil
-		local bhPhysicsConnection = nil
+	-- unanchored
+	-- Black Hole Variables & Overclocked Tuning
+	local blackHoleActive = false
+	local blackHolePart = nil
+	local bhPhysicsConnection = nil
+
+	local bhPullForce = 350      -- Inward suction (Controlled by your text field)
+	local ORBIT_SPEED = 250      -- Insane orbital velocity
+	local CHAOS_FACTOR = 80      -- Violent turbulence
+
+	-- NEW: Angle & Orbit State Variables
+	local angleUnlocked = false
+	local lockedAxis = Vector3.new(0.2, 1, 0.2)
+	local disableCollision = false
+	local eventHorizonRadius = 8  -- The distance threshold (Default: 8 studs)
 	
-		local bhPullForce = 350      -- Inward suction (Controlled by your text field)
-		local ORBIT_SPEED = 250      -- Insane orbital velocity
-		local CHAOS_FACTOR = 80      -- Violent turbulence
-	
-		-- NEW: Angle & Orbit State Variables
-		local angleUnlocked = false
-		local lockedAxis = Vector3.new(0.2, 1, 0.2)
-		local disableCollision = false
-		local eventHorizonRadius = 8  -- The distance threshold (Default: 8 studs)
-	
-		-- NEW: Move Tool Reference and Connections
-		local moveTool = nil
-		local toolActivatedConnection = nil
-	
-		-- Clean up anti-gravity body forces
-		local function restoreGravity()
-			for _, object in ipairs(workspace:GetDescendants()) do
-				local zeroG = object:FindFirstChild("ZeroGravityForce")
-				if zeroG then
-					zeroG.Name = "blackholegravity"
-					zeroG:Destroy()
-				end
+	-- Move Tool Reference and Connections
+	local moveTool = nil
+	local toolActivatedConnection = nil
+
+	-- Clean up anti-gravity body forces
+	local function restoreGravity()
+		for _, object in ipairs(workspace:GetDescendants()) do
+			local zeroG = object:FindFirstChild("ZeroGravityForce")
+			if zeroG then
+				zeroG.Name = "blackholegravity"
+				zeroG:Destroy()
 			end
 		end
-	
-		-- Overclocked Physics Loop
-		local function pullUnanchoredObjects()
-			for _, object in ipairs(workspace:GetDescendants()) do
-				if object:IsA("BasePart") and not object.Anchored and object ~= blackHolePart then
-					-- Prevent pulling the player's own character
-					if not object:IsDescendantOf(lplayer.Character) then
-	
-						-- DYNAMIC VOID PROTECTION: Catches parts 30 studs before they hit the destroy height
-						local voidThreshold = workspace.FallenPartsDestroyHeight + 30
-						if object.Position.Y < voidThreshold then 
-							-- Teleport it safely back up to the height of the black hole center
-							local targetHeight = blackHolePart and blackHolePart.Position.Y or 50
-							object.CFrame = CFrame.new(object.Position.X, targetHeight, object.Position.Z)
-	
-							-- Slingshot it upward and inward toward the center to get it back into orbit
-							local pushInward = blackHolePart and (blackHolePart.Position - object.Position).Unit or Vector3.new(0,0,0)
-							object.AssemblyLinearVelocity = Vector3.new(0, 5120, 0) + (pushInward * 50)
-						end
-	
-						-- DISABLE GRAVITY
-						if not object:FindFirstChild("ZeroGravityForce") then
-	
-							local antiGravity = Instance.new("BodyForce")
-							antiGravity.Name = "ZeroGravityForce"
-							antiGravity.Force = Vector3.new(0, object:GetMass() * workspace.Gravity, 0)
-							antiGravity.Parent = object
-						end
-	
-						-- Safety check in case blackHolePart gets destroyed mid-loop
-						if not blackHolePart or not blackHolePart.Parent then return end
-	
-						local direction = (blackHolePart.Position - object.Position)
-						local distance = direction.Magnitude
-	
-						if distance > eventHorizonRadius then
-							-- 1. Extreme Inward Pull
-							local pullVector = direction.Unit * bhPullForce
-	
-							-- 2. Determine Orbit Axis based on the Toggle
-							local orbitAxis
-							if angleUnlocked then
-								orbitAxis = object:GetAttribute("OrbitAxis")
-								if not orbitAxis then
-									orbitAxis = Vector3.new(math.random(-100, 100), math.random(-100, 100), math.random(-100, 100)).Unit
-									if orbitAxis.Magnitude == 0 then orbitAxis = Vector3.new(0, 1, 0) end
-									object:SetAttribute("OrbitAxis", orbitAxis)
-								end
-							else
-								orbitAxis = lockedAxis.Unit
-								if orbitAxis.Magnitude == 0 then orbitAxis = Vector3.new(0, 1, 0) end
-							end
+	end
 
-							-- 3. Orbital Slingshot
-							local tangentVector = direction:Cross(orbitAxis).Unit
-
-							-- 4. Chaos Jitter
-							local chaosVector = Vector3.new(
-								math.random(-CHAOS_FACTOR, CHAOS_FACTOR),
-								math.random(-CHAOS_FACTOR, CHAOS_FACTOR),
-								math.random(-CHAOS_FACTOR, CHAOS_FACTOR)
-							)
-
-							-- FIX: Explicitly toggle collision state either way
-							if disableCollision then
-								object.CanCollide = false
-							else
-								object.CanCollide = true
-							end
-
-							object.AssemblyLinearVelocity = pullVector + (tangentVector * ORBIT_SPEED) + chaosVector
-						else
-							-- Dynamic Event Horizon Detonation
-							-- FIX: Explicitly toggle collision state here too
-							if disableCollision then
-								object.CanCollide = false
-							else
-								object.CanCollide = true
-							end
-
-							object.AssemblyLinearVelocity = Vector3.new(
-								math.random(-2500, 2500), 
-								math.random(-2500, 2500), 
-								math.random(-2500, 2500)
-							)
-						end
-
-					end
+	-- NEW FILTER FUNCTION: Allows NPCs, protects real players
+	local function isValidTarget(object)
+		-- Must be an unanchored physical part, and not the singularity itself
+		if not object:IsA("BasePart") then return false end
+		if object.Anchored then return false end
+		if object == blackHolePart then return false end
+		
+		-- Ignore massive map floors to prevent the player from getting flung
+		if object.Name:lower() == "baseplate" then return false end
+		
+		-- Ignore tool handles
+		if object.Name == "Handle" then return false end
+		
+		-- FIX: Player vs NPC Detection
+		local characterModel = object:FindFirstAncestorOfClass("Model")
+		if characterModel then
+			local humanoid = characterModel:FindFirstChildOfClass("Humanoid")
+			if humanoid then
+				-- If this model belongs to a real player, ignore it!
+				if game.Players:GetPlayerFromCharacter(characterModel) then
+					return false
 				end
+				
+				-- If we reach here, it is an NPC! 
+				-- We set PlatformStand to true to "trip" them. This turns off their 
+				-- walking physics so they don't violently jitter while flying through the air.
+				humanoid.PlatformStand = true
 			end
 		end
+		
+		return true
+	end
 
+	-- Overclocked Physics Loop
+	local function pullUnanchoredObjects()
+		for _, object in ipairs(workspace:GetDescendants()) do
+			
+			-- Only process parts that pass our strict safety filter
+			if isValidTarget(object) then
 
-		clonebtn(
-			0,                      -- LayoutOrder
-			tabHolder.unanchoredtab,  -- Parent GUI
-			templates.togglebuttonlabel, 
-			"togglebh",          
-			"enable black hole",    
-			function(state)         
-				blackHoleActive = state
+				-- DYNAMIC VOID PROTECTION: Catches parts 30 studs before they hit the destroy height
+				local voidThreshold = workspace.FallenPartsDestroyHeight + 30
+				if object.Position.Y < voidThreshold then 
+					-- Teleport it safely back up to the height of the black hole center
+					local targetHeight = blackHolePart and blackHolePart.Position.Y or 50
+					object.CFrame = CFrame.new(object.Position.X, targetHeight, object.Position.Z)
 
-				if blackHoleActive then
-					local character = lplayer.Character
-					if character and character:FindFirstChild("HumanoidRootPart") then
+					-- Slingshot it upward and inward toward the center to get it back into orbit
+					local pushInward = blackHolePart and (blackHolePart.Position - object.Position).Unit or Vector3.new(0,0,0)
+					object.AssemblyLinearVelocity = Vector3.new(0, 5120, 0) + (pushInward * 50)
+				end
 
-						-- Create the physics singularity
-						blackHolePart = Instance.new("Part")
-						blackHolePart.Size = Vector3.new(eventHorizonRadius, eventHorizonRadius, eventHorizonRadius)
-						blackHolePart.Shape = Enum.PartType.Ball
-						blackHolePart.Color = Color3.fromRGB(0, 0, 0)
-						blackHolePart.Material = Enum.Material.Neon
-						blackHolePart.Anchored = true
-						blackHolePart.CanCollide = false
+				-- DISABLE GRAVITY
+				if not object:FindFirstChild("ZeroGravityForce") then
+					local antiGravity = Instance.new("BodyForce")
+					antiGravity.Name = "ZeroGravityForce"
+					antiGravity.Force = Vector3.new(0, object:GetMass() * workspace.Gravity, 0)
+					antiGravity.Parent = object
+				end
 
-						blackHolePart.CFrame = character.HumanoidRootPart.CFrame * CFrame.new(0, 10, -25)
-						blackHolePart.Parent = workspace
+				-- Safety check in case blackHolePart gets destroyed mid-loop
+				if not blackHolePart or not blackHolePart.Parent then return end
 
-						-- NEW: Mobile & PC Cross-Platform Move Tool Creation
-						moveTool = Instance.new("Tool")
-						moveTool.Name = "move black hole"
-						moveTool.RequiresHandle = false
+				local direction = (blackHolePart.Position - object.Position)
+				local distance = direction.Magnitude
 
-						-- Track where user clicks/taps via the tool activation event
-						toolActivatedConnection = moveTool.Activated:Connect(function()
-							local mouse = lplayer:GetMouse()
-							if mouse and blackHolePart and blackHolePart.Parent then
-								-- Grabs the 3D position where your cursor/finger touched
-								local targetPos = mouse.Hit.Position
-								-- Offsets the singularity slightly vertically so it doesn't get stuck underground
-								blackHolePart.Position = targetPos + Vector3.new(0, (eventHorizonRadius / 2) + 2, 0)
-							end
-						end)
+				if distance > eventHorizonRadius then
+					-- 1. Extreme Inward Pull
+					local pullVector = direction.Unit * bhPullForce
 
-						-- Give tool to player's backpack
-						moveTool.Parent = lplayer:WaitForChild("Backpack")
-
-						bhPhysicsConnection = runservice.Heartbeat:Connect(pullUnanchoredObjects)
+					-- 2. Determine Orbit Axis based on the Toggle
+					local orbitAxis
+					if angleUnlocked then
+						orbitAxis = object:GetAttribute("OrbitAxis")
+						if not orbitAxis then
+							orbitAxis = Vector3.new(math.random(-100, 100), math.random(-100, 100), math.random(-100, 100)).Unit
+							if orbitAxis.Magnitude == 0 then orbitAxis = Vector3.new(0, 1, 0) end
+							object:SetAttribute("OrbitAxis", orbitAxis)
+						end
 					else
-						blackHoleActive = false
+						orbitAxis = lockedAxis.Unit
+						if orbitAxis.Magnitude == 0 then orbitAxis = Vector3.new(0, 1, 0) end
 					end
+
+					-- 3. Orbital Slingshot
+					local tangentVector = direction:Cross(orbitAxis).Unit
+
+					-- 4. Chaos Jitter
+					local chaosVector = Vector3.new(
+						math.random(-CHAOS_FACTOR, CHAOS_FACTOR),
+						math.random(-CHAOS_FACTOR, CHAOS_FACTOR),
+						math.random(-CHAOS_FACTOR, CHAOS_FACTOR)
+					)
+
+					-- Explicitly toggle collision state either way
+					if disableCollision then
+						object.CanCollide = false
+					else
+						object.CanCollide = true
+					end
+
+					object.AssemblyLinearVelocity = pullVector + (tangentVector * ORBIT_SPEED) + chaosVector
 				else
-					-- Clean up everything
-					if bhPhysicsConnection then
-						bhPhysicsConnection:Disconnect()
-						bhPhysicsConnection = nil
+					-- Dynamic Event Horizon Detonation
+					if disableCollision then
+						object.CanCollide = false
+					else
+						object.CanCollide = true
 					end
-					if toolActivatedConnection then
-						toolActivatedConnection:Disconnect()
-						toolActivatedConnection = nil
-					end
-					if moveTool then
-						moveTool:Destroy()
-						moveTool = nil
-					end
-					if blackHolePart then
-						blackHolePart:Destroy()
-						blackHolePart = nil
-					end
-					restoreGravity()
-				end
-			end
-		)
 
-		clonebtn(
-			1,                      
-			tabHolder.unanchoredtab,
-			templates.fieldlabel,
-			"bhforce",
-			"pull force:",
-			function(text)
-				local newForce = tonumber(text)
-				if newForce then
-					bhPullForce = newForce
+					object.AssemblyLinearVelocity = Vector3.new(
+						math.random(-2500, 2500), 
+						math.random(-2000, 2500), 
+						math.random(-2500, 2500)
+					)
 				end
-			end
-		)
-		clonebtn(
-			2,                      
-			tabHolder.unanchoredtab,
-			templates.fieldlabel,
-			"orbitspeed",
-			"orbit speed:",
-			function(text)
-				local newForce = tonumber(text)
-				if newForce then
-					ORBIT_SPEED = newForce
-				end
-			end
-		)
-		clonebtn(
-			3,                      
-			tabHolder.unanchoredtab,
-			templates.fieldlabel,
-			"chaos",
-			"turbulence:",
-			function(text)
-				local newForce = tonumber(text)
-				if newForce then
-					CHAOS_FACTOR = newForce
-				end
-			end
-		)
-		clonebtn(
-			4,                      
-			tabHolder.unanchoredtab,
-			templates.fieldlabel,
-			"eventhorizon",
-			"event horizon radius:",
-			function(text)
-				local newRadius = tonumber(text)
-				if newRadius then
-					eventHorizonRadius = newRadius
 
-					-- DYNAMIC SCALING: Resizes the black hole sphere if it exists
-					if blackHolePart and blackHolePart.Parent then
-						-- Scaling the sphere's diameter to match the horizon radius
-						blackHolePart.Size = Vector3.new(newRadius, newRadius, newRadius)
-					end
-				end
 			end
-		)
-		-- NEW GUI INPUTS START HERE
-		clonebtn(
-			5, 
-			tabHolder.unanchoredtab, 
-			templates.fieldlabel, 
-			"AxisXInput", 
-			"Locked Axis X:", 
-			function(text)
-				local val = tonumber(text)
-				if val then lockedAxis = Vector3.new(val, lockedAxis.Y, lockedAxis.Z) 
-				else
-					tabHolder.unanchoredtab:WaitForChild("AxisXInput").TextBox.Text = tostring(math.round(lockedAxis.X * 100) / 100)
-				end
-			end
-		)
+		end
+	end
 
-		clonebtn(
-			6, 
-			tabHolder.unanchoredtab, 
-			templates.fieldlabel, 
-			"AxisYInput", 
-			"Locked Axis Y:", 
-			function(text)
-				local val = tonumber(text)
-				if val then lockedAxis = Vector3.new(lockedAxis.X, val, lockedAxis.Z) 
-				else	
-					tabHolder.unanchoredtab:WaitForChild("AxisYInput").TextBox.Text = tostring(math.round(lockedAxis.Y * 100) / 100)
-				end
-			end
-		)
 
-		clonebtn(
-			7, 
-			tabHolder.unanchoredtab, 
-			templates.fieldlabel, 
-			"AxisZInput", 
-			"Locked Axis Z:", 
-			function(text)
-				local val = tonumber(text)
-				if val then lockedAxis = Vector3.new(lockedAxis.X, lockedAxis.Y, val) 
-				else	
-					tabHolder.unanchoredtab:WaitForChild("AxisZInput").TextBox.Text = tostring(math.round(lockedAxis.Z * 100) / 100)
-				end
-			end
-		)
+	clonebtn(
+		0,                      -- LayoutOrder
+		tabHolder.unanchoredtab,  -- Parent GUI
+		templates.togglebuttonlabel, 
+		"togglebh",          
+		"enable/disable singularity",    
+		function(state)         
+			blackHoleActive = state
 
-		clonebtn(
-			8, 
-			tabHolder.unanchoredtab, 
-			templates.togglebuttonlabel, 
-			"UnlockAngleToggle", 
-			"Unlock Random Angles", 
-			function(state)
-				angleUnlocked = state
+			if blackHoleActive then
+				local character = lplayer.Character
+				if character and character:FindFirstChild("HumanoidRootPart") then
 
-				-- If unlocked (true), hide the inputs. If locked (false), show them.
-				local showInputs = not state 
+					-- Create the physics singularity
+					blackHolePart = Instance.new("Part")
+					blackHolePart.Size = Vector3.new(eventHorizonRadius, eventHorizonRadius, eventHorizonRadius)
+					blackHolePart.Shape = Enum.PartType.Ball
+					blackHolePart.Color = Color3.fromRGB(0, 0, 0)
+					blackHolePart.Material = Enum.Material.Neon
+					blackHolePart.Anchored = true
+					blackHolePart.CanCollide = false
 
-				-- Find the inputs in the UI hierarchy and toggle their visibility
-				local tab = tabHolder.unanchoredtab
-				if tab:FindFirstChild("AxisXInput") then
-					tab.AxisXInput.Visible = showInputs
-					tab.AxisYInput.Visible = showInputs
-					tab.AxisZInput.Visible = showInputs
-				end
-			end
-		)
+					blackHolePart.CFrame = character.HumanoidRootPart.CFrame * CFrame.new(0, 10, -25)
+					blackHolePart.Parent = workspace
 
-		clonebtn(
-			9, 
-			tabHolder.unanchoredtab, 
-			templates.togglebuttonlabel, 
-			"DisableCollisionToggle", 
-			"Disable Part Collision", 
-			function(state)
-				disableCollision = state
-
-				-- FIX: Instant update loop when turning collision back ON
-				if not disableCollision then
-					for _, object in ipairs(workspace:GetDescendants()) do
-						if object:IsA("BasePart") and not object.Anchored and object ~= blackHolePart then
-							if not object:IsDescendantOf(lplayer.Character) then
-								object.CanCollide = true
-							end
+					-- Mobile & PC Cross-Platform Move Tool Creation
+					moveTool = Instance.new("Tool")
+					moveTool.Name = "🌀 Move Singularity"
+					moveTool.RequiresHandle = false
+					
+					-- Track where user clicks/taps via the tool activation event
+					toolActivatedConnection = moveTool.Activated:Connect(function()
+						local mouse = lplayer:GetMouse()
+						if mouse and blackHolePart and blackHolePart.Parent then
+							-- Grabs the 3D position where your cursor/finger touched
+							local targetPos = mouse.Hit.Position
+							-- Offsets the singularity slightly vertically so it doesn't get stuck underground
+							blackHolePart.Position = targetPos + Vector3.new(0, (eventHorizonRadius / 2) + 2, 0)
 						end
+					end)
+					
+					-- Give tool to player's backpack
+					moveTool.Parent = lplayer:WaitForChild("Backpack")
+
+					bhPhysicsConnection = runservice.Heartbeat:Connect(pullUnanchoredObjects)
+				else
+					blackHoleActive = false
+				end
+			else
+				-- Clean up everything
+				if bhPhysicsConnection then
+					bhPhysicsConnection:Disconnect()
+					bhPhysicsConnection = nil
+				end
+				if toolActivatedConnection then
+					toolActivatedConnection:Disconnect()
+					toolActivatedConnection = nil
+				end
+				if moveTool then
+					moveTool:Destroy()
+					moveTool = nil
+				end
+				if blackHolePart then
+					blackHolePart:Destroy()
+					blackHolePart = nil
+				end
+				restoreGravity()
+			end
+		end
+	)
+
+	clonebtn(
+		1,                      
+		tabHolder.unanchoredtab,
+		templates.fieldlabel,
+		"bhforce",
+		"pull force:",
+		function(text)
+			local newForce = tonumber(text)
+			if newForce then
+				bhPullForce = newForce
+			end
+		end
+	)
+	clonebtn(
+		2,                      
+		tabHolder.unanchoredtab,
+		templates.fieldlabel,
+		"orbitspeed",
+		"orbit speed:",
+		function(text)
+			local newForce = tonumber(text)
+			if newForce then
+				ORBIT_SPEED = newForce
+			end
+		end
+	)
+	clonebtn(
+		3,                      
+		tabHolder.unanchoredtab,
+		templates.fieldlabel,
+		"chaos",
+		"turbulence:",
+		function(text)
+			local newForce = tonumber(text)
+			if newForce then
+				CHAOS_FACTOR = newForce
+			end
+		end
+	)
+	clonebtn(
+		4,                      
+		tabHolder.unanchoredtab,
+		templates.fieldlabel,
+		"eventhorizon",
+		"event horizon radius:",
+		function(text)
+			local newRadius = tonumber(text)
+			if newRadius then
+				eventHorizonRadius = newRadius
+
+				-- DYNAMIC SCALING: Resizes the black hole sphere if it exists
+				if blackHolePart and blackHolePart.Parent then
+					-- Scaling the sphere's diameter to match the horizon radius
+					blackHolePart.Size = Vector3.new(newRadius, newRadius, newRadius)
+				end
+			end
+		end
+	)
+	
+	clonebtn(
+		5, 
+		tabHolder.unanchoredtab, 
+		templates.fieldlabel, 
+		"AxisXInput", 
+		"Locked Axis X:", 
+		function(text)
+			local val = tonumber(text)
+			if val then lockedAxis = Vector3.new(val, lockedAxis.Y, lockedAxis.Z) 
+			else
+				tabHolder.unanchoredtab:WaitForChild("AxisXInput").TextBox.Text = tostring(math.round(lockedAxis.X * 100) / 100)
+			end
+		end
+	)
+
+	clonebtn(
+		6, 
+		tabHolder.unanchoredtab, 
+		templates.fieldlabel, 
+		"AxisYInput", 
+		"Locked Axis Y:", 
+		function(text)
+			local val = tonumber(text)
+			if val then lockedAxis = Vector3.new(lockedAxis.X, val, lockedAxis.Z) 
+			else	
+				tabHolder.unanchoredtab:WaitForChild("AxisYInput").TextBox.Text = tostring(math.round(lockedAxis.Y * 100) / 100)
+			end
+		end
+	)
+
+	clonebtn(
+		7, 
+		tabHolder.unanchoredtab, 
+		templates.fieldlabel, 
+		"AxisZInput", 
+		"Locked Axis Z:", 
+		function(text)
+			local val = tonumber(text)
+			if val then lockedAxis = Vector3.new(lockedAxis.X, lockedAxis.Y, val) 
+			else	
+				tabHolder.unanchoredtab:WaitForChild("AxisZInput").TextBox.Text = tostring(math.round(lockedAxis.Z * 100) / 100)
+			end
+		end
+	)
+
+	clonebtn(
+		8, 
+		tabHolder.unanchoredtab, 
+		templates.togglebuttonlabel, 
+		"UnlockAngleToggle", 
+		"Unlock Random Angles", 
+		function(state)
+			angleUnlocked = state
+
+			-- If unlocked (true), hide the inputs. If locked (false), show them.
+			local showInputs = not state 
+
+			-- Find the inputs in the UI hierarchy and toggle their visibility
+			local tab = tabHolder.unanchoredtab
+			if tab:FindFirstChild("AxisXInput") then
+				tab.AxisXInput.Visible = showInputs
+				tab.AxisYInput.Visible = showInputs
+				tab.AxisZInput.Visible = showInputs
+			end
+		end
+	)
+
+	clonebtn(
+		9, 
+		tabHolder.unanchoredtab, 
+		templates.togglebuttonlabel, 
+		"DisableCollisionToggle", 
+		"Disable Part Collision", 
+		function(state)
+			disableCollision = state
+			
+			-- Instant update loop when turning collision back ON
+			if not disableCollision then
+				for _, object in ipairs(workspace:GetDescendants()) do
+					-- Funnel this through the same safety filter!
+					if isValidTarget(object) then
+						object.CanCollide = true
 					end
 				end
 			end
-		)
+		end
+	)
 
 
-		-- Populate Default Text Fields
-		tabHolder.unanchoredtab:WaitForChild("orbitspeed").TextBox.Text = tonumber(ORBIT_SPEED)
-		tabHolder.unanchoredtab:WaitForChild("bhforce").TextBox.Text = tonumber(bhPullForce)
-		tabHolder.unanchoredtab:WaitForChild("chaos").TextBox.Text = tonumber(CHAOS_FACTOR)
+	-- Populate Default Text Fields
+	tabHolder.unanchoredtab:WaitForChild("orbitspeed").TextBox.Text = tonumber(ORBIT_SPEED)
+	tabHolder.unanchoredtab:WaitForChild("bhforce").TextBox.Text = tonumber(bhPullForce)
+	tabHolder.unanchoredtab:WaitForChild("chaos").TextBox.Text = tonumber(CHAOS_FACTOR)
+	tabHolder.unanchoredtab:WaitForChild("eventhorizon").TextBox.Text = tonumber(eventHorizonRadius)
 
-		tabHolder.unanchoredtab:WaitForChild("eventhorizon").TextBox.Text = tonumber(eventHorizonRadius)
-
-		-- Round to 2 decimal places to hide the floating-point garbage
-		tabHolder.unanchoredtab:WaitForChild("AxisXInput").TextBox.Text = tostring(math.round(lockedAxis.X * 100) / 100)
-		tabHolder.unanchoredtab:WaitForChild("AxisYInput").TextBox.Text = tostring(math.round(lockedAxis.Y * 100) / 100)
-		tabHolder.unanchoredtab:WaitForChild("AxisZInput").TextBox.Text = tostring(math.round(lockedAxis.Z * 100) / 100)
+	-- Round to 2 decimal places to hide the floating-point garbage
+	tabHolder.unanchoredtab:WaitForChild("AxisXInput").TextBox.Text = tostring(math.round(lockedAxis.X * 100) / 100)
+	tabHolder.unanchoredtab:WaitForChild("AxisYInput").TextBox.Text = tostring(math.round(lockedAxis.Y * 100) / 100)
+	tabHolder.unanchoredtab:WaitForChild("AxisZInput").TextBox.Text = tostring(math.round(lockedAxis.Z * 100) / 100)
 
 		tabHolder.playertab.walkspeedfield.Visible = false
 		tabHolder.playertab.jumppowerfield.Visible = false
