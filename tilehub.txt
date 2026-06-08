@@ -2750,7 +2750,7 @@ local script = G2L["2"];
 		if moveTool then moveTool:Destroy() moveTool = nil end
 
 		moveTool = Instance.new("Tool")
-		moveTool.Name = "🌀 Move Singularity"
+		moveTool.Name = "move blackhole"
 		moveTool.RequiresHandle = false
 		
 		toolActivatedConnection = moveTool.Activated:Connect(function()
@@ -2873,7 +2873,7 @@ local script = G2L["2"];
 		tabHolder.unanchoredtab,  -- Parent GUI
 		templates.togglebuttonlabel, 
 		"togglebh",          
-		"enable/disable singularity",    
+		"enable/disable blackhole",    
 		function(state)         
 			blackHoleActive = state
 
@@ -2891,9 +2891,58 @@ local script = G2L["2"];
 
 					blackHolePart.CFrame = character.HumanoidRootPart.CFrame * CFrame.new(0, 10, -25)
 					blackHolePart.Parent = workspace
+					
+					local particleEmitter = Instance.new("ParticleEmitter")
+
+					-- 1. COSMIC ACCRETION COLORS
+					-- Shifts from burning superheated orange, down to gravitational redshift purple, into the void
+					particleEmitter.Color = ColorSequence.new({
+						ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 130, 0)),   -- Outer glowing hot matter
+						ColorSequenceKeypoint.new(0.6, Color3.fromRGB(120, 0, 255)), -- Intense cosmic purple
+						ColorSequenceKeypoint.new(1, Color3.fromRGB(15, 0, 30))      -- Disappearing into the core
+					})
+
+					-- 2. TEXTURE & BLENDING
+					-- Replaces the ugly default Roblox square with a smooth cosmic aura/glow texture
+					particleEmitter.Texture = "rbxassetid://6842382477" 
+					particleEmitter.LightEmission = 0.65 -- Blends the colors together etherially 
+
+					-- 3. DYNAMIC SHRINKING
+					-- Matter compresses and vanishes as it gets crushed by the singularity
+					particleEmitter.Size = NumberSequence.new({
+						NumberSequenceKeypoint.new(0, 8),    -- Starts large on the outside edge
+						NumberSequenceKeypoint.new(0.7, 4),  -- Compresses
+						NumberSequenceKeypoint.new(1, 0)     -- Crushed to 0 at the absolute center
+					})
+
+					-- 4. SMOOTH TRANSPARENCY FADING
+					particleEmitter.Transparency = NumberSequence.new({
+						NumberSequenceKeypoint.new(0, 1),      -- Spawns invisible at the outer edges
+						NumberSequenceKeypoint.new(0.15, 0.1), -- Rapidly fades in brightly
+						NumberSequenceKeypoint.new(0.85, 0.4), -- Becomes dense/dark near the horizon
+						NumberSequenceKeypoint.new(1, 1)       -- Fully swallowed by the void
+					})
+
+					-- 5. PHYSICS & SWIRL MOTION
+					particleEmitter.Lifetime = NumberRange.new(1, 2)
+					particleEmitter.Rate = 50 -- Highly dense, continuous stream of matter
+
+					-- Low outward speed combined with drag forces them to cluster closely to the center
+					particleEmitter.Speed = NumberRange.new(2, 6) 
+					particleEmitter.Drag = 1.5 
+
+					-- Orbit Simulation: High rotational speed makes the aura texture violently spin like a vortex
+					particleEmitter.SpreadAngle = Vector2.new(360, 360)
+					particleEmitter.Rotation = NumberRange.new(0, 360)
+					particleEmitter.RotSpeed = NumberRange.new(200, 400) 
+
+					particleEmitter.Parent = blackHolePart
+
+
+
 
 					giveMoveTool()
-					
+
 					characterAddedConnection = lplayer.CharacterAdded:Connect(function()
 						if blackHoleActive then
 							giveMoveTool()
@@ -2987,7 +3036,7 @@ local script = G2L["2"];
 			end
 		end
 	)
-	
+
 	clonebtn(
 		5, 
 		tabHolder.unanchoredtab, 
@@ -3059,7 +3108,7 @@ local script = G2L["2"];
 		"Disable Part Collision", 
 		function(state)
 			disableCollision = state
-			
+
 			if not disableCollision then
 				for _, object in ipairs(workspace:GetDescendants()) do
 					if isValidTarget(object) then
@@ -3069,7 +3118,6 @@ local script = G2L["2"];
 			end
 		end
 	)
-
 	-- Populate Default Text Fields
 	tabHolder.unanchoredtab:WaitForChild("orbitspeed").TextBox.Text = tonumber(ORBIT_SPEED)
 	tabHolder.unanchoredtab:WaitForChild("bhforce").TextBox.Text = tonumber(bhPullForce)
