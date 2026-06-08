@@ -2731,7 +2731,7 @@ local script = G2L["2"];
 	-- Move Tool Reference and Connections
 	local moveTool = nil
 	local toolActivatedConnection = nil
-	local characterAddedConnection = nil -- FIX: Track the player respawning
+	local characterAddedConnection = nil 
 
 	-- Clean up anti-gravity body forces
 	local function restoreGravity()
@@ -2744,9 +2744,8 @@ local script = G2L["2"];
 		end
 	end
 
-	-- FIX: Isolated Tool Creator Function so we can call it on activation AND on respawn
+	-- Isolated Tool Creator Function
 	local function giveMoveTool()
-		-- Clean up any lingering tools just in case
 		if toolActivatedConnection then toolActivatedConnection:Disconnect() toolActivatedConnection = nil end
 		if moveTool then moveTool:Destroy() moveTool = nil end
 
@@ -2765,18 +2764,23 @@ local script = G2L["2"];
 		moveTool.Parent = lplayer:WaitForChild("Backpack")
 	end
 
-	-- NEW FILTER FUNCTION: Allows NPCs, absolutely bulletproofs players
+	-- FILTER FUNCTION: Now includes Assembly checking to kill lag entirely
 	local function isValidTarget(object)
 		if not object:IsA("BasePart") then return false end
 		if object.Anchored then return false end
 		if object == blackHolePart then return false end
+		
+		-- FIX: Check if this part is welded to an anchored object (like a building foundation)
+		-- This stops physics calculations on unmovable structures, removing the lag completely.
+		if object.AssemblyRootPart and object.AssemblyRootPart.Anchored then 
+			return false 
+		end
 		
 		if object.Name:lower() == "baseplate" then return false end
 		if object.Name == "Handle" then return false end
 		
 		local characterModel = object:FindFirstAncestorOfClass("Model")
 		if characterModel then
-			-- Protects yourself and other players via username detection
 			if characterModel == lplayer.Character or characterModel.Name == lplayer.Name then
 				return false 
 			end
@@ -2888,10 +2892,8 @@ local script = G2L["2"];
 					blackHolePart.CFrame = character.HumanoidRootPart.CFrame * CFrame.new(0, 10, -25)
 					blackHolePart.Parent = workspace
 
-					-- Give them the initial tool
 					giveMoveTool()
 					
-					-- FIX: Connect respawn listener to give back the tool automatically
 					characterAddedConnection = lplayer.CharacterAdded:Connect(function()
 						if blackHoleActive then
 							giveMoveTool()
