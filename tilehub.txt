@@ -2731,6 +2731,7 @@ local script = G2L["2"];
 	-- Move Tool Reference and Connections
 	local moveTool = nil
 	local toolActivatedConnection = nil
+	local characterAddedConnection = nil -- FIX: Track the player respawning
 
 	-- Clean up anti-gravity body forces
 	local function restoreGravity()
@@ -2743,27 +2744,43 @@ local script = G2L["2"];
 		end
 	end
 
-		-- NEW FILTER FUNCTION: Sucks in everyone and everything EXCEPT you
+	-- FIX: Isolated Tool Creator Function so we can call it on activation AND on respawn
+	local function giveMoveTool()
+		-- Clean up any lingering tools just in case
+		if toolActivatedConnection then toolActivatedConnection:Disconnect() toolActivatedConnection = nil end
+		if moveTool then moveTool:Destroy() moveTool = nil end
+
+		moveTool = Instance.new("Tool")
+		moveTool.Name = "🌀 Move Singularity"
+		moveTool.RequiresHandle = false
+		
+		toolActivatedConnection = moveTool.Activated:Connect(function()
+			local mouse = lplayer:GetMouse()
+			if mouse and blackHolePart and blackHolePart.Parent then
+				local targetPos = mouse.Hit.Position
+				blackHolePart.Position = targetPos + Vector3.new(0, (eventHorizonRadius / 2) + 2, 0)
+			end
+		end)
+		
+		moveTool.Parent = lplayer:WaitForChild("Backpack")
+	end
+
+	-- NEW FILTER FUNCTION: Allows NPCs, absolutely bulletproofs players
 	local function isValidTarget(object)
-		-- Must be an unanchored physical part, and not the singularity itself
 		if not object:IsA("BasePart") then return false end
 		if object.Anchored then return false end
 		if object == blackHolePart then return false end
 		
-		-- Ignore massive map floors to prevent the player from getting flung
 		if object.Name:lower() == "baseplate" then return false end
-		
-		-- Ignore tool handles
 		if object.Name == "Handle" then return false end
 		
 		local characterModel = object:FindFirstAncestorOfClass("Model")
 		if characterModel then
-			-- FIX: Only protect YOURSELF (checks your character model and your specific username)
+			-- Protects yourself and other players via username detection
 			if characterModel == lplayer.Character or characterModel.Name == lplayer.Name then
 				return false 
 			end
 			
-			-- If it's an NPC or another player, trip their humanoid so they fly smoothly
 			local humanoid = characterModel:FindFirstChildOfClass("Humanoid")
 			if humanoid then
 				humanoid.PlatformStand = true
@@ -2773,27 +2790,19 @@ local script = G2L["2"];
 		return true
 	end
 
-
 	-- Overclocked Physics Loop
 	local function pullUnanchoredObjects()
 		for _, object in ipairs(workspace:GetDescendants()) do
-			
-			-- Only process parts that pass our strict safety filter
 			if isValidTarget(object) then
 
-				-- DYNAMIC VOID PROTECTION: Catches parts 30 studs before they hit the destroy height
 				local voidThreshold = workspace.FallenPartsDestroyHeight + 30
 				if object.Position.Y < voidThreshold then 
-					-- Teleport it safely back up to the height of the black hole center
 					local targetHeight = blackHolePart and blackHolePart.Position.Y or 50
 					object.CFrame = CFrame.new(object.Position.X, targetHeight, object.Position.Z)
-
-					-- Slingshot it upward and inward toward the center to get it back into orbit
 					local pushInward = blackHolePart and (blackHolePart.Position - object.Position).Unit or Vector3.new(0,0,0)
 					object.AssemblyLinearVelocity = Vector3.new(0, 5120, 0) + (pushInward * 50)
 				end
 
-				-- DISABLE GRAVITY
 				if not object:FindFirstChild("ZeroGravityForce") then
 					local antiGravity = Instance.new("BodyForce")
 					antiGravity.Name = "ZeroGravityForce"
@@ -2801,17 +2810,14 @@ local script = G2L["2"];
 					antiGravity.Parent = object
 				end
 
-				-- Safety check in case blackHolePart gets destroyed mid-loop
 				if not blackHolePart or not blackHolePart.Parent then return end
 
 				local direction = (blackHolePart.Position - object.Position)
 				local distance = direction.Magnitude
 
 				if distance > eventHorizonRadius then
-					-- 1. Extreme Inward Pull
 					local pullVector = direction.Unit * bhPullForce
 
-					-- 2. Determine Orbit Axis based on the Toggle
 					local orbitAxis
 					if angleUnlocked then
 						orbitAxis = object:GetAttribute("OrbitAxis")
@@ -2825,17 +2831,13 @@ local script = G2L["2"];
 						if orbitAxis.Magnitude == 0 then orbitAxis = Vector3.new(0, 1, 0) end
 					end
 
-					-- 3. Orbital Slingshot
 					local tangentVector = direction:Cross(orbitAxis).Unit
-
-					-- 4. Chaos Jitter
 					local chaosVector = Vector3.new(
 						math.random(-CHAOS_FACTOR, CHAOS_FACTOR),
 						math.random(-CHAOS_FACTOR, CHAOS_FACTOR),
 						math.random(-CHAOS_FACTOR, CHAOS_FACTOR)
 					)
 
-					-- Explicitly toggle collision state either way
 					if disableCollision then
 						object.CanCollide = false
 					else
@@ -2844,7 +2846,6 @@ local script = G2L["2"];
 
 					object.AssemblyLinearVelocity = pullVector + (tangentVector * ORBIT_SPEED) + chaosVector
 				else
-					-- Dynamic Event Horizon Detonation
 					if disableCollision then
 						object.CanCollide = false
 					else
@@ -2876,7 +2877,6 @@ local script = G2L["2"];
 				local character = lplayer.Character
 				if character and character:FindFirstChild("HumanoidRootPart") then
 
-					-- Create the physics singularity
 					blackHolePart = Instance.new("Part")
 					blackHolePart.Size = Vector3.new(eventHorizonRadius, eventHorizonRadius, eventHorizonRadius)
 					blackHolePart.Shape = Enum.PartType.Ball
@@ -2888,24 +2888,15 @@ local script = G2L["2"];
 					blackHolePart.CFrame = character.HumanoidRootPart.CFrame * CFrame.new(0, 10, -25)
 					blackHolePart.Parent = workspace
 
-					-- Mobile & PC Cross-Platform Move Tool Creation
-					moveTool = Instance.new("Tool")
-					moveTool.Name = "🌀 Move Singularity"
-					moveTool.RequiresHandle = false
+					-- Give them the initial tool
+					giveMoveTool()
 					
-					-- Track where user clicks/taps via the tool activation event
-					toolActivatedConnection = moveTool.Activated:Connect(function()
-						local mouse = lplayer:GetMouse()
-						if mouse and blackHolePart and blackHolePart.Parent then
-							-- Grabs the 3D position where your cursor/finger touched
-							local targetPos = mouse.Hit.Position
-							-- Offsets the singularity slightly vertically so it doesn't get stuck underground
-							blackHolePart.Position = targetPos + Vector3.new(0, (eventHorizonRadius / 2) + 2, 0)
+					-- FIX: Connect respawn listener to give back the tool automatically
+					characterAddedConnection = lplayer.CharacterAdded:Connect(function()
+						if blackHoleActive then
+							giveMoveTool()
 						end
 					end)
-					
-					-- Give tool to player's backpack
-					moveTool.Parent = lplayer:WaitForChild("Backpack")
 
 					bhPhysicsConnection = runservice.Heartbeat:Connect(pullUnanchoredObjects)
 				else
@@ -2920,6 +2911,10 @@ local script = G2L["2"];
 				if toolActivatedConnection then
 					toolActivatedConnection:Disconnect()
 					toolActivatedConnection = nil
+				end
+				if characterAddedConnection then
+					characterAddedConnection:Disconnect()
+					characterAddedConnection = nil
 				end
 				if moveTool then
 					moveTool:Destroy()
@@ -2984,9 +2979,7 @@ local script = G2L["2"];
 			if newRadius then
 				eventHorizonRadius = newRadius
 
-				-- DYNAMIC SCALING: Resizes the black hole sphere if it exists
 				if blackHolePart and blackHolePart.Parent then
-					-- Scaling the sphere's diameter to match the horizon radius
 					blackHolePart.Size = Vector3.new(newRadius, newRadius, newRadius)
 				end
 			end
@@ -3046,11 +3039,7 @@ local script = G2L["2"];
 		"Unlock Random Angles", 
 		function(state)
 			angleUnlocked = state
-
-			-- If unlocked (true), hide the inputs. If locked (false), show them.
 			local showInputs = not state 
-
-			-- Find the inputs in the UI hierarchy and toggle their visibility
 			local tab = tabHolder.unanchoredtab
 			if tab:FindFirstChild("AxisXInput") then
 				tab.AxisXInput.Visible = showInputs
@@ -3069,10 +3058,8 @@ local script = G2L["2"];
 		function(state)
 			disableCollision = state
 			
-			-- Instant update loop when turning collision back ON
 			if not disableCollision then
 				for _, object in ipairs(workspace:GetDescendants()) do
-					-- Funnel this through the same safety filter!
 					if isValidTarget(object) then
 						object.CanCollide = true
 					end
@@ -3081,14 +3068,12 @@ local script = G2L["2"];
 		end
 	)
 
-
 	-- Populate Default Text Fields
 	tabHolder.unanchoredtab:WaitForChild("orbitspeed").TextBox.Text = tonumber(ORBIT_SPEED)
 	tabHolder.unanchoredtab:WaitForChild("bhforce").TextBox.Text = tonumber(bhPullForce)
 	tabHolder.unanchoredtab:WaitForChild("chaos").TextBox.Text = tonumber(CHAOS_FACTOR)
 	tabHolder.unanchoredtab:WaitForChild("eventhorizon").TextBox.Text = tonumber(eventHorizonRadius)
 
-	-- Round to 2 decimal places to hide the floating-point garbage
 	tabHolder.unanchoredtab:WaitForChild("AxisXInput").TextBox.Text = tostring(math.round(lockedAxis.X * 100) / 100)
 	tabHolder.unanchoredtab:WaitForChild("AxisYInput").TextBox.Text = tostring(math.round(lockedAxis.Y * 100) / 100)
 	tabHolder.unanchoredtab:WaitForChild("AxisZInput").TextBox.Text = tostring(math.round(lockedAxis.Z * 100) / 100)
