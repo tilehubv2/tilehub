@@ -2743,7 +2743,7 @@ local script = G2L["2"];
 		end
 	end
 
-	-- NEW FILTER FUNCTION: Allows NPCs, protects real players
+		-- NEW FILTER FUNCTION: Sucks in everyone and everything EXCEPT you
 	local function isValidTarget(object)
 		-- Must be an unanchored physical part, and not the singularity itself
 		if not object:IsA("BasePart") then return false end
@@ -2756,25 +2756,23 @@ local script = G2L["2"];
 		-- Ignore tool handles
 		if object.Name == "Handle" then return false end
 		
-		-- FIX: Player vs NPC Detection
 		local characterModel = object:FindFirstAncestorOfClass("Model")
 		if characterModel then
+			-- FIX: Only protect YOURSELF (checks your character model and your specific username)
+			if characterModel == lplayer.Character or characterModel.Name == lplayer.Name then
+				return false 
+			end
+			
+			-- If it's an NPC or another player, trip their humanoid so they fly smoothly
 			local humanoid = characterModel:FindFirstChildOfClass("Humanoid")
 			if humanoid then
-				-- If this model belongs to a real player, ignore it!
-				if game.Players:GetPlayerFromCharacter(characterModel) then
-					return false
-				end
-				
-				-- If we reach here, it is an NPC! 
-				-- We set PlatformStand to true to "trip" them. This turns off their 
-				-- walking physics so they don't violently jitter while flying through the air.
 				humanoid.PlatformStand = true
 			end
 		end
 		
 		return true
 	end
+
 
 	-- Overclocked Physics Loop
 	local function pullUnanchoredObjects()
