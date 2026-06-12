@@ -1503,7 +1503,7 @@ G2L["a8"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["a8"]["BackgroundTransparency"] = 1;
 G2L["a8"]["Size"] = UDim2.new(0, 189, 0, 30);
 G2L["a8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["a8"]["Text"] = [[tilehub [revamped]]];
+G2L["a8"]["Text"] = "[tilehub [revamped]"
 G2L["a8"]["Position"] = UDim2.new(0.21515, 0, 0.57895, 0);
 
 
