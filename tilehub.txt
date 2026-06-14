@@ -2735,6 +2735,7 @@ local script = G2L["2"];
 		local blackHoleActive = false
 		local blackHolePart = nil
 		local bhPhysicsConnection = nil
+local breakAttachmentsEnabled = false -- NEW VARIABLE
 	
 		local bhPullForce = 250      -- Inward suction (Controlled by your text field)
 		local ORBIT_SPEED = 500      -- Insane orbital velocity
@@ -2814,8 +2815,25 @@ local script = G2L["2"];
 
 		-- Overclocked Physics Loop
 		local function pullUnanchoredObjects()
-			for _, object in ipairs(workspace:GetDescendants()) do
-				if isValidTarget(object) then
+		for _, object in ipairs(workspace:GetDescendants()) do
+			if isValidTarget(object) then
+
+				-- NEW: The Tear-Apart Sequence
+				-- Checks if the switch is on, and ensures we only break the part once to prevent lag
+				if breakAttachmentsEnabled and not object:GetAttribute("TornApart") then
+					-- Destroys traditional Welds, Snaps, and Motor6Ds
+					object:BreakJoints() 
+					
+					-- Destroys modern physics constraints (Ropes, Springs, Hinges, etc.)
+					for _, child in ipairs(object:GetChildren()) do
+						if child:IsA("Constraint") then
+							child:Destroy()
+						end
+					end
+					
+					-- Tag the part so the engine never wastes CPU checking its joints again
+					object:SetAttribute("TornApart", true)
+				end
 
 					local voidThreshold = workspace.FallenPartsDestroyHeight + 30
 					if object.Position.Y < voidThreshold then 
@@ -2884,15 +2902,18 @@ local script = G2L["2"];
 				end
 			end
 		end
-		-- List of the UI element names created by your clonebtn functions
-		local blackHoleOptionNames = {
-			"bhforce", 
-			"orbitspeed", 
-			"chaos", 
-			"eventhorizon", 
-			"DisableCollisionToggle", 
-			"UnlockAngleToggle"
-		}
+
+
+	-- Updated visibility list
+	local blackHoleOptionNames = {
+		"bhforce", 
+		"orbitspeed", 
+		"chaos", 
+		"eventhorizon", 
+		"DisableCollisionToggle", 
+		"UnlockAngleToggle",
+		"BreakAttachmentsToggle" -- ADDED THIS
+	}
 
 		local function setBlackHoleOptionsVisible(isVisible)
 			local tab = tabHolder.unanchoredtab
@@ -3170,6 +3191,18 @@ local script = G2L["2"];
 				end
 			end
 		)
+
+	clonebtn(
+		10, 
+		tabHolder.unanchoredtab, 
+		templates.togglebuttonlabel, 
+		"BreakAttachmentsToggle", 
+		"Break Part Attachments", 
+		function(state)
+			breakAttachmentsEnabled = state
+		end
+	)
+
 
 		-- Populate Default Text Fields
 		tabHolder.unanchoredtab:WaitForChild("orbitspeed").TextBox.Text = tonumber(ORBIT_SPEED)
